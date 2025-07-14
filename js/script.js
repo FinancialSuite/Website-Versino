@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const footerFile = isEnglish ? 'en/footer.html' : 'footer.html';
 
     const loadingPromises = [
-        loadComponent('header.html', 'header-placeholder'),
+        loadComponent(headerFile, 'header-placeholder'),
         loadComponent(navFile, 'nav-placeholder'),
         loadComponent(footerFile, 'footer-placeholder')
     ];
