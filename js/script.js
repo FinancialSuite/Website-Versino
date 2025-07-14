@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const basePath = isEnglish ? '../' : '';
 
     const loadComponent = (url, placeholderId) => {
-        const fullUrl = basePath + url;
-        return fetch(fullUrl)
+        // HINWEIS: Der 'fetch' holt die URL relativ zum Root-Verzeichnis.
+        // Die 'basePath' wird erst später benötigt, um Pfade *innerhalb* der geladenen Datei zu korrigieren.
+        return fetch(url)
             .then(response => {
-                if (!response.ok) throw new Error(`Fehler beim Laden von ${fullUrl}: ${response.statusText}`);
+                if (!response.ok) throw new Error(`Fehler beim Laden von ${url}: ${response.statusText}`);
                 return response.text();
             })
             .then(data => {
@@ -17,13 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = data;
 
-                if (isEnglish && placeholderId === 'header-placeholder') {
+                // --- KORRIGIERTE PFAD-ANPASSUNG ---
+                // Diese Logik passt jetzt alle notwendigen Pfade für die englische Version an.
+                if (isEnglish) {
+                    // Korrigiert alle Bild-Pfade, die mit 'assets/' beginnen
                     tempDiv.querySelectorAll('img').forEach(img => {
                         const src = img.getAttribute('src');
-                        if (src && !src.startsWith('http')) {
+                        if (src && src.startsWith('assets/')) {
                             img.src = basePath + src;
                         }
                     });
+
+                    // Korrigiert alle Links, die auf die Startseite (index.html) verweisen
                     tempDiv.querySelectorAll('a').forEach(a => {
                         const href = a.getAttribute('href');
                         if (href && href === 'index.html') {
@@ -79,6 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const currentPath = window.location.pathname;
         let currentPage = 'index.html';
+        
+        // Extrahiert den Dateinamen, auch wenn er in einem Unterordner ist
         const pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
         if (pageName) {
             currentPage = pageName;
@@ -95,10 +103,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // KORRIGIERTER TEIL: Definiert die Dateipfade basierend auf der Sprache
-    const headerFile = isEnglish ? 'en/header.html' : 'header.html';
-    const navFile = isEnglish ? 'en/nav.html' : 'nav.html';
-    const footerFile = isEnglish ? 'en/footer.html' : 'footer.html';
+    // --- KORRIGIERTE DATEIPFAD-LOGIK ---
+    const langFolder = isEnglish ? 'en/' : '';
+    const headerFile = langFolder + 'header.html';
+    const navFile = langFolder + 'nav.html';
+    const footerFile = langFolder + 'footer.html';
 
     const loadingPromises = [
         loadComponent(headerFile, 'header-placeholder'),
