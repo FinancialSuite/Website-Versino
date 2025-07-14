@@ -94,7 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
             langEN.href = `en/${currentPage}`;
         }
     }
-	const headerFile = isEnglish ? 'en/header.html' : 'header.html'; 
+
+    // KORRIGIERTER TEIL: Definiert die Dateipfade basierend auf der Sprache
+    const headerFile = isEnglish ? 'en/header.html' : 'header.html';
     const navFile = isEnglish ? 'en/nav.html' : 'nav.html';
     const footerFile = isEnglish ? 'en/footer.html' : 'footer.html';
 
