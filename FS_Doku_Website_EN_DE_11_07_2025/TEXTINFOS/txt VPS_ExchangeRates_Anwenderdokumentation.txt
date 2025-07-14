@@ -1,0 +1,213 @@
+﻿VPS FINANCIAL SUITE - EXCHANGE RATES MODUL
+ANWENDERDOKUMENTATION
+==========================================
+
+ÜBERBLICK
+---------
+Das VPS ExchangeRates Modul ermöglicht den automatischen Import aktueller Wechselkurse von offiziellen Zentralbanken direkt in SAP Business One. Es unterstützt die Europäische Zentralbank (EZB) und die Polnische Nationalbank (NBP) als Datenquellen und stellt sicher, dass immer aktuelle offizielle Wechselkurse für Fremdwährungsgeschäfte verfügbar sind.
+
+ZUGANG ZUM MODUL
+----------------
+Das ExchangeRates Modul wird über das SAP Business One Menü aufgerufen:
+
+Menüpfad in SAP Business One:
+- VPS Financial Suite > Wechselkurse importieren
+
+HAUPTFUNKTIONEN
+---------------
+Das Modul bietet eine zentrale Funktion:
+
+AUTOMATISCHER WECHSELKURS-IMPORT:
+- Import von EZB- oder NBP-Wechselkursen
+- Verwendung offizieller Zentralbank-Datenquellen
+- Automatische Aktualisierung bestehender Kurse in SAP Business One
+- Intelligente Zeitraum-Behandlung mit konfigurierbaren Tagen
+- Automatische Wochenend-Anpassung
+
+[HINWEIS FÜR BILDER: Screenshot des Wechselkurs-Import-Menüpunkts]
+
+WECHSELKURS-IMPORT DURCHFÜHREN
+-----------------------------
+Der Import wird manuell über das Menü gestartet:
+
+IMPORT-PROZESS:
+1. Menü "VPS Financial Suite > Wechselkurse importieren" aufrufen
+2. Bestätigungsdialog erscheint mit der Meldung: "Sind Sie sicher, dass Sie die Wechselkurse mit den offiziellen Werten aktualisieren möchten? Vorhandene Werte werden überschrieben."
+3. Bestätigung mit "Ja" startet den Import
+4. System lädt aktuelle Kurse von der konfigurierten Zentralbank
+5. Fortschrittsanzeige während der Verarbeitung
+6. Erfolgsmeldung oder Fehlermeldung wird angezeigt
+
+[HINWEIS FÜR BILDER: Screenshot des Bestätigungsdialogs]
+
+UNTERSTÜTZTE DATENQUELLEN
+-------------------------
+Das Modul unterstützt zwei offizielle Zentralbank-Datenquellen:
+
+EUROPÄISCHE ZENTRALBANK (EZB):
+- Basis-Währung: EUR (Euro)
+- Verfügbare Währungen: Alle EZB-Referenzwährungen
+- Aktualisierung: Werktäglich von der EZB
+- Historische Daten: Vollständige Historie verfügbar
+
+POLNISCHE NATIONALBANK (NBP):
+- Basis-Währung: PLN (Polnischer Złoty)
+- Verfügbare Währungen: NBP Tabelle A Währungen
+- Aktualisierung: Werktäglich von der NBP
+- Historische Daten: Bis zu 93 Tage rückwirkend verfügbar
+
+KONFIGURATION:
+Die Auswahl der Datenquelle erfolgt über Konfigurationseinstellungen mit folgenden Parametern:
+- Bank: "EZB" oder "NBP"
+- Anzahl Tage rückwirkend
+- Anzahl Tage vorausschauend
+- Auswahl der zu importierenden Währungen
+
+[HINWEIS FÜR BILDER: Konfigurations-Übersicht]
+
+FUNKTIONSWEISE
+--------------
+Das Modul führt folgende Schritte automatisch aus:
+
+DATENABFRAGE:
+- Auswahl zwischen EZB und NBP basierend auf Konfiguration
+- Download der aktuellen Wechselkursdaten
+- Verarbeitung der erhaltenen Kursinformationen
+
+ZEITRAUM-BEHANDLUNG:
+- Konfigurierbare Vergangenheits- und Zukunftstage
+- Automatische Wochenend-Erkennung und -Anpassung
+- Intelligente Lücken-Füllung für fehlende Kurse
+- Zukunfts-Kurse basierend auf aktuellsten verfügbaren Daten
+
+WECHSELKURS-BERECHNUNG:
+- Berücksichtigung der SAP B1 Notierungsart (direkt/indirekt)
+- Automatische Berechnung wenn lokale Währung nicht Basis-Währung
+- Automatische Erkennung der Hauswährung
+- Zuordnung über internationale Währungscodes
+
+UPDATE-PROZESS:
+- Integration in SAP Business One Wechselkurs-Verwaltung
+- Fortschrittsanzeige während der Verarbeitung
+- Aktualisierung bestehender Kurse mit Überschreibung
+- Fehlertolerante Verarbeitung
+
+[HINWEIS FÜR BILDER: Diagramm des Import-Prozesses]
+
+FEHLERBEHANDLUNG
+----------------
+Das System bietet robuste Fehlerbehandlung für beide Datenquellen:
+
+ALLGEMEINE FEHLERMELDUNGEN:
+
+"Fehler bei Serveranfrage":
+- Lösung: Internetverbindung prüfen
+- Firewall-Freigaben überprüfen
+- Zeitraum möglicherweise anpassen
+
+"Fehler beim Kurs Import":
+- Einzelne Währungen können fehlschlagen
+- Import wird mit anderen Währungen fortgesetzt
+- Detaillierte Fehlerprotokollierung
+
+EZB-SPEZIFISCHE MELDUNGEN:
+"Keine Wechselkurse am Wochenende veröffentlicht":
+- Normal, da EZB keine Wochenend-Kurse publiziert
+- Automatische Zeitraum-Anpassung aktiv
+- Import an Werktagen wiederholen
+
+NBP-SPEZIFISCHE MELDUNGEN:
+"Importzeitraum zu groß (max. 93 Tage)":
+- NBP-Beschränkung auf 93 Tage rückwirkend
+- Zeitraum entsprechend reduzieren
+- Mehrere kleinere Import-Zyklen verwenden
+
+BENUTZER-BERECHTIGUNGEN:
+"Benutzer-Berechtigung fehlt":
+- SAP B1 Benutzerrechte für Wechselkurse prüfen
+- Administrator-Rechte erforderlich
+
+[HINWEIS FÜR BILDER: Beispiele für Fehlermeldungen beider Banken]
+
+WÄHRUNGS-ERKENNUNG
+------------------
+Das System erkennt automatisch konfigurierte Währungen:
+
+AUTOMATISCHE ERKENNUNG:
+- Abfrage aller Währungen aus SAP Business One
+- Zuordnung über internationale Währungscodes zu Zentralbank-Daten
+- Berücksichtigung der Hauswährung
+- Selektive Verarbeitung basierend auf Konfiguration
+
+WÄHRUNGS-ZUORDNUNG:
+- EZB: Zuordnung über Währungscodes zu EUR-Referenzkursen
+- NBP: Zuordnung über Währungscodes zu PLN-basierten Kursen
+- Automatische Berechnung wenn lokale Währung verschieden von Basis-Währung
+- Intelligente Behandlung direkter/indirekter Notierung
+
+KONFIGURIERBARE AUSWAHL:
+- Möglichkeit einzelne Währungen zu aktivieren/deaktivieren
+- Flexible Anpassung an Geschäftsanforderungen
+
+[HINWEIS FÜR BILDER: Währungs-Zuordnungs-Diagramm]
+
+INTEGRATION MIT SAP BUSINESS ONE
+---------------------------------
+Das Modul integriert sich vollständig in SAP Business One:
+
+WECHSELKURS-VERWALTUNG:
+- Direkte Integration in SAP B1 Wechselkurs-Tabellen
+- Verwendung der SAP Business One Standard-Funktionen
+- Respektierung der SAP B1 Notierungsart-Einstellungen
+- Automatische Erkennung der Hauswährung
+
+BENUTZER-BERECHTIGUNGEN:
+- Verwendung der aktuellen SAP B1 Benutzer-Session
+- Respektierung der Wechselkurs-Berechtigungen
+- Keine separaten Login-Daten erforderlich
+
+PERFORMANCE-OPTIMIERUNG:
+- Stapelweise Verarbeitung der Kurse
+- Fortschritts-Anzeige während Verarbeitung
+- Vermeidung von Duplikaten
+- Verarbeitung ohne Blockierung der Benutzeroberfläche
+
+[HINWEIS FÜR BILDER: Integration in SAP B1 Wechselkurs-Verwaltung]
+
+ZEITRAUM-VERWALTUNG UND LÜCKEN-FÜLLUNG
+--------------------------------------
+Das System behandelt Zeiträume intelligent:
+
+ZEITRAUM-BERECHNUNG:
+- Konfigurierbare Tage rückwirkend
+- Konfigurierbare Tage vorausschauend
+- Automatische Wochenend-Erkennung und -Anpassung
+- Basis: Aktuelles Datum
+
+WOCHENEND-BEHANDLUNG:
+- Erkennung von Samstag/Sonntag im Zeitraum
+- Automatische Verlängerung um entsprechende Tage
+- Gewährleistung ausreichender Werktags-Daten
+
+LÜCKEN-FÜLLUNG:
+- Verwendung des letzten verfügbaren Kurses für fehlende Tage
+- Ausfüllung für zukünftige Termine basierend auf aktuellsten Daten
+- Konsistente Kurs-Verfügbarkeit für alle Geschäftstage
+
+Das System erstellt automatisch eine vollständige Sequenz aller Tage im konfigurierten Zeitraum und füllt fehlende Kurse auf.
+
+[HINWEIS FÜR BILDER: Zeitraum-Behandlungs-Diagramm]
+
+VERWENDUNGSTIPPS
+----------------
+1. Wählen Sie die passende Datenquelle für Ihre Hauswährung (EZB für EUR, NBP für PLN)
+2. Bei NBP beachten Sie die 93-Tage-Beschränkung für historische Daten
+3. Führen Sie regelmäßige Importe für aktuelle Kurse durch
+4. Nutzen Sie den Import vorzugsweise an Werktagen
+5. Prüfen Sie nach dem Import die aktualisierten Kurse in SAP B1
+6. Beachten Sie, dass vorhandene Kurse überschrieben werden
+7. Stellen Sie sicher, dass eine stabile Internetverbindung vorhanden ist
+8. Konfigurieren Sie nur benötigte Währungen für bessere Performance
+9. Führen Sie Imports außerhalb kritischer Buchungszeiten durch
+
+Das VPS ExchangeRates Modul bietet eine zuverlässige Lösung für den Import aktueller Zentralbank-Wechselkurse in SAP Business One. Die Unterstützung zweier wichtiger europäischer Zentralbanken, die intelligente Zeitraum-Behandlung und die automatische Integration gewährleisten stets aktuelle und vertrauenswürdige Kursinformationen für alle Fremdwährungsgeschäfte.

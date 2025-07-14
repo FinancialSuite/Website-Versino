@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buchungstext-Konfigurator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Buchungstext-Konfigurator (JE Text Setter)</h2>
+            
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Je Text Setter Modul</b> automatisiert die Erstellung von Buchungstexten in SAP Business One. Es füllt automatisch die Textfelder in zahlreichen Dokumenttypen mit vordefinierten, aussagekräftigen Beschreibungen. Dies spart Zeit, reduziert Fehler und sorgt für einheitliche, nachvollziehbare Buchungstexte. Beim ersten Start wird eine umfassende Standardkonfiguration angelegt, die Sie nur noch aktivieren müssen.</p>
+            <p><b>Zugang zum Modul:</b> Die Konfiguration erreichen Sie unter <b>Versino Financial Suite > Konfiguration > JE Text Konfiguration</b>.</p>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Automatische & kontextbezogene Texterstellung</h4>
+            <p>Das Modul arbeitet im Hintergrund und fügt bei der Erstellung von Belegen automatisch passende Buchungstexte ein.</p>
+
+            <h4>Direkte Konfiguration aus Belegen (Rechtsklick)</h4>
+            <p>Eine der stärksten Funktionen: Sie können direkt aus einem SAP Business One Beleg (z.B. einer Rechnung) per Rechtsklick auf ein beliebiges Textfeld eine neue Regel für die automatische Texterstellung anlegen. Das System erkennt dabei automatisch das Formular und das Feld, was die Einrichtung extrem beschleunigt.</p>
+
+            <h4>Zentrale Konfigurationsoberfläche</h4>
+            <p>Über ein zentrales Verwaltungsfenster haben Sie die volle Kontrolle. Hier können Sie in einer übersichtlichen Liste alle Regeln für die verschiedenen Dokumenttypen einzeln aktivieren, deaktivieren, bearbeiten, kopieren oder löschen.</p>
+            
+            <h4>Nahtlose Integration mit anderen Modulen</h4>
+            <p>Der JeTextSetter verbessert die Funktionalität anderer Module durch konsistente Texte erheblich:</p>
+            <ul>
+                <li><b>Pro-Rata:</b> Abgrenzungsbuchungen erhalten verständliche Texte (z.B. "Pro-Rata Abgrenzung März 2024"), was die Nachvollziehbarkeit verbessert.</li>
+                <li><b>DATEV-Export:</b> Einheitliche Buchungstexte erhöhen die Qualität der Exporte und reduzieren Rückfragen vom Steuerberater.</li>
+                <li><b>Reporting:</b> Standardisierte Texte in allen Berichten verbessern die Übersichtlichkeit und Analyse.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Anwendung</h3>
+            <p>Nach der Installation ist das Modul sofort verfügbar, aber alle Regeln sind standardmäßig inaktiv. Sie müssen die gewünschten Dokumenttypen erst aktivieren.</p>
+
+            <h4>1. Regel für einen Dokumenttyp aktivieren (Grundschritt)</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > JE Text Konfiguration</b>.</li>
+                <li>Wählen Sie in der Liste den gewünschten Dokumenttyp aus (z.B. Ausgangsrechnungen).</li>
+                <li>Setzen Sie in der Spalte "Aktiv" den Haken.</li>
+                <li>Speichern Sie mit "OK". Die Regel ist nun aktiv.</li>
+            </ol>
+            <img src="assets/images/TextConfig.png" alt="Anwendungsbeispiel: Konfiguration" class="module-image">
+			
+            <h4>2. Neue Regel direkt aus einem Beleg erstellen (empfohlen)</h4>
+            <ol>
+                <li>Öffnen Sie ein beliebiges Dokument in SAP Business One (z.B. eine Ausgangsrechnung).</li>
+                <li>Machen Sie einen <b>Rechtsklick</b> auf das Textfeld, das Sie zukünftig im Buchungstext sehen möchten.</li>
+				<li>Klicken Sie auf <b>Journaleintrag hinzufügen</b>.</li>
+                <li>Das Konfigurationsfenster des JeTextSetters öffnet sich und hat bereits eine neue, vorbefüllte Regel für dieses Feld hinzugefügt.</li>
+                <li>Die Regeln für das automatische Befüllen können jerderzeit mit <b>Journaleintrag bearbeiten</b> angepasst werden.</li>
+				<li>Durch anklicken von <b>Journaleintrag ausführen</b> kann bereits im Vorfeld der Buchungstext im Tab Buchhaltung gesichtet werden.</li>
+				<li>Der Text Konfigurator wird automatisch beim Hinzufügen des Beleges den <b>Buchungstext in der Journalbuchung</b> anpassen.</li>
+            </ol>
+			
+            <img src="assets/images/JeText1.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
+            <img src="assets/images/JeText4.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
+			<img src="assets/images/JeText3.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
+			
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <ul>
+                <li><b>Problem: Es werden keine Texte automatisch eingefügt.</b><br>Lösung: Prüfen Sie als Erstes in der Konfiguration, ob die Regel für den betreffenden Dokumenttyp aktiviert ist.</li>
+                <li><b>Problem: Die Konfigurationsliste ist beim ersten Öffnen leer.</b><br>Lösung: Das System erstellt die Standardkonfigurationen automatisch beim allerersten Start des Moduls. Kontaktieren Sie im Zweifel den Support.</li>
+                <li><b>Problem: Die direkte Konfiguration per Rechtsklick funktioniert nicht.</b><br>Lösung: Stellen Sie sicher, dass Sie auf ein Textfeld geklickt haben und das Je Text Setter Modul korrekt läuft.</li>
+                <li><b>Problem: Texte sind zu lang für das Zielfeld.</b><br>Lösung: Kein Grund zur Sorge, Sie können die maximale Länge der Texte im Text-Konfigurator pro Feld begrenzen. Die maximale Länge für den Buchungstext beträgt 254 Zeichen.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

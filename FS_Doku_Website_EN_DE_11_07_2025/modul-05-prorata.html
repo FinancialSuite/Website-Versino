@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodenabgrenzung</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Periodenabgrenzung (Pro-Rata)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Pro-Rata Modul</b> automatisiert die Erstellung zeitanteiliger Abgrenzungsbuchungen in SAP Business One. Wenn Sie eine Rechnung mit einem Leistungszeitraum über mehrere Monate erstellen (z.B. eine Jahreslizenz), verteilt das Modul die Beträge tagesgenau und automatisch auf die entsprechenden Perioden. Dies sorgt für eine korrekte, periodengerechte Gewinn- und Verlustrechnung.</p>
+            <p><b>Zugang & Konfiguration:</b> Die Einstellungen erfolgen unter <b>Versino Financial Suite > Konfiguration > Pro-Rata Einstellungen</b>. Hier müssen Sie das Modul aktivieren, die notwendigen Abgrenzungskonten hinterlegen und können die Position der Datumsfelder festlegen (im Kopfbereich der Rechnung oder in einem separaten Register).</p>
+            <p><b>Unterstützte Dokumente:</b> Eingangs- und Ausgangsrechnungen sowie die dazugehörigen Gutschriften.</p>
+            <img src="assets/images/ProRataSettings.png" alt="Screenshot der Pro-Rata Einstellungen mit allen Parametern" class="module-image">
+            
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+
+            <h4>Automatische Abgrenzungsbuchungen & Berechnung</h4>
+            <p>Das System erstellt automatisch Journalbuchungen, um Rechnungsbeträge zeitanteilig und tagesgenau auf die entsprechenden Monate zu verteilen. Dabei werden unterschiedliche Monatslängen und Teilmonate korrekt berücksichtigt. Die Buchungslogik storniert die ursprüngliche Umsatz- oder Aufwandsbuchung, bucht den Gesamtbetrag auf ein Abgrenzungskonto und löst diesen dann monatlich zeitanteilig wieder auf.</p>
+
+            <h4>Flexible Abgrenzung (Kopf- & Zeilenebene)</h4>
+            <p>Das Modul fügt den Rechnungsformularen Felder für den Abgrenzungszeitraum (Von/Bis-Datum) hinzu. Sie können den Zeitraum entweder für die gesamte Rechnung im <b>Kopfbereich</b> festlegen oder für jede <b>Rechnungszeile individuell</b> definieren. Ein praktischer Button ("Datum in Zeilen kopieren") ermöglicht es, die Daten vom Kopf schnell in alle Zeilen zu übertragen.</p>
+
+            <h4>Storno- und Korrektur-Funktionen</h4>
+            <p>Abgrenzungen können einfach korrigiert werden. Erstellen Sie eine Gutschrift zu einer abgegrenzten Rechnung, werden die zugehörigen Abgrenzungsbuchungen automatisch proportional storniert. Alternativ können Sie über das Aktionsmenü im Beleg alle Abgrenzungen manuell stornieren, die Daten ändern und die Buchungen neu erstellen.</p>
+
+            <h4>Integration & Unterstützung weiterer Funktionen</h4>
+            <p>Das Modul ist nahtlos in SAP Business One und die Financial Suite integriert:</p>
+            <ul>
+                <li><b>Kostenrechnung:</b> Alle Dimensionen (Kostenstellen, Projekte etc.) werden aus der Originalrechnung in die Abgrenzungsbuchungen übernommen.</li>
+                <li><b>Fremdwährungen & Filialen:</b> Das Modul funktioniert vollständig mit Fremdwährungs-Rechnungen und in Umgebungen mit mehreren Filialen.</li>
+                <li><b>Buchungstext-Konfigurator:</b> Wenn aktiviert, erhalten alle Pro-Rata-Buchungen automatisch aussagekräftige und nachvollziehbare Buchungstexte.</li>
+                <li><b>DATEV & Reporting:</b> Alle Abgrenzungsbuchungen werden korrekt im DATEV-Export und in Berichten berücksichtigt.</li>
+            </ul>
+
+            <hr>
+            
+            <h3>Anwendung</h3>
+
+            <h4>1. Vorbereitung: Einmalige Konfiguration</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Pro-Rata Einstellungen</b>.</li>
+                <li><b>Aktivieren</b> Sie das Modul über die Checkbox.</li>
+                <li>Hinterlegen Sie ein <b>Verkaufskonto</b> für Umsatzabgrenzungen und ein <b>Einkaufskonto</b> für Aufwandsabgrenzungen.</li>
+                <li>Wählen Sie die gewünschte <b>Position für die Datumsfelder</b> in den Belegen (Kopfbereich oder eigenes Register).</li>
+                <li>Speichern Sie die Einstellungen.</li>
+            </ol>
+            
+            <h4>2. Tägliche Anwendung in der Rechnung</h4>
+            <ol>
+                <li>Erstellen und speichern Sie eine Eingangs- oder Ausgangsrechnung.</li>
+                <li>Tragen Sie das <b>Von-Datum</b> und <b>Bis-Datum</b> des Leistungszeitraums ein (im Kopf oder in den Zeilen).</li>
+                <li>Wählen Sie im Dropdown-Feld "Pro-Rata-Aktion" die Option <b>"Buchungen erstellen"</b>.</li>
+                <li>Bestätigen Sie die Aktion. Das System erstellt im Hintergrund die tagesgenauen Abgrenzungsbuchungen.</li>
+                <li>Mit den Aktionen "Buchungen anzeigen" oder "Buchungen stornieren" können Sie die erstellten Buchungen jederzeit einsehen oder wieder entfernen.</li>
+            </ol>
+            <p><b>Wichtig:</b> Wenn Sie eine Rechnung mit bereits erstellten Pro-Rata-Buchungen ändern möchten, stornieren Sie zuerst die Abgrenzungen, nehmen die Änderungen vor und erstellen sie anschließend neu.</p>
+            <img src="assets/images/ProRataDone.png" alt="Anwendungsbeispiel: Erstellung einer Pro-Rata-Abgrenzung" class="module-image">
+
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <p>Hier finden Sie Lösungen für die häufigsten Fragen und Probleme:</p>
+            <ul>
+                <li><b>Problem: Die Pro-Rata-Felder oder der Funktionsbutton werden nicht in der Rechnung angezeigt.</b><br>Lösung: Prüfen Sie, ob das Modul in den Pro-Rata-Einstellungen aktiviert ist. Starten Sie SAP Business One neu, damit die Formularerweiterungen korrekt geladen werden.</li>
+                <li><b>Problem: Die Erstellung der Buchungen schlägt fehl.</b><br>Lösung: Stellen Sie sicher, dass die Abgrenzungskonten in den Einstellungen korrekt konfiguriert sind und alle betroffenen Buchungsperioden in SAP Business One geöffnet sind.</li>
+                <li><b>Problem: Die Betragsverteilung scheint falsch zu sein.</b><br>Lösung: Kontrollieren Sie die eingegebenen Von- und Bis-Daten auf ihre Korrektheit. Das System rechnet tagesgenau.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

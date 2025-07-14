@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exchange Rate Import</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Exchange Rate Import (Exchange Rates)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Exchange Rates Module</b> enables the automatic import of current exchange rates from official central banks directly into SAP Business One. This ensures that current and official rates are always available for all foreign currency transactions. A configuration is automatically created on the first start, which you can then customize.</p>
+            <p><b>Access to the module:</b> The configuration for the import can be found under <b>Versino Financial Suite > Configuration > Exchange Rate Settings</b>. The manual import can be started at any time via <b>Versino Financial Suite > Import Exchange Rates</b>.</p>
+            
+            <hr>
+
+            <h3>Main Features</h3>
+
+            <h4>Automatic Exchange Rate Import</h4>
+            <p>The module retrieves official data from central banks and enters it into the exchange rate table of SAP Business One. It considers the quotation type (direct/indirect) stored in SAP B1 and overwrites existing values to keep the data current.</p>
+            
+            <h4>Supported Data Sources (ECB & NBP)</h4>
+            <p>You can choose between two official data sources:</p>
+            <ul>
+                <li><b>European Central Bank (ECB):</b> Provides reference rates for all common currencies based on the <b>Euro (EUR)</b>. Historical data is fully available.</li>
+                <li><b>National Bank of Poland (NBP):</b> Provides rates based on the <b>Polish Złoty (PLN)</b>. The retrieval of historical data here is limited to a <b>maximum of 93 days</b> retroactively.</li>
+            </ul>
+
+            <h4>Intelligent Period Management</h4>
+            <p>The system can be configured to retrieve rates for a specific number of days in the past and future. It automatically detects weekends when no rates are published and fills gaps with the last available rate.</p>
+
+            <h4>Flexible Configuration & Currency Selection</h4>
+            <p>In the settings, you can specify exactly which currencies are relevant for the import. This ensures better performance as only required rates are retrieved.</p>
+
+            <hr>
+
+            <h3>Application</h3>
+            
+            <h4>Method 1: Import Daily Rates Automatically (Recommended)</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Configuration > Exchange Rate Settings</b>.</li>
+                <li>Select the appropriate <b>Data Source</b> (e.g., "ECB" for EUR-based systems).</li>
+                <li>Set the "Days Past" to e.g., 10, to fill any potential gaps.</li>
+                <li>In the lower section, select all currencies you need.</li>
+                <li>Activate the <b>"Hourly Check"</b> checkbox for automatic background updates.</li>
+                <li>Save the settings. The system now automatically retrieves the latest rates, either hourly or after an add-on restart.</li>
+            </ol>
+            <img src="../assets/images/WechselKurs.png" alt="Application example: Configuration of automatic exchange rate updates" class="module-image">
+
+            <h4>Method 2: Update Rates Manually</h4>
+            <p>If you need the latest rates immediately, you can start the import manually:</p>
+            <ol>
+                <li>Click in the menu on <b>Versino Financial Suite > Import Exchange Rates</b>.</li>
+                <li>The system will immediately download the rates from the configured central bank.</li>
+            </ol>
+
+            <hr>
+            
+            <h3>Tips and Troubleshooting</h3>
+
+            <h5>Problem: Error message "Error during server request".</h5>
+            <p><b>Solution:</b> Check your <b>internet connection</b> and any firewall settings that might be blocking access to the central banks' servers (e.g., ecb.europa.eu).</p>
+
+            <h5>Problem: Error with NBP "Import period too large (max. 93 days)".</h5>
+            <p><b>Solution:</b> The National Bank of Poland (NBP) limits the retrieval of historical data. In the settings, reduce the value in the "Days Past" field to 93 or less.</p>
+
+            <h5>Problem: No rates are imported for weekends (ECB).</h5>
+            <p><b>Solution:</b> This is the correct behavior. The ECB does not publish reference rates on weekends and public holidays. The module automatically fills these gaps with the last valid rate from the previous business day.</p>
+
+            <h5>Problem: The import fails with a permission message.</h5>
+            <p><b>Solution:</b> Ensure that the executing SAP Business One user has the permission to manage exchange rates and indexes (under <b>Administration > System Initialization > Authorizations > General Authorizations</b>).</p>
+            
+            <h5>Tip: Optimize performance.</h5>
+            <p><b>Solution:</b> In the configuration, select only the currencies that you actually need for your business transactions. This speeds up the retrieval and processing of the data.</p>
+
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

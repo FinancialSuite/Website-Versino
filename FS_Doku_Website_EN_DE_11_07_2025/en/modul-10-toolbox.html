@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toolbox</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Toolbox (Toolbox)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Toolbox Module</b> is a collection of practical tools that extend the standard functionality of SAP Business One. The main function is the quick deletion of all rows in table views (matrices), which significantly simplifies daily work.</p>
+            <p>The module works fully automatically in the background and requires no configuration. It dynamically extends the context menus (right-click) in all relevant forms.</p>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            <p>The core function of the module is the extension of the context menu in tables (matrices) with the entry <b>"Delete all rows"</b>.</p>
+            <ul>
+                <li><b>Automatic Detection:</b> The tool automatically detects all forms with tables and adds the function.</li>
+                <li><b>Universal Compatibility:</b> The function works with all SAP standard forms that contain tables (e.g., sales & purchasing documents, journal entries, inventory transactions) and also with user-defined forms.</li>
+                <li><b>Secure Deletion Algorithm:</b> The module uses only standard SAP deletion functions and respects all permissions. It does not perform any direct data manipulations.</li>
+            </ul>
+            <hr>
+
+            <h3>Application</h3>
+            <p>The usage is very simple and greatly speeds up the correction of documents:</p>
+            <ol>
+                <li>Open any document that contains items in a table (e.g., a delivery).</li>
+                <li><b>Right-click</b> in the table area.</li>
+                <li>Select the option <b>"Delete all rows"</b> from the context menu.</li>
+                <li>All rows are immediately removed and a success message appears in the status bar.</li>
+            </ol>
+            
+            <div class="warning-box">
+                <h4>Caution: Action cannot be undone</h4>
+                <p>Deleting the rows is final and cannot be restored with an "Undo" function. Make sure you really want to remove the rows.</p>
+            </div>
+            
+            <img src="../assets/images/ToolBoxDelete.png" alt="Application example: Deleting all rows in an A/R invoice" class="module-image">
+
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <h4>Practical Use Cases</h4>
+            <ul>
+                <li><b>Correction of incorrect entries:</b> If you have started a wrong document, you can remove all rows with one click and start over.</li>
+                <li><b>Cleaning up copied documents:</b> When copying documents, you can quickly remove all unnecessary items.</li>
+                <li><b>Testing and Development:</b> Ideal for quickly resetting forms in test environments.</li>
+            </ul>
+
+            <h4>Troubleshooting</h4>
+            <ul>
+                <li><b>Problem: The menu item "Delete all rows" does not appear.</b><br>Solution: Make sure you right-click directly into an editable table (matrix). The function is not available in forms without tables or in non-editable views.</li>
+                <li><b>Problem: An error occurs during deletion.</b><br>Solution: Check if you have the basic editing rights for the opened form in SAP Business One.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

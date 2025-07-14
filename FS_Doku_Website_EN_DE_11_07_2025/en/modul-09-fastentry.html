@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Entry A/P Invoice</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Fast Entry A/P Invoice (Fast Entry)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Fast Entry Module</b> is a specialized tool for the rapid entry of A/P invoices in SAP Business One. It is ideal for companies that regularly receive similar invoices from the same vendors. Users can create new invoices with just a few clicks based on existing purchasing documents (A/P invoices, goods receipts, purchase orders).</p>
+            <p><b>Access to the module:</b> You can find the fast entry in the menu under <b>Purchasing - A/P > Fast Entry A/P Invoice</b>.</p>
+            <p>When the module is used for the first time, two user-defined fields are automatically created in the A/P invoices, which are needed for favorite management.</p>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Fast Document Creation & Amount Distribution</h4>
+            <p>The core function is the creation of new invoice drafts by copying data from an existing document. If the new invoice amount differs from the original document, the system distributes the new amount <b>proportionally</b> across all rows.</p>
+
+            <h4>Intelligent Search Functions</h4>
+            <p>A full-text search helps to quickly find the right base document. You can switch between a <b>Document Search</b> (searches comments, numbers, favorite remarks) and a <b>Row Search</b> (searches item numbers and descriptions). The results are color-coded by relevance:</p>
+            <ul>
+                <li><b>Green:</b> Documents marked as favorites.</li>
+                <li><b>Cyan:</b> High relevance (more than 50% of search terms found).</li>
+                <li><b>Yellow/White:</b> Normal relevance.</li>
+            </ul>
+            
+            <h4>Favorites Management</h4>
+            <p>Frequently used documents can be marked as a favorite directly in the A/P invoice. These always appear at the top of the search results (green), which greatly speeds up the selection of templates.</p>
+
+            <h4>Multi-Database Support</h4>
+            <p>The module can access multiple SAP Business One databases to use a document from one database as a template for a new invoice in another database.</p>
+
+            <hr>
+            
+            <h3>Application</h3>
+            <ol>
+                <li>Navigate to <b>Purchasing - A/P > Fast Entry A/P Invoice</b>.</li>
+                <li>Select the <b>Vendor</b>. The payment terms and date will be filled automatically.</li>
+                <li>Enter the <b>Vendor Invoice Number</b> and the <b>Gross Amount</b> of the new invoice.</li>
+                <li>Use the search field to find a suitable template (e.g., by an item or project). Favorites are automatically prioritized.</li>
+                <li>Select the appropriate document from the results list.</li>
+                <li>Click <b>"Add"</b>. The system creates a new invoice draft with the copied data and the new, proportionally distributed amount.</li>
+            </ol>
+            <img src="../assets/images/Schnellerfassende.png" alt="Application example: The Fast Entry dialog in action" class="module-image">
+            
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <ul>
+                <li><b>Use Favorites:</b> Mark recurring invoices (e.g., rent, leasing) as favorites to find them immediately.</li>
+                <li><b>Search Efficiently:</b> Use specific search terms and separate multiple terms with a semicolon (;) to narrow down the search. Switch between document and row search.</li>
+                <li><b>Problem: A vendor is not found.</b><br>Solution: Check the spelling. The search works with both the vendor code and the name.</li>
+                <li><b>Problem: The due date is incorrect.</b><br>Solution: The date is calculated automatically based on the payment terms stored for the vendor. Check and correct them if necessary in the business partner master data.</li>
+                <li><b>Problem: The proportional distribution seems incorrect.</b><br>Solution: Check the entered gross amount. The distribution is based on the row shares of the original document. Any rounding difference is automatically booked to the first row.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

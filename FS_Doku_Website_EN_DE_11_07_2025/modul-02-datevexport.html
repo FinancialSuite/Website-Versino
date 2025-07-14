@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATEV-Buchungsexport</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>DATEV-Buchungsexport (Datev Export)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Datev Export Modul</b> ist die zentrale Schnittstelle für den Export von SAP Business One Daten in das DATEV-Format. Es ermöglicht den vollständigen Datenaustausch, einschließlich Buchungen, Stammdaten (Debitoren, Kreditoren, Sachkonten) und Zahlungsinformationen, und ist speziell für deutsche Buchhaltungsanforderungen optimiert.</p>
+            <p><b>Zugang zum Modul:</b> Sie finden den Export-Dialog unter <b>Versino Financial Suite > DATEV Export/Import > DATEV Export</b>. Die Export-Protokolle können unter <b>Versino Financial Suite > Protokolle > Export Log</b> eingesehen werden.</p>
+            
+            <h4>Vorteile des Moduls</h4>
+            <ul>
+                <li><b>Umfassende Datenintegration:</b> Exportiert nicht nur Journalbuchungen, sondern auch alle relevanten Stammdaten und Zahlungsbedingungen für eine vollständige Datenübergabe.</li>
+                <li><b>Intelligente Status-Verwaltung:</b> Verhindert durch eine automatische Statusverfolgung für jede Buchung effektiv Doppel-Exporte und sichert eine lückenlose Nachverfolgung.</li>
+                <li><b>Qualitätssicherung:</b> Detaillierte Protokollierung, Validierung vor dem Export und eine transparente Fehlerbehandlung sichern die Datenqualität.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Umfassender Datenexport</h4>
+            <p>Das Modul exportiert nicht nur Journalbuchungen, sondern auch alle relevanten Stammdaten, um eine vollständige Datenübergabe an Ihren Steuerberater zu gewährleisten:</p>
+            <ul>
+                <li>Journalbuchungen</li>
+                <li>Debitoren- und Kreditorenstammdaten</li>
+                <li>Sachkontenbeschriftungen</li>
+                <li>Zahlungsbedingungen</li>
+            </ul>
+
+            <h4>Intelligente Export-Status-Verwaltung</h4>
+            <p>Jede Buchung erhält einen Export-Status, um Duplikate zu vermeiden und die Nachverfolgung zu sichern. Dieser Status wird direkt in der Journalbuchung angezeigt.</p>
+
+            <h4>Detaillierte Filtermöglichkeiten</h4>
+            <p>Für den Buchungsexport stehen umfangreiche Filter zur Verfügung, um die Datenmenge genau zu definieren. Sie können nach Datumstyp (Buchungs- oder Belegdatum), Zeitraum, Buchungsart und vor allem nach dem Export-Status filtern.</p>
+
+            <h4>Protokollierung und Monitoring</h4>
+            <p>Alle Export-Vorgänge werden detailliert in einem Protokoll-Tab aufgezeichnet. Dies hilft dabei, den Erfolg zu überwachen und eventuelle Fehler schnell zu identifizieren und zu analysieren.</p>
+	
+            <hr>
+            
+            <h3>Anwendung: Schritt-für-Schritt</h3>
+            
+            <h4>Buchungen und Stammdaten exportieren</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > DATEV Export</b>.</li>
+                <li>Wählen Sie die zu exportierenden <b>Datentypen</b> (z.B. Journalbuchungen, Debitoren/Kreditoren).</li>
+                <li>Definieren Sie den gewünschten <b>Zeitraum</b> und den <b>Datumstyp</b>.</li>
+                <li>Setzen Sie den Filter bei <b>"Buchungsstatus"</b> auf <b>"Nur nicht exportierte"</b>, um Duplikate zu vermeiden.</li>
+                <li>Wählen Sie das <b>Zielverzeichnis</b> für die Export-Datei aus.</li>
+                <li>Klicken Sie auf <b>"Export starten"</b>. Die Buchungen werden exportiert und in SAP B1 automatisch als "exportiert" markiert.</li>
+            </ol>
+             <img src="assets/images/DatevExportSett.png" alt="Screenshot des Hauptexport-Dialogs mit allen Exportoptionen" class="module-image">
+
+            <h4>Export-Protokoll überprüfen</h4>
+            <p>Wechseln Sie nach dem Export zum <b>Protokoll-Tab</b>. Hier sehen Sie eine detaillierte, farbcodierte Aufzeichnung aller Vorgänge und können eventuelle Fehlermeldungen analysieren.</p>
+			
+			<img src="assets/images/DatevExportMessage.png" alt="Screenshot der Journalbuchung mit DATEV-Export-Status-Feld" class="module-image">
+            
+            <h4>Export-Status manuell ändern</h4>
+            <p>Öffnen Sie die betroffene Journalbuchung in SAP Business One. Im Reiter "Financial Suite" können Sie den Export-Status manuell anpassen, z.B. um einen erneuten Export zu ermöglichen.</p>
+            
+            <hr>
+
+            <h3>Allgemeine Tipps für die Anwendung</h3>
+            <ul>
+                <li><b>Export-Strategie:</b> Führen Sie regelmäßige Exporte durch (z.B. monatlich), um die Datenmengen überschaubar zu halten. Nutzen Sie aussagekräftige Export-Pfade zur besseren Organisation.</li>
+                <li><b>Qualitätsprüfung:</b> Prüfen Sie nach jedem Export das <b>Protokoll</b> auf Warnungen oder Fehler. Validieren Sie Exporte mit kleinen Zeiträumen, bevor Sie große Datenmengen verarbeiten.</li>
+                <li><b>Status-Verwaltung:</b> Nutzen Sie die Status-Filter gezielt. Um einen fehlerhaften Export zu korrigieren, können Sie den Status manuell zurücksetzen und nur die fehlgeschlagenen Buchungen erneut exportieren.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Fehlerbehandlung bei Problemen</h3>
+            
+            <h5>Problem: Export schlägt mit einem Validierungsfehler fehl.</h5>
+            <p><b>Lösung:</b> Prüfen Sie das Protokoll auf Details. Häufige Ursachen sind geschlossene Buchungsperioden, fehlende Konten- oder Steuerzuordnungen oder inkonsistente Kontenpläne. Analysieren Sie die Fehlermeldung im Protokoll-Tab.</p>
+
+            <h5>Problem: Die erstellten Export-Dateien sind unvollständig oder fehlerhaft.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass Sie Schreibrechte für das gewählte Export-Verzeichnis haben und genügend Speicherplatz vorhanden ist. Überprüfen Sie den Export-Zeitraum.</p>
+
+            <h5>Problem: Der Export-Status wird bei einer Buchung nicht aktualisiert.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie Ihre Benutzerberechtigungen für das Ändern von Journalbuchungen. Stellen Sie sicher, dass das Add-On korrekt installiert ist. Im Notfall kann der Status manuell in der Journalbuchung geändert werden.</p>
+            
+            <h5>Problem: Der Export-Dialog öffnet sich nicht.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie Ihre Benutzerberechtigungen für das Modul. Stellen Sie sicher, dass die Financial Suite korrekt geladen wurde und der Menüpunkt aktiv ist.</p>
+            
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

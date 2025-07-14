@@ -1,0 +1,200 @@
+VPS FINANCIAL SUITE - JE TEXT SETTER MODUL
+ANWENDERDOKUMENTATION
+============================================
+
+ÜBERBLICK
+---------
+Das VPS JeTextSetter Modul automatisiert die Erstellung von Buchungstexten in SAP Business One. Das Modul füllt automatisch die entsprechenden Textfelder in verschiedenen Formularen mit vordefinierten, aussagekräftigen Beschreibungen. Dies spart Zeit bei der Dateneingabe und sorgt für einheitliche Buchungstexte im gesamten Unternehmen.
+
+ZUGANG ZUM MODUL
+----------------
+Die Konfiguration des JeTextSetter Moduls erreichen Sie über das SAP Business One Menü:
+
+- Versino AddOn > Konfiguration > JE Text Konfiguration
+- Versino Financial Suite > Konfiguration > JE Text Konfiguration
+
+[HINWEIS FÜR BILDER: Screenshot der Menünavigation zu JE Text Konfiguration]
+
+WAS MACHT DAS MODUL
+-------------------
+Das JeTextSetter Modul arbeitet im Hintergrund und füllt automatisch Textfelder in verschiedenen SAP Business One Formularen aus. Wenn Sie beispielsweise eine Ausgangsrechnung erstellen, wird automatisch ein passender Buchungstext eingefügt.
+
+Das Modul unterstützt folgende Dokumenttypen:
+
+VERKAUFSDOKUMENTE:
+- Angebote: Automatischer Text in Buchungsfeld und Kommentarfeld
+- Kundenaufträge: Buchungstext wird automatisch gesetzt
+- Lieferungen: Passende Beschreibung für Liefervorgänge
+- Ausgangsrechnungen: Einheitliche Rechnungstexte
+- Gutschriften: Standardisierte Gutschriftbeschreibungen
+- Retouren: Klare Kennzeichnung von Retouren-Vorgängen
+
+EINKAUFSDOKUMENTE:
+- Wareneingänge: Automatische Beschreibung mit "EK - Wareneingang"
+- Eingangsrechnungen: Standardtext für Lieferantenrechnungen
+- Eingangsgutschriften: Eindeutige Texte für Lieferantengutschriften
+- Einkaufsretouren: Klare Kennzeichnung von Einkaufsretouren
+
+LAGERDOKUMENTE:
+- Wareneingang: Automatische Texte für Lagerzugänge
+- Warenausgang: Standardbeschreibungen für Lagerabgänge
+- Lagerumlagerung: Eindeutige Texte für Umlagerungsvorgänge
+- Bestandsneubewertung: Automatische Beschreibung für Neubewertungen
+
+PRODUKTIONSDOKUMENTE:
+- Produktionseingang: Texte für Produktionszugänge
+- Produktionsausgang: Beschreibungen für Produktionsverbräuche
+
+ZAHLUNGSDOKUMENTE:
+- Eingangszahlungen: Automatische Texte für Kundenzahlungen
+- Ausgangszahlungen: Standardbeschreibungen für Lieferantenzahlungen
+
+[HINWEIS FÜR BILDER: Übersicht aller unterstützten Dokumenttypen in einer Tabelle]
+
+ERSTE SCHRITTE
+--------------
+Nach der Installation der VPS Financial Suite ist das JeTextSetter Modul sofort verfügbar. Beim ersten Aufruf der Konfiguration werden automatisch Textvorlagen für alle unterstützten Dokumenttypen erstellt.
+
+WICHTIG: Alle Konfigurationen sind zu Beginn deaktiviert. Sie müssen die gewünschten Dokumenttypen erst aktivieren, bevor die automatische Textgenerierung funktioniert.
+
+So aktivieren Sie die automatischen Texte:
+1. Öffnen Sie die JE Text Konfiguration über das Menü
+2. Wählen Sie den gewünschten Dokumenttyp aus
+3. Setzen Sie den Haken bei "Aktiv"
+4. Speichern Sie die Einstellungen
+
+[HINWEIS FÜR BILDER: Screenshot der Konfigurationsoberfläche mit Aktivierungsoptionen]
+
+PRAKTISCHE ANWENDUNG
+--------------------
+Sobald Sie die gewünschten Dokumenttypen aktiviert haben, arbeitet das Modul automatisch im Hintergrund. 
+
+BEISPIEL AUSGANGSRECHNUNG:
+Wenn Sie eine neue Ausgangsrechnung erstellen, wird automatisch ein passender Buchungstext eingefügt. Statt manuell einen Text einzugeben, steht bereits "Ausgangsrechnung" oder eine ähnliche Beschreibung im entsprechenden Feld.
+
+BEISPIEL WARENEINGANG:
+Bei der Erfassung eines Wareneingangs wird automatisch "Wareneingang" in das Memo-Feld eingetragen. Dies erleichtert später die Nachvollziehbarkeit der Buchungen.
+
+MEHRSPRACHIGE UNTERSTÜTZUNG:
+Das Modul unterstützt verschiedene Sprachen. Je nach Ihrer SAP Business One Spracheinstellung werden die Texte in der entsprechenden Sprache generiert.
+
+VORTEILE IM ALLTAG:
+- Keine manuelle Texteingabe mehr erforderlich
+- Einheitliche Beschreibungen in allen Dokumenten
+- Bessere Übersicht in Berichten und Listen
+- Weniger Tippfehler und vergessene Beschreibungen
+- Professionelleres Erscheinungsbild der Dokumente
+
+[HINWEIS FÜR BILDER: Vorher-Nachher Vergleich von Dokumenten mit und ohne automatische Texte]
+
+ANPASSUNG AN IHRE BEDÜRFNISSE
+-----------------------------
+Sie können die automatische Textgenerierung individuell an Ihre Anforderungen anpassen:
+
+SELEKTIVE AKTIVIERUNG:
+Aktivieren Sie nur die Dokumenttypen, die Sie tatsächlich verwenden. Wenn Sie beispielsweise keine Produktionsdokumente nutzen, lassen Sie diese Konfigurationen deaktiviert.
+
+VERSCHIEDENE TEXTFELDER:
+Für manche Dokumenttypen können Sie wählen, in welches Feld der automatische Text eingefügt wird. Bei Angeboten können Sie sowohl das Buchungsfeld als auch das Kommentarfeld automatisch füllen lassen.
+
+EINFACHE VERWALTUNG:
+Die Konfiguration ist übersichtlich gestaltet. Sie sehen auf einen Blick, welche Dokumenttypen aktiviert sind und welche Texte verwendet werden.
+
+[HINWEIS FÜR BILDER: Screenshot der Konfigurationsliste mit aktivierten und deaktivierten Einträgen]
+
+KONTEXTMENÜ-FUNKTIONEN
+----------------------
+Zusätzlich zur zentralen Konfiguration bietet das Modul praktische Funktionen direkt in den SAP Business One Formularen:
+
+SCHNELLE KONFIGURATION:
+Über das Kontextmenü in den jeweiligen Dokumenten können Sie schnell neue Felder zur automatischen Textgenerierung hinzufügen oder bestehende Konfigurationen entfernen.
+
+FELDBEZOGENE EINSTELLUNGEN:
+Diese Funktionen ermöglichen es Ihnen, die Textkonfiguration direkt dort anzupassen, wo Sie arbeiten, ohne den Umweg über die zentrale Konfiguration gehen zu müssen.
+
+[HINWEIS FÜR BILDER: Screenshot eines Kontextmenüs in einem SAP Business One Dokument]
+
+INTEGRATION MIT ANDEREN VPS-MODULEN
+-----------------------------------
+Das JeTextSetter Modul arbeitet nahtlos mit anderen VPS-Modulen zusammen und verbessert deren Funktionalität:
+
+VPS PRO-RATA MODUL:
+Wenn Sie das Pro-Rata Modul für Periodenabgrenzungen verwenden, generiert JeTextSetter automatisch aussagekräftige Buchungstexte für alle Abgrenzungsbuchungen. Beispiele:
+- "Pro-Rata Abgrenzung März 2024 - Software-Lizenz"
+- "Auflösung Pro-Rata April 2024 - Versicherung"
+- "Storno Pro-Rata Abgrenzung - Rechnung 2024-1234"
+
+Diese automatischen Texte machen Pro-Rata-Buchungen in Berichten und Journallisten sofort erkennbar und nachvollziehbar.
+
+VPS DATEV EXPORT:
+Die von JeTextSetter generierten Buchungstexte haben direkten Einfluss auf die Qualität Ihrer DATEV-Exporte:
+- Einheitliche Buchungstexte verbessern die Lesbarkeit der DATEV-Dateien
+- Aussagekräftige Beschreibungen erleichtern die Prüfung durch Steuerberater
+- Standardisierte Texte sorgen für konsistente DATEV-Übergaben
+- Automatische Texte reduzieren Nachfragen bei der steuerlichen Beratung
+
+VPS DATEV IMPORT:
+Beim Import von DATEV-Dateien können die JeTextSetter-Texte als Referenz für die Zuordnung von Buchungstypen verwendet werden, was die Importgenauigkeit erhöht.
+
+VPS REPORTING:
+Alle von JeTextSetter generierten Texte erscheinen automatisch in den VPS-Berichten:
+- Kassenbuch mit aussagekräftigen Buchungsbeschreibungen
+- Kontoauszüge mit einheitlichen Texten
+- Journalbuchungslisten mit standardisierten Beschreibungen
+- Pro-Rata-Berichte mit klaren Abgrenzungstexten
+
+[HINWEIS FÜR BILDER: Beispiele von Berichten mit automatisch generierten Buchungstexten]
+
+DATEV-INTEGRATION IM DETAIL
+---------------------------
+Die Zusammenarbeit mit dem DATEV-System ist besonders wichtig für eine professionelle Buchführung:
+
+EXPORT-OPTIMIERUNG:
+- Buchungstexte werden in korrekter Länge für DATEV-Felder generiert
+- Automatische Anpassung an DATEV-Zeichenbegrenzungen
+- Vermeidung von Sonderzeichen, die DATEV-Probleme verursachen könnten
+- Konsistente Terminologie entsprechend DATEV-Standards
+
+STEUERBERATUNG:
+Die einheitlichen Buchungstexte erleichtern die Kommunikation mit dem Steuerberater:
+- Klare Erkennbarkeit von Buchungsarten
+- Reduzierte Rückfragen bei der DATEV-Übergabe
+- Professionelle Darstellung in steuerlichen Auswertungen
+- Bessere Nachvollziehbarkeit bei Betriebsprüfungen
+
+COMPLIANCE:
+- GoBD-konforme Buchungstexte
+- Vollständige und nachvollziehbare Dokumentation
+- Einheitliche Belegbezeichnungen
+- Audit-Trail-geeignete Beschreibungen
+
+[HINWEIS FÜR BILDER: Beispiel eines DATEV-Exports mit standardisierten Buchungstexten]
+
+PROBLEMBEHANDLUNG
+-----------------
+Falls automatische Texte nicht erscheinen, prüfen Sie zunächst, ob die entsprechende Konfiguration aktiviert ist. Bei weiteren Problemen wenden Sie sich an Ihren SAP Business One Partner.
+
+HÄUFIGE FRAGEN:
+Problem: Texte erscheinen in falscher Sprache
+Lösung: Überprüfen Sie die Spracheinstellungen in SAP Business One
+
+Problem: Nur manche Dokumente erhalten automatische Texte
+Lösung: Kontrollieren Sie die Aktivierung in der JE Text Konfiguration
+
+Problem: Texte sind zu lang für bestimmte Felder
+Lösung: Die Texte werden automatisch an Feldlängen angepasst
+
+Problem: Pro-Rata-Buchungen haben keine beschreibenden Texte
+Lösung: Stellen Sie sicher, dass JeTextSetter vor der Pro-Rata-Buchungserstellung aktiviert wurde
+
+[HINWEIS FÜR BILDER: Checkliste für einfache Problembehandlung]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS JeTextSetter Modul ist ein praktisches Werkzeug zur Automatisierung wiederkehrender Texteingaben in SAP Business One. Es spart Zeit, reduziert Fehler und sorgt für ein einheitliches Erscheinungsbild Ihrer Geschäftsdokumente.
+
+Die einfache Konfiguration über das SAP Business One Menü und die flexible Aktivierung einzelner Dokumenttypen machen das Modul zu einer wertvollen Ergänzung für jedes Unternehmen, das Wert auf Effizienz und Konsistenz legt.
+
+Die Integration mit anderen VPS-Modulen, insbesondere Pro-Rata und DATEV-Export, verstärkt den Nutzen erheblich. Pro-Rata-Abgrenzungen werden durch aussagekräftige Texte nachvollziehbar, und DATEV-Exporte erhalten eine professionelle Qualität, die die Zusammenarbeit mit Steuerberatern erleichtert.
+
+Nach der einmaligen Einrichtung arbeitet das Modul vollautomatisch und unterstützt Sie täglich bei der professionellen Dokumentenerstellung in SAP Business One.

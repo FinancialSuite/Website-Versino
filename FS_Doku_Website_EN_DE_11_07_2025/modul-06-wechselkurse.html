@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wechselkurs-Import</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Wechselkurs-Import (Exchange Rates)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Exchange Rates Modul</b> ermöglicht den automatischen Import aktueller Wechselkurse von offiziellen Zentralbanken direkt in SAP Business One. Dies stellt sicher, dass für alle Fremdwährungsgeschäfte stets aktuelle und offizielle Kurse verfügbar sind. Beim ersten Start wird automatisch eine Konfiguration erstellt, die Sie anschließend anpassen können.</p>
+            <p><b>Zugang zum Modul:</b> Die Konfiguration für den Import finden Sie unter <b>Versino Financial Suite > Konfiguration > Wechselkurs Einstellungen</b>. Der manuelle Import kann jederzeit über <b>Versino Financial Suite > Wechselkurse importieren</b> gestartet werden.</p>
+            
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+
+            <h4>Automatischer Wechselkurs-Import</h4>
+            <p>Das Modul ruft offizielle Daten von Zentralbanken ab und trägt diese in die Wechselkurstabelle von SAP Business One ein. Es berücksichtigt dabei die in SAP B1 hinterlegte Notierungsart (direkt/indirekt) und überschreibt vorhandene Werte, um die Daten aktuell zu halten.</p>
+            
+            <h4>Unterstützte Datenquellen (EZB & NBP)</h4>
+            <p>Sie können zwischen zwei offiziellen Datenquellen wählen:</p>
+            <ul>
+                <li><b>Europäische Zentralbank (EZB):</b> Bietet Referenzkurse für alle gängigen Währungen auf Basis des <b>Euro (EUR)</b>. Historische Daten sind vollständig verfügbar.</li>
+                <li><b>Polnische Nationalbank (NBP):</b> Bietet Kurse auf Basis des <b>Polnischen Złoty (PLN)</b>. Der Abruf historischer Daten ist hier auf <b>maximal 93 Tage</b> rückwirkend beschränkt.</li>
+            </ul>
+
+            <h4>Intelligente Zeitraum-Verwaltung</h4>
+            <p>Das System kann so konfiguriert werden, dass es Kurse für eine bestimmte Anzahl von Tagen in der Vergangenheit und Zukunft abruft. Dabei werden Wochenenden, an denen keine Kurse veröffentlicht werden, automatisch erkannt und Lücken mit dem zuletzt verfügbaren Kurs gefüllt.</p>
+
+            <h4>Flexible Konfiguration & Währungsauswahl</h4>
+            <p>In den Einstellungen können Sie genau festlegen, welche Währungen für den Import relevant sind. Dies sorgt für eine bessere Performance, da nur benötigte Kurse abgerufen werden.</p>
+
+            <hr>
+
+            <h3>Anwendung</h3>
+            
+            <h4>Methode 1: Tägliche Kurse automatisch importieren (empfohlen)</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Wechselkurs Einstellungen</b>.</li>
+                <li>Wählen Sie die passende <b>Datenquelle</b> (z.B. "EZB" für EUR-basierte Systeme).</li>
+                <li>Setzen Sie die "Tage Vergangenheit" auf z.B. 10, um eventuelle Lücken zu füllen.</li>
+                <li>Wählen Sie im unteren Bereich alle Währungen aus, die Sie benötigen.</li>
+                <li>Aktivieren Sie die Checkbox <b>"Stündliche Prüfung"</b> für automatische Hintergrund-Updates.</li>
+                <li>Speichern Sie die Einstellungen. Das System ruft nun automatisch die neuesten Kurse, stündlich oder nach einem Add-On Neustart, ab.</li>
+            </ol>
+            <img src="assets/images/WechselKurs.png" alt="Anwendungsbeispiel: Konfiguration der automatischen Wechselkurs-Updates" class="module-image">
+
+            <h4>Methode 2: Kurse manuell aktualisieren</h4>
+            <p>Wenn Sie sofort die neuesten Kurse benötigen, können Sie den Import manuell starten:</p>
+            <ol>
+                <li>Klicken Sie im Menü auf <b>Versino Financial Suite > Wechselkurse importieren</b>.</li>
+                <li>Das System lädt die Kurse sofort von der konfigurierten Zentralbank herunter.</li>
+            </ol>
+
+            <hr>
+            
+            <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h5>Problem: Fehlermeldung "Fehler bei Serveranfrage".</h5>
+            <p><b>Lösung:</b> Prüfen Sie Ihre <b>Internetverbindung</b> und eventuelle Firewall-Einstellungen, die den Zugriff auf die Server der Zentralbanken (z.B. ecb.europa.eu) blockieren könnten.</p>
+
+            <h5>Problem: Fehlermeldung bei NBP "Importzeitraum zu groß (max. 93 Tage)".</h5>
+            <p><b>Lösung:</b> Die Polnische Nationalbank (NBP) beschränkt den Abruf historischer Daten. Reduzieren Sie in den Einstellungen den Wert im Feld "Tage Vergangenheit" auf 93 oder weniger.</p>
+
+            <h5>Problem: Für Wochenenden werden keine Kurse importiert (EZB).</h5>
+            <p><b>Lösung:</b> Dies ist das korrekte Verhalten. Die EZB veröffentlicht an Wochenenden und Feiertagen keine Referenzkurse. Das Modul füllt diese Lücken automatisch mit dem letzten gültigen Kurs vom vorherigen Werktag.</p>
+
+            <h5>Problem: Der Import schlägt fehl mit einer Berechtigungs-Meldung.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass der ausführende SAP Business One Benutzer die Berechtigung zur Verwaltung von Wechselkursen und Indizes besitzt (unter <b>Administration > Systeminitialisierung > Berechtigungen > Allgemeine Berechtigungen</b>).</p>
+            
+            <h5>Tipp: Performance optimieren.</h5>
+            <p><b>Lösung:</b> Wählen Sie in der Konfiguration nur die Währungen aus, die Sie tatsächlich für Ihre Geschäftsvorgänge benötigen. Dies beschleunigt den Abruf und die Verarbeitung der Daten.</p>
+
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

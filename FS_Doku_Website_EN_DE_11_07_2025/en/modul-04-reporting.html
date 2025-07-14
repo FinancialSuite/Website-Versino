@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporting Extension Pack</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Reporting Extension Pack (Reporting)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Reporting Module</b> is the central reporting system of the Financial Suite. It offers an extensive collection of pre-made Crystal Reports and works entirely in the background to provide you with the appropriate analyses. A key advantage is that the module automatically detects whether you are using a <b>Microsoft SQL Server</b> or <b>SAP HANA</b> database and loads the corresponding, performance-optimized reports.</p>
+            <p>The module starts asynchronously without blocking the SAP Business One interface and automatically detects your system language. <b>Access to the reports:</b> All reports can be found in the SAP Business One menu under <b>Versino Financial Suite > Financial Suite Reports</b>.</p>
+            
+            <hr>
+
+            <h3>Main Features</h3>
+            <p>The module offers two types of reports to cover different requirements:</p>
+
+            <h4>Standard Reports</h4>
+            <p>These reports can be started directly and offer quick evaluations. Filtering (e.g., by date) is done directly in the Crystal Reports Viewer.</p>
+            <ul>
+                <li><b>Cash Book:</b> Shows all cash transactions chronologically with a running balance.</li>
+                <li><b>G/L Account Statement:</b> Detailed transaction lists for selected G/L accounts.</li>
+                <li><b>Customer Open Items:</b> Overview of unpaid receivables with aging analysis.</li>
+                <li><b>Trial Balance (SuSa):</b> Compact overview of all accounts.</li>
+                <li><b>Top 10 Customers/Vendors:</b> Ranking of the most important business partners.</li>
+                <li><b>Payment Behavior:</b> Analysis of customer payment behavior.</li>
+                <li><b>BWA:</b> Monthly business analysis report.</li>
+            </ul>
+             <img src="../assets/images/Reports.png" alt="Screenshot of the reports menu in SAP Business One" class="module-image">
+
+            <h4>Mass Reports</h4>
+            <p>These reports offer special filter dialogs before starting, to carry out targeted mass processing.</p>
+            <ul>
+                <li><b>Balance Confirmation:</b> Creates separate confirmation letters for any number of customers for a selectable key date.</li>
+                <li><b>Netting Reconciliations:</b> Documents completed netting processes.</li>
+                <li><b>Payment Advice:</b> Creates detailed payment advices for a specific payment run.</li>
+            </ul>
+            
+            <h4>Output Options</h4>
+            <p>All reports can be directly displayed, printed, or exported to formats such as <b>PDF, Excel, or Word</b>. For mass reports, individual file names are automatically assigned (e.g., "BalanceConfirmation_[CustomerCode].pdf").</p>
+            
+            <hr>
+
+            <h3>Application</h3>
+            
+            <h4>Using a Standard Report (e.g., Account Statement)</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Financial Suite Reports > G/L Account Statement</b>.</li>
+                <li>A filter dialog opens. Enter the desired <b>time period</b>, the <b>G/L accounts</b>, and the display type (B1 form or as an external Windows form).</li>
+                <li>Click "OK". The report is generated.</li>
+                <li>Use the viewer's export functions to save the report.</li>
+            </ol>
+             <img src="../assets/images/ReportsExample.png" alt="Application example: Generating an account statement" class="module-image">
+
+            <h4>Using a Mass Report (e.g., Balance Confirmation)</h4>
+            <ol>
+                <li>Select the <b>Balance Confirmation</b> report.</li>
+                <li>Fill in the filter fields in the dialog that appears (e.g., key date, business partners).</li>
+                <li>Start the report generation. The system automatically creates separate files for each selected customer.</li>
+            </ol>
+
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+
+            <h5>Problem: A report is empty or shows no data.</h5>
+            <p><b>Solution:</b> Check your filter settings, especially the date range. Ensure that data actually exists in the database for the selected criteria.</p>
+
+            <h5>Problem: The reports start slowly.</h5>
+            <p><b>Solution:</b> The very first time a report is started after opening SAP Business One, the initialization may take a moment. This is normal. Subsequent reports should load faster.</p>
+
+            <h5>Problem: Performance with large amounts of data is slow.</h5>
+            <p><b>Solution:</b> The reports are already optimized for SQL and HANA. To further speed up the query with very large data volumes, restrict the filter criteria (e.g., a shorter date range) as much as possible.</p>
+
+            <h5>Problem: Crystal Reports does not work or there is a database connection error.</h5>
+            <p><b>Solution:</b> Ensure that the Crystal Reports components for SAP Business One are installed correctly. Check your database connection and restart SAP Business One. If problems persist, contact your administrator.</p>
+			
+			<h5>Problem: BWA report does not load.</h5>
+            <p><b>Solution:</b> Ensure that the BWA financial report template has been created. You can find the menu under <b>Financials > Financial Report Templates</b>. If it does not exist, you can create it yourself (as shown in the picture). The <b>standard chart of accounts can be loaded automatically via a button</b>. If problems persist, contact your administrator.</p>
+
+			<img src="../assets/images/BWA.png" alt="Application example: Creating a BWA template" class="module-image">
+			
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

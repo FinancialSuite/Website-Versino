@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontoauszugs-Import</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Kontoauszugs-Import (Bank State Import)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Bank State Import Modul</b> ermöglicht den Import und die Verarbeitung von elektronischen Kontoauszügen in SAP Business One. Es unterstützt verschiedene Bankenformate (MT940, CAMT) und nutzt eine leistungsstarke <b>Regel- und RegEx-Engine</b>, um Transaktionen automatisch zuzuordnen und die manuelle Arbeit zu minimieren.</p>
+            <p><b>Zugang zum Modul:</b> Der Prozess startet unter <b>Versino Financial Suite > Bank Statement Import</b>. Die Bearbeitung findet im Formular <b>Bank Statement Processing</b> statt.</p>
+            <div class="image-placeholder">[HINWEIS FÜR BILDER: Screenshot des Bank Statement Processing Hauptformulars mit Matrix]</div>
+            
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Regelbasierte, automatische Zuordnung</h4>
+            <p>Das Modul liest Kontoauszugsdateien ein und versucht, Transaktionen automatisch zuzuordnen. Dies geschieht durch eine mehrstufige Logik, die unter anderem Bankverbindungen, Beträge und Verwendungszwecke über konfigurierbare Regeln und reguläre Ausdrücke (RegEx) abgleicht.</p>
+
+            <h4>Interaktive Verarbeitungsmatrix</h4>
+            <p>Alle Transaktionen werden in einer übersichtlichen Matrix dargestellt. Hier können Sie nicht zugeordnete Posten manuell bearbeiten, Geschäftspartner zuweisen oder den Status einer Zeile verwalten.</p>
+
+            <h4>Split-Funktion für Sammelbuchungen</h4>
+            <p>Wenn eine Banktransaktion mehrere Geschäftsvorfälle betrifft, können Sie diese über den <b>Split-Dialog</b> in beliebig viele Teilbeträge aufteilen. Das System berechnet den Restbetrag automatisch und erstellt neue, separate Zeilen in der Matrix für eine saubere Verbuchung.</p>
+
+            <h4>Status-Management</h4>
+            <p>Jede Zeile in der Matrix hat einen Status. Über die Checkbox <b>"Cleared"</b> können Sie eine Transaktion als "ausgeglichen" markieren, um sie für weitere Bearbeitungen zu sperren. Das Add-on setzt zudem ein Kennzeichen "Durch Addon geprüft", wenn eine Zeile automatisch verarbeitet wurde.</p>
+
+            <hr>
+
+            <h3>Anwendung</h3>
+
+            <h4>Einrichtung: Die Automatisierung konfigurieren (für Administratoren)</h4>
+            <p>Die Stärke des Moduls liegt in seiner Automatisierungs-Engine. Diese wird über benutzerdefinierte Tabellen konfiguriert:</p>
+            <ul>
+                <li><b>Direkte Zuordnungsregeln (Rule1):</b> Hier können Sie feste Regeln definieren. Beispiel: Wenn im Verwendungszweck "Miete Mai" steht, wird die Transaktion automatisch einem bestimmten externen Vorgangscode zugeordnet.</li>
+                <li><b>RegEx-Regeln:</b> Hier können Sie flexible Muster (Reguläre Ausdrücke) hinterlegen, um z.B. Rechnungs- oder Kundennummern aus einem langen Verwendungszweck zu extrahieren und automatisch zuzuordnen.</li>
+            </ul>
+
+            <h4>Täglicher Workflow: Kontoauszug bearbeiten</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Bank Statement Import</b> und wählen Sie die Kontoauszugsdatei aus.</li>
+                <li>Nach dem Import öffnet sich das <b>Bank Statement Processing</b> Formular. Die Automatisierungs-Engine hat bereits versucht, Zahlungen zuzuordnen.</li>
+                <li>Bearbeiten Sie die verbleibenden Posten manuell, indem Sie den korrekten <b>Geschäftspartner zuweisen</b>.</li>
+                <li>Bei Sammelzahlungen, wählen Sie die Zeile aus, aktivieren die <b>Split-Funktion</b> per Rechtsklick, geben den Teilbetrag sowie den Geschäftspartner ein und bestätigen.</li>
+                <li>Markieren Sie fertig bearbeitete Zeilen als "Cleared".</li>
+                <li>Bestätigen Sie am Ende die gesamte Verarbeitung, um die Buchungen zu erstellen.</li>
+            </ol>
+            <div class="image-placeholder">[HINWEIS FÜR BILDER: Anwendungsbeispiel mit Split-Dialog und Zuordnung]</div>
+
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <ul>
+                <li><b>Split-Funktion nutzen:</b> Nutzen Sie die Split-Funktion konsequent, um Sammelbuchungen sauber aufzuteilen. Eine Zeile kann nur gesplittet werden, wenn sie nicht als "Cleared" markiert ist.</li>
+                <li><b>Trefferquote erhöhen:</b> Halten Sie Ihre Geschäftspartner-Stammdaten (insbesondere Bankverbindungen) aktuell, um die automatische Trefferquote zu erhöhen.</li>
+                <li><b>RegEx-Regeln testen:</b> Testen Sie neue RegEx-Muster gründlich in einem externen Tool, bevor Sie sie produktiv einsetzen, um die korrekte Funktion sicherzustellen.</li>
+                <li><b>Problem: Split nicht möglich.</b><br>Lösung: Der Fehler "Split nicht möglich, diese Zeile ist bereits ausgeglichen" erscheint, wenn die "Cleared"-Checkbox gesetzt ist. Entfernen Sie den Haken, um die Zeile wieder zu bearbeiten. Der Betrag für einen Split muss zudem immer größer als 0 sein.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

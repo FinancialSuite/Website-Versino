@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATEV Posting Import</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>DATEV Posting Import (Datev Import)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Datev Import Module</b> is the central interface for importing posting batches in DATEV-CSV format into SAP Business One. It is specifically optimized for German accounting requirements and supports both the import of single files and the bulk processing of entire folders.</p>
+            <p><b>Access to the module:</b> You can find the import dialog under <b>Versino Financial Suite > Import/Export > Import</b>. The import logs can be viewed under <b>Versino Financial Suite > Protocols > Import Log</b>.</p>
+
+            <div class="warning-box">
+                <h4>Important Prerequisite: Reference Field Links</h4>
+                <p>Before the first import can be performed, the reference field links must be configured in SAP Business One. <b>Without this configuration, no import can be carried out!</b> Navigate to <b>Administration > Definitions > General > Reference Field Links</b> and link the target field "U_VPS_DTV_REF" for the following document types:</p>
+                <ul>
+                    <li>Invoices</li>
+                    <li>Credit Memos</li>
+                    <li>Goods Movements</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Flexible Import (Single File & Folder)</h4>
+            <p>You can either select a single CSV file for import or activate "Folder Import" to process all CSV files in a selected directory sequentially.</p>
+
+            <h4>Secure Processing (Direct Posting & Drafts)</h4>
+            <p>The module offers two modes for creating postings. When selecting direct postings (JE), a warning message is displayed for security.</p>
+            <ul>
+                <li><b>Parked Documents (VC):</b> Creates secure drafts that must be checked and approved before final posting. This is the recommended method.</li>
+                <li><b>Direct Postings (JE):</b> Posts the batches immediately as journal entries. This option should be used with caution.</li>
+            </ul>
+
+            <h4>Comprehensive Validation & Logging</h4>
+            <p>Before the import, the system checks the data for consistency (e.g., whether accounts, business partners, and open periods exist). The entire process is documented live in the "Protocol" tab of the import dialog with color-coded messages (Green for success, Light Blue for warnings, Red for errors).</p>
+            
+            <h4>Central Configuration & Advanced Features</h4>
+            <p>In the <b>Financial Suite Settings</b>, you can define a default import folder and the starting line for the import. The module also offers support for multi-branch scenarios and consolidation postings.</p>
+
+            <hr>
+
+            <h3>Application: Step-by-Step</h3>
+            
+            <h4>1. Preparation (One-time Configuration)</h4>
+            <p>Ensure that all prerequisites are met:</p>
+            <ol>
+                <li><b>Reference Field Links:</b> Configure the links as described in the warning box above.</li>
+                <li><b>Import Settings:</b> Navigate to <b>Versino Financial Suite > Configuration > Settings > DATEV Import</b> and set a default import folder and the starting line (usually the third line of the file).</li>
+            </ol>
+            
+            <h4>2. Performing the Import</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Import/Export > Import</b>.</li>
+                <li>Select the CSV file via "Choose File" or activate "Folder Import" and select a directory.</li>
+                <li>Determine the "Journal Entry Type", preferably <b>"Parked Documents" (VC)</b>.</li>
+                <li>Click "Import".</li>
+                <li>Switch to the <b>"Protocol" tab</b> to monitor the progress and any errors live.</li>
+            </ol>
+            <img src="../assets/images/DatevImportSett.png" alt="Screenshot of the import dialog with all sections labeled" class="module-image">
+
+            <hr>
+
+            <h3>General Application Tips</h3>
+            <ul>
+                <li><b>Always test with drafts:</b> Always use "Parked Documents" (VC) to check data before final posting, especially with uncertain data sources.</li>
+                <li><b>Check the protocol:</b> The protocol tab is your most important tool for error analysis. Red entries indicate critical errors that must be fixed.</li>
+                <li><b>Preparation is key:</b> Before importing, ensure that all necessary posting periods are open and all accounts and business partners exist in SAP Business One.</li>
+                <li><b>File format:</b> Make sure your CSV files have the DATEV-compliant structure (e.g., semicolon as a separator).</li>
+            </ul>
+
+            <hr>
+
+            <h3>Troubleshooting</h3>
+
+            <h5>Problem: Error message "Reference field links not configured".</h5>
+            <p><b>Solution:</b> This is a critical error. Perform the configuration exactly as described in the warning box above. No import is possible without this setting.</p>
+
+            <h5>Problem: Error message "First import line too small".</h5>
+            <p><b>Solution:</b> The DATEV header in the CSV must be skipped. Set the starting line in the Financial Suite Settings to at least 3.</p>
+
+            <h5>Problem: The error "Account not found" or "Business partner not found" appears in the protocol.</h5>
+            <p><b>Solution:</b> The import file contains an account or a business partner that does not exist in SAP Business One. Create the missing master data and start the import again.</p>
+
+            <h5>Problem: The error "Posting period locked" appears in the protocol.</h5>
+            <p><b>Solution:</b> Unlock the corresponding posting period in SAP Business One before starting the import.</p>
+
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

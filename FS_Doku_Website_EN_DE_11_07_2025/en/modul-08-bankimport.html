@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Statement Import</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Bank Statement Import (Bank State Import)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Bank State Import Module</b> enables the import and processing of electronic bank statements in SAP Business One. It supports various bank formats (MT940, CAMT) and uses a powerful <b>rule and RegEx engine</b> to automatically match transactions and minimize manual work.</p>
+            <p><b>Access to the module:</b> The process starts under <b>Versino Financial Suite > Bank Statement Import</b>. The processing takes place in the <b>Bank Statement Processing</b> form.</p>
+            <div class="image-placeholder">[NOTE FOR IMAGES: Screenshot of the Bank Statement Processing main form with matrix]</div>
+            
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Rule-based, Automatic Matching</h4>
+            <p>The module reads bank statement files and attempts to match transactions automatically. This is done through a multi-stage logic that matches, among other things, bank details, amounts, and purposes of payment using configurable rules and regular expressions (RegEx).</p>
+
+            <h4>Interactive Processing Matrix</h4>
+            <p>All transactions are displayed in a clear matrix. Here you can manually edit unmatched items, assign business partners, or manage the status of a row.</p>
+
+            <h4>Split Function for Collective Postings</h4>
+            <p>If a bank transaction concerns multiple business transactions, you can split it into any number of partial amounts using the <b>Split Dialog</b>. The system automatically calculates the remaining amount and creates new, separate rows in the matrix for clean posting.</p>
+
+            <h4>Status Management</h4>
+            <p>Each row in the matrix has a status. Using the <b>"Cleared"</b> checkbox, you can mark a transaction as "cleared" to lock it for further processing. The add-on also sets an "Checked by Add-on" indicator if a row was processed automatically.</p>
+
+            <hr>
+
+            <h3>Application</h3>
+
+            <h4>Setup: Configuring Automation (for Administrators)</h4>
+            <p>The strength of the module lies in its automation engine. This is configured via user-defined tables:</p>
+            <ul>
+                <li><b>Direct Matching Rules (Rule1):</b> Here you can define fixed rules. Example: If the purpose of payment contains "Rent May", the transaction is automatically assigned to a specific external transaction code.</li>
+                <li><b>RegEx Rules:</b> Here you can store flexible patterns (Regular Expressions) to, for example, extract and automatically match invoice or customer numbers from a long purpose of payment.</li>
+            </ul>
+
+            <h4>Daily Workflow: Processing a Bank Statement</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Bank Statement Import</b> and select the bank statement file.</li>
+                <li>After the import, the <b>Bank Statement Processing</b> form opens. The automation engine has already tried to match payments.</li>
+                <li>Process the remaining items manually by assigning the correct <b>Business Partner</b>.</li>
+                <li>For collective payments, select the row, activate the <b>Split Function</b> via right-click, enter the partial amount and the business partner, and confirm.</li>
+                <li>Mark fully processed rows as "Cleared".</li>
+                <li>Finally, confirm the entire processing to create the postings.</li>
+            </ol>
+            <div class="image-placeholder">[NOTE FOR IMAGES: Application example with Split Dialog and matching]</div>
+
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <ul>
+                <li><b>Use the Split Function:</b> Consistently use the split function to cleanly separate collective postings. A row can only be split if it is not marked as "Cleared".</li>
+                <li><b>Increase Hit Rate:</b> Keep your business partner master data (especially bank details) up-to-date to increase the automatic hit rate.</li>
+                <li><b>Test RegEx Rules:</b> Thoroughly test new RegEx patterns in an external tool before using them in production to ensure they function correctly.</li>
+                <li><b>Problem: Split not possible.</b><br>Solution: The error "Split not possible, this row is already cleared" appears if the "Cleared" checkbox is set. Uncheck it to edit the row again. The amount for a split must also always be greater than 0.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

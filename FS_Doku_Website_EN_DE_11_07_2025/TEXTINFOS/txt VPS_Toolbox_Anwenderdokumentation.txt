@@ -1,0 +1,176 @@
+VPS FINANCIAL SUITE - TOOLBOX MODUL
+ANWENDERDOKUMENTATION
+====================================
+
+ÜBERBLICK
+---------
+Das VPS Toolbox Modul ist eine Sammlung praktischer Hilfswerkzeuge für SAP Business One. Das Hauptfeature ist die "Alle Zeilen löschen"-Funktion, die über Rechtsklick-Kontextmenüs in Matrix-Formularen zugänglich ist. Diese Funktion ermöglicht es, alle Zeilen in einer Matrix mit einem Klick zu entfernen, anstatt jede Zeile einzeln löschen zu müssen.
+
+WAS MACHT DAS MODUL
+-------------------
+Das Toolbox Modul erweitert automatisch alle SAP Business One Formulare um die "Alle Zeilen löschen"-Funktion. Wenn Sie in einem Formular mit einer Matrix (Tabelle) arbeiten, erscheint beim Rechtsklick ein zusätzlicher Menüeintrag, mit dem Sie alle Zeilen der Matrix auf einmal entfernen können.
+
+Das Modul arbeitet vollautomatisch und erfordert keine Konfiguration. Es registriert sich für alle Formulare in SAP Business One und reagiert auf Rechtsklick-Ereignisse.
+
+HAUPTFUNKTION:
+- Erkennt automatisch Matrix-Objekte in SAP B1 Formularen
+- Fügt "Alle Zeilen löschen"-Option zum Kontextmenü hinzu
+- Löscht alle sichtbaren Zeilen einer Matrix mit einem Klick
+- Arbeitet mit allen Standard-SAP-B1-Formularen
+
+[HINWEIS FÜR BILDER: Screenshot eines Kontextmenüs mit der "Alle Zeilen löschen"-Option]
+
+VERWENDUNG DER FUNKTION
+-----------------------
+Die "Alle Zeilen löschen"-Funktion ist einfach zu verwenden:
+
+SO FUNKTIONIERT ES:
+1. Öffnen Sie ein beliebiges SAP Business One Formular mit einer Matrix (z.B. Ausgangsrechnung, Bestellung, etc.)
+2. Rechtsklick auf die Matrix (Tabelle mit den Zeilen)
+3. Wählen Sie "Alle Zeilen löschen" aus dem Kontextmenü
+4. Alle Zeilen in der Matrix werden automatisch entfernt
+
+AUTOMATISCHE ERKENNUNG:
+Das System erkennt automatisch:
+- Welche Formulare Matrix-Objekte enthalten
+- Welche Matrix gerade aktiv/sichtbar ist
+- Ob die Matrix bearbeitbar ist
+- Welche SAP-Standard-Löschfunktion verfügbar ist
+
+UNTERSTÜTZTE FORMULARE:
+Die Funktion arbeitet mit allen SAP Business One Formularen, die Matrix-Objekte enthalten:
+- Verkaufsbelege (Angebote, Aufträge, Lieferungen, Rechnungen)
+- Einkaufsbelege (Bestellungen, Wareneingänge, Rechnungen)
+- Journalbuchungen
+- Stammdaten-Formulare
+- Lagerbewegungen
+- Benutzerdefinierte Formulare
+
+[HINWEIS FÜR BILDER: Beispiele verschiedener Formulare vor und nach der Anwendung der Funktion]
+
+FUNKTIONSWEISE IM DETAIL
+-------------------------
+Das Modul verwendet eine intelligente Technik zur Zeilen-Löschung:
+
+ZEILEN-ERKENNUNG:
+- Das System ermittelt automatisch die Anzahl sichtbarer Zeilen
+- Identifiziert die erste bearbeitbare Spalte
+- Prüft, welche Standard-SAP-Löschfunktionen verfügbar sind
+
+LÖSCH-ALGORITHMUS:
+1. Das System klickt auf die erste bearbeitbare Zelle
+2. Aktiviert die entsprechende SAP-Standard-Löschfunktion
+3. Wiederholt den Vorgang für alle verbleibenden Zeilen
+4. Nutzt entweder "Zeile löschen" oder "Entfernen" je nach Verfügbarkeit
+
+SICHERHEITSMECHANISMEN:
+- Verwendet nur Standard-SAP-Löschfunktionen
+- Keine direkten Datenmanipulationen
+- Respektiert Formular-Berechtigungen
+- Funktioniert nur bei bearbeitbaren Matrizen
+
+AUTOMATISCHE BEREINIGUNG:
+- Event-Handler werden nach jedem Rechtsklick wieder entfernt
+- Keine permanenten Menü-Änderungen
+- Temporäre Kontextmenü-Erweiterungen
+
+[HINWEIS FÜR BILDER: Schematische Darstellung des Lösch-Algorithmus]
+
+PRAKTISCHE ANWENDUNGSFÄLLE
+---------------------------
+Die "Alle Zeilen löschen"-Funktion ist besonders nützlich in folgenden Situationen:
+
+DATENEINGABE-KORREKTUREN:
+- Falscher Beleg wurde begonnen - alle Zeilen schnell entfernen
+- Template-Bereinigung für neue Eingaben
+- Korrektur nach Datenfehlern
+
+KOPIERTE BELEGE:
+- Bereinigung kopierter Belege vor Neubearbeitung
+- Entfernung nicht benötigter Positionen
+- Schnelle Anpassung von Vorlage-Belegen
+
+TESTING UND ENTWICKLUNG:
+- Schnelle Bereinigung von Test-Eingaben
+- Formular-Reset für neue Tests
+- Entwicklungs- und Schulungszwecke
+
+ZEITERSPARNIS:
+- Vermeidung einzelner Zeilen-Löschungen
+- Besonders wertvoll bei Belegen mit vielen Positionen
+- Effiziente Formular-Bereinigung
+
+[HINWEIS FÜR BILDER: Vorher-Nachher-Vergleich bei einem Beleg mit vielen Zeilen]
+
+BESONDERE FUNKTIONEN
+--------------------
+Das Modul enthält mehrere intelligente Features:
+
+FORMULAR-SPEZIFISCHE BEHANDLUNG:
+- Automatische Anpassung an verschiedene Matrix-Typen
+- Erkennung der optimalen Löschstrategie
+- Berücksichtigung von Formular-Besonderheiten
+
+FEHLERBEHANDLUNG:
+- Automatische Wiederherstellung bei Problemen
+- Schutz vor ungewollten Aktionen
+- Statusmeldungen über Erfolg/Fehler der Operation
+
+MEHRSPRACHIGKEIT:
+- Verwendung der VPS Language Resources
+- Automatische Übersetzung in SAP B1 UI-Sprache
+- Konsistente Terminologie mit anderen VPS-Modulen
+
+AUSNAHME-BEHANDLUNG:
+- Bestimmte Formular-Typen können von der Funktion ausgenommen werden
+- Schutz vor Konflikten mit kritischen SAP-Funktionen
+- Intelligente Aktivierung/Deaktivierung
+
+[HINWEIS FÜR BILDER: Beispiele der mehrsprachigen Menüeinträge]
+
+PROBLEMBEHANDLUNG
+-----------------
+Die häufigsten Fragen und Lösungen:
+
+Problem: Kontextmenü erscheint nicht
+Lösung: Stellen Sie sicher, dass Sie in einem Formular mit einer Matrix sind und diese bearbeitbar ist
+
+Problem: Funktion löscht nicht alle Zeilen
+Lösung: Das ist normal - das System verwendet SAP-Standard-Funktionen, die bei bestimmten Zeilen nicht greifen können
+
+Problem: Fehlermeldung beim Löschen
+Lösung: Prüfen Sie, ob Sie Bearbeitungsrechte für das Formular haben
+
+Problem: Matrix friert ein
+Lösung: Das System verwendet Freeze/Unfreeze - warten Sie kurz, bis der Vorgang abgeschlossen ist
+
+[HINWEIS FÜR BILDER: Beispiele von Statusmeldungen]
+
+TECHNISCHE DETAILS
+------------------
+Für technisch interessierte Anwender:
+
+EVENT-SYSTEM:
+- Registrierung für RIGHT_CLICK Events auf "ALL_FORMS"
+- Automatisches Hinzufügen und Entfernen von Kontextmenü-Einträgen
+- Verwendung der SAP B1 UI API
+
+MATRIX-ERKENNUNG:
+- Identifizierung von it_MATRIX Item-Typen
+- Berücksichtigung von PaneLevel und Visibility
+- Automatische Spalten-Analyse
+
+SAP-INTEGRATION:
+- Verwendung von SAP-Standard-Menü-IDs (1283, 1293)
+- Kompatibilität mit SAP B1 Event-System
+- Respektierung aller SAP-Sicherheitsmechanismen
+
+[HINWEIS FÜR BILDER: Diagramm der technischen Architektur]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS Toolbox Modul ist ein praktisches Hilfswerkzeug, das die tägliche Arbeit mit SAP Business One erheblich erleichtert. Die "Alle Zeilen löschen"-Funktion spart Zeit und reduziert Aufwand bei der Bearbeitung von Matrix-basierten Formularen.
+
+Das Modul arbeitet vollautomatisch, erfordert keine Konfiguration und integriert sich nahtlos in bestehende Arbeitsabläufe. Durch die Verwendung von SAP-Standard-Funktionen bleibt die Datensicherheit gewährleistet.
+
+Die intelligente Erkennung von Matrix-Objekten und die automatische Anpassung an verschiedene Formular-Typen machen das Tool universell einsetzbar für alle Bereiche von SAP Business One.

@@ -1,0 +1,441 @@
+VPS FINANCIAL SUITE - BANK STATE IMPORT MODUL
+ANWENDERDOKUMENTATION
+=============================================
+
+ÜBERBLICK
+---------
+Das VPS Bank State Import Modul ermöglicht die Verarbeitung und Zuordnung von Bankauszugsdaten in SAP Business One. Das Modul bietet eine interaktive Matrix-Oberfläche zur Verarbeitung von Banktransaktionen mit umfangreichen Split- und Zuordnungsfunktionen. Es ist speziell entwickelt für die effiziente Bearbeitung von Bankbewegungen und deren Zuordnung zu Geschäftspartnern und offenen Posten.
+
+ZUGANG ZUM MODUL
+----------------
+Das Bank State Import Modul wird über das SAP Business One Menü aufgerufen:
+
+Menüpfad in SAP Business One:
+- VPS Financial Suite > Bank Statement Processing
+
+Das Modul öffnet sich als eigenständiges SAP B1 Formular und kann parallel zu anderen SAP Business One Funktionen verwendet werden.
+
+BENUTZEROBERFLÄCHE
+------------------
+Das Modul besteht aus folgenden Hauptbereichen:
+
+1. BANK STATEMENT PROCESSING HAUPTFORMULAR
+   - Zentrale Verarbeitungsmatrix für Banktransaktionen
+   - Interaktive Bearbeitung von Transaktionsdaten
+   - Split-Funktionen für komplexe Buchungen
+   - Status-Tracking für Verarbeitungsfortschritt
+
+2. MATRIX-SPALTEN
+   - Datum: Buchungs- und Valutadatum
+   - Betrag: Eingehende und ausgehende Beträge
+   - Referenz: Bank-Referenznummern
+   - Memo: Verwendungszweck und Beschreibung
+   - Geschäftspartner: Zugeordnete Business Partner
+   - Status: Verarbeitungs- und Ausgleichsstatus
+   - Codes: Interne und externe Transaktionscodes
+
+3. VERARBEITUNGSKONTROLLEN
+   - Split-Dialog für Transaktionsaufteilung
+   - Geschäftspartner-Zuordnung
+   - Status-Management
+   - Validierungs- und Prüffunktionen
+
+[HINWEIS FÜR BILDER: Screenshot des Bank Statement Processing Hauptformulars mit Matrix]
+
+MATRIX-VERARBEITUNG
+-------------------
+Die zentrale Verarbeitungsmatrix bietet umfangreiche Funktionen:
+
+SPALTEN-STRUKTUR:
+- BSLineDate: Buchungsdatum der Banktransaktion
+- BSValuDate: Valutadatum der Transaktion
+- IncomingAmount: Eingehende Beträge (Gutschriften)
+- OutgoingAmount: Ausgehende Beträge (Belastungen)
+- Ref: Bank-Referenznummer
+- Memo: Verwendungszweck (Feld 1)
+- Memo2: Erweiterte Beschreibung (Feld 2)
+- CardCode: Zugeordneter Geschäftspartner
+- ExternalCode: Externer Vorganscode (Bank-spezifisch)
+- InternalCode: Interner Vorganscode (Unternehmen-spezifisch)
+- Cleared: Status-Checkbox für ausgleichen
+- PstMethod: Buchungsmethode
+- BankStatementType: Art der Banktransaktion
+
+INTERAKTIVE BEARBEITUNG:
+- Direkte Bearbeitung in Matrix-Zellen
+- Dropdown-Auswahl für Geschäftspartner
+- Combo-Box-Auswahl für Codes
+- Checkbox-Steuerung für Status
+- Automatische Feldvalidierung
+
+NAVIGATION UND BEDIENUNG:
+- Zeilen-Navigation mit Pfeil-Tasten
+- Tab-Navigation zwischen Spalten
+- Maus-Klick für direkte Zellauswahl
+- Kontextmenü für erweiterte Funktionen
+
+[HINWEIS FÜR BILDER: Detailansicht der Matrix mit verschiedenen Spaltentypen]
+
+SPLIT-FUNKTIONEN
+----------------
+Das Modul bietet erweiterte Split-Funktionen für komplexe Transaktionen:
+
+SPLIT-DIALOG (BPSplitForm):
+Das Split-Formular ermöglicht die Aufteilung von Banktransaktionen:
+
+EINGABEFELDER:
+- Betrag: Neuer Teilbetrag für Split-Zeile
+- Geschäftspartner: Zuordnung des neuen Teilbetrags
+- OK-Button: Bestätigung der Split-Operation
+- Abbrechen-Button: Abbruch der Split-Operation
+
+SPLIT-LOGIK:
+- Aufteilung von Ein- oder Ausgangsbeträgen
+- Automatische Berechnung der Restbeträge
+- Übertragung aller relevanten Felder
+- Validierung der Betrags-Summen
+
+VERWENDUNG DER SPLIT-FUNKTION:
+1. Zeile in Matrix auswählen
+2. Split-Funktion aktivieren
+3. Neuen Betrag eingeben
+4. Geschäftspartner zuordnen
+5. Split bestätigen
+
+SPLIT-VALIDIERUNG:
+- Betrag muss größer als 0 sein
+- Original-Zeile darf nicht ausgeglichen sein
+- Automatische Feld-Übertragung
+- Fehlerbehandlung bei ungültigen Werten
+
+BEISPIEL SPLIT-VORGANG:
+Original-Transaktion: 1.000,00 EUR eingehend
+Split-Betrag: 300,00 EUR für GP-A
+Resultat: 
+- Neue Zeile: 300,00 EUR eingehend für GP-A
+- Original-Zeile: 700,00 EUR eingehend (Rest)
+
+[HINWEIS FÜR BILDER: Split-Dialog mit Eingabefeldern und Buttons]
+
+GESCHÄFTSPARTNER-ZUORDNUNG
+--------------------------
+Das System bietet umfangreiche Geschäftspartner-Zuordnungsfunktionen:
+
+CHOOSE-FROM-LIST INTEGRATION:
+- Vollständige Integration in SAP B1 Choose-From-List
+- Filterung nach aktiven Geschäftspartnern
+- Ausschluss gesperrter Partner
+- Direkte Suche und Auswahl
+
+ZUORDNUNGS-OPTIONEN:
+- Manuelle Auswahl über Choose-From-List
+- Direkte Eingabe von Geschäftspartner-Codes
+- Validierung der Eingaben
+- Automatische Code-Vervollständigung
+
+GESCHÄFTSPARTNER-VALIDIERUNG:
+- Prüfung auf Existenz in SAP B1
+- Status-Validierung (nicht gesperrt)
+- Berechtigung-Prüfung
+- Konsistenz-Checks
+
+VERWENDUNG:
+1. Klick in CardCode-Spalte
+2. Choose-From-List öffnet sich
+3. Geschäftspartner suchen und auswählen
+4. Code wird automatisch übernommen
+5. Validierung erfolgt automatisch
+
+[HINWEIS FÜR BILDER: Choose-From-List Dialog für Geschäftspartner-Auswahl]
+
+CODES UND KATEGORISIERUNG
+-------------------------
+Das System unterstützt umfangreiche Code-Verwaltung:
+
+EXTERNE CODES (ExternalCode):
+- Bank-spezifische Transaktionscodes
+- Standard-Bankverkehr-Codes
+- Import-spezifische Kodierungen
+- Automatische Code-Erkennung
+
+INTERNE CODES (InternalCode):
+- Unternehmensspezifische Kategorien
+- Buchungslogik-Steuerung
+- Kostenstellen-Integration
+- Workflow-Steuerung
+
+CODE-AUSWAHL:
+- Dropdown-Listen in Matrix-Spalten
+- Vordefinierte Code-Listen
+- Benutzer-konfigurierbare Codes
+- Historische Code-Verwendung
+
+BUCHUNGSMETHODEN (PstMethod):
+- Verschiedene Buchungsarten
+- Automatik-/Manual-Modi
+- Ausgleichs-Methoden
+- Status-gesteuerte Verarbeitung
+
+[HINWEIS FÜR BILDER: Code-Auswahl in Matrix-Dropdown-Feldern]
+
+STATUS-MANAGEMENT
+-----------------
+Das Modul bietet umfassendes Status-Management:
+
+CLEARED-STATUS:
+- Checkbox für Ausgleichs-Status
+- Sperrt Zeile für weitere Bearbeitung
+- Verhindert Split-Operationen
+- Kennzeichnet abgeschlossene Transaktionen
+
+STATUS-KONTROLLE:
+- Visuelle Status-Anzeigen
+- Automatische Status-Updates
+- Benutzer-gesteuerte Status-Änderungen
+- Workflow-Integration
+
+VERARBEITUNGS-STATI:
+- Offen: Noch nicht verarbeitet
+- Zugeordnet: Geschäftspartner zugewiesen
+- Ausgeglichen: Mit offenen Posten verrechnet
+- Aufgeteilt: In mehrere Transaktionen geteilt
+- Abgeschlossen: Vollständig verarbeitet
+
+STATUS-VALIDIERUNG:
+- Automatische Plausibilitätsprüfung
+- Konsistenz-Checks
+- Fehlerbehandlung
+- Benutzer-Benachrichtigungen
+
+[HINWEIS FÜR BILDER: Matrix mit verschiedenen Status-Anzeigen]
+
+DATENVALIDIERUNG UND FEHLERBEHANDLUNG
+-------------------------------------
+Das System implementiert umfassende Validierung:
+
+EINGABE-VALIDIERUNG:
+- Betrags-Plausibilitätsprüfung
+- Datums-Validierung
+- Geschäftspartner-Existenz-Prüfung
+- Code-Konsistenz-Checks
+
+SPLIT-VALIDIERUNG:
+- Betrag-Größer-Null-Prüfung
+- Status-Prüfung vor Split
+- Feld-Übertragung-Validierung
+- Summen-Konsistenz-Checks
+
+FEHLERBEHANDLUNG:
+Häufige Validierungsfehler und Lösungen:
+
+Problem: "Der Betrag muss größer als 0 sein"
+Lösung: Gültigen Betrag > 0 im Split-Dialog eingeben
+
+Problem: "Split nicht möglich, diese Zeile ist bereits ausgeglichen"
+Lösung: Cleared-Status der Zeile zurücksetzen
+
+Problem: "Externer Vorganscode konnte nicht gesetzt werden"
+Lösung: Gültigen Code aus Dropdown-Liste auswählen
+
+Problem: "Interner Vorganscode konnte nicht gesetzt werden"  
+Lösung: Verfügbare interne Codes prüfen und auswählen
+
+FEHLERMELDUNGEN:
+- Detaillierte Fehlerbeschreibungen
+- Lösungsvorschläge
+- Benutzerfreundliche Meldungen
+- Kontextbezogene Hilfe
+
+[HINWEIS FÜR BILDER: Fehlerbehandlungs-Dialoge mit Meldungen]
+
+MATRIX-NAVIGATION UND BEDIENUNG
+-------------------------------
+Die Matrix bietet umfangreiche Navigationsmöglichkeiten:
+
+ZEILEN-AUSWAHL:
+- GetNextSelectedRow(): Ermittlung der aktuellen Zeile
+- Mausklick für Zeilenauswahl
+- Tastatur-Navigation
+- Mehrfach-Selektion möglich
+
+ZELL-BEARBEITUNG:
+- GetCellSpecific(): Zugriff auf spezifische Zellen
+- Direkte Werteingabe
+- Dropdown-Auswahl
+- Checkbox-Steuerung
+
+MATRIX-EIGENSCHAFTEN:
+- VisualRowCount: Anzahl sichtbarer Zeilen
+- Automatische Spaltenbreiten
+- Sortier-Funktionen
+- Filter-Möglichkeiten
+
+DATEN-MANIPULATION:
+- Neue Zeilen hinzufügen
+- Zeilen löschen
+- Werte kopieren
+- Bulk-Updates
+
+MATRIX-EVENTS:
+- Zell-Änderungs-Events
+- Zeilen-Auswahl-Events
+- Validierungs-Events
+- Custom-Events
+
+[HINWEIS FÜR BILDER: Matrix-Navigation und Zell-Bearbeitung]
+
+INTEGRATION MIT SAP BUSINESS ONE
+---------------------------------
+Das Modul integriert sich vollständig in SAP Business One:
+
+SAP B1 FORMULARE:
+- Native SAP B1 Formular-Technologie
+- Vollständige UI-Integration
+- Standard SAP B1 Look-and-Feel
+- Event-System-Integration
+
+GESCHÄFTSPARTNER-INTEGRATION:
+- Direkte Verbindung zu OCRD-Tabelle
+- Choose-From-List-Integration
+- Geschäftspartner-Validierung
+- Status-und-Berechtigungs-Prüfung
+
+DATENBANK-INTEGRATION:
+- Direkte SAP B1 Datenbank-Zugriffe
+- Standard SAP B1 Datentypen
+- Transaktionale Sicherheit
+- Backup-und-Recovery-Unterstützung
+
+BENUTZERRECHTE:
+- SAP B1 Benutzer-Authentifizierung
+- Rollen-basierte Zugriffskontrolle
+- Funktions-spezifische Berechtigungen
+- Audit-Trail-Integration
+
+WORKFLOW-INTEGRATION:
+- SAP B1 Approval-Prozesse
+- Document-Workflow-Integration
+- Status-Management-Integration
+- Benachrichtigungs-System
+
+[HINWEIS FÜR BILDER: Integration in SAP B1 Benutzeroberfläche]
+
+TECHNISCHE FUNKTIONEN
+----------------------
+Das Modul nutzt erweiterte technische Funktionen:
+
+FORMULAR-TECHNOLOGIE:
+- XsUserForm-Basis-Klasse
+- SAP B1 FormCreationParams
+- Event-Handler-System
+- UI-Element-Management
+
+DATENTYP-HANDLING:
+- NumberFormatInfo für Beträge
+- CultureInfo für Lokalisierung
+- Decimal-Precision-Handling
+- Currency-Display-Optionen
+
+MATRIX-TECHNOLOGIE:
+- SAP B1 Matrix-Controls
+- CellSpecific-Zugriffe
+- Dynamic-Column-Management
+- Data-Binding-Mechanismen
+
+CHOOSE-FROM-LIST:
+- ChooseFromListCreationParams
+- Condition-Management
+- Multi-Selection-Support
+- Custom-Filter-Definitionen
+
+FEHLER-MANAGEMENT:
+- Exception-Handling-Strategien
+- User-Feedback-Mechanismen
+- Logging-Integration
+- Rollback-Funktionen
+
+[HINWEIS FÜR BILDER: Technische Architektur-Diagramm]
+
+BENUTZER-WORKFLOWS
+------------------
+Typische Arbeitsabläufe mit dem Modul:
+
+STANDARD-VERARBEITUNG:
+1. Bank Statement Processing öffnen
+2. Transaktionsdaten in Matrix laden
+3. Geschäftspartner zuordnen
+4. Codes und Status setzen
+5. Verarbeitung abschließen
+
+SPLIT-WORKFLOW:
+1. Komplexe Transaktion identifizieren
+2. Zeile für Split auswählen
+3. Split-Dialog öffnen
+4. Teilbeträge und GP eingeben
+5. Split bestätigen und validieren
+
+FEHLERBEHANDLUNGS-WORKFLOW:
+1. Fehlermeldung analysieren
+2. Ursache identifizieren
+3. Korrekturmaßnahmen durchführen
+4. Validierung wiederholen
+5. Verarbeitung fortsetzen
+
+QUALITÄTSSICHERUNG:
+1. Vollständigkeits-Prüfung
+2. Betrags-Abstimmung
+3. Code-Konsistenz-Check
+4. Status-Validierung
+5. Freigabe und Abschluss
+
+[HINWEIS FÜR BILDER: Workflow-Diagramm mit Verarbeitungsschritten]
+
+BEST PRACTICES
+--------------
+
+EFFIZIENTE VERARBEITUNG:
+1. Transaktionen chronologisch bearbeiten
+2. Ähnliche Transaktionen gruppieren
+3. Standard-Codes für wiederkehrende Vorgänge nutzen
+4. Split-Funktionen für komplexe Buchungen einsetzen
+5. Status-Management konsequent anwenden
+
+DATENQUALITÄT:
+1. Geschäftspartner-Zuordnungen validieren
+2. Beträge auf Plausibilität prüfen
+3. Referenz-Nummern konsistent pflegen
+4. Codes einheitlich verwenden
+5. Dokumentation der Bearbeitungsschritte
+
+FEHLERMINIMIERUNG:
+1. Eingaben vor Bestätigung prüfen
+2. Split-Beträge sorgfältig kalkulieren
+3. Status-Änderungen dokumentieren
+4. Backup vor größeren Operationen
+5. Testläufe bei neuen Verfahren
+
+WARTUNG UND PFLEGE:
+1. Regelmäßige Code-Listen-Updates
+2. Geschäftspartner-Stammdaten aktuell halten
+3. Benutzer-Schulungen durchführen
+4. Verfahren dokumentieren
+5. Performance-Optimierung überwachen
+
+[HINWEIS FÜR BILDER: Best-Practice-Checkliste]
+
+TIPPS FÜR DIE VERWENDUNG
+------------------------
+1. MATRIX-NAVIGATION: Nutzen Sie Tastatur-Shortcuts für schnelle Navigation
+2. SPLIT-FUNKTIONEN: Teilen Sie komplexe Transaktionen systematisch auf
+3. CODE-VERWENDUNG: Etablieren Sie einheitliche Code-Standards
+4. STATUS-MANAGEMENT: Nutzen Sie Status-Informationen für Workflow-Kontrolle
+5. VALIDIERUNG: Prüfen Sie Eingaben vor dem Speichern
+6. GESCHÄFTSPARTNER: Halten Sie GP-Stammdaten aktuell
+7. FEHLERBEHANDLUNG: Analysieren Sie Fehlermeldungen systematisch
+8. DOCUMENTATION: Dokumentieren Sie komplexe Verarbeitungsschritte
+9. TESTING: Testen Sie neue Verfahren in sicherer Umgebung
+10. TRAINING: Schulen Sie Benutzer regelmäßig in neuen Funktionen
+
+Das VPS Bank State Import Modul bietet eine professionelle und benutzerfreundliche Lösung für die Verarbeitung von Bankauszugsdaten in SAP Business One. Die Matrix-basierte Benutzeroberfläche, die flexiblen Split-Funktionen und die umfassende SAP B1 Integration machen es zu einem unverzichtbaren Werkzeug für effizientes Banking-Management.
+
+Nutzen Sie die interaktiven Funktionen für effiziente Datenverarbeitung und die Split-Optionen für komplexe Transaktionen. Die konsequente Anwendung der Status-Funktionen und Code-Verwaltung gewährleistet dabei jederzeit vollständige Kontrolle und Nachverfolgbarkeit aller Verarbeitungsschritte.

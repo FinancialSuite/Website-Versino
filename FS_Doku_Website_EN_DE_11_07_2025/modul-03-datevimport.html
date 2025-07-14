@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATEV-Buchungsimport</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>DATEV-Buchungsimport (Datev Import)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Datev Import Modul</b> ist die zentrale Schnittstelle für den Import von Buchungsstapeln im DATEV-CSV-Format in SAP Business One. Es ist speziell für deutsche Buchhaltungsanforderungen optimiert und unterstützt sowohl den Import einzelner Dateien als auch die Massenverarbeitung ganzer Ordner.</p>
+            <p><b>Zugang zum Modul:</b> Sie finden den Import-Dialog unter <b>Versino Financial Suite > Import/Export > Import</b>. Die Import-Protokolle können unter <b>Versino Financial Suite > Protokolle > Import Log</b> eingesehen werden.</p>
+
+            <div class="warning-box">
+                <h4>Wichtige Voraussetzung: Referenzfeld-Verknüpfungen</h4>
+                <p>Bevor der erste Import durchgeführt werden kann, müssen in SAP Business One zwingend die Referenzfeld-Verknüpfungen konfiguriert werden. <b>Ohne diese Konfiguration kann kein Import durchgeführt werden!</b> Navigieren Sie zu <b>Administration > Definitionen > Allgemein > Referenzfeldverknüpfungen</b> und verknüpfen Sie für die folgenden Belegtypen das Zielfeld "U_VPS_DTV_REF":</p>
+                <ul>
+                    <li>Rechnungen</li>
+                    <li>Gutschriften</li>
+                    <li>Warenbewegungen</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Flexibler Import (Einzeldatei & Ordner)</h4>
+            <p>Sie können entweder eine einzelne CSV-Datei für den Import auswählen oder den "Ordner-Import" aktivieren, um alle CSV-Dateien in einem ausgewählten Verzeichnis nacheinander zu verarbeiten.</p>
+
+            <h4>Sichere Verarbeitung (Direktbuchung & Vorerfassung)</h4>
+            <p>Das Modul bietet zwei Modi für die Erstellung der Buchungen. Bei der Auswahl von direkten Buchungen (JE) wird zur Sicherheit eine Warnmeldung angezeigt.</p>
+            <ul>
+                <li><b>Vorerfasste Belege (VC):</b> Erstellt sichere Entwürfe, die vor der endgültigen Buchung geprüft und freigegeben werden müssen. Dies ist die empfohlene Methode.</li>
+                <li><b>Direkte Buchungen (JE):</b> Bucht die Stapel sofort als Journalbuchungen. Diese Option sollte mit Vorsicht verwendet werden.</li>
+            </ul>
+
+            <h4>Umfassende Validierung & Protokollierung</h4>
+            <p>Vor dem Import prüft das System die Daten auf Konsistenz (z.B. ob Konten, Geschäftspartner und offene Perioden existieren). Der gesamte Prozess wird live im "Protokoll"-Tab des Import-Dialogs mit farbcodierten Meldungen (Grün für Erfolg, Hellblau für Warnungen, Rot für Fehler) dokumentiert.</p>
+            
+            <h4>Zentrale Konfiguration & erweiterte Funktionen</h4>
+            <p>In den <b>Financial Suite Einstellungen</b> können Sie einen Standard-Importordner und die Startzeile für den Import festlegen. Das Modul bietet zusätzlich Unterstützung für Multi-Branch-Szenarien und Konsolidierungsbuchungen.</p>
+
+            <hr>
+
+            <h3>Anwendung: Schritt-für-Schritt</h3>
+            
+            <h4>1. Vorbereitung (Einmalige Konfiguration)</h4>
+            <p>Stellen Sie sicher, dass alle Voraussetzungen erfüllt sind:</p>
+            <ol>
+                <li><b>Referenzfeld-Verknüpfungen:</b> Konfigurieren Sie die Verknüpfungen wie in der Warnbox oben beschrieben.</li>
+                <li><b>Import-Einstellungen:</b> Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Einstellungen > DATEV Import</b> und legen Sie einen Standard-Importordner und die Startzeile (üblicherweise die dritte Zeile der Datei) fest.</li>
+            </ol>
+            
+            <h4>2. Import durchführen</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Import/Export > Import</b>.</li>
+                <li>Wählen Sie über "Datei wählen" die CSV-Datei aus oder aktivieren Sie "Ordner-Import" und wählen ein Verzeichnis.</li>
+                <li>Bestimmen Sie den "Journaleintragstyp", vorzugsweise <b>"Vorerfasste Belege" (VC)</b>.</li>
+                <li>Klicken Sie auf "Import".</li>
+                <li>Wechseln Sie zum <b>"Protokoll"-Tab</b>, um den Fortschritt und eventuelle Fehler live zu verfolgen.</li>
+            </ol>
+            <img src="assets/images/DatevImportSett.png" alt="Screenshot des Import-Dialogs mit allen Bereichen beschriftet" class="module-image">
+
+            <hr>
+
+            <h3>Allgemeine Tipps für die Anwendung</h3>
+            <ul>
+                <li><b>Immer mit Vorerfassung testen:</b> Nutzen Sie stets "Vorerfasste Belege" (VC), um Daten vor der finalen Buchung zu prüfen, besonders bei unsicheren Datenquellen.</li>
+                <li><b>Protokoll prüfen:</b> Der Protokoll-Tab ist Ihr wichtigstes Werkzeug zur Fehleranalyse. Rote Einträge zeigen kritische Fehler, die behoben werden müssen.</li>
+                <li><b>Vorbereitung ist alles:</b> Stellen Sie vor dem Import sicher, dass alle benötigten Buchungsperioden geöffnet sind und alle Konten und Geschäftspartner in SAP Business One existieren.</li>
+                <li><b>Dateiformat:</b> Achten Sie darauf, dass Ihre CSV-Dateien die DATEV-konforme Struktur haben (z.B. Semikolon als Trennzeichen).</li>
+            </ul>
+
+            <hr>
+
+            <h3>Fehlerbehandlung bei Problemen</h3>
+
+            <h5>Problem: Fehlermeldung "Referenzfeld-Verknüpfungen nicht konfiguriert".</h5>
+            <p><b>Lösung:</b> Dies ist ein kritischer Fehler. Führen Sie die Konfiguration wie in der Warnbox oben beschrieben exakt durch. Ohne diese Einstellung ist kein Import möglich.</p>
+
+            <h5>Problem: Fehlermeldung "Erste Importzeile zu klein".</h5>
+            <p><b>Lösung:</b> Der DATEV-Header in der CSV muss übersprungen werden. Setzen Sie die Startzeile in den Financial Suite Einstellungen auf mindestens 3.</p>
+
+            <h5>Problem: Im Protokoll erscheint der Fehler "Konto nicht gefunden" oder "Geschäftspartner nicht gefunden".</h5>
+            <p><b>Lösung:</b> Die Importdatei enthält ein Konto oder einen Geschäftspartner, der in SAP Business One nicht existiert. Legen Sie die fehlenden Stammdaten an und starten Sie den Import erneut.</p>
+
+            <h5>Problem: Im Protokoll erscheint der Fehler "Buchungsperiode gesperrt".</h5>
+            <p><b>Lösung:</b> Geben Sie die entsprechende Buchungsperiode in SAP Business One frei, bevor Sie den Import starten.</p>
+
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

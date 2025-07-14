@@ -1,0 +1,548 @@
+/* Angepasstes Design basierend auf dem Corporate Style von versino.de */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Allgemeine Stile */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef; /* Hellerer Hintergrund, um den Container hervorzuheben */
+    color: #333;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 30px auto; /* Zentriert die Seite und gibt oben/unten Abstand */
+    background-color: #ffffff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden; /* Stellt sicher, dass die Ecken rund bleiben */
+}
+
+/* Header */
+header {
+    color: #003862; 
+    padding: 1.5rem 25px; /* Mehr vertikaler Abstand */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dee2e6;
+    position: relative; 
+}
+
+/* Navigation */
+nav {
+    border-bottom: 1px solid #dee2e6;
+    padding: 1rem 0; /* Mehr vertikaler Abstand für zwei Zeilen */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0 10px; /* Etwas seitlicher Abstand für die Nav-Leiste */
+    margin: 0 auto; /* Zentriert die Liste */
+    text-align: center;
+}
+
+/* Abstand zwischen den beiden Navigations-Listen */
+nav ul:first-child {
+    margin-bottom: 5px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 1px; /* Weiter reduzierter Abstand zwischen den Elementen */
+}
+
+nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.85rem; /* Weiter verkleinerte Schrift für die langen Namen */
+    font-weight: 500;
+    padding: 10px 8px; /* Weniger vertikales Padding für kompaktere Zeilen */
+    display: block;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+nav a:hover, nav a:focus {
+    color: #ED731B;
+    border-bottom: 3px solid #ED731B;
+}
+
+/* Hauptinhalt */
+main {
+    padding: 25px;
+}
+
+article {
+    padding: 15px;
+    box-shadow: none;
+}
+
+/* Links im Haupttext */
+a {
+    color: #003862; 
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ED731B; 
+    text-decoration: underline;
+}
+
+h2, h3, h4 {
+    color: #003862;
+    border-bottom: 2px solid #ED731B;
+    padding-bottom: 8px;
+    margin-top: 1.5rem;
+}
+
+/* --- Stile für den Header mit Logos --- */
+.header-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
+}
+
+.header-title h1 {
+    font-size: 2.8rem; 
+    margin-bottom: 0;
+    border: none;
+    padding: 0;
+}
+
+.header-title p {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.logo-main {
+    flex-shrink: 0; 
+}
+.logo-main img {
+    max-height: 45px;
+    width: auto;
+}
+
+.logo-partner {
+    flex-shrink: 0; 
+}
+.logo-partner img {
+    max-height: 55px;
+    width: auto;
+}
+/* --- Stil für Modul-Bilder --- */
+.module-image {
+    display: block; /* Bild als Block-Element behandeln */
+    margin-left: auto; /* Automatischen linken Rand hinzufügen */
+    margin-right: auto; /* Automatischen rechten Rand hinzufügen */
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- Stil für den Zurück-Pfeil --- */
+.back-button {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 15px;
+    background-color: #e9ecef;
+    color: #333;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.back-button:hover {
+    background-color: #ED731B;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* --- Stil für den Download-Link --- */
+.download-link {
+    display: inline-block;
+    background-color: #003862;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.download-link:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* --- NEU: Stil für Download-Container --- */
+.download-container {
+    display: flex;
+    gap: 20px; /* Definiert den Abstand zwischen den Buttons */
+    margin-top: 10px;
+}
+
+.download-container .download-link {
+    flex: 1; /* Sorgt dafür, dass beide Buttons den verfügbaren Platz gleichmäßig aufteilen */
+    text-align: center; /* Zentriert den Text im Button */
+}
+
+
+/* --- Footer Stile --- */
+footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 40px 25px;
+    margin-top: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: left;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h4 {
+    color: #ED731B;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.footer-column p {
+    margin: 0 0 10px 0;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.footer-column a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #555;
+    color: #aaa;
+}
+/* --- Stil für Warnhinweise --- */
+.warning-box {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    border-left: 5px solid #ffa940;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.warning-box h4 {
+    margin-top: 0;
+    color: #d46b08;
+    border-bottom: none;
+}
+
+.image-placeholder {
+    color: #888;
+    font-style: italic;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    padding: 15px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+/* --- Stile für den Chat --- */
+.chat-button {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #ED731B; /* Orange Akzentfarbe */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+    z-index: 1000;
+}
+
+.chat-button:hover {
+    transform: scale(1.1);
+}
+
+.chat-window {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 370px;
+    max-height: 70vh;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    display: none; /* Standardmäßig ausgeblendet */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chat-window.active {
+    display: flex;
+}
+
+.chat-header {
+    background-color: #003862; /* Dunkelblau wie Header */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h4 {
+    margin: 0;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+}
+
+.chat-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+}
+
+.message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background-color: #e9ecef;
+    color: #333;
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+    margin-left: auto; /* Wichtig für die Rechts-Ausrichtung */
+}
+
+.chat-input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #dee2e6;
+    background-color: #fff;
+}
+
+#chat-input {
+    flex-grow: 1;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1rem;
+}
+
+#chat-send {
+    background-color: #003862;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+/* --- Stile für Kontaktformular --- */
+.contact-form {
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Stellt sicher, dass Padding die Breite nicht beeinflusst */
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-button {
+    display: inline-block;
+    background-color: #ED731B; /* Orange Akzentfarbe */
+    color: #ffffff;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #d46b08; /* Dunkleres Orange */
+}
+
+/* Stil für den aktiven, aktuell geöffneten Navigationslink */
+.nav-link-active {
+    color: #ED731B !important;
+    font-weight: bold;
+}
+/* Stil für besuchte Navigationslinks */
+.nav-link-visited {
+    color: #6ea3ce; /* Ein gedämpftes Grau zur Markierung */
+    text-decoration: underline; /* Wie gewünscht unterstrichen */
+    text-decoration-thickness: 1px;
+}
+
+
+/* Container für SAP Logo und Sprachumschalter */
+.header-right-column {
+    display: flex;
+    flex-direction: column; /* Stellt die Elemente untereinander */
+    align-items: center;    /* Zentriert die Elemente horizontal */
+}
+
+/* --- Schicker Sprachumschalter --- */
+.language-switcher-new {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px; /* Kleiner Abstand zum Logo darüber */
+}
+
+.language-switcher-new a {
+    padding: 5px 10px;
+    border: 1px solid #003862; /* Rand in Dunkelblau (Versino-Farbe) */
+    color: #003862;            /* Schrift in Dunkelblau */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.language-switcher-new a:hover {
+    background-color: #e9ecef; /* Heller Hover-Effekt */
+    color: #ED731B;            /* Schrift in Orange beim Hovern */
+}
+
+/* Stil für die gerade aktive Sprache */
+.language-switcher-new a.lang-active {
+    background-color: #ED731B; /* Hintergrund in Orange (Versino-Akzentfarbe) */
+    color: #ffffff;            /* Schrift weiß */
+    border-color: #ED731B;      /* Rand ebenfalls Orange */
+    cursor: default;
+}
+
+
+/* =================================== */
+/* === Responsive Design für Mobil === */
+/* =================================== */
+@media (max-width: 768px) {
+
+    /* --- Header-Anpassungen --- */
+    header {
+        flex-direction: column; /* Stabelt die Logos und den Titel vertikal */
+        gap: 20px;              /* Fügt Abstand zwischen den gestapelten Elementen hinzu */
+        padding: 20px 15px;     /* Passt den Innenabstand für Mobilgeräte an */
+    }
+
+    /* --- Titel-Anpassungen --- */
+    .header-title {
+        position: static;   /* Hebt die absolute Positionierung auf, damit es im Fluss bleibt */
+        transform: none;    /* Setzt die Zentrierungs-Transformation zurück */
+        width: 100%;        /* Erlaubt dem Titel, die volle Breite zu nutzen */
+        order: -1; /* Sorgt dafür, dass der Titel über den Logos steht */
+    }
+
+    .header-title h1 {
+        font-size: 1.8rem;  /* Verkleinert die Hauptüberschrift */
+    }
+
+    .header-title p {
+        font-size: 1rem;    /* Verkleinert den Untertitel */
+    }
+
+    /* --- Navigations-Anpassungen --- */
+    nav ul {
+        text-align: left; /* Richtet den Text linksbündig aus */
+    }
+    
+    nav ul li {
+       display: block;     /* Stellt jeden Menüpunkt in eine eigene Zeile */
+       margin: 5px 0;
+       text-align: center; /* Zentriert den Text innerhalb des Blocks */
+    }
+
+    nav a:hover, nav a:focus {
+        border-bottom-color: transparent; /* Entfernt den Hover-Effekt für Touch-Geräte */
+        background-color: #f0f0f0;
+        border-radius: 4px;
+    }
+}

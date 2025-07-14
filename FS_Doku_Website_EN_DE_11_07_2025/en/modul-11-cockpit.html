@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockpit</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Cockpit (Cockpit)</h2>
+            
+            <h3>Overview</h3>
+            <p>The Versino Cockpit is the central dashboard of the Financial Suite and provides a comprehensive work environment for managing, analyzing, and entering postings. It runs as a standalone window parallel to SAP Business One and acts as a starting point and control center for many financial processes.</p>
+            <p><b>Access:</b> You can access the Cockpit via <b>Versino Financial Suite > Financial Cockpit</b>. It automatically adopts your SAP B1 session and user rights.</p>
+            
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Home Page (Launchpad)</h4>
+            <p>The home page is your personal dashboard with configurable tiles for quick access to the most important areas of SAP Business One, such as master data, open documents, transactions, reports, and Financial Suite functions.</p>
+			<img src="../assets/images/Launchpad.png" alt="Application example: The Launchpad" class="module-image">
+
+            <h4>Account Ledgers (Analyzing Existing Postings)</h4>
+            <p>Under the <b>"Account Ledgers"</b> tab, you will find a powerful view of journal entries related to accounts/customers/vendors/daybook (DATEV). This is a pure <b>analysis and read-only view</b> that allows you to quickly filter, sort, and view details of existing postings with a double-click. <b>No</b> new postings can be created here.</p>
+
+            <h4>Posting Batches (Quickly creating new journal entries)</h4>
+            <p>Under the <b>"Posting Batches"</b> tab, you will find a separate tool designed specifically for the quick <b>creation</b> of new journal entries. It offers an input with intelligent automations:</p>
+            <ul>
+                <li>Automatic account type recognition (expense, revenue, etc.)</li>
+                <li>Automatic tax assignment based on account master data</li>
+                <li>Automatic gross/net calculation</li>
+            </ul>
+
+			<h4>Documents (Creating from parked documents)</h4>
+            <p>Under the <b>"Documents"</b> tab, you will find a separate tool designed specifically for the creation of <b>documents from parked documents</b>.</p>
+            <ul>
+                <li>After selecting the rows, you can use the <b>Continue to</b> button to <b>add or remove</b> the parked documents.</li>
+                <li>After creating the documents, you will receive a <b>status message</b> with all successful or failed documents.</li>
+                <li>You will then be automatically redirected to the <b>Documents tab</b>, and all <b>created documents</b> will be displayed.</li>
+            </ul>
+
+			<h4>Login (Multi-company Function)</h4>
+            <p>Under the <b>"Login"</b> tab, it is possible to log into another company database, either in the current window or in a new window.</p>
+			
+			<img src="../assets/images/Login.png" alt="Application example: The Login tab" class="module-image">
+
+            <h4>Other Functions</h4> 
+            <p>The Cockpit also offers:</p>
+			<ul>
+				<li> Predefined <b>Queries</b> (BP Exempt <b>|</b> BP Liable <b>|</b> Dunning Block <b>|</b> Payment Block <b>|</b> A/P Invoice <b>|</b> Revenue / Country <b>|</b> Account / Tax).</li>
+				<li> <b>Reports</b> (BWA <b>|</b> Trial Balance <b>|</b> Open Items Customers).</li>
+				<li> Advanced query of <b>Business Partner Master Data</b> with direct editing capability via the context menu (right-click).</li>
+			</ul>
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <ul>
+                <li><b>Summation Tip:</b> Select multiple rows with numeric values in any table. The sum of these values is automatically displayed when you hover over the column header.</li>
+				<li><b>Login Tip:</b> When changing company, you remain logged into the current B1 session. Also, there are no license limitations in the Cockpit (meaning a user can start more than two sessions).</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

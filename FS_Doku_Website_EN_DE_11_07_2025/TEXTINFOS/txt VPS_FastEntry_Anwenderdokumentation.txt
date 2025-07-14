@@ -1,0 +1,340 @@
+﻿VPS FINANCIAL SUITE - FAST ENTRY MODUL
+ANWENDERDOKUMENTATION
+=======================================
+
+ÜBERBLICK
+---------
+Das VPS FastEntry Modul ist ein Tool für die schnelle Erfassung von Eingangsrechnungen in SAP Business One. Es ermöglicht Anwendern, basierend auf bereits vorhandenen Belegen schnell neue Eingangsrechnungen zu erstellen. Das Modul bietet eine intelligente Suchfunktion, ein Favoriten-System und Multi-Datenbank-Unterstützung.
+
+ZUGANG ZUM MODUL
+----------------
+Das FastEntry Modul wird über das SAP Business One Menü aufgerufen:
+
+Menüpfad in SAP Business One:
+- Einkauf > Schnelle Eingangsrechnung
+- VPS Financial Suite > Schnelle Eingangsrechnung
+
+AUTOMATISCHE FELD-ERSTELLUNG
+----------------------------
+Bei der ersten Nutzung des Moduls werden automatisch folgende benutzerdefinierte Felder in Eingangsrechnungen erstellt:
+
+- Beleg als Favorit hinterlegt: Ja/Nein Auswahlfeld
+- Favoriten Bemerkung: Textfeld für Beschreibungen
+
+Diese Felder ermöglichen es, häufig verwendete Belege als Favoriten zu markieren und diese in der Suchfunktion bevorzugt anzuzeigen.
+
+[HINWEIS FÜR BILDER: Screenshot des FastEntry-Dialogs]
+
+HAUPTFUNKTIONEN
+---------------
+Das Modul bietet folgende zentrale Funktionen:
+
+SCHNELLE BELEGERFASSUNG:
+- Basierend auf vorhandenen Einkaufsbelegen
+- Automatische Datenübernahme vom Basis-Beleg
+- Intelligente Betragsverteilung bei abweichenden Rechnungsbeträgen
+- Erstellung als Draft-Beleg in SAP Business One
+
+INTELLIGENTE SUCHFUNKTION:
+- Volltext-Suche in verschiedenen Belegfeldern
+- Semikolon-getrennte Suchbegriffe
+- Umschaltung zwischen Beleg-Suche und Zeilen-Suche
+- Favoriten-basierte Priorisierung der Suchergebnisse
+
+MULTI-DATENBANK-UNTERSTÜTZUNG:
+- Zugriff auf mehrere SAP Business One Datenbanken
+- Sichere Authentifizierung pro Datenbank
+- Beleg-Erstellung in verschiedenen Mandanten
+
+FAVORITEN-MANAGEMENT:
+- Markierung häufig verwendeter Belege über benutzerdefinierte Felder
+- Priorisierte Anzeige in Suchergebnissen mit grüner Hervorhebung
+- Beschreibungstext für bessere Identifikation
+
+[HINWEIS FÜR BILDER: Screenshot der Hauptfunktionen im Überblick]
+
+BENUTZEROBERFLÄCHE UND BEDIENUNG
+---------------------------------
+Der FastEntry-Dialog gliedert sich in folgende Hauptbereiche:
+
+LIEFERANTEN-AUSWAHL:
+- Eingabefeld für Lieferanten-Code oder -Name
+- Automatische Vervollständigung bei Eingabe
+- Anzeige und Übernahme der Standard-Zahlungsbedingungen
+- Automatische Berechnung der Fälligkeitsdaten
+
+RECHNUNGS-DETAILS:
+- Lieferanten-Rechnungsnummer
+- Rechnungsdatum
+- Fälligkeitsdatum - automatisch berechnet
+- Steuerdatum
+- Brutto-Rechnungsbetrag
+
+SUCH- UND FILTER-OPTIONEN:
+- Freitext-Suchfeld mit Semikolon-Trennung für mehrere Begriffe
+- Umschaltung zwischen Beleg-Suche und Zeilen-Suche
+- Datenbank-Auswahl bei Multi-Datenbank-Umgebung
+- Schaltfläche zum Aktualisieren der Suchergebnisse
+
+SUCHERGEBNIS-MATRIX:
+- Tabelle mit gefundenen Belegen
+- Farbliche Hervorhebung nach Relevanz und Favoriten-Status
+- Anzeige von Belegtyp, Nummer, Datum und Betrag
+- Auswahl des Basis-Belegs durch Markierung
+
+[HINWEIS FÜR BILDER: Screenshot der Benutzeroberfläche mit beschrifteten Bereichen]
+
+LIEFERANTEN-AUSWAHL UND AUTOMATISIERUNG
+----------------------------------------
+Die Lieferanten-Auswahl bietet automatische Unterstützung:
+
+SUCHFUNKTION:
+Das System sucht nach Eingabe sowohl im Lieferanten-Code als auch im Lieferanten-Namen und übernimmt automatisch den ersten Treffer.
+
+AUTOMATISCHE DATENÜBERNAHME:
+Nach erfolgreicher Lieferanten-Auswahl:
+- Automatische Übernahme der Standard-Zahlungsbedingungen
+- Voreinstellung der aktuellen Datumswerte für Rechnung und Steuer
+- Aktivierung der Such- und Verknüpfungsfunktionen
+
+ZAHLUNGSBEDINGUNGEN-BEHANDLUNG:
+Das System berechnet automatisch das Fälligkeitsdatum basierend auf den Zahlungsbedingungen:
+- Normal: Rechnungsdatum plus Tage
+- Monatsbeginn: Zum ersten des Monats plus Zusatztage/-monate
+- Monatsmitte: Zum 15. oder Monatsende plus Zusatztage/-monate
+- Monatsende: Zum Monatsende plus Zusatztage/-monate
+
+FEHLERBEHANDLUNG:
+- Warnung bei nicht gefundenen Lieferanten
+- Validierung der Eingaben vor Beleg-Erstellung
+
+[HINWEIS FÜR BILDER: Beispiel der Lieferanten-Auswahl mit automatischen Berechnungen]
+
+INTELLIGENTE SUCHFUNKTIONEN
+----------------------------
+Das Modul bietet zwei Suchtypen mit unterschiedlichen Suchbereichen:
+
+BELEG-SUCHE:
+Durchsucht folgende Felder in den Belegköpfen:
+- Belegkommentare
+- Favoriten-Beschreibungen
+- Externe Belegnummern
+- Belegnummern
+- Beleg-IDs
+
+ZEILEN-SUCHE:
+Durchsucht Belegzeilen nach:
+- Artikel-Codes
+- Artikel-Beschreibungen
+
+SUCHSYNTAX:
+- Einzelwörter: "Büromaterial"
+- Mehrere Begriffe mit Semikolon: "Büromaterial;Papier;Toner"
+- Teilstring-Suche mit automatischen Wildcards
+- Groß-/Kleinschreibung wird ignoriert
+
+BEWERTUNGS- UND SORTIERLOGIK:
+Das System bewertet und sortiert Suchergebnisse nach:
+1. Favoriten-Status - höchste Priorität
+2. Suchrelevanz - Anzahl gefundener Begriffe
+3. Steuerdatum - neueste zuerst
+
+FARBLICHE HERVORHEBUNG:
+- Grün: Favoriten-Belege
+- Cyan: Hohe Suchrelevanz - mehr als 50% der Suchbegriffe gefunden
+- Gelb: Standard-Belege ohne Suchbegriffe
+- Weiß: Normale Relevanz
+
+[HINWEIS FÜR BILDER: Beispiel der Suchergebnisse mit Farbcodierung]
+
+UNTERSTÜTZTE BELEGTYPEN
+-----------------------
+Das Modul durchsucht und verwendet folgende SAP Business One Belegtypen als Basis:
+
+EINKAUFSBESTELLUNGEN:
+- Vollständige Suche in Kopf- und Zeilendaten
+- Verwendung als Basis für neue Eingangsrechnungen mit Verknüpfung
+
+WARENEINGÄNGE:
+- Vollständige Suche in Kopf- und Zeilendaten
+- Verwendung als Basis für neue Eingangsrechnungen mit Verknüpfung
+
+EINGANGSRECHNUNGEN:
+- Vollständige Suche in Kopf- und Zeilendaten
+- Vollständige Zeilen-Kopie ohne Verknüpfung
+
+[HINWEIS FÜR BILDER: Übersicht der unterstützten Belegtypen]
+
+BELEG-ERSTELLUNG UND DATENÜBERNAHME
+------------------------------------
+Der Kern-Prozess der schnellen Beleg-Erstellung:
+
+AUTOMATISCHE DATENÜBERNAHME:
+Das System übernimmt automatisch vom ausgewählten Basis-Beleg:
+- Lieferanten-Informationen
+- Belegtyp und Währung
+- Steuer-ID
+- Alle Belegzeilen mit entsprechenden Details
+
+UNTERSCHIEDLICHE BEHANDLUNG NACH BELEGTYP:
+
+Eingangsrechnungen:
+- Vollständige Kopie aller Zeilen-Eigenschaften
+- Kontierungen, Kostenstellen, Projekte
+- Artikel-Codes und Beschreibungen
+- Lagerort-Zuordnungen
+
+Andere Belegtypen:
+- Basis-Verknüpfungen zum Original-Beleg
+- Automatische SAP Business One Workflow-Integration
+
+BETRAGSVERTEILUNG:
+Bei abweichenden Rechnungsbeträgen erfolgt proportionale Verteilung:
+- Berechnung der Zeilen-Anteile vom Original-Beleg
+- Proportionale Neuverteilung basierend auf Brutto-Beträgen
+- Berücksichtigung der Steuersätze pro Zeile
+- Rundungsdifferenz-Behandlung
+
+BERECHNUNGSBEISPIEL:
+Original-Beleg: 1.000 EUR - 3 Zeilen: 400, 300, 300 Brutto
+Neue Rechnung: 1.200 EUR
+Proportionsfaktor: 1,2
+Neue Verteilung: 480, 360, 360 EUR Brutto
+Nach Steuer-Berechnung: entsprechende Netto-Beträge
+
+[HINWEIS FÜR BILDER: Schematische Darstellung der Betragsverteilung]
+
+MULTI-DATENBANK-UNTERSTÜTZUNG
+------------------------------
+Das FastEntry-Modul unterstützt die Arbeit mit mehreren SAP Business One Datenbanken:
+
+DATENBANK-VERWALTUNG:
+- Automatische Erkennung aller verfügbaren Datenbanken auf dem Server
+- Dropdown-Liste mit Datenbank-Codes und Firmennamen
+- Session-Management für mehrere gleichzeitige Verbindungen
+
+ANMELDE-DIALOG:
+Bei Wechsel zu einer anderen Datenbank öffnet sich automatisch ein Login-Dialog:
+- Eingabe von SAP Business One Benutzername und Passwort
+- Sichere Authentifizierung pro Datenbank
+- Automatische Speicherung erfolgreicher Verbindungen
+
+FUNKTIONALE UNTERSCHIEDE:
+Heim-Datenbank:
+- Vollständige Funktionalität
+- Direkte Verknüpfungen zu Belegen über Links
+- Automatisches Öffnen erstellter Draft-Belege
+
+Fremd-Datenbanken:
+- Beleg-Erstellung als Draft
+- Keine direkten Verknüpfungs-Features
+- Hinweis-Meldungen statt automatisches Öffnen
+- Ausgeblendete Link-Schaltflächen für Sicherheit
+
+SICHERHEITSASPEKTE:
+- Keine Speicherung von Passwörtern
+- Session-basierte Authentifizierung
+- Separate Berechtigungsprüfung pro Datenbank
+
+[HINWEIS FÜR BILDER: Screenshot des Multi-DB-Login-Dialogs]
+
+BELEG-ERSTELLUNG UND VALIDIERUNG
+---------------------------------
+Der Beleg-Erstellungsprozess beinhaltet umfangreiche Validierungen:
+
+EINGABE-VALIDIERUNGEN:
+Das System prüft vor der Beleg-Erstellung:
+- Lieferanten-Existenz und Eindeutigkeit
+- Rechnungsbetrag größer 0 - mit Benutzer-Bestätigung möglich
+- Lieferanten-Rechnungsnummer - mit Benutzer-Bestätigung optional
+- Vorhandensein von Suchergebnissen/Basis-Belegen
+
+BELEG-ERSTELLUNGS-PROZESS:
+1. Erstellung eines Draft-Dokuments
+2. Setzen des Ziel-Objekttyps auf Eingangsrechnungen
+3. Übernahme der Basis-Daten
+4. Zeilen-für-Zeilen Verarbeitung mit Betragsanpassung
+5. Rundungsbehandlung
+6. Speicherung mit SAP Business One
+
+FEHLERBEHANDLUNG:
+- Detaillierte SAP Business One Fehlermeldungen
+- Spezifische Warnungen bei fehlenden Eingaben
+- Benutzer-Bestätigungen bei kritischen Situationen
+
+ERFOLGSMELDUNGEN:
+- Automatisches Öffnen des erstellten Belegs bei Heim-Datenbank
+- Bestätigungsmeldung mit Rechnungsnummer bei Fremd-Datenbank
+
+[HINWEIS FÜR BILDER: Beispiele der Validierungsmeldungen]
+
+FAVORITEN-SYSTEM
+----------------
+Das Favoriten-System ermöglicht die Priorisierung häufig verwendeter Belege:
+
+FAVORITEN-KENNZEICHNUNG:
+Belege können in SAP Business One als Favoriten markiert werden über:
+- Beleg als Favorit hinterlegt: Ja/Nein Feld
+- Favoriten Bemerkung: Beschreibungstext
+
+AUTOMATISCHE PRIORISIERUNG:
+Favoriten-Belege werden in der Suchergebnis-Matrix:
+- Immer an erster Stelle sortiert
+- Mit grüner Hintergrund-Farbe hervorgehoben
+- Unabhängig von Suchbegriffen angezeigt
+
+VERWENDUNG VON FAVORITEN:
+1. In beliebiger Eingangsrechnung das Favoriten-Kennzeichen setzen
+2. Optional: Beschreibungstext für bessere Identifikation eingeben
+3. FastEntry erkennt und priorisiert diese Belege automatisch
+4. Grüne Hervorhebung in allen Suchergebnissen
+
+VORTEILE:
+- Sofortige Erkennbarkeit wichtiger Standard-Belege
+- Reduzierte Suchzeit bei wiederkehrenden Rechnungen
+- Bessere Organisation von Template-Belegen
+
+[HINWEIS FÜR BILDER: Screenshot der Favoriten-Konfiguration in einer Eingangsrechnung]
+
+SUCHERGEBNIS-DARSTELLUNG
+------------------------
+Die Suchergebnis-Matrix zeigt alle gefundenen Belege mit folgenden Informationen:
+
+MATRIX-SPALTEN:
+- Belegtyp: SAP Business One Objekttyp
+- Beleg-ID: Eindeutige Identifikation
+- Belegnummer: SAP Business One Belegnummer
+- Belegdatum: Erstellungsdatum
+- Fälligkeitsdatum: Zahlungsziel
+- Steuerdatum: Steuerlich relevantes Datum
+- Kommentare: Belegkommentare
+- Externe Nummer: Lieferanten-Belegnummer
+- Betrag: Gesamtbetrag mit Währung
+- Favorit: Ja/Nein Kennzeichen
+- Favoriten-Text: Beschreibung
+
+INTERAKTIVITÄT:
+- Zeilen-Auswahl für Basis-Beleg-Bestimmung
+- Link-Funktionen zu Original-Belegen nur bei Heim-Datenbank
+- Automatische Spalten-Anpassung
+- Farbcodierung nach Relevanz und Status
+
+BESCHRÄNKUNGEN:
+- Maximale Anzeige: 100 Ergebnisse
+- Automatische Sortierung nach Relevanz
+- Optimierte Abfragen für HANA und SQL Server
+
+[HINWEIS FÜR BILDER: Screenshot der Suchergebnis-Matrix mit allen Spalten]
+
+VERWENDUNGSTIPPS
+----------------
+1. Nutzen Sie das Favoriten-System für häufig verwendete Template-Belege
+2. Verwenden Sie spezifische Suchbegriffe für bessere Ergebnisse
+3. Trennen Sie mehrere Suchbegriffe mit Semikolon
+4. Wechseln Sie zwischen Beleg- und Zeilen-Suche je nach Suchziel
+5. Prüfen Sie die berechneten Fälligkeitsdaten vor der Beleg-Erstellung
+6. Kontrollieren Sie die proportionale Betragsverteilung bei abweichenden Summen
+7. Nutzen Sie die Multi-DB-Funktion für zentrale Beleg-Suche
+8. Beschreiben Sie Favoriten-Belege aussagekräftig für bessere Identifikation
+
+Das VPS FastEntry Modul bietet eine effiziente Lösung für die schnelle Erfassung wiederkehrender Eingangsrechnungen. Die intelligente Suchfunktion, das Favoriten-System und die Multi-Datenbank-Unterstützung ermöglichen eine deutliche Zeitersparnis beim Rechnungseingang.

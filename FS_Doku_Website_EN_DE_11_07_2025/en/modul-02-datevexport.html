@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DATEV Posting Export</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>DATEV Posting Export (Datev Export)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Datev Export Module</b> is the central interface for exporting SAP Business One data to the DATEV format. It enables complete data exchange, including postings, master data (customers, vendors, G/L accounts), and payment information, and is specifically optimized for German accounting requirements.</p>
+            <p><b>Access to the module:</b> You can find the export dialog under <b>Versino Financial Suite > DATEV Export/Import > DATEV Export</b>. The export logs can be viewed under <b>Versino Financial Suite > Protocols > Export Log</b>.</p>
+            
+            <h4>Advantages of the Module</h4>
+            <ul>
+                <li><b>Comprehensive Data Integration:</b> Exports not only journal entries but also all relevant master data and payment terms for a complete data handover.</li>
+                <li><b>Intelligent Status Management:</b> Effectively prevents duplicate exports through automatic status tracking for each posting and ensures complete traceability.</li>
+                <li><b>Quality Assurance:</b> Detailed logging, pre-export validation, and transparent error handling ensure data quality.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Comprehensive Data Export</h4>
+            <p>The module exports not only journal entries but also all relevant master data to ensure a complete data transfer to your tax advisor:</p>
+            <ul>
+                <li>Journal Entries</li>
+                <li>Customer and Vendor Master Data</li>
+                <li>G/L Account Descriptions</li>
+                <li>Payment Terms</li>
+            </ul>
+
+            <h4>Intelligent Export Status Management</h4>
+            <p>Each posting receives an export status to avoid duplicates and ensure traceability. This status is displayed directly in the journal entry.</p>
+
+            <h4>Detailed Filtering Options</h4>
+            <p>Extensive filters are available for the posting export to define the data volume precisely. You can filter by date type (posting or document date), period, posting type, and especially by export status.</p>
+
+            <h4>Logging and Monitoring</h4>
+            <p>All export processes are recorded in detail in a protocol tab. This helps to monitor success and to quickly identify and analyze any errors.</p>
+	
+            <hr>
+            
+            <h3>Application: Step-by-Step</h3>
+            
+            <h4>Exporting Postings and Master Data</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > DATEV Export</b>.</li>
+                <li>Select the <b>Data Types</b> to be exported (e.g., Journal Entries, Customers/Vendors).</li>
+                <li>Define the desired <b>Time Period</b> and the <b>Date Type</b>.</li>
+                <li>Set the filter for <b>"Posting Status"</b> to <b>"Only not exported"</b> to avoid duplicates.</li>
+                <li>Select the <b>Target Directory</b> for the export file.</li>
+                <li>Click on <b>"Start Export"</b>. The postings are exported and automatically marked as "exported" in SAP B1.</li>
+            </ol>
+             <img src="../assets/images/DatevExportSett.png" alt="Screenshot of the main export dialog with all export options" class="module-image">
+
+            <h4>Checking the Export Log</h4>
+            <p>After the export, switch to the <b>Protocol Tab</b>. Here you will see a detailed, color-coded record of all operations and can analyze any error messages.</p>
+			
+			<img src="../assets/images/DatevExportMessage.png" alt="Screenshot of the journal entry with DATEV export status field" class="module-image">
+            
+            <h4>Changing Export Status Manually</h4>
+            <p>Open the relevant journal entry in SAP Business One. In the "Financial Suite" tab, you can manually adjust the export status, for example, to allow a re-export.</p>
+            
+            <hr>
+
+            <h3>General Application Tips</h3>
+            <ul>
+                <li><b>Export Strategy:</b> Perform regular exports (e.g., monthly) to keep data volumes manageable. Use descriptive export paths for better organization.</li>
+                <li><b>Quality Check:</b> After each export, check the <b>Protocol</b> for warnings or errors. Validate exports with small time periods before processing large amounts of data.</li>
+                <li><b>Status Management:</b> Use the status filters specifically. To correct a faulty export, you can manually reset the status and re-export only the failed postings.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Troubleshooting</h3>
+            
+            <h5>Problem: Export fails with a validation error.</h5>
+            <p><b>Solution:</b> Check the protocol for details. Common causes are closed posting periods, missing account or tax assignments, or inconsistent charts of accounts. Analyze the error message in the protocol tab.</p>
+
+            <h5>Problem: The created export files are incomplete or faulty.</h5>
+            <p><b>Solution:</b> Ensure you have write permissions for the chosen export directory and that there is sufficient disk space. Check the export period.</p>
+
+            <h5>Problem: The export status of a posting is not updated.</h5>
+            <p><b>Solution:</b> Check your user permissions for modifying journal entries. Ensure that the add-on is installed correctly. In an emergency, the status can be changed manually in the journal entry.</p>
+            
+            <h5>Problem: The export dialog does not open.</h5>
+            <p><b>Solution:</b> Check your user permissions for the module. Ensure that the Financial Suite has loaded correctly and the menu item is active.</p>
+            
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

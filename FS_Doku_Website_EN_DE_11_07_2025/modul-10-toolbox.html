@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Werkzeugkasten</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Werzeugkasten (Toolbox)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Toolbox Modul</b> ist eine Sammlung praktischer Hilfswerkzeuge, die die Standard-Funktionalität von SAP Business One erweitern. Die Hauptfunktion ist das schnelle Löschen aller Zeilen in Tabellen-Ansichten (Matrizen), was die tägliche Arbeit erheblich erleichtert.</p>
+            <p>Das Modul arbeitet vollautomatisch im Hintergrund und erfordert keine Konfiguration. Es erweitert die Kontextmenüs (Rechtsklick) in allen relevanten Formularen dynamisch.</p>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            <p>Die Kernfunktion des Moduls ist die Erweiterung des Kontextmenüs in Tabellen (Matrizen) um den Eintrag <b>"Alle Zeilen löschen"</b>.</p>
+            <ul>
+                <li><b>Automatische Erkennung:</b> Das Tool erkennt automatisch alle Formulare mit Tabellen und fügt die Funktion hinzu.</li>
+                <li><b>Universelle Kompatibilität:</b> Die Funktion arbeitet mit allen SAP Standardformularen, die Tabellen enthalten (z.B. Verkaufs- & Einkaufsbelege, Journalbuchungen, Lagerbewegungen) und auch mit benutzerdefinierten Formularen.</li>
+                <li><b>Sicherer Lösch-Algorithmus:</b> Das Modul verwendet ausschließlich Standard-SAP-Löschfunktionen und respektiert dabei alle Berechtigungen. Es führt keine direkten Datenmanipulationen durch.</li>
+            </ul>
+            <hr>
+
+            <h3>Anwendung</h3>
+            <p>Die Verwendung ist denkbar einfach und beschleunigt die Korrektur von Belegen enorm:</p>
+            <ol>
+                <li>Öffnen Sie einen beliebigen Beleg, der Positionen in einer Tabelle enthält (z.B. eine Lieferung).</li>
+                <li>Klicken Sie mit der <b>rechten Maustaste</b> in den Bereich der Tabelle.</li>
+                <li>Wählen Sie im Kontextmenü die Option <b>"Alle Zeilen löschen"</b>.</li>
+                <li>Alle Zeilen werden sofort entfernt und eine Erfolgsmeldung erscheint in der Statusleiste.</li>
+            </ol>
+            
+            <div class="warning-box">
+                <h4>Achtung: Aktion kann nicht rückgängig gemacht werden</h4>
+                <p>Das Löschen der Zeilen ist endgültig und kann nicht über eine "Rückgängig"-Funktion wiederhergestellt werden. Gehen Sie sicher, dass Sie die Zeilen tatsächlich entfernen möchten.</p>
+            </div>
+            
+            <img src="assets/images/ToolBoxDelete.png" alt="Anwendungsbeispiel: Alle Zeilen löschen in einer Ausgangsrechnung" class="module-image">
+
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <h4>Praktische Anwendungsfälle</h4>
+            <ul>
+                <li><b>Korrektur von Fehleingaben:</b> Wenn Sie einen falschen Beleg begonnen haben, können Sie alle Zeilen mit einem Klick entfernen und neu starten.</li>
+                <li><b>Bereinigung kopierter Belege:</b> Beim Kopieren von Belegen können Sie schnell alle nicht benötigten Positionen entfernen.</li>
+                <li><b>Testing und Entwicklung:</b> Ideal, um in Testumgebungen Formulare schnell zurückzusetzen.</li>
+            </ul>
+
+            <h4>Problembehandlung</h4>
+            <ul>
+                <li><b>Problem: Der Menüpunkt "Alle Zeilen löschen" erscheint nicht.</b><br>Lösung: Stellen Sie sicher, dass Sie mit der rechten Maustaste direkt in eine bearbeitbare Tabelle (Matrix) klicken. In Formularen ohne Tabellen oder in nicht bearbeitbaren Ansichten ist die Funktion nicht verfügbar.</li>
+                <li><b>Problem: Beim Löschen tritt ein Fehler auf.</b><br>Lösung: Prüfen Sie, ob Sie die grundlegenden Bearbeitungsrechte für das geöffnete Formular in SAP Business One besitzen.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+VPS FINANCIAL SUITE - REPORTING MODUL
+ANWENDERDOKUMENTATION
+=====================================
+
+ÜBERBLICK
+---------
+Das VPS Reporting Modul ist das Berichtssystem der Versino Financial Suite für SAP Business One. Es bietet eine umfangreiche Sammlung vorgefertigter Crystal Reports für verschiedene betriebswirtschaftliche Auswertungen. Das Modul erkennt automatisch, ob Sie eine Microsoft SQL Server oder SAP HANA Datenbank verwenden, und lädt die entsprechenden Berichte.
+
+ZUGANG ZUM MODUL
+----------------
+Die Berichte erreichen Sie über das SAP Business One Menü:
+
+- Versino Financial Suite > Financial Suite Berichte
+
+Das Modul lädt beim ersten Start automatisch alle verfügbaren Berichte und richtet die Menüstruktur ein.
+
+[HINWEIS FÜR BILDER: Screenshot des Berichtsmenüs in SAP Business One]
+
+WAS BIETET DAS MODUL
+--------------------
+Das Reporting Modul stellt zwei Arten von Berichten zur Verfügung:
+
+STANDARD-BERICHTE:
+Berichte, die Sie direkt starten können ohne weitere Einstellungen:
+- Kassenbuch
+- Kontoauszug Sachkonten
+- Offene Posten Kunden (mit Release 07 Version)
+- Summen- und Saldenliste
+- Summen- und Saldenliste GP (Geschäftspartner-orientiert)
+- Top 10 Kunden
+- Top 10 Lieferanten
+- Zahlungsmoral
+- BWA (Betriebswirtschaftliche Auswertung)
+
+MASSEN-BERICHTE MIT FILTERN:
+Berichte mit Eingabefeldern für spezifische Auswertungen:
+- Saldenbestätigung (mit Stichtag und Geschäftspartner-Auswahl)
+- Netting Abstimmungen (mit Datumsbereich und GP-Filter)
+- Zahlungsavis (basierend auf Zahlungsläufen)
+
+[HINWEIS FÜR BILDER: Übersicht aller verfügbaren Berichte in einer Liste]
+
+WICHTIGE STANDARD-BERICHTE
+--------------------------
+
+KASSENBUCH:
+Zeigt alle Kassenbewegungen chronologisch an mit laufender Saldierung. Ideal für die tägliche Kassenführung und Kontrollen.
+
+KONTOAUSZUG SACHKONTEN:
+Erstellt detaillierte Kontobewegungen für ausgewählte Sachkonten mit Buchungsreihenfolge und Saldoverlauf.
+
+OFFENE POSTEN KUNDEN:
+Übersicht über alle unbezahlten Kundenforderungen mit Fälligkeitsanalyse und Altersstaffelung.
+
+SUMMEN- UND SALDENLISTE:
+Kompakte Übersicht aller Konten mit Anfangsbeständen, Periodenbewegungen und Endbeständen. Es gibt zwei Varianten:
+- Standard: Sachkonten-orientiert
+- GP-Version: Geschäftspartner-orientiert
+
+TOP 10 AUSWERTUNGEN:
+Ranking der wichtigsten Geschäftspartner:
+- Top 10 Kunden: Nach Umsatzvolumen
+- Top 10 Lieferanten: Nach Einkaufsvolumen
+
+ZAHLUNGSMORAL:
+Analyse des Zahlungsverhaltens mit durchschnittlichen Zahlungsdauern und Trends.
+
+BWA:
+Monatliche betriebswirtschaftliche Auswertung nach Standard BWA-Schema mit Ertrags- und Aufwandsübersicht.
+
+[HINWEIS FÜR BILDER: Beispiele der wichtigsten Berichte nebeneinander]
+
+BERICHTE MIT FILTERN
+--------------------
+
+SALDENBESTÄTIGUNG:
+Erstellt automatisch Saldenbestätigungen für ausgewählte Kunden.
+
+Filteroptionen:
+- Stichtag: Datum für die Saldenermittlung
+- Geschäftspartner: Auswahl über Choose-From-List
+
+Das System erstellt für jeden ausgewählten Kunden eine separate Datei mit dem Format "Saldenbestätigung [Kundencode] - [Kundenname]".
+
+NETTING ABSTIMMUNGEN:
+Dokumentiert durchgeführte Netting-Vorgänge zwischen Geschäftspartnern.
+
+Filteroptionen:
+- Abstimmungsdatum von/bis: Zeitraum der Netting-Vorgänge
+- Geschäftspartner: Dropdown-Auswahl aus Netting-Partnern
+
+Zeigt Übersicht aller Abstimmungen mit Details zu Ausgleichsbuchungen und Nachvollziehbarkeit.
+
+ZAHLUNGSAVIS:
+Erstellt Zahlungsavise basierend auf dem SAP Business One Zahlungsassistent.
+
+Filteroptionen:
+- Zahllauf: Auswahl aus abgeschlossenen Zahlungsläufen
+
+Das System zeigt automatisch nur Zahlungsläufe mit Status "Executed" an, sortiert nach neuesten zuerst.
+
+[HINWEIS FÜR BILDER: Screenshots der Filter-Dialoge für die verschiedenen Massen-Berichte]
+
+AUSGABEOPTIONEN
+---------------
+Alle Berichte unterstützen verschiedene Ausgabeformate:
+
+VERFÜGBARE FORMATE:
+- Vorschau: Anzeige in SAP Business One oder einem separaten Fenster
+- Druck: Direkter Ausdruck
+- PDF: Export als PDF-Datei
+- Excel: Export für weitere Bearbeitung
+- Word: Export ins Word-Format
+
+DATEINAMEN:
+Bei Standard-Berichten wird automatisch der Berichtsname verwendet. Bei Massen-Berichten erstellt das System individuelle Dateinamen für jeden Datensatz (z.B. "Saldenbestätigung [Kundencode] - [Kundenname]").
+
+AUTOMATISCHE ERKENNUNG:
+Das System erkennt automatisch Ihren Datenbanktyp (SQL Server oder HANA) und lädt die entsprechenden Berichtsversionen.
+
+[HINWEIS FÜR BILDER: Export-Dialog mit allen verfügbaren Optionen]
+
+VERWENDUNG DER BERICHTE
+-----------------------
+
+STANDARD-BERICHTE:
+1. Navigieren Sie zu: Financial Suite Berichte
+2. Wählen Sie den gewünschten Bericht aus
+3. Der Bericht öffnet sich automatisch in der Vorschau
+4. Wählen Sie bei Bedarf ein anderes Ausgabeformat
+
+MASSEN-BERICHTE:
+1. Wählen Sie den gewünschten Massen-Bericht
+2. Füllen Sie die Filterfelder aus:
+   - Pflichtfelder sind entsprechend markiert
+   - Choose-From-List öffnet sich per Klick auf das Lupen-Symbol
+   - Dropdown-Listen zeigen verfügbare Optionen
+3. Starten Sie die Berichterstellung
+4. Das System erstellt automatisch separate Dateien für jeden Datensatz
+
+FILTERUNG:
+- Datums-Filter: Klicken Sie auf das Kalender-Symbol
+- Choose-From-List: Lupen-Symbol öffnet die Auswahlliste
+- Dropdown: Zeigt automatisch verfügbare Werte an
+
+[HINWEIS FÜR BILDER: Schritt-für-Schritt Anleitung der Berichtsverwendung]
+
+BESONDERE FUNKTIONEN
+--------------------
+
+AUTOMATISCHE DATENBANKADAPTION:
+Das System lädt automatisch die richtige Berichtsversion basierend auf Ihrer Datenbank:
+- SQL Server: Verwendet optimierte SQL-Abfragen
+- HANA: Nutzt HANA-spezifische Funktionen und In-Memory-Processing
+
+BATCH-VERARBEITUNG:
+Massen-Berichte können mehrere Datensätze gleichzeitig verarbeiten und erstellen automatisch separate Ausgabedateien.
+
+INTEGRIERTE BERECHTIGUNGEN:
+Jeder Bericht verwendet eigene Berechtigungen, die in das SAP Business One Berechtigungssystem integriert sind.
+
+MEHRSPRACHIGKEIT:
+Berichtsnamen und -beschreibungen werden automatisch in der SAP Business One UI-Sprache angezeigt.
+
+[HINWEIS FÜR BILDER: Vergleich zwischen SQL Server und HANA Berichtsversionen]
+
+PROBLEMBEHANDLUNG
+-----------------
+
+Problem: Keine Daten im Bericht
+Lösung: Kontrollieren Sie die Filtereinstellungen und den gewählten Zeitraum
+
+Problem: Massen-Bericht erstellt keine Dateien
+Lösung: Prüfen Sie, ob die Filterkriterien Datensätze zurückgeben
+
+[HINWEIS FÜR BILDER: Häufige Fehlermeldungen und deren Lösungen]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS Reporting Modul bietet eine umfassende Sammlung betriebswirtschaftlicher Berichte für SAP Business One. Die automatische Datenbankadaption, die benutzerfreundlichen Filter bei Massen-Berichten und die vielfältigen Exportoptionen machen es zu einem wertvollen Werkzeug für alle Auswertungsanforderungen.
+
+Die Unterscheidung zwischen Standard-Berichten für den schnellen Zugriff und Massen-Berichten mit Filtermöglichkeiten deckt sowohl alltägliche Routineauswertungen als auch spezielle Anforderungen ab.
+
+Nach der automatischen Initialisierung stehen Ihnen sofort alle Berichte zur Verfügung - je nach Datenbanktyp in der optimierten Version für beste Performance und Funktionalität.

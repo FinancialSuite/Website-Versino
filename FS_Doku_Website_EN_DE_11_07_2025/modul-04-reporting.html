@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berichtserweiterungspaket</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Berichtserweiterungspaket (Reporting)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Reporting Modul</b> ist das zentrale Berichtssystem der Financial Suite. Es bietet eine umfangreiche Sammlung vorgefertigter Crystal Reports und arbeitet vollständig im Hintergrund, um Ihnen die passenden Auswertungen bereitzustellen. Ein wesentlicher Vorteil ist, dass das Modul automatisch erkennt, ob Sie eine <b>Microsoft SQL Server</b> oder <b>SAP HANA</b> Datenbank verwenden, und die entsprechenden, performance-optimierten Berichte lädt.</p>
+            <p>Das Modul startet asynchron, ohne die SAP Business One Oberfläche zu blockieren, und erkennt automatisch Ihre Systemsprache. <b>Zugang zu den Berichten:</b> Alle Berichte finden Sie im SAP Business One Menü unter <b>Versino Financial Suite > Financial Suite Berichte</b>.</p>
+            
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            <p>Das Modul bietet zwei Arten von Berichten, um unterschiedliche Anforderungen abzudecken:</p>
+
+            <h4>Standard-Berichte</h4>
+            <p>Diese Berichte können direkt gestartet werden und bieten schnelle Auswertungen. Die Filterung (z.B. nach Datum) erfolgt direkt im Crystal Reports Viewer.</p>
+            <ul>
+                <li><b>Kassenbuch:</b> Zeigt alle Kassenbewegungen chronologisch mit laufender Saldierung.</li>
+                <li><b>Kontoauszug Sachkonten:</b> Detaillierte Bewegungslisten für ausgewählte Sachkonten.</li>
+                <li><b>Offene Posten Kunden:</b> Übersicht über unbezahlte Forderungen mit Fälligkeitsanalyse.</li>
+                <li><b>Summen- und Saldenliste (SuSa):</b> Kompakte Übersicht aller Konten.</li>
+                <li><b>Top 10 Kunden/Lieferanten:</b> Ranking der wichtigsten Geschäftspartner.</li>
+                <li><b>Zahlungsmoral:</b> Analyse des Zahlungsverhaltens von Kunden.</li>
+                <li><b>BWA:</b> Monatliche betriebswirtschaftliche Auswertung.</li>
+            </ul>
+             <img src="assets/images/Reports.png" alt="Screenshot des Berichtsmenüs in SAP Business One" class="module-image">
+
+            <h4>Massen-Berichte</h4>
+            <p>Diese Berichte bieten vor dem Start spezielle Filterdialoge, um gezielte Massenverarbeitungen durchzuführen.</p>
+            <ul>
+                <li><b>Saldenbestätigung:</b> Erstellt separate Bestätigungsschreiben für beliebig viele Kunden zu einem wählbaren Stichtag.</li>
+                <li><b>Netting Abstimmungen:</b> Dokumentiert durchgeführte Netting-Vorgänge.</li>
+                <li><b>Zahlungsavis:</b> Erstellt detaillierte Zahlungsavise für einen bestimmten Zahllauf.</li>
+            </ul>
+            
+            <h4>Ausgabeoptionen</h4>
+            <p>Alle Berichte können direkt angezeigt, gedruckt oder in Formate wie <b>PDF, Excel oder Word</b> exportiert werden. Bei Massen-Berichten werden automatisch individuelle Dateinamen vergeben (z.B. "Saldenbestätigung_[Kundencode].pdf").</p>
+            
+            <hr>
+
+            <h3>Anwendung</h3>
+            
+            <h4>Standard-Bericht anwenden (z.B. Kontoauszug)</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Financial Suite Berichte > Kontoauszug Sachkonten</b>.</li>
+                <li>Ein Filter-Dialog öffnet sich. Geben Sie den gewünschten <b>Zeitraum</b>, die <b>Sachkonten</b> ein und den Anzeigetyp (B1-Form oder als externes Windows-Form).</li>
+                <li>Klicken Sie auf "OK". Der Bericht wird generiert.</li>
+                <li>Nutzen Sie die Export-Funktionen des Viewers, um den Bericht zu speichern.</li>
+            </ol>
+             <img src="assets/images/ReportsExample.png" alt="Anwendungsbeispiel: Erstellung eines Kontoauszugs" class="module-image">
+
+            <h4>Massen-Bericht anwenden (z.B. Saldenbestätigung)</h4>
+            <ol>
+                <li>Wählen Sie den Bericht <b>Saldenbestätigung</b>.</li>
+                <li>Füllen Sie die Filterfelder im erscheinenden Dialog aus (z.B. Stichtag, Geschäftspartner).</li>
+                <li>Starten Sie die Berichterstellung. Das System erstellt automatisch separate Dateien für jeden ausgewählten Kunden.</li>
+            </ol>
+
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h5>Problem: Ein Bericht ist leer oder zeigt keine Daten an.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie Ihre Filtereinstellungen, insbesondere den Datumsbereich. Stellen Sie sicher, dass für die gewählten Kriterien tatsächlich Daten in der Datenbank vorhanden sind.</p>
+
+            <h5>Problem: Die Berichte starten langsam.</h5>
+            <p><b>Lösung:</b> Beim allerersten Start eines Berichts nach dem Öffnen von SAP Business One kann die Initialisierung einen Moment dauern. Dies ist normal. Nachfolgende Berichte sollten schneller laden.</p>
+
+            <h5>Problem: Die Performance bei großen Datenmengen ist langsam.</h5>
+            <p><b>Lösung:</b> Die Berichte sind bereits für SQL und HANA optimiert. Um die Abfrage bei sehr großen Datenmengen weiter zu beschleunigen, schränken Sie die Filterkriterien (z.B. ein kürzerer Datumsbereich) so weit wie möglich ein.</p>
+
+            <h5>Problem: Crystal Reports funktioniert nicht oder es gibt eine Fehlermeldung bei der Datenbankverbindung.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass die Crystal Reports-Komponenten für SAP Business One korrekt installiert sind. Überprüfen Sie Ihre Datenbankverbindung und starten Sie SAP Business One neu. Bei anhaltenden Problemen kontaktieren Sie Ihren Administrator.</p>
+			
+			<h5>Problem: BWA Report lädt nicht.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass die Finanzberichtsvorlage BWA angelegt ist. Sie finden das Menü unter <b> Finanzwesen > Finanzberichtsvorlage </b>. Sollte dies nicht der Fall sein, können Sie diese selbst anlegen (wie im Bild dargestellt). Der <b>Standardkontenplan kann via Button automatisch</b> geladen werden. Bei anhaltenden Problemen kontaktieren Sie Ihren Administrator.</p>
+
+			<img src="assets/images/BWA.png" alt="Anwendungsbeispiel: Erstellung eines Kontoauszugs" class="module-image">
+			
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

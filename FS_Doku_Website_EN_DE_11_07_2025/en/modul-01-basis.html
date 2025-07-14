@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Suite</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Financial Suite (Financial Suite)</h2>
+            
+            <h3>Overview</h3>
+            <p>The <b>Versino Financial Suite Main Module</b> is the central coordination module of the Versino Financial Suite for SAP Business One. It acts as the foundation for all other modules, provides essential services, and loads language resources and all other modules of the suite upon startup.</p>
+            <p><b>Access to the module:</b> The core functions are accessible via the menu <b>Versino Financial Suite</b>, particularly under <b>Configuration > Financial Suite Assistant</b>, <b>Configuration > Settings</b>, and <b>Netting Overview</b>.</p>
+            
+            <h4>Advantages of the Module</h4>
+            <ul>
+                <li><b>System Integration:</b> Central coordination and uniform initialization of all Financial Suite modules.</li>
+                <li><b>Configuration Support:</b> A guided assistant for initial setup, including automatic adjustments for SKR03/SKR04 and CSV import options.</li>
+                <li><b>Business Partner Reconciliation:</b> A powerful netting system for automatically reconciling and clearing vendor and customer items.</li>
+                <li><b>User-Friendliness:</b> Transparent status and error messages as well as intuitive interfaces.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Financial Suite Assistant (ConfigWizard)</h4>
+            <p>The central tool for the initial configuration. The assistant provides a guided setup and supports the automatic adjustment of accounts and tax codes for the SKR03/SKR04 charts of accounts. It also allows importing configurations via a CSV file. Core features include:</p>
+            <ul>
+                <li><b>Template Support:</b> Offers complete templates for SKR03 and SKR04 and allows importing custom configurations via CSV.</li>
+                <li><b>Automatic Accounts:</b> Intelligent recognition and mapping of DATEV automatic accounts and standard tax codes.</li>
+                <li><b>Tax Code Setup:</b> Allows mapping of DATEV tax codes, EU identifiers, and configuring scenarios for §13b UStG (e.g., construction services, building cleaning).</li>
+            </ul>
+
+            <h4>Netting and Reconciliation</h4>
+            <p>A comprehensive system for automatically reconciling business partners who are both customers and suppliers. Features include:</p>
+            <ul>
+                <li>Overview of all business partners with customer and vendor balances and various filter options.</li>
+                <li>Option to consider cash discounts during reconciliation.</li>
+                <li>Automatic creation of the necessary A/P, A/R, and clearing entries.</li>
+                <li>Complete logging of all processes in a reconciliation history.</li>
+            </ul>
+
+            <h4>DATEV Basic Configuration</h4>
+            <p>Enables central management of all basic DATEV parameters such as client and consultant numbers, charts of accounts, G/L account lengths, and default paths for export and import.</p>
+            
+            <h4>System Integration</h4>
+            <p>The base module coordinates all other modules of the Financial Suite, ensures a uniform menu structure, user interface, and manages central configurations and dependencies.</p>
+
+            <hr>
+
+            <h3>Application: Step-by-Step</h3>
+
+            <h4>Using the Financial Suite Assistant</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Configuration > Financial Suite Assistant</b>.</li>
+                <li><b>Step 1 (Basic Settings):</b> Select the chart of accounts (e.g., SKR04), the account length (4-8 digits), and whether you want to activate suggestions.</li>
+                <li><b>Step 2 (Account Configuration):</b> Review the automatically assigned accounts. Adjust them manually if necessary or import your own CSV file.</li>
+                <li><b>Step 3 (Tax Code Setup):</b> Assign DATEV tax codes and configure special scenarios like §13b UStG.</li>
+                <li><b>Step 4 (Summary):</b> Review all changes and confirm to automatically apply the configuration in the system.</li>
+            </ol>
+             <img src="../assets/images/Modul1_Assi.png" alt="Application example: Screenshots of the four main steps of the assistant" class="module-image">
+
+            <h4>Performing a Netting Reconciliation</h4>
+            <ol>
+                <li>Open the overview via <b>Versino Financial Suite > Netting Overview</b>.</li>
+                <li>Set the desired filters (e.g., by due date) and activate "Consider cash discount" if needed.</li>
+                <li>For a global reconciliation, select the desired business partners and click "Global Reconciliation".</li>
+                <li>For a detailed individual reconciliation, double-click on a business partner, select the documents, and confirm the clearing.</li>
+            </ol>
+            <img src="../assets/images/Netting_Uebersicht.png" alt="Application example: Screenshots of the netting overview" class="module-image">
+
+            <hr>
+
+            <h3>General Application Tips</h3>
+            <ul>
+                <li><b>Optimal Use of the Assistant:</b> Use the SKR03/SKR04 templates for a quick and reliable basic configuration. Always create backups before making major changes.</li>
+                <li><b>Efficient Netting Usage:</b> Carefully configure the netting accounts in the settings before using the function for the first time.</li>
+                <li><b>Maintenance and Monitoring:</b> Perform test postings after changes and document all adjustments for future reference.</li>
+                <li><b>CSV Files:</b> Ensure that CSV files for import have the correct format (UTF-8, semicolon-separated).</li>
+            </ul>
+            
+            <hr>
+
+            <h3>Troubleshooting</h3>
+            
+            <h5>Problem: The assistant does not start.</h5>
+            <p><b>Solution:</b> Start SAP Business One as an administrator. If the problem persists, a reinstallation of the Financial Suite may be necessary.</p>
+
+            <h5>Problem: The account import from a CSV file fails.</h5>
+            <p><b>Solution:</b> Check the file format (UTF-8 encoding, semicolon as a separator). Ensure that there are no duplicate account numbers and that all columns comply with the validation rules.</p>
+
+            <h5>Problem: Netting does not work or entries are not created.</h5>
+            <p><b>Solution:</b> Check the business partner links (customer/vendor). Validate that the reconciliation and rounding accounts are correctly configured in the settings. Also, check user permissions for creating payments and journal entries.</p>
+            
+            <h5>Problem: The error message "DATEV not successfully started" appears on startup.</h5>
+            <p><b>Solution:</b> Restart SAP Business One as an administrator. If the problem persists, check the DATEV components installation or contact your IT administrator.</p>
+            
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

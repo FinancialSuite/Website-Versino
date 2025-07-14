@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Period Accrual/Deferral</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Period Accrual/Deferral (Pro-Rata)</h2>
+
+            <h3>Overview</h3>
+            <p>The <b>Versino Pro-Rata Module</b> automates the creation of pro-rata accrual/deferral postings in SAP Business One. When you create an invoice with a service period spanning multiple months (e.g., an annual license), the module distributes the amounts on a daily basis and automatically across the corresponding periods. This ensures a correct, period-based profit and loss statement.</p>
+            <p><b>Access & Configuration:</b> The settings are made under <b>Versino Financial Suite > Configuration > Pro-Rata Settings</b>. Here you must activate the module, define the necessary accrual/deferral accounts, and can specify the position of the date fields (in the header of the invoice or in a separate tab).</p>
+            <p><b>Supported Documents:</b> A/P and A/R invoices and their corresponding credit memos.</p>
+            <img src="../assets/images/ProRataSettings.png" alt="Screenshot of the Pro-Rata settings with all parameters" class="module-image">
+            
+            <hr>
+
+            <h3>Main Features</h3>
+
+            <h4>Automatic Accrual/Deferral Postings & Calculation</h4>
+            <p>The system automatically creates journal entries to distribute invoice amounts pro-rata on a daily basis across the corresponding months. It correctly handles different month lengths and partial months. The posting logic reverses the original revenue or expense posting, books the total amount to an accrual/deferral account, and then releases it monthly on a pro-rata basis.</p>
+
+            <h4>Flexible Accrual/Deferral (Header & Row Level)</h4>
+            <p>The module adds fields for the accrual/deferral period (From/To date) to the invoice forms. You can either set the period for the entire invoice in the <b>header area</b> or define it individually for each <b>invoice row</b>. A convenient button ("Copy date to rows") allows you to quickly transfer the data from the header to all rows.</p>
+
+            <h4>Reversal and Correction Functions</h4>
+            <p>Accruals/deferrals can be easily corrected. If you create a credit memo for a deferred invoice, the associated accrual/deferral postings are automatically reversed proportionally. Alternatively, you can manually reverse all accruals/deferrals via the action menu in the document, change the data, and recreate the postings.</p>
+
+            <h4>Integration & Support for Other Functions</h4>
+            <p>The module is seamlessly integrated into SAP Business One and the Financial Suite:</p>
+            <ul>
+                <li><b>Cost Accounting:</b> All dimensions (cost centers, projects, etc.) are carried over from the original invoice to the accrual/deferral postings.</li>
+                <li><b>Foreign Currencies & Branches:</b> The module works fully with foreign currency invoices and in multi-branch environments.</li>
+                <li><b>JE Text Setter:</b> If activated, all pro-rata postings automatically receive meaningful and traceable posting texts.</li>
+                <li><b>DATEV & Reporting:</b> All accrual/deferral postings are correctly included in the DATEV export and in reports.</li>
+            </ul>
+
+            <hr>
+            
+            <h3>Application</h3>
+
+            <h4>1. Preparation: One-time Configuration</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Configuration > Pro-Rata Settings</b>.</li>
+                <li><b>Activate</b> the module via the checkbox.</li>
+                <li>Define a <b>Sales Account</b> for revenue deferrals and a <b>Purchasing Account</b> for expense accruals.</li>
+                <li>Choose the desired <b>Position for the date fields</b> in the documents (header area or separate tab).</li>
+                <li>Save the settings.</li>
+            </ol>
+            
+            <h4>2. Daily Application in the Invoice</h4>
+            <ol>
+                <li>Create and save an A/P or A/R invoice.</li>
+                <li>Enter the <b>From Date</b> and <b>To Date</b> of the service period (in the header or in the rows).</li>
+                <li>In the "Pro-Rata Action" dropdown field, select the option <b>"Create Postings"</b>.</li>
+                <li>Confirm the action. The system creates the daily pro-rata accrual/deferral postings in the background.</li>
+                <li>With the actions "Show Postings" or "Cancel Postings", you can view or remove the created postings at any time.</li>
+            </ol>
+            <p><b>Important:</b> If you want to change an invoice with already created pro-rata postings, first cancel the accruals/deferrals, make the changes, and then recreate them.</p>
+            <img src="../assets/images/ProRataDone.png" alt="Application example: Creating a pro-rata accrual/deferral" class="module-image">
+
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <p>Here you will find solutions for the most common questions and problems:</p>
+            <ul>
+                <li><b>Problem: The pro-rata fields or the function button are not displayed in the invoice.</b><br>Solution: Check if the module is activated in the Pro-Rata settings. Restart SAP Business One so that the form extensions are loaded correctly.</li>
+                <li><b>Problem: The creation of the postings fails.</b><br>Solution: Ensure that the accrual/deferral accounts are correctly configured in the settings and that all affected posting periods are open in SAP Business One.</li>
+                <li><b>Problem: The amount distribution seems incorrect.</b><br>Solution: Check the entered From and To dates for correctness. The system calculates on a daily basis.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

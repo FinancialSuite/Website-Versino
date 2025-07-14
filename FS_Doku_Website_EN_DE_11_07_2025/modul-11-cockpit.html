@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cockpit</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Cockpit (Cockpit)</h2>
+            
+            <h3>Überblick</h3>
+            <p>Das Versino Cockpit ist das zentrale Dashboard der Financial Suite und bietet eine umfassende Arbeitsumgebung für die Verwaltung, Analyse und Erfassung von Buchungen. Es läuft als eigenständiges Fenster parallel zu SAP Business One und fungiert als Startpunkt und Kontrollzentrum für viele Finanzprozesse.</p>
+            <p><b>Zugang:</b> Das Cockpit erreichen Sie über <b>Versino Financial Suite > Financial Cockpit</b>. Es übernimmt automatisch Ihre SAP B1-Session und Benutzerrechte.</p>
+            
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Startseite (Launchpad)</h4>
+            <p>Die Startseite ist Ihr persönliches Dashboard mit konfigurierbaren Kacheln für den Schnellzugriff auf die wichtigsten Bereiche von SAP Business One, wie Stammdaten, offene Belege, Transaktionen, Berichte und Financial Suite Funktionen.</p>
+			<img src="assets/images/Launchpad.png" alt="Anwendungsbeispiel: Erfassen einer Buchung im Buchungsstack" class="module-image">
+
+            <h4>Kontoblätter (Bestehende Buchungen analysieren)</h4>
+            <p>Unter dem Reiter <b>"Kontoblätter"</b> finden Sie eine leistungsstarke Ansicht von Journalbuchungen mit Bezug auf Konten/Debitoren/Kreditoren/Primanota (DATEV). Dies ist eine reine <b>Analyse- und Leseansicht</b>, die es Ihnen erlaubt, bestehende Buchungen schnell zu filtern, zu sortieren und Details per Doppelklick anzuzeigen. Hier können <b>keine</b> neuen Buchungen erstellt werden.</p>
+
+            <h4>Buchungsstapel (neue Journalbuchungen schnell erfassen)</h4>
+            <p>Unter dem Reiter <b>"Buchungsstapel"</b> finden Sie ein separates Werkzeug, das speziell für die schnelle <b>Erstellung</b> von neuen Journalbuchungen konzipiert ist. Es bietet eine Eingabe mit intelligenten Automatismen:</p>
+            <ul>
+                <li>Automatische Kontotyp-Erkennung (Aufwand, Ertrag etc.)</li>
+                <li>Automatische Steuerzuordnung basierend auf den Kontostammdaten</li>
+                <li>Automatische Brutto-/Nettoberechnung</li>
+            </ul>
+
+			<h4>Dokumente (Anlage von geparkten Belegen)</h4>
+            <p>Unter dem Reiter <b>"Dokumente"</b> finden Sie ein separates Werkzeug, das speziell für die Anlage von <b>Belegen aus geparkten Belegen</b> konzipiert ist. </p>
+            <ul>
+                <li>Nach dem markieren der Zeilen können Sie über den Button <b>Weiter zu</b> die geparkten Belege <b>hinzufügen und oder entfernen</b>. </li>
+                <li>Nach Anlage der Belege erhalten Sie eine <b>Statusmeldung</b> mit allen erfolgreichen bzw. fehlgeschlagenen Belegen.</li>
+                <li>Anschließend werden sie automatisch auf den Tab <b>Dokumente</B> umgeleitet und es werden alle <b>angelegten Dokumente</b> angezeigt.</li>
+            </ul>
+
+			<h4>Login (Multicompany Funktion)</h4>
+            <p>Unter dem Reiter <b>"Login"</b> ist es Ihnen möglich sich in einen weiteren Mandaten, über das aktuelle Fenster oder über ein neues Fenster, anzumelden. </p>
+			
+			<img src="assets/images/Login.png" alt="Anwendungsbeispiel: Erfassen einer Buchung im Buchungsstack" class="module-image">
+
+            <h4>Weitere Funktionen</h4> 
+            <p>Das Cockpit bietet zudem:</p>
+			<ul>
+				<li> Vordefinierte <b>Abfragen</b> (GP Bfreit <b>|</b> GP Pflichtig <b>|</b> Mahnsperre <b>|</b> Zahlungssperre <b>|</b> Rechnungseinang <b>|</b> Erlöse / Land <b>|</b> Konto / Steuer).</li>
+				<li> <b>Berichte</b> (BWA <b>|</b> SUSA <b>|</b> OP-Kunden).</li>
+				<li> Erweiterte Abfrage von <b>Geschäftspartner-Stammdaten</b> mit direkter Bearbeitungsmöglichkeit über das Kontextmenü (Rechtsklick).</li>
+			</ul>
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <ul>
+                <li><b>Summierungs-Tipp:</b> Markieren Sie in einer beliebigen Tabelle mehrere Zeilen mit Zahlenwerten. Die Summe dieser Werte wird automatisch beim Hovern auf dem Spaltenkopf angezeigt.</li>
+				<li><b>Login-Tipp:</b> Beim Ummelden beleiben Sie weiterhin in der aktuellen B1 Session angemeldet, ebenfalls unterliegen Ihnen beim Cockpit keine Lizenzlimieterungen (das bedeutet Sie können mit dem Benuzter mehr als 2 Sitzungen starten)</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

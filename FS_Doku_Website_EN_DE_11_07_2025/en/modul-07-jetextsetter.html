@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posting Text Configurator</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
+        <article>
+            <h2>Posting Text Configurator (JE Text Setter)</h2>
+            
+            <h3>Overview</h3>
+            <p>The <b>Versino JE Text Setter Module</b> automates the creation of posting texts in SAP Business One. It automatically fills the text fields in numerous document types with predefined, meaningful descriptions. This saves time, reduces errors, and ensures uniform, traceable posting texts. A comprehensive default configuration is created on the first start, which you only need to activate.</p>
+            <p><b>Access to the module:</b> You can access the configuration under <b>Versino Financial Suite > Configuration > JE Text Configuration</b>.</p>
+
+            <hr>
+
+            <h3>Main Features</h3>
+            
+            <h4>Automatic & Context-sensitive Text Creation</h4>
+            <p>The module works in the background and automatically inserts appropriate posting texts when creating documents.</p>
+
+            <h4>Direct Configuration from Documents (Right-click)</h4>
+            <p>One of the most powerful features: You can create a new rule for automatic text creation directly from an SAP Business One document (e.g., an invoice) by right-clicking on any text field. The system automatically recognizes the form and the field, which greatly speeds up the setup process.</p>
+
+            <h4>Central Configuration Interface</h4>
+            <p>A central management window gives you full control. Here you can activate, deactivate, edit, copy, or delete all rules for the various document types individually in a clear list.</p>
+            
+            <h4>Seamless Integration with Other Modules</h4>
+            <p>The JeTextSetter significantly enhances the functionality of other modules with consistent texts:</p>
+            <ul>
+                <li><b>Pro-Rata:</b> Accrual/deferral postings receive understandable texts (e.g., "Pro-Rata Deferral March 2024"), improving traceability.</li>
+                <li><b>DATEV-Export:</b> Uniform posting texts increase the quality of exports and reduce inquiries from the tax advisor.</li>
+                <li><b>Reporting:</b> Standardized texts in all reports improve clarity and analysis.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Application</h3>
+            <p>After installation, the module is immediately available, but all rules are inactive by default. You must first activate the desired document types.</p>
+
+            <h4>1. Activate a Rule for a Document Type (Basic Step)</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Configuration > JE Text Configuration</b>.</li>
+                <li>Select the desired document type from the list (e.g., A/R Invoices).</li>
+                <li>Check the box in the "Active" column.</li>
+                <li>Save with "OK". The rule is now active.</li>
+            </ol>
+            <img src="../assets/images/TextConfig.png" alt="Application example: Configuration" class="module-image">
+			
+            <h4>2. Create a New Rule Directly from a Document (Recommended)</h4>
+            <ol>
+                <li>Open any document in SAP Business One (e.g., an A/R Invoice).</li>
+                <li><b>Right-click</b> on the text field you want to see in the posting text in the future.</li>
+				<li>Click on <b>Add Journal Entry Text</b>.</li>
+                <li>The JeTextSetter configuration window opens and has already added a new, pre-filled rule for this field.</li>
+                <li>The rules for automatic filling can be adjusted at any time with <b>Edit Journal Entry Text</b>.</li>
+				<li>By clicking <b>Execute Journal Entry Text</b>, the posting text can be previewed in the Accounting tab beforehand.</li>
+				<li>The Text Configurator will automatically adjust the <b>posting text in the journal entry</b> when the document is added.</li>
+            </ol>
+			
+            <img src="../assets/images/JeText1.png" alt="Application example: Configuration of a text template" class="module-image">
+            <img src="../assets/images/JeText4.png" alt="Application example: Preview of a text template" class="module-image">
+			<img src="../assets/images/JeText3.png" alt="Application example: Result in Journal Entry" class="module-image">
+			
+            <hr>
+
+            <h3>Tips and Troubleshooting</h3>
+            <ul>
+                <li><b>Problem: No texts are inserted automatically.</b><br>Solution: First, check in the configuration whether the rule for the relevant document type is activated.</li>
+                <li><b>Problem: The configuration list is empty when first opened.</b><br>Solution: The system automatically creates the default configurations on the very first start of the module. If in doubt, contact support.</li>
+                <li><b>Problem: Direct configuration via right-click does not work.</b><br>Solution: Ensure you have clicked on a text field and the JE Text Setter module is running correctly.</li>
+                <li><b>Problem: Texts are too long for the target field.</b><br>Solution: No need to worry, you can limit the maximum length of the texts in the Text Configurator per field. The maximum length for the posting text is 254 characters.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="../js/script.js"></script>
+</body>
+</html>

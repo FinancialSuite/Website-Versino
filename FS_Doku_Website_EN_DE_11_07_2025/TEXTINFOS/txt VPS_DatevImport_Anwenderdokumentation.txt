@@ -1,0 +1,260 @@
+VPS FINANCIAL SUITE - DATEV IMPORT MODUL
+ANWENDERDOKUMENTATION
+=========================================
+
+ÜBERBLICK
+---------
+Das VPS DatevImport Modul ermöglicht den Import von DATEV-CSV-Dateien in SAP Business One. Es unterstützt sowohl Einzeldateien als auch Massenimporte von Ordnern und erstellt Journalbuchungen oder vorerfasste Belege. Das Modul validiert alle Eingangsdaten und bietet umfassende Protokollierung.
+
+ZUGANG ZUM MODUL
+----------------
+Das DatevImport Modul wird über das SAP Business One Menü aufgerufen:
+
+Menüpfad in SAP Business One:
+- VPS Financial Suite > Import/Export > Import
+
+WICHTIGE VORAUSSETZUNG: REFERENZFELD-VERKNÜPFUNGEN
+--------------------------------------------------
+Vor dem ersten Import müssen die Referenzfeld-Verknüpfungen konfiguriert werden. Ohne diese Konfiguration kann kein Import durchgeführt werden!
+
+Betroffene Belegtypen (Object Codes):
+- 13: Ausgangsrechnungen
+- 14: Eingangsgutschriften  
+- 18: Eingangsrechnungen
+- 19: Ausgangsgutschriften
+- 24: Wareneingänge
+- 46: Lieferungen
+
+Konfiguration:
+1. SAP Business One > Administration > Definitionen > Allgemein > Referenzfeldverknüpfungen
+2. Für jeden Belegtyp das Zielfeld "U_VPS_DTV_REF" verknüpfen
+
+Das System prüft automatisch diese Verknüpfungen beim Start und zeigt eine Fehlermeldung, wenn sie fehlen.
+
+[HINWEIS FÜR BILDER: Screenshot der Referenzfeld-Verknüpfungen-Konfiguration]
+
+IMPORT-EINSTELLUNGEN KONFIGURIEREN
+----------------------------------
+Die Import-Einstellungen werden über die Financial Suite Einstellungen konfiguriert:
+
+Zugang zu den Einstellungen:
+- VPS Financial Suite > Konfiguration > Einstellungen
+- oder direkt über: Stammdaten > Benutzerdefinierte Objekte > DATEV Einstellungen
+
+DATEV IMPORT TAB:
+Im Einstellungsformular (VPS_DTV_SET) gibt es einen separaten "DATEV Import" Tab mit folgenden Konfigurationsmöglichkeiten:
+
+IMPORT-VERZEICHNIS:
+- Import-Ordner: Standard-Pfad für Import-Dateien
+- Button zum Durchsuchen und Auswählen des Verzeichnisses
+
+IMPORT-PARAMETER:
+- Erste Importzeile: Startzeile für Datenimport (Standard: 3)
+- Transaktionscode DATEV-Buchhaltung: Code für DATEV-Importe
+- Transaktionscode Lohn+Gehalt: Code für LUGS-Importe
+
+Die Einstellungen werden automatisch vom Import-Dialog geladen und verwendet.
+
+[HINWEIS FÜR BILDER: Screenshot der DATEV Einstellungen mit Import-Tab]
+
+IMPORT-DIALOG
+-------------
+Der Import-Dialog (FrmImportDialog.srf) bietet zwei Hauptbereiche über Tabs:
+
+IMPORT-TAB:
+- Datei/Ordner-Auswahl: Einzeldatei oder Massenimport
+- Quelldatentyp: DTV (DATEV) oder LUGS (anderes System)
+- Journaleintragstyp: VC (Vorerfasste Belege) oder JE (Direkte Buchungen)
+- Erste Importzeile: Startzeile für Datenimport (aus Einstellungen)
+- Filiale: Auswahl bei Multi-Branch-Systemen (falls aktiviert)
+- Import-Pfad: Datei oder Verzeichnis-Auswahl
+
+PROTOKOLL-TAB:
+- Detaillierte Anzeige der Import-Ergebnisse in einer Grid
+- Farbcodierte Meldungen (Grün/Gelb/Rot)
+- Modul, Beschreibung und Dateipfad pro Eintrag
+
+[HINWEIS FÜR BILDER: Screenshot des Import-Dialogs mit beiden Tabs]
+
+DATEI-AUSWAHL UND IMPORT-MODI
+-----------------------------
+Das Modul unterstützt zwei Import-Modi:
+
+EINZELDATEI-IMPORT:
+- Checkbox "Ordner-Import" nicht aktiviert
+- Auswahl einer spezifischen CSV-Datei
+- Button "Datei wählen" oder Doppelklick ins Pfad-Feld
+
+MASSENIMPORT (ORDNER):
+- Checkbox "Ordner-Import" aktivieren
+- Verzeichnis-Auswahl statt Einzeldatei
+- Automatische Verarbeitung aller *.csv Dateien im Ordner
+- Sequenzielle Abarbeitung
+
+DATEI-ANFORDERUNGEN:
+- CSV-Format mit korrekter DATEV-Struktur
+- Mindestens 3 Header-Zeilen (werden übersprungen)
+- Semikolon-getrennte Werte
+- UTF-8 oder ANSI-Zeichensatz
+
+[HINWEIS FÜR BILDER: Dateiauswahl-Dialog mit Einzeldatei vs. Ordner-Option]
+
+IMPORT-KONFIGURATION
+--------------------
+Die Import-Parameter werden aus den Financial Suite Einstellungen geladen:
+
+QUELLDATENTYP:
+- DTV: DATEV-Format mit DATEV-Transaktionscode (aus Einstellungen)
+- LUGS: Andere Systeme mit eigenem Transaktionscode (aus Einstellungen)
+
+JOURNALEINTRAGSTYP:
+- VC (Vorerfasste Belege): Erstellt Entwürfe zur Kontrolle
+- JE (Direkte Buchungen): Sofortige Buchungen - Warnung wird angezeigt
+
+ERSTE IMPORTZEILE:
+- Wird aus den Financial Suite Einstellungen geladen
+- Muss mindestens 3 sein (überspringt DATEV-Header)
+- Validierung verhindert zu kleine Werte
+
+FILIAL-UNTERSTÜTZUNG:
+- Nur sichtbar wenn Multi-Branch aktiviert (OADM.MltpBrnchs != 'N')
+- Dropdown mit aktiven Filialen aus OBPL
+- Standard: Hauptfiliale (MainBPL = 'Y')
+
+[HINWEIS FÜR BILDER: Import-Dialog mit geladenen Einstellungen]
+
+FELDMAPPING-KONFIGURATION
+-------------------------
+Das System verwendet eine erweiterte Konfiguration für DATEV-Feldmappings:
+
+MAPPING-BENUTZEROBERFLÄCHE:
+Das Mapping wird über das erweiterte Einstellungsformular konfiguriert:
+- Zugang über: VPS Financial Suite > Konfiguration > Einstellungen
+- Spezielle Matrix für DATEV-Feld-Zuordnungen
+- Unterstützung für alle 116 DATEV-Standardfelder
+
+UNTERSTÜTZTE MAPPINGS:
+- JournalEntriesMap: Zuordnung für Journalbuchungen
+- DocumentsMap: Zuordnung für Belege
+- PaymentsMap: Zuordnung für Zahlungen
+
+SPEZIELLE EINSTELLUNGEN:
+- ProcessEmptyBU: Verarbeitung leerer BU-Felder
+- SalesExemptTaxGroup: Steuergruppe für befreite Verkäufe
+- ExpenditureExemptTaxGroup: Steuergruppe für befreite Ausgaben
+
+Das System erkennt automatisch, welche DATEV-Felder verwendet werden und ordnet sie entsprechend den Mappings zu.
+
+[HINWEIS FÜR BILDER: Mapping-Matrix in den erweiterten Einstellungen]
+
+IMPORT-PROZESS UND VALIDIERUNG
+------------------------------
+Der Import läuft in mehreren Phasen ab:
+
+PHASE 1: DATEI-VALIDIERUNG
+- CSV-Datei öffnen und strukturell prüfen
+- Mindest-Zeilenzahl überprüfen
+- Erste Importzeile validieren
+
+PHASE 2: DATEN-VALIDIERUNG
+- Buchungsperioden prüfen
+- Konten-Existenz validieren  
+- Geschäftspartner-Zuordnungen
+- Währungs-Konsistenz
+- Steuerkennzeichen-Prüfung
+
+PHASE 3: BUCHUNGS-ERSTELLUNG
+- Generierung von Journalbuchungen oder vorerfassten Belegen
+- Anwendung der Mapping-Regeln
+- Referenz-Verknüpfungen setzen
+- Status-Updates
+
+VALIDIERUNGS-FEHLER:
+Das System prüft und meldet verschiedene Fehlertypen:
+- ImportFalscheStartzeile: Erste Importzeile < 3
+- ImportKontoNichtGefunden: Sachkonto existiert nicht
+- ImportGpMehrfachDefiniert: Geschäftspartner nicht eindeutig
+- ImportBuchungsperiodeGesperrt: Periode nicht buchbar
+- ImportWechselkursFehlt: Wechselkurs für Datum fehlt
+
+[HINWEIS FÜR BILDER: Import-Prozess mit Validierungs-Schritten]
+
+KONSOLIDIERUNGS-UNTERSTÜTZUNG
+-----------------------------
+Das Modul unterstützt Konsolidierungsszenarien:
+
+KONSOLIDIERUNGS-ERKENNUNG:
+- Automatische Erkennung über UDF 'CNSCMP' in OJDT und JDT1
+- Mindestens 2 Felder müssen existieren
+- Zusätzliche Option "CNS" (Konsolidierung) im Dropdown
+
+VERWENDUNG:
+- Dropdown "Szenario-Typ" wird um Konsolidierung erweitert
+- Ermöglicht spezielle Behandlung von Konsolidierungsbuchungen
+- Automatische Zuweisung zu Quellfirmen
+
+[HINWEIS FÜR BILDER: Konsolidierungs-Option im Import-Dialog]
+
+PROTOKOLLIERUNG UND MONITORING
+------------------------------
+Alle Import-Vorgänge werden detailliert protokolliert:
+
+PROTOKOLL-GRID:
+- Modul: Bereich des Import-Prozesses
+- Beschreibung: Detaillierte Meldung
+- Datei: Quelldatei-Pfad
+- LogType: Error/Warning/Info
+
+FARBCODIERUNG:
+- Rot: Fehler (Error)
+- Hellblau: Warnungen (Warning)  
+- Hellgrün: Erfolg (Info)
+
+REAL-TIME PROTOKOLL:
+- Live-Updates während Import
+- Automatische Spalten-Anpassung
+- Wechsel zum Protokoll-Tab nach Import
+- Detaillierte Fehlermeldungen
+
+[HINWEIS FÜR BILDER: Protokoll-Grid mit farbcodierten Meldungen]
+
+HÄUFIGE PROBLEME UND LÖSUNGEN
+-----------------------------
+
+Problem: "Referenzfeld-Verknüpfungen nicht konfiguriert"
+Lösung:
+- Administration > Definitionen > Referenzfeldverknüpfungen
+- Für Objektcodes 13,14,18,19,24,46 das Feld U_VPS_DTV_REF verknüpfen
+
+Problem: "Erste Importzeile zu klein"
+Lösung:
+- In den Financial Suite Einstellungen (Import-Tab) die erste Importzeile auf mindestens 3 setzen
+- DATEV-Header werden automatisch übersprungen
+
+Problem: "Datei existiert nicht"
+Lösung:
+- Pfad zur CSV-Datei überprüfen
+- Standard-Import-Verzeichnis in den Einstellungen konfigurieren
+- Bei Ordner-Import: *.csv Dateien im Verzeichnis vorhanden?
+
+Problem: "Import fehlerhaft" mit verschiedenen Unterfehlern
+Lösung:
+- Protokoll-Tab für Details prüfen
+- Einstellungen in Financial Suite überprüfen
+- Feldmapping-Konfiguration validieren
+- Quell-CSV-Datei auf Struktur prüfen
+
+[HINWEIS FÜR BILDER: Fehlermeldungen mit Lösungshinweisen]
+
+VERWENDUNGSTIPPS
+----------------
+1. Konfigurieren Sie zunächst alle Einstellungen in der Financial Suite
+2. Testen Sie Imports mit vorerfassten Belegen (VC)
+3. Prüfen Sie die Referenzfeld-Verknüpfungen vor dem ersten Import
+4. Verwenden Sie das Standard-Import-Verzeichnis aus den Einstellungen
+5. Überprüfen Sie das Protokoll nach jedem Import
+6. Bei Massenimporten: CSV-Dateien im konfigurierten Ordner bereitstellen
+7. Buchungsperioden vor Import freigeben
+8. Konten und Geschäftspartner in SAP B1 vor Import anlegen
+
+Das VPS DatevImport Modul bietet eine zuverlässige Lösung für den Import von DATEV-Daten in SAP Business One. Die zentrale Konfiguration über die Financial Suite Einstellungen, die automatische Validierung und die detaillierte Protokollierung gewährleisten eine sichere Datenübernahme. Die Referenzfeld-Verknüpfungen und die korrekten Einstellungen sind essentiell für den erfolgreichen Import.

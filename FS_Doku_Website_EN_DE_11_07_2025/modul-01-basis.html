@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Suite</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Financial Suite (Financial Suite)</h2>
+            
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Financial Suite Hauptmodul</b> ist das zentrale Koordinationsmodul der Versino Financial Suite für SAP Business One. Es fungiert als Basis für alle anderen Module, stellt essentielle Services bereit. Beim Start lädt Sprachressourcen und alle weiteren Module der Suite.</p>
+            <p><b>Zugang zum Modul:</b> Die Kernfunktionen sind über das Menü <b>Versino Financial Suite</b> erreichbar, insbesondere unter <b>Konfiguration > Financial Suite Assistent</b>, <b>Konfiguration > Einstellungen</b> und <b>Netting Übersicht</b>.</p>
+            
+            <h4>Vorteile des Moduls</h4>
+            <ul>
+                <li><b>Systemintegration:</b> Zentrale Koordination und einheitliche Initialisierung aller Module der Financial Suite.</li>
+                <li><b>Konfigurationsunterstützung:</b> Ein geführter Assistent für die Ersteinrichtung, inklusive automatischer Anpassung für SKR03/SKR04 und CSV-Import-Möglichkeiten.</li>
+                <li><b>Geschäftspartner-Abstimmung:</b> Ein leistungsstarkes Netting-System zum automatischen Abstimmen und Verrechnen von Debitoren- und Kreditorenposten.</li>
+                <li><b>Benutzerfreundlichkeit:</b> Transparente Status- und Fehlermeldungen sowie intuitive Oberflächen.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Financial Suite Assistent (ConfigWizard)</h4>
+            <p>Das zentrale Werkzeug für die Erstkonfiguration. Der Assistent bietet eine geführte Einrichtung und unterstützt die automatische Anpassung von Konten und Steuerkennzeichen für die Kontenrahmen SKR03/SKR04. Er ermöglicht auch den Import von Konfigurationen per CSV-Datei. Zu den Kernfunktionen gehören:</p>
+            <ul>
+                <li><b>Vorlagen-Unterstützung:</b> Bietet vollständige Vorlagen für SKR03 und SKR04 und erlaubt den Import benutzerdefinierter Konfigurationen via CSV.</li>
+                <li><b>Automatik-Konten:</b> Intelligente Erkennung und Zuordnung von DATEV-Automatikkonten und Standard-Steuerkennzeichen.</li>
+                <li><b>Steuerkennzeichen-Setup:</b> Ermöglicht die Zuordnung von DATEV-Steuercodes, EU-Kennzeichnungen und die Konfiguration von Sachverhalten für §13b UStG (z.B. Bauleistungen, Gebäudereinigung).</li>
+            </ul>
+
+            <h4>Netting und Abstimmungen</h4>
+            <p>Ein umfassendes System zur automatischen Abstimmung von Geschäftspartnern, die sowohl Kunden als auch Lieferanten sind. Funktionen umfassen:</p>
+            <ul>
+                <li>Übersicht aller Geschäftspartner mit Debitoren- und Kreditorensalden und diversen Filteroptionen.</li>
+                <li>Möglichkeit zur Berücksichtigung von Skonto bei der Abstimmung.</li>
+                <li>Automatische Erstellung der notwendigen Eingangs-, Ausgangs- und Ausgleichsbuchungen.</li>
+                <li>Vollständige Protokollierung aller Vorgänge in einer Abstimmungs-Historie.</li>
+            </ul>
+
+            <h4>DATEV-Grundkonfiguration</h4>
+            <p>Ermöglicht die zentrale Verwaltung aller grundlegenden DATEV-Parameter wie Mandanten- und Beraternummer, Kontenpläne, Sachkontenlängen und Standardpfade für den Ex- und Import.</p>
+            
+            <h4>Systemintegration</h4>
+            <p>Das Basismodul koordiniert alle anderen Module der Financial Suite, sorgt für eine einheitliche Menüstruktur, Benutzeroberfläche und verwaltet zentrale Konfigurationen sowie Abhängigkeiten.</p>
+
+            <hr>
+
+            <h3>Anwendung: Schritt-für-Schritt</h3>
+
+            <h4>Financial Suite Assistenten verwenden</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Financial Suite Assistent</b>.</li>
+                <li><b>Schritt 1 (Grundeinstellungen):</b> Wählen Sie den Kontenplan (z.B. SKR04), die Kontenlänge (4-8 Stellen) und ob Sie Vorschläge aktivieren möchten.</li>
+                <li><b>Schritt 2 (Konten-Konfiguration):</b> Überprüfen Sie die automatisch zugeordneten Konten. Passen Sie diese bei Bedarf manuell an oder importieren Sie eine eigene CSV-Datei.</li>
+                <li><b>Schritt 3 (Steuerkennzeichen-Setup):</b> Ordnen Sie DATEV-Steuercodes zu und konfigurieren Sie spezielle Sachverhalte wie §13b UStG.</li>
+                <li><b>Schritt 4 (Zusammenfassung):</b> Überprüfen Sie alle Änderungen und bestätigen Sie, um die Konfiguration automatisch im System umzusetzen.</li>
+            </ol>
+             <img src="assets/images/Modul1_Assi.png" alt="Anwendungsbeispiel: Screenshots der vier Hauptschritte des Assistenten" class="module-image">
+
+            <h4>Netting-Abstimmung durchführen</h4>
+            <ol>
+                <li>Öffnen Sie die Übersicht über <b>Versino Financial Suite > Netting Übersicht</b>.</li>
+                <li>Setzen Sie die gewünschten Filter (z.B. nach Fälligkeit) und aktivieren Sie bei Bedarf "Skonto berücksichtigen".</li>
+                <li>Für eine globale Abstimmung markieren Sie die gewünschten Geschäftspartner und klicken auf "Globale Abstimmung".</li>
+                <li>Für eine detaillierte Einzelabstimmung doppelklicken Sie auf einen Geschäftspartner, wählen die Belege aus und bestätigen die Verrechnung.</li>
+            </ol>
+            <img src="assets/images/Netting_Uebersicht.png" alt="Anwendungsbeispiel: Screenshots der vier Hauptschritte des Assistenten" class="module-image">
+
+            <hr>
+
+            <h3>Allgemeine Tipps für die Anwendung</h3>
+            <ul>
+                <li><b>Optimale Nutzung des Assistenten:</b> Nutzen Sie die SKR03/SKR04-Vorlagen für eine schnelle und sichere Grundkonfiguration. Erstellen Sie immer Backups vor größeren Änderungen.</li>
+                <li><b>Effiziente Netting-Nutzung:</b> Konfigurieren Sie die Netting-Konten in den Einstellungen sorgfältig, bevor Sie die Funktion das erste Mal nutzen.</li>
+                <li><b>Wartung und Überwachung:</b> Führen Sie Test-Buchungen nach Änderungen durch und dokumentieren Sie alle Anpassungen für spätere Referenz.</li>
+                <li><b>CSV-Dateien:</b> Stellen Sie sicher, dass CSV-Dateien für den Import das korrekte Format (UTF-8, Semikolon-getrennt) haben.</li>
+            </ul>
+            
+            <hr>
+
+            <h3>Fehlerbehandlung bei Problemen</h3>
+            
+            <h5>Problem: Der Assistent startet nicht.</h5>
+            <p><b>Lösung:</b> Starten Sie SAP Business One als Administrator. Falls das Problem weiterhin besteht, könnte eine Neuinstallation der Financial Suite erforderlich sein.</p>
+
+            <h5>Problem: Der Konten-Import aus einer CSV-Datei schlägt fehl.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie das Dateiformat (UTF-8 Kodierung, Semikolon als Trennzeichen). Stellen Sie sicher, dass keine doppelten Kontonummern enthalten sind und alle Spalten den Validierungsregeln entsprechen.</p>
+
+            <h5>Problem: Netting funktioniert nicht oder Buchungen werden nicht erstellt.</h5>
+            <p><b>Lösung:</b> Prüfen Sie die Geschäftspartner-Verknüpfungen (Kunde/Lieferant). Validieren Sie, ob die Abstimmkonten und Rundungskonten in den Einstellungen korrekt konfiguriert sind. Überprüfen Sie zudem die Benutzerberechtigungen für die Erstellung von Zahlungen und Journalbuchungen.</p>
+            
+            <h5>Problem: Beim Start erscheint die Fehlermeldung "DATEV nicht erfolgreich gestartet".</h5>
+            <p><b>Lösung:</b> Starten Sie SAP Business One als Administrator neu. Wenn das Problem bestehen bleibt, überprüfen Sie die DATEV-Komponenteninstallation oder kontaktieren Sie Ihren IT-Administrator.</p>
+            
+
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>

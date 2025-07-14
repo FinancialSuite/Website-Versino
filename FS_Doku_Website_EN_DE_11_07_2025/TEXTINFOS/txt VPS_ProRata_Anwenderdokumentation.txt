@@ -1,0 +1,262 @@
+VPS FINANCIAL SUITE - PRO-RATA MODUL
+ANWENDERDOKUMENTATION
+=====================================
+
+ÜBERBLICK
+---------
+Das VPS ProRata Modul erstellt automatisch zeitanteilige Abgrenzungsbuchungen in SAP Business One. Wenn Sie eine Rechnung über mehrere Monate erstellen, verteilt das Modul die Beträge automatisch auf die entsprechenden Perioden. Dies sorgt für eine korrekte periodengerechte Gewinn- und Verlustrechnung.
+
+ZUGANG ZUM MODUL
+----------------
+Die Konfiguration des ProRata Moduls erreichen Sie über das SAP Business One Menü:
+
+- Versino Financial Suite > Konfiguration > Pro-Rata Einstellungen
+
+[HINWEIS FÜR BILDER: Screenshot der Menünavigation zu Pro-Rata Einstellungen]
+
+WAS MACHT DAS MODUL
+-------------------
+Das ProRata Modul erweitert Ihre Rechnungsformulare um Datumsfelder zur Eingabe von Abgrenzungszeiträumen. Wenn Sie beispielsweise eine Jahresrechnung für eine Software-Lizenz erstellen, können Sie das Modul nutzen, um den Betrag automatisch auf 12 Monate zu verteilen.
+
+Das Modul unterstützt folgende Dokumenttypen:
+- Ausgangsrechnungen: Umsatzabgrenzung über mehrere Monate
+- Ausgangsgutschriften: Automatische Stornierung der Abgrenzungen
+- Eingangsrechnungen: Aufwandsabgrenzung für Lieferantenrechnungen
+- Eingangsgutschriften: Korrektur von Aufwandsabgrenzungen
+
+BEISPIEL:
+Sie erstellen eine Rechnung über 1.200 EUR für eine Jahres-Software-Lizenz vom 01.03.2024 bis 28.02.2025. Das System erstellt automatisch 12 Journalbuchungen zu je 100 EUR für jeden Monat von März 2024 bis Februar 2025.
+
+[HINWEIS FÜR BILDER: Beispielrechnung mit Pro-Rata-Feldern und resultierenden Buchungen]
+
+ERSTE SCHRITTE
+--------------
+Nach der Installation der VPS Financial Suite ist das ProRata Modul verfügbar, muss aber erst konfiguriert werden.
+
+GRUNDKONFIGURATION:
+1. Öffnen Sie die Pro-Rata Einstellungen über das Menü
+2. Aktivieren Sie Pro-Rata durch Setzen der Checkbox
+3. Geben Sie ein Verkaufskonto für Umsatzabgrenzungen ein
+4. Geben Sie ein Einkaufskonto für Aufwandsabgrenzungen ein
+5. Definieren Sie Transaktionscodes für beide Bereiche
+6. Wählen Sie die Datumsposition (Kopf oder separater Tab)
+7. Speichern Sie die Einstellungen
+
+WICHTIG: Nach der Aktivierung erscheinen die Pro-Rata-Felder in den entsprechenden Rechnungsformularen.
+
+[HINWEIS FÜR BILDER: Screenshot der Pro-Rata Einstellungen mit ausgefüllten Feldern]
+
+PRO-RATA-FELDER IM DETAIL
+-------------------------
+Das Modul erweitert Ihre Rechnungsformulare um verschiedene Pro-Rata-Felder:
+
+FELDER IM KOPFBEREICH:
+- Pro-Rata Von: Startdatum des Abgrenzungszeitraums (für die gesamte Rechnung)
+- Pro-Rata Bis: Enddatum des Abgrenzungszeitraums (für die gesamte Rechnung)
+
+FELDER IM ZEILENBEREICH:
+- Pro-Rata Von: Individuelles Startdatum pro Rechnungszeile
+- Pro-Rata Bis: Individuelles Enddatum pro Rechnungszeile
+
+ÜBERTRAGUNG-BUTTON:
+Ein spezieller Button "Datum in Zeilen kopieren" ermöglicht es, die Datumswerte vom Kopfbereich in alle Rechnungszeilen zu übertragen. Dies ist praktisch, wenn alle Positionen der Rechnung den gleichen Abgrenzungszeitraum haben.
+
+VERWENDUNG DER FELDER:
+- Kopfbereich: Für Rechnungen mit einheitlichem Abgrenzungszeitraum
+- Zeilenbereich: Für Rechnungen mit unterschiedlichen Abgrenzungszeiträumen pro Position
+- Übertragung-Button: Für schnelle Übernahme der Kopfdaten in alle Zeilen
+
+FLEXIBLE ABGRENZUNG:
+Sie können Pro-Rata sowohl auf Kopfebene (alle Positionen gleicher Zeitraum) als auch auf Zeilenebene (jede Position individueller Zeitraum) verwenden. Das System erkennt automatisch, welche Felder ausgefüllt sind und berechnet entsprechend.
+
+[HINWEIS FÜR BILDER: Screenshot einer Rechnung mit Pro-Rata-Feldern im Kopf- und Zeilenbereich plus Übertragung-Button]
+
+PRAKTISCHE ANWENDUNG
+--------------------
+Sobald Pro-Rata aktiviert ist, haben Sie verschiedene Möglichkeiten zur Nutzung:
+
+PRO-RATA-AKTION:
+Ein Dropdown-Menü "Pro-Rata Funktionen" bietet folgende Optionen:
+- "Pro-Rata Buchungen anzeigen": Zeigt bereits erstellte Abgrenzungen
+- "Pro-Rata Buchungen erstellen": Startet die automatische Buchungserstellung  
+- "Pro-Rata Buchungen stornieren": Entfernt alle Abgrenzungsbuchungen
+
+SO FUNKTIONIERT ES:
+1. Erstellen Sie Ihre Rechnung wie gewohnt
+2. Füllen Sie die Pro-Rata-Felder aus:
+   - Entweder im Kopfbereich für einheitliche Zeiträume
+   - Oder im Zeilenbereich für individuelle Zeiträume
+   - Nutzen Sie den Übertragung-Button für schnelle Kopie
+3. Speichern Sie die Rechnung
+4. Wählen Sie "Pro-Rata Buchungen erstellen" aus dem Aktions-Dropdown
+5. Das System erstellt automatisch die Abgrenzungsbuchungen
+
+WICHTIGER HINWEIS ZUR BUCHUNGSREIHENFOLGE:
+Pro-Rata-Buchungen sollten nach dem Speichern der Original-Rechnung erstellt werden. Falls Sie eine Rechnung mit bereits erstellten Pro-Rata-Buchungen ändern möchten, stornieren Sie zuerst die Abgrenzungsbuchungen, nehmen dann die Änderungen vor und erstellen anschließend neue Pro-Rata-Buchungen.
+
+KOPF- ODER ZEILENEBENE:
+- Kopfebene: Alle Positionen haben den gleichen Abgrenzungszeitraum
+- Zeilenebene: Jede Position kann einen individuellen Abgrenzungszeitraum haben
+- Gemischt: Sie können beide Ebenen kombinieren
+
+[HINWEIS FÜR BILDER: Screenshot einer Rechnung mit dem Pro-Rata Funktionen Dropdown geöffnet]
+
+AUTOMATISCHE BERECHNUNG
+-----------------------
+Das System berechnet automatisch, wie die Beträge auf die Monate verteilt werden:
+
+BERECHNUNGSBEISPIEL:
+Rechnung: 1.200 EUR vom 15.10.2024 bis 14.01.2025
+
+Oktober: 17 Tage von 31 = 658,06 EUR
+November: 30 Tage von 30 = 400,00 EUR
+Dezember: 31 Tage von 31 = 400,00 EUR
+Januar: 14 Tage von 31 = 341,94 EUR
+
+Das System berücksichtigt:
+- Unterschiedliche Monatslängen
+- Teilmonate am Anfang und Ende
+- Korrekte Rundung auf Cent-Beträge
+- Ausgleich von Rundungsdifferenzen
+
+BUCHUNGSLOGIK:
+Für Verkaufsrechnungen:
+- Stornierung der ursprünglichen Umsatzbuchung
+- Buchung auf das Pro-Rata-Verkaufskonto
+- Monatliche Auflösung vom Abgrenzungskonto
+
+Für Einkaufsrechnungen:
+- Stornierung der ursprünglichen Aufwandsbuchung
+- Buchung auf das Pro-Rata-Einkaufskonto
+- Monatliche Auflösung in den Aufwand
+
+[HINWEIS FÜR BILDER: Grafische Darstellung der Buchungsverteilung über Monate]
+
+STORNIERUNG UND KORREKTUREN
+---------------------------
+Das Modul bietet umfangreiche Korrektur-Möglichkeiten:
+
+AUTOMATISCHE STORNIERUNG:
+Wenn Sie eine Gutschrift zu einer abgegrenzten Rechnung erstellen, storniert das System automatisch die entsprechenden Abgrenzungsbuchungen proportional zum Gutschriftsbetrag.
+
+MANUELLE STORNIERUNG:
+Falls Sie alle Abgrenzungen entfernen möchten:
+1. Öffnen Sie die Original-Rechnung
+2. Wählen Sie "Pro-Rata Buchungen stornieren" aus dem Funktionen-Dropdown
+3. Das System erstellt automatisch Storno-Buchungen für alle Abgrenzungen
+
+KORREKTUREN:
+Wenn Sie die Abgrenzungsdaten einer Rechnung ändern möchten:
+1. Stornieren Sie zuerst die bestehenden Buchungen
+2. Ändern Sie die Pro-Rata-Daten (Kopf- oder Zeilenebene)
+3. Erstellen Sie neue Buchungen mit den korrigierten Daten
+
+[HINWEIS FÜR BILDER: Screenshot des Storno-Dialogs]
+
+ÜBERSICHT UND KONTROLLE
+-----------------------
+Das Modul bietet verschiedene Möglichkeiten zur Kontrolle Ihrer Abgrenzungen:
+
+BUCHUNGSÜBERSICHT:
+Über "Pro-Rata Buchungen anzeigen" sehen Sie alle erstellten Abgrenzungsbuchungen einer Rechnung mit:
+- Buchungsdatum und Periode
+- Buchungsbeträge
+- Status (aktiv/storniert)
+- Verknüpfung zu den Journalbuchungen
+
+STANDARDBERICHTE:
+Die Pro-Rata-Buchungen erscheinen in allen Standard-SAP-Business-One-Berichten:
+- Journalbuchungslisten
+- Saldenlisten
+- Bilanz und GuV
+
+INTEGRATION MIT VPS REPORTING:
+Pro-Rata-Buchungen werden automatisch in allen VPS Reporting Modulberichten berücksichtigt:
+- Kassenbuch: Zeigt Pro-Rata-Bewegungen
+- Kontoauszug Sachkonten: Inklusive Abgrenzungskonten
+- Summen- und Saldenliste: Mit Pro-Rata-Salden
+
+DATEV-INTEGRATION:
+Alle Pro-Rata-Buchungen werden automatisch und korrekt in den VPS DATEV-Export übernommen:
+- Spezielle Klassifizierung als Pro-Rata-Buchungen
+- Korrekte Referenzierung zur Original-Rechnung
+- Buchungstyp-Erkennung für optimalen DATEV-Export
+
+[HINWEIS FÜR BILDER: Screenshot der Buchungsübersicht mit allen Abgrenzungen]
+
+BESONDERE FUNKTIONEN
+--------------------
+Das Modul unterstützt erweiterte SAP Business One Funktionen:
+
+FREMDWÄHRUNGEN:
+Pro-Rata funktioniert vollständig mit Fremdwährungs-Rechnungen. Das System übernimmt automatisch die Wechselkurse und sorgt für konsistente Währungsbehandlung.
+
+FILIALEN:
+In Multi-Branch-Umgebungen werden die Filial-Zuordnungen automatisch übernommen und in den Abgrenzungsbuchungen berücksichtigt.
+
+KOSTENSTELLEN UND PROJEKTE:
+Alle Dimensionen aus der Original-Rechnung werden in die Abgrenzungsbuchungen übertragen:
+- Kostenstellen
+- Projekte  
+- Profit-Center (alle 5 Dimensionen)
+
+VALIDIERUNG:
+Das System prüft automatisch:
+- Offene Buchungsperioden für alle betroffenen Monate
+- Benutzerberechtigungen für Journalbuchungen
+- Korrekte Konfiguration der Pro-Rata-Konten
+- Gültige Datumsangaben
+
+[HINWEIS FÜR BILDER: Beispiel einer Fremdwährungs-Pro-Rata-Buchung]
+
+INTEGRATION MIT ANDEREN VPS-MODULEN
+-----------------------------------
+Das ProRata Modul arbeitet nahtlos mit anderen VPS-Modulen zusammen:
+
+VPS JETEXTSETTER:
+Wenn das JeTextSetter Modul aktiviert ist, erhalten Pro-Rata-Buchungen automatisch aussagekräftige Buchungstexte, die die Abgrenzungsperiode und den Original-Beleg klar kennzeichnen.
+
+VPS DATEV EXPORT:
+Pro-Rata-Buchungen werden im DATEV-Export speziell behandelt:
+- Automatische Erkennung als Abgrenzungsbuchungen
+- Korrekte Referenzierung zum Originalbeleg
+- Optimierte DATEV-Klassifizierung
+
+VPS REPORTING:
+Alle Pro-Rata-Buchungen sind vollständig in das Reporting-System integriert und erscheinen in allen relevanten Berichten.
+
+[HINWEIS FÜR BILDER: Diagramm der Modul-Integration]
+
+PROBLEMBEHANDLUNG
+-----------------
+Die häufigsten Probleme und ihre Lösungen:
+
+Problem: Pro-Rata-Felder werden nicht angezeigt
+Lösung: Pro-Rata in den Einstellungen aktivieren und SAP Business One neu starten
+
+Problem: Buchungserstellung schlägt fehl
+Lösung: Prüfen Sie, ob alle Buchungsperioden geöffnet sind und die Pro-Rata-Konten konfiguriert sind
+
+Problem: Übertragung-Button funktioniert nicht
+Lösung: Stellen Sie sicher, dass die Kopf-Datumsfelder korrekt ausgefüllt sind
+
+Problem: Falsche Betragsverteilung
+Lösung: Kontrollieren Sie die Von-/Bis-Datumsangaben und die Systemeinstellungen für Rundung
+
+Problem: Stornierung funktioniert nicht
+Lösung: Stellen Sie sicher, dass die Original-Buchungen noch existieren und die Buchungsperioden geöffnet sind
+
+Problem: Pro-Rata-Buchungen erscheinen nicht im DATEV-Export
+Lösung: Überprüfen Sie, ob der Export-Zeitraum die Pro-Rata-Buchungsperioden umfasst
+
+[HINWEIS FÜR BILDER: Checkliste für häufige Probleme]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS ProRata Modul automatisiert die zeitaufwändige Erstellung von Periodenabgrenzungen in SAP Business One. Durch die direkte Integration in die Rechnungsformulare mit flexiblen Kopf- und Zeilenfeldern wird die Bedienung intuitiv und effizient.
+
+Die automatische Berechnung der Monatsanteile, die praktische Übertragung-Funktion für Datumswerte und die umfassenden Storno-Funktionen machen das Modul zu einem wertvollen Werkzeug für eine periodengerechte Buchführung.
+
+Die nahtlose Integration mit anderen VPS-Modulen wie JeTextSetter für aussagekräftige Buchungstexte und dem DATEV-Export für optimale Datenübertragung sorgt für einen durchgängigen und professionellen Workflow.
+
+Der Übertragung-Button vereinfacht die Arbeit erheblich, wenn alle Rechnungspositionen den gleichen Abgrenzungszeitraum haben. Für komplexere Rechnungen können Sie jede Zeile individuell konfigurieren.

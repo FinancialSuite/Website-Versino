@@ -1,0 +1,29 @@
+Hi Gemini ich habe eine Website und würde gerne die Inhalte anpassen. Bitte füge alle Infos zu unserem HTML File hinzu. Bitte beachte die den allgemeinen Aufbau: 
+
+
+
+ -Überblick 
+
+
+
+ 	-Grundlagen und Infos zum Modul 
+
+
+
+ -Hauptfunktionen 
+
+
+
+ 	-Alle Funktionen des Moduls 
+
+
+
+ 		-Anwendung 
+
+
+
+ 			-Wie wende ich die Funktionen an 
+
+
+
+ -Allgemeine Tipps für Anwendung

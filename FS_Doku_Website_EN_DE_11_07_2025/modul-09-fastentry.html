@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schnellerfassung-Eingangsrechnung</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+	<div id="header-placeholder"></div>
+
+    <div id="nav-placeholder"></div>
+
+    <main id="content">
+	
+        <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
+        <article>
+            <h2>Schnellerfassung-Eingangsrechnung (Fast Entry)</h2>
+
+            <h3>Überblick</h3>
+            <p>Das <b>Versino Fast Entry Modul</b> ist ein spezialisiertes Werkzeug für die schnelle Erfassung von Eingangsrechnungen in SAP Business One. Es ist ideal für Unternehmen, die regelmäßig ähnliche Rechnungen von denselben Lieferanten erhalten. Anwender können auf Basis bereits existierender Einkaufsbelege (Eingangsrechnungen, Wareneingänge, Bestellungen) mit wenigen Klicks neue Rechnungen erstellen.</p>
+            <p><b>Zugang zum Modul:</b> Sie finden die Schnelleingabe im Menü unter <b>Einkauf > Schnellerfassende Eingangsrechnung</b>.</p>
+            <p>Bei der ersten Nutzung des Moduls werden automatisch zwei benutzerdefinierte Felder in den Eingangsrechnungen angelegt, die für das Favoriten-Management benötigt werden.</p>
+
+            <hr>
+
+            <h3>Hauptfunktionen</h3>
+            
+            <h4>Schnelle Beleg-Erfassung & Betragsverteilung</h4>
+            <p>Die Kernfunktion ist die Erstellung neuer Rechnungsentwürfe durch Kopieren von Daten aus einem vorhandenen Beleg. Weicht der neue Rechnungsbetrag vom Originalbeleg ab, verteilt das System den neuen Betrag <b>proportional</b> auf alle Zeilen.</p>
+
+            <h4>Intelligente Suchfunktionen</h4>
+            <p>Eine Volltext-Suche hilft, schnell den richtigen Basis-Beleg zu finden. Sie können zwischen einer <b>Beleg-Suche</b> (durchsucht Kommentare, Nummern, Favoriten-Bemerkungen) und einer <b>Zeilen-Suche</b> (durchsucht Artikelnummern und -beschreibungen) umschalten. Die Ergebnisse werden nach Relevanz farblich hervorgehoben:</p>
+            <ul>
+                <li><b>Grün:</b> Als Favorit markierte Belege.</li>
+                <li><b>Cyan:</b> Hohe Relevanz (mehr als 50% der Suchbegriffe gefunden).</li>
+                <li><b>Gelb/Weiß:</b> Normale Relevanz.</li>
+            </ul>
+            
+            <h4>Favoriten-Management</h4>
+            <p>Häufig genutzte Belege können direkt in der Eingangsrechnung als Favorit markiert werden. Diese erscheinen in den Suchergebnissen immer ganz oben (grün), was die Auswahl von Vorlagen enorm beschleunigt.</p>
+
+            <h4>Multi-Datenbank-Unterstützung</h4>
+            <p>Das Modul kann auf mehrere SAP Business One Datenbanken zugreifen, um einen Beleg aus einer Datenbank als Vorlage für eine neue Rechnung in einer anderen Datenbank zu verwenden.</p>
+
+            <hr>
+            
+            <h3>Anwendung</h3>
+            <ol>
+                <li>Navigieren Sie zu <b>Einkauf > Schnellerfassende Eingangsrechnung</b>.</li>
+                <li>Wählen Sie den <b>Lieferanten</b> aus. Die Zahlungsbedingungen und das Datum werden automatisch gefüllt.</li>
+                <li>Geben Sie die <b>Lieferanten-Rechnungsnummer</b> und den <b>Bruttobetrag</b> der neuen Rechnung ein.</li>
+                <li>Nutzen Sie das Suchfeld, um nach einer passenden Vorlage zu suchen (z.B. nach einem Artikel oder Projekt). Favoriten werden automatisch priorisiert.</li>
+                <li>Wählen Sie in der Ergebnisliste den passenden Beleg aus.</li>
+                <li>Klicken Sie auf <b>"Hinzufügen"</b>. Das System erstellt einen neuen Rechnungsentwurf mit den übernommenen Daten und dem neuen, proportional verteilten Betrag.</li>
+            </ol>
+            <img src="assets/images/Schnellerfassende.png" alt="Anwendungsbeispiel: Der Fast Entry Dialog in Aktion" class="module-image">
+            
+            <hr>
+
+            <h3>Tipps und Fehlerbehandlung</h3>
+            <ul>
+                <li><b>Favoriten nutzen:</b> Markieren Sie wiederkehrende Rechnungen (z.B. Miete, Leasing) als Favoriten, um diese sofort zu finden.</li>
+                <li><b>Effizient suchen:</b> Verwenden Sie spezifische Suchbegriffe und trennen Sie mehrere Begriffe mit einem Semikolon (;), um die Suche einzugrenzen. Wechseln Sie zwischen Beleg- und Zeilen-Suche.</li>
+                <li><b>Problem: Ein Lieferant wird nicht gefunden.</b><br>Lösung: Überprüfen Sie die Schreibweise. Die Suche funktioniert sowohl mit dem Lieferantencode als auch mit dem Namen.</li>
+                <li><b>Problem: Das Fälligkeitsdatum ist falsch.</b><br>Lösung: Das Datum wird automatisch auf Basis der beim Lieferanten hinterlegten Zahlungsbedingungen berechnet. Prüfen und korrigieren Sie diese ggf. in den Geschäftspartner-Stammdaten.</li>
+                <li><b>Problem: Die proportionale Verteilung scheint nicht zu stimmen.</b><br>Lösung: Kontrollieren Sie den eingegebenen Brutto-Betrag. Die Verteilung erfolgt auf Basis der Zeilenanteile des Originalbelegs. Eine eventuelle Rundungsdifferenz wird automatisch auf die erste Zeile gebucht.</li>
+            </ul>
+        </article>
+    </main>
+    <footer id="footer-placeholder"></footer>
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
