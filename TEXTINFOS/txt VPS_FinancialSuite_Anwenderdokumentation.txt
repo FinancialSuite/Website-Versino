@@ -2,86 +2,115 @@ VPS FINANCIAL SUITE - HAUPTMODUL
 ANWENDERDOKUMENTATION
 =====================================
 
-ÜBERBLICK
+ÃœBERBLICK
 ---------
-Das VPS FinancialSuite Hauptmodul ist das zentrale Modul der Versino Financial Suite für SAP Business One. Es fungiert als Koordinator und Basis für alle anderen VPS-Module und bietet die grundlegenden DATEV-Funktionen, Konfigurationsmöglichkeiten und den Financial Suite Assistenten. Dieses Modul stellt die essentiellen Services und die einheitliche Benutzeroberfläche für die gesamte Financial Suite bereit.
+Das VPS FinancialSuite Hauptmodul ist das zentrale Koordinationsmodul der Versino Financial Suite fÃ¼r SAP Business One. Es initialisiert die DATEV-Umgebung, startet die erforderlichen Sprachressourcen und lÃ¤dt alle weiteren VPS-Module. Dieses Modul fungiert als Basis fÃ¼r alle anderen VPS-Module und stellt die grundlegenden DATEV-Funktionen, KonfigurationsmÃ¶glichkeiten und den Financial Suite Assistenten bereit.
 
 ZUGANG ZUM MODUL
 ----------------
-Das FinancialSuite Hauptmodul wird über das SAP Business One Menü aufgerufen:
+Das FinancialSuite Hauptmodul wird Ã¼ber das SAP Business One MenÃ¼ aufgerufen:
 
-Menüpfad in SAP Business One:
-- Versino Financial Suite - Hauptmenü
+- Versino Financial Suite â€” HauptmenÃ¼
 - Versino Financial Suite > Konfiguration > Financial Suite Assistent
 - Versino Financial Suite > Konfiguration > Einstellungen
+- Versino Financial Suite > Netting Ãœbersicht
+- Versino Financial Suite > Netting-Abstimmungen
+
+GRUNDLAGEN UND INFOS ZUM MODUL
+------------------------------
+Das FinancialSuite Hauptmodul arbeitet als Starter und Koordinator fÃ¼r die gesamte VPS-Umgebung. Beim Start werden automatisch die Sprachressourcen geladen, eine DATEV-Anwendungsinstanz initialisiert und weitere Module wie der Financial Suite Assistent, das Netting-System und verschiedene Tools geladen.
+
+Das System Ã¼berprÃ¼ft beim Start die VerfÃ¼gbarkeit der DATEV-Komponenten und zeigt entsprechende Statusmeldungen an. Bei erfolgreicher Initialisierung werden umfangreiche KonfigurationsmÃ¶glichkeiten und Abstimmungsfunktionen bereitgestellt.
+
+AUFBAU UND FUNKTIONSWEISE:
+- Automatische Initialisierung der Sprachressourcen beim Start
+- Erstellung und Start einer DATEV-Anwendungsinstanz
+- Laden des DatevModuleLoader fÃ¼r weitere Funktionen
+- Bereitstellung des Financial Suite Assistenten
+- Integration des Netting-Systems fÃ¼r GeschÃ¤ftspartner-Abstimmungen
+- Koordination aller anderen VPS-Module
+
+VORTEILE DURCH DIE VERWENDUNG DES MODULS
+-----------------------------------------
+SYSTEMINTEGRATION:
+- Zentrale Koordination aller VPS-Module
+- Einheitliche DATEV-Initialisierung
+- Automatische SprachunterstÃ¼tzung
+
+KONFIGURATIONSUNTERSTÃœTZUNG:
+- GefÃ¼hrte Erstkonfiguration durch Financial Suite Assistent
+- Automatische Konten- und Steuerkennzeichen-Anpassung
+- SKR03/SKR04-UnterstÃ¼tzung mit CSV-Import
+
+GESCHÃ„FTSPARTNER-ABSTIMMUNG:
+- Automatisches Netting-System fÃ¼r Debitoren und Kreditoren
+- Globale und detaillierte Abstimmungsfunktionen
+- VollstÃ¤ndige Protokollierung aller AbstimmungsvorgÃ¤nge
+
+BENUTZERFREUNDLICHKEIT:
+- Mehrsprachige Statusmeldungen
+- Transparente Fehlerberichterstattung
+- Intuitive BenutzeroberflÃ¤chen
 
 HAUPTFUNKTIONEN
 ---------------
-Das Modul bietet folgende zentrale Funktionen:
-
 FINANCIAL SUITE ASSISTENT:
-- Geführte Erstkonfiguration
-- Automatische Konten- und Steuerkennzeichen-Anpassung
-- SKR03/SKR04-Unterstützung
-
-DATEV-GRUNDKONFIGURATION:
-- Mandanten- und Beraternummer
-- Kontenpläne und -längen
-- Steuereinstellungen
-- Export-/Import-Parameter
+Der Assistent fÃ¼hrt durch mehrere Konfigurationsschritte:
+- Grundeinstellungen: Kontenplan-Auswahl SKR03/SKR04, KontenlÃ¤nge 4-8 Stellen
+- Konten-Konfiguration: Automatische DATEV-Zuordnung, CSV-Import
+- Steuerkennzeichen-Setup: DATEV-Codes, EU-Kennzeichnung, Sachverhalte L+L
+- Zusammenfassung und AusfÃ¼hrung: Ã„nderungsÃ¼bersicht und automatische Umsetzung
 
 NETTING-FUNKTIONEN:
-- Geschäftspartner-Abstimmung
-- Saldierungskonten
-- Ausgleichsbuchungen
+- GeschÃ¤ftspartner-Abstimmung zwischen Debitoren und Kreditoren
+- Globale Massenabstimmung aller relevanten GeschÃ¤ftspartner
+- Detaillierte Einzelabstimmung mit vollstÃ¤ndiger Beleg-Ãœbersicht
+- Automatische Buchungserstellung fÃ¼r Zahlungen und Differenzen
 
-SYSTEMINTEGRATION:
-- Koordination aller VPS-Module
-- Einheitliche Benutzeroberfläche
-- Zentrale Konfigurationsverwaltung
+DATEV-GRUNDKONFIGURATION:
+- Mandanten- und Beraternummer-Verwaltung
+- KontenplÃ¤ne und LÃ¤ngen-Definition
+- Export-/Import-Parameter-Konfiguration
+- Systemintegration mit anderen VPS-Modulen
 
-[HINWEIS FÜR BILDER: Screenshot des Hauptmenüs der Financial Suite mit allen Untermenüs]
+[HINWEIS FÃœR BILDER: Screenshot des HauptmenÃ¼s der Financial Suite mit allen UntermenÃ¼s]
 
-FINANCIAL SUITE ASSISTENT
+ALLE FUNKTIONEN DES MODULS
 --------------------------
-Der Financial Suite Assistent ist das zentrale Tool für die Erstkonfiguration und spätere Anpassungen.
+FINANCIAL SUITE ASSISTENT IM DETAIL:
 
-Zugriff: Versino Financial Suite > Konfiguration > Financial Suite Assistent
+Schritt 1: Grundeinstellungen
+- Kontenplan-Auswahl: SKR03/SKR04 oder benutzerdefiniert
+- KontenlÃ¤nge: 4, 6 oder 8 Stellen
+- Verwendung von VorschlÃ¤gen
 
-Der Assistent führt durch mehrere Konfigurationsschritte:
-
-SCHRITT 1: GRUNDEINSTELLUNGEN
-- Kontenplan-Auswahl - SKR03/SKR04 oder benutzerdefiniert
-- Kontenlänge - 4, 6 oder 8 Stellen
-- Verwendung von Vorschlägen
-
-SCHRITT 2: KONTEN-KONFIGURATION
+Schritt 2: Konten-Konfiguration
 - Automatische DATEV-Konten-Zuordnung
 - Steuerkennzeichen-Mapping
 - Import von CSV-Vorlagen
-- Manuelle Anpassungen möglich
+- Manuelle Anpassungen mÃ¶glich
 
-SCHRITT 3: STEUERKENNZEICHEN-SETUP
+Schritt 3: Steuerkennzeichen-Setup
 - DATEV-Steuercodes zuordnen
 - EU-Kennzeichen setzen
 - Sachverhalte L+L konfigurieren
 - Erwerbsbesteuerungs-Einstellungen
 
-SCHRITT 4: ZUSAMMENFASSUNG UND AUSFÜHRUNG
-- Übersicht aller Änderungen
-- Bestätigung der Konfiguration
+Schritt 4: Zusammenfassung und AusfÃ¼hrung
+- Ãœbersicht aller Ã„nderungen
+- BestÃ¤tigung der Konfiguration
 - Automatische Umsetzung
 - Erfolgsmeldungen
 
-[HINWEIS FÜR BILDER: Screenshots der vier Hauptschritte des Assistenten]
+[HINWEIS FÃœR BILDER: Screenshots der vier Hauptschritte des Assistenten]
 
 KONTENPLAN-KONFIGURATION
 ------------------------
-Der Assistent bietet umfangreiche Möglichkeiten zur Kontenplan-Anpassung:
+Der Assistent bietet umfangreiche MÃ¶glichkeiten zur Kontenplan-Anpassung:
 
-VORLAGEN-UNTERSTÜTZUNG:
-- SKR03: Vollständige Vorlage für Standardkontenrahmen 03
-- SKR04: Vollständige Vorlage für Standardkontenrahmen 04
+VORLAGEN-UNTERSTÃœTZUNG:
+- SKR03: VollstÃ¤ndige Vorlage fÃ¼r Standardkontenrahmen 03
+- SKR04: VollstÃ¤ndige Vorlage fÃ¼r Standardkontenrahmen 04
 - Benutzerdefiniert: Freie Konfiguration
 - CSV-Import: Eigene Vorlagen importierbar
 
@@ -90,77 +119,71 @@ AUTOMATIK-KONTEN:
 - Zuordnung von DATEV-Automatikkonten
 - Standard-Steuerkennzeichen-Zuweisungen
 - Skonti- und Rundungskonten
+- Automatische Erstellung von 5%- und 16%-Steuerkonten
 
 KONFIGURIERBARE PARAMETER:
-- Kontenlänge - 4, 6 oder 8 Stellen
+- KontenlÃ¤nge: 4, 6 oder 8 Stellen
 - DATEV-Konto-Zuordnungen
-- Export-Status für Konten
-- Externe Codes für Drittanbieter
+- Export-Status fÃ¼r Konten
+- Externe Codes fÃ¼r Drittanbieter
 
 NEUE KONTEN ERSTELLEN:
 - Automatische Erstellung von 5%- und 16%-Steuerkonten
 - Vermeidung von Dubletten
 - Validierung vor Erstellung
-- Rückgängig-Option verfügbar
+- RÃ¼ckgÃ¤ngig-Option verfÃ¼gbar
 
-Verwendung:
-1. Kontenplan-Typ auswählen - SKR03/SKR04/Benutzerdefiniert
-2. Kontenlänge definieren
-3. Vorschläge aktivieren oder eigene CSV-Datei laden
-4. Änderungen überprüfen und bestätigen
-5. Automatische Umsetzung durchführen lassen
-
-[HINWEIS FÜR BILDER: Screenshot der Konten-Konfigurationsseite mit Eingabefeldern]
+[HINWEIS FÃœR BILDER: Screenshot der Konten-Konfigurationsseite mit Eingabefeldern]
 
 STEUERKENNZEICHEN-KONFIGURATION
 -------------------------------
-Die Steuerkennzeichen-Konfiguration ist essentiell für DATEV-konforme Buchungen:
+Die Steuerkennzeichen-Konfiguration ist essentiell fÃ¼r DATEV-konforme Buchungen:
 
 DATEV-STEUERCODE-ZUORDNUNG:
 - Automatische Zuordnung zu DATEV-Standards
-- Manuelle Anpassungsmöglichkeiten
+- Manuelle AnpassungsmÃ¶glichkeiten
 - Validierung der Zuordnungen
-- Vorschläge basierend auf Steuerart
+- VorschlÃ¤ge basierend auf Steuerart
 
 EU-KENNZEICHNUNG:
 - Automatische EU-Land-Erkennung
-- EU-Steuersätze konfigurieren
+- EU-SteuersÃ¤tze konfigurieren
 - Innergemeinschaftliche Lieferungen
-- OSS-Verfahren-Unterstützung
+- OSS-Verfahren-UnterstÃ¼tzung
 
 SACHVERHALTE L+L:
-- §13b UStG-Sachverhalte
+- Â§13b UStG-Sachverhalte
 - Erwerbsbesteuerung konfigurieren
 - Reverse-Charge-Verfahren
-- Bauleistungen und andere Spezialfälle
+- Bauleistungen und andere SpezialfÃ¤lle
 
-Verfügbare Sachverhalte:
+VerfÃ¼gbare Sachverhalte:
 - Bezogene Leistungen Ausland
-- Sicherungsübereignete Gegenstände
-- Umsätze lt. Grunderwerbsteuer
-- Bauleistungen inländisch ansässigen Unternehmen
-- Gas/Elektrizität Ausland
+- SicherungsÃ¼bereignete GegenstÃ¤nde
+- UmsÃ¤tze lt. Grunderwerbsteuer
+- Bauleistungen inlÃ¤ndisch ansÃ¤ssigen Unternehmen
+- Gas/ElektrizitÃ¤t Ausland
 - Treibhausgasemissionszertifikate
-- Altmetall/Schrott/Plastikabfälle
-- Gebäudereinigung
+- Altmetall/Schrott/PlastikabfÃ¤lle
+- GebÃ¤udereinigung
 - Lieferungen von Gold
-- Mobilfunkgeräte, Schaltkreise, Tablet-Computer
-- Gas/Elektrizität Inland
+- MobilfunkgerÃ¤te, Schaltkreise, Tablet-Computer
+- Gas/ElektrizitÃ¤t Inland
 - Lieferung lt. Anlage 4
 
 AUTOMATISCHE VALIDIERUNG:
-- Überprüfung der Steuerart-Kompatibilität
-- Validierung der Steuersätze
+- ÃœberprÃ¼fung der Steuerart-KompatibilitÃ¤t
+- Validierung der SteuersÃ¤tze
 - Kontrolle der EU-Kennzeichnung
 - Warnung bei kritischen Konfigurationen
 
-[HINWEIS FÜR BILDER: Screenshot der Steuerkennzeichen-Konfiguration mit Sachverhalten]
+[HINWEIS FÃœR BILDER: Screenshot der Steuerkennzeichen-Konfiguration mit Sachverhalten]
 
 CSV-IMPORT UND VORLAGEN
 -----------------------
-Der Assistent unterstützt den Import von Konfigurationsdateien:
+Der Assistent unterstÃ¼tzt den Import von Konfigurationsdateien:
 
-UNTERSTÜTZTE DATEIFORMATE:
+UNTERSTÃœTZTE DATEIFORMATE:
 - CSV-Dateien mit Semikolon-Trennung
 - UTF-8 oder ANSI-Kodierung
 - Excel-kompatible Formate
@@ -174,46 +197,46 @@ Erforderliche Spalten:
 - DATEV-Automatikkonto: Automatik-Zuordnung
 - Standard-USt.-Kennzeichen: Steuercode
 - DATEV-Export: Export-Status
-- Übergeordnetes Konto: Übergeordnetes Konto
+- Ãœbergeordnetes Konto: Ãœbergeordnetes Konto
 - Externer Code: Fremdsystem-Referenz
 
 STEUERKENNZEICHEN-CSV-STRUKTUR:
 Erforderliche Spalten:
 - Steuerkennzeichen: SAP B1 Code
 - Bezeichnung: Beschreibung
-- Inaktiv: Status - Ja/Nein
+- Inaktiv: Status (Ja/Nein)
 - Kategorie: Vorsteuer/Umsatzsteuer
 - EU: EU-Kennzeichen
-- Erwerb/Rückbuchung: Reverse Charge
-- Gültig ab: Datum
+- Erwerb/RÃ¼ckbuchung: Reverse Charge
+- GÃ¼ltig ab: Datum
 - Satz: Steuersatz in Prozent
 - DATEV-Kennzeichen: DATEV-Code
 
 IMPORT-PROZESS:
 1. CSV-Datei vorbereiten und validieren
-2. "Datei wählen" im Assistenten klicken
-3. Datei auswählen und laden
+2. "Datei wÃ¤hlen" im Assistenten klicken
+3. Datei auswÃ¤hlen und laden
 4. Automatische Validierung der Daten
-5. Vorschau der Änderungen prüfen
-6. Import bestätigen und durchführen
+5. Vorschau der Ã„nderungen prÃ¼fen
+6. Import bestÃ¤tigen und durchfÃ¼hren
 
-[HINWEIS FÜR BILDER: Beispiel einer CSV-Datei mit korrekter Struktur]
+[HINWEIS FÃœR BILDER: Beispiel einer CSV-Datei mit korrekter Struktur]
 
 DATEV-GRUNDKONFIGURATION
 -------------------------
-Über die Einstellungen können grundlegende DATEV-Parameter konfiguriert werden:
+Ãœber die Einstellungen kÃ¶nnen grundlegende DATEV-Parameter konfiguriert werden:
 
 Zugriff: Versino Financial Suite > Konfiguration > Einstellungen
 
 MANDANTEN-EINSTELLUNGEN:
-- Mandantennummer - 1-99999
-- Beraternummer - 1001-9999999
+- Mandantennummer (1-99999)
+- Beraternummer (1001-9999999)
 - Wirtschaftsjahr-Beginn
 - Buchungskreis-Definition
 
 KONTENPLAN-PARAMETER:
-- Sachkontenlänge - 4, 6 oder 8 Stellen
-- SKR-Typ - SKR03/SKR04
+- SachkontenlÃ¤nge: 4, 6 oder 8 Stellen
+- SKR-Typ: SKR03/SKR04
 - Kontenvalidierung aktivieren
 - Automatikkonten verwenden
 
@@ -225,38 +248,38 @@ EXPORT-EINSTELLUNGEN:
 
 IMPORT-PARAMETER:
 - Standard-Import-Verzeichnis
-- Transaktionscodes für Import
+- Transaktionscodes fÃ¼r Import
 - Erste Importzeile definieren
 - Fehlerbehandlung konfigurieren
 
 NETTING-KONFIGURATION:
-- Netting-Standardkonto für Ausgleichsbuchungen
+- Netting-Standardkonto fÃ¼r Ausgleichsbuchungen
 - Sollbeleg-Netting-Ausgleichskonto
 - Habenbeleg-Netting-Ausgleichskonto
-- Netting-Referenztext für Buchungsverfolgung
-- Buchungstext für Netting-Journalbuchungen
+- Netting-Referenztext fÃ¼r Buchungsverfolgung
+- Buchungstext fÃ¼r Netting-Journalbuchungen
 
-[HINWEIS FÜR BILDER: Screenshot des Einstellungs-Dialogs mit allen Parametern]
+[HINWEIS FÃœR BILDER: Screenshot des Einstellungs-Dialogs mit allen Parametern]
 
 NETTING UND ABSTIMMUNGEN
 ------------------------
-Das VPS FinancialSuite Modul bietet ein umfassendes Netting-System für die automatische Abstimmung von Geschäftspartnern:
+Das VPS FinancialSuite Modul bietet ein umfassendes Netting-System fÃ¼r die automatische Abstimmung von GeschÃ¤ftspartnern.
 
 ZUGANG ZUM NETTING-SYSTEM:
-- Versino Financial Suite > Netting Übersicht
+- Versino Financial Suite > Netting Ãœbersicht
 - Versino Financial Suite > Netting-Abstimmungen
 
-ÜBERSICHT DER GESCHÄFTSPARTNER:
-Die Netting-Übersicht zeigt alle Geschäftspartner mit Debitoren- und Kreditorensalden an:
+ÃœBERSICHT DER GESCHÃ„FTSPARTNER:
+Die Netting-Ãœbersicht zeigt alle GeschÃ¤ftspartner mit Debitoren- und Kreditorensalden an.
 
 FILTER-OPTIONEN:
-- Filter nach Debitor/Kreditor: Eingrenzung auf spezifische Geschäftspartner
-- Fälligkeitsfilter: Anzeige nach Fälligkeitsdatum
+- Filter nach Debitor/Kreditor: Eingrenzung auf spezifische GeschÃ¤ftspartner
+- FÃ¤lligkeitsfilter: Anzeige nach FÃ¤lligkeitsdatum
 - Salden-Filter: "Alle", "nur Debitor", "nur Kreditor" oder "Debitor und Kreditor"
-- Skontoberücksichtigung: Automatische Berücksichtigung von Skonto in Berechnungen
+- SkontoberÃ¼cksichtigung: Automatische BerÃ¼cksichtigung von Skonto in Berechnungen
 
 ANZEIGE-INFORMATIONEN:
-- Geschäftspartner-Code und -Name
+- GeschÃ¤ftspartner-Code und -Name
 - Debitoren-Saldo
 - Kreditoren-Saldo
 - Berechnete Differenz
@@ -264,126 +287,125 @@ ANZEIGE-INFORMATIONEN:
 
 ABSTIMMUNGS-FUNKTIONEN:
 
-GLOBALE ABSTIMMUNG:
-- Massenabstimmung aller relevanten Geschäftspartner
+Globale Abstimmung:
+- Massenabstimmung aller relevanten GeschÃ¤ftspartner
 - Automatische Identifikation abstimmbarer Positionen
 - Batch-Verarbeitung mit Fortschrittsanzeige
 - Zusammenfassungsreport nach Abschluss
 
-DETAILIERTE ABSTIMMUNG:
-Bei Auswahl eines Geschäftspartners öffnet sich die Detail-Ansicht mit folgenden Bereichen:
+Detaillierte Abstimmung:
+Bei Auswahl eines GeschÃ¤ftspartners Ã¶ffnet sich die Detail-Ansicht mit folgenden Bereichen:
 
-DEBITOR-INFORMATIONEN:
-- Vollständige Geschäftspartner-Stammdaten
-- Kontaktinformationen - Telefon, Fax, E-Mail
+Debitor-Informationen:
+- VollstÃ¤ndige GeschÃ¤ftspartner-Stammdaten
+- Kontaktinformationen (Telefon, Fax, E-Mail)
 - Zahlungsbedingungen
 - Rechnungsadresse
 - Aktueller Debitorensaldo
 - Abstimmkonto-Zuordnung
 
-KREDITOR-INFORMATIONEN:
+Kreditor-Informationen:
 - Analoge Darstellung der Lieferanten-Stammdaten
 - Separate Kontaktdaten
 - Zahlungskonditionen
 - Kreditorensaldo
 - Kreditor-Abstimmkonto
 
-OFFENE BELEGE - DEBITOR-SEITE:
+Offene Belege â€” Debitor-Seite:
 Matrix mit allen offenen Debitorenbelegen:
 - Belegtyp und Belegnummer
-- Buchungsdatum und Fälligkeitsdatum
+- Buchungsdatum und FÃ¤lligkeitsdatum
 - Original-Saldo und offener Betrag
 - Skonto-Prozentsatz und -Betrag
-- Zahlungsbetrag - editierbar für partielle Abstimmung
+- Zahlungsbetrag (editierbar fÃ¼r partielle Abstimmung)
 - Zahlungssperre-Status
 - Abstimmungs-Status
-- Auswahl-Checkbox für Netting-Prozess
+- Auswahl-Checkbox fÃ¼r Netting-Prozess
 
-OFFENE BELEGE - KREDITOR-SEITE:
-Entsprechende Matrix für Kreditorenbelege mit identischen Funktionen
+Offene Belege â€” Kreditor-Seite:
+Entsprechende Matrix fÃ¼r Kreditorenbelege mit identischen Funktionen.
 
-ABSTIMMUNGS-HISTORIE:
-Übersicht aller durchgeführten Abstimmungen:
+Abstimmungs-Historie:
 - Abstimmungsdatum
-- Journalbuchungs-ID mit Verknüpfung
+- Journalbuchungs-ID mit VerknÃ¼pfung
 - Abstimmungsbetrag
 - Differenz-Behandlung
 
 ABSTIMMUNGS-PROZESS:
 
-AUTOMATISCHE ABSTIMMUNG:
+Automatische Abstimmung:
 1. Auswahl der abzustimmenden Belege durch Aktivierung der Checkboxen
-2. System berechnet automatisch Ausgleichsbeträge
-3. Berücksichtigung von Skonto falls aktiviert
-4. Optimierung der Abstimmung für minimale Differenzen
+2. System berechnet automatisch AusgleichsbetrÃ¤ge
+3. BerÃ¼cksichtigung von Skonto falls aktiviert
+4. Optimierung der Abstimmung fÃ¼r minimale Differenzen
 
-MANUELLE ABSTIMMUNG:
+Manuelle Abstimmung:
 - Individuelle Abstimmung: Freie Auswahl von Debitoren- und Kreditorenbelegen
 - Manuelle Debitor-Abstimmung: Nur Debitorenbelege gegen Kreditorensaldo
 - Manuelle Kreditor-Abstimmung: Nur Kreditorenbelege gegen Debitorensaldo
-- Editierbare Zahlungsbeträge für partielle Abstimmungen
+- Editierbare ZahlungsbetrÃ¤ge fÃ¼r partielle Abstimmungen
 
 BUCHUNGS-ERSTELLUNG:
 Das System erstellt automatisch folgende Buchungen:
 
-EINGANGSZAHLUNG:
-- Ausgleich der ausgewählten Kreditorenbelege
+Eingangszahlung:
+- Ausgleich der ausgewÃ¤hlten Kreditorenbelege
 - Buchung gegen das konfigurierte Kreditor-Netting-Konto
-- Automatische Verknüpfung zu den Original-Belegen
+- Automatische VerknÃ¼pfung zu den Original-Belegen
 - Referenztext aus der Netting-Konfiguration
 
-AUSGANGSZAHLUNG:
-- Ausgleich der ausgewählten Debitorenbelege
+Ausgangszahlung:
+- Ausgleich der ausgewÃ¤hlten Debitorenbelege
 - Buchung gegen das konfigurierte Debitor-Netting-Konto
-- Vollständige Nachverfolgbarkeit durch Beleg-Referenzen
+- VollstÃ¤ndige Nachverfolgbarkeit durch Beleg-Referenzen
 
-JOURNALBUCHUNG FÜR DIFFERENZEN:
+Journalbuchung fÃ¼r Differenzen:
 - Automatische Abstimmung zwischen den Netting-Konten
 - Rundungsdifferenzen werden auf das Standard-Netting-Konto gebucht
 - Verwendung des konfigurierten Netting-Referenztexts und Buchungstexts
 
 NETTING-PROTOKOLLIERUNG:
-Alle Netting-Vorgänge werden vollständig protokolliert:
+Alle Netting-VorgÃ¤nge werden vollstÃ¤ndig protokolliert:
 
-NETTING-LOG:
-- Chronologische Aufzeichnung aller Abstimmungsvorgänge
-- Verknüpfung zu den erstellten Zahlungen und Journalbuchungen
+Netting-Log:
+- Chronologische Aufzeichnung aller AbstimmungsvorgÃ¤nge
+- VerknÃ¼pfung zu den erstellten Zahlungen und Journalbuchungen
 - Zuordnung zu den abstimmten Original-Belegen
 - Differenz-Dokumentation
 
-VERFOLGBARKEIT:
-- Jeder Netting-Vorgang erhält eine eindeutige Identifikation
-- Verknüpfung zwischen allen beteiligten Buchungen
-- Möglichkeit zur Stornierung von Netting-Vorgängen
-- Vollständiger Audit-Trail für Compliance
+Verfolgbarkeit:
+- Jeder Netting-Vorgang erhÃ¤lt eine eindeutige Identifikation
+- VerknÃ¼pfung zwischen allen beteiligten Buchungen
+- MÃ¶glichkeit zur Stornierung von Netting-VorgÃ¤ngen
+- VollstÃ¤ndiger Audit-Trail fÃ¼r Compliance
 
 SKONTO-BEHANDLUNG:
 Das System bietet erweiterte Skonto-Funktionen:
 
-AUTOMATISCHE SKONTO-ERKENNUNG:
+Automatische Skonto-Erkennung:
 - Erkennung der Skonto-Bedingungen aus Zahlungsbedingungen
-- Automatische Berechnung von Skonto-Beträgen basierend auf Fälligkeitsdaten
-- Berücksichtigung von Skonto-Fristen
+- Automatische Berechnung von Skonto-BetrÃ¤gen basierend auf FÃ¤lligkeitsdaten
+- BerÃ¼cksichtigung von Skonto-Fristen
 
-SKONTO-INTEGRATION:
-- Option "Skonto berücksichtigen" in der Netting-Übersicht
-- Automatische Anpassung der Abstimmungsbeträge
-- Separate Buchung von Skonto-Beträgen
+Skonto-Integration:
+- Option "Skonto berÃ¼cksichtigen" in der Netting-Ãœbersicht
+- Automatische Anpassung der AbstimmungsbetrÃ¤ge
+- Separate Buchung von Skonto-BetrÃ¤gen
 - Skonto-Konten aus der DATEV-Konfiguration
 
-[HINWEIS FÜR BILDER: Screenshot der Netting-Übersicht mit Geschäftspartner-Liste]
-[HINWEIS FÜR BILDER: Screenshot der Detail-Abstimmung mit allen vier Bereichen]
-[HINWEIS FÜR BILDER: Screenshot der Netting-Historie mit Buchungsverknüpfungen]
+[HINWEIS FÃœR BILDER: Screenshot der Netting-Ãœbersicht mit GeschÃ¤ftspartner-Liste]
+[HINWEIS FÃœR BILDER: Screenshot der Detail-Abstimmung mit allen vier Bereichen]
+[HINWEIS FÃœR BILDER: Screenshot der Netting-Historie mit BuchungsverknÃ¼pfungen]
 
-INTEGRATION MIT ANDEREN MODULEN
---------------------------------
+INTEGRATION MIT ANDEREN VPS-MODULEN
+-----------------------------------
 Das FinancialSuite Hauptmodul koordiniert alle anderen VPS-Module:
 
 MODUL-KOORDINATION:
 - Zentrale Konfigurationsverwaltung
-- Einheitliche Menüstruktur
+- Einheitliche MenÃ¼struktur
 - Gemeinsame Ressourcen-Verwaltung
-- Konsistente Benutzeroberfläche
+- Konsistente BenutzeroberflÃ¤che
 
 DATENAUSTAUSCH:
 - Gemeinsame DATEV-Konfiguration
@@ -391,76 +413,141 @@ DATENAUSTAUSCH:
 - Integrierte Validierungsregeln
 - Zentrale Protokollierung
 
-ABHÄNGIGKEITEN:
+ABHÃ„NGIGKEITEN:
 - VPS_DatevExport: Verwendet zentrale DATEV-Konfiguration
 - VPS_DatevImport: Nutzt Mapping-Definitionen
 - VPS_Reporting: Greift auf Konfigurationsdaten zu
 - VPS_ProRata: Verwendet Steuereinstellungen
 - VPS_Netting: Integriert in zentrale Abstimmungen
 
-WARTUNG UND FEHLERBEHEBUNG
---------------------------
-Regelmäßige Wartungsaufgaben und Troubleshooting:
+ALLGEMEINE ANWENDUNG
+--------------------
+Das System startet automatisch beim Laden der VPS Financial Suite. Es sind keine manuellen Schritte erforderlich. Bei erfolgreicher Initialisierung erscheint die Meldung "DATEV verbunden" in grÃ¼n, bei Problemen werden entsprechende Warn- oder Fehlermeldungen angezeigt.
+
+Der Financial Suite Assistent wird fÃ¼r die Erstkonfiguration verwendet, wÃ¤hrend das Netting-System fÃ¼r laufende Abstimmungen zwischen Debitoren und Kreditoren eingesetzt wird.
+
+GENAUE SCHRITT FÃœR SCHRITT ANLEITUNG FÃœR ALLE FUNKTIONEN
+---------------------------------------------------------
+FINANCIAL SUITE ASSISTENT VERWENDEN:
+1. Navigieren Sie zu: Versino Financial Suite > Konfiguration > Financial Suite Assistent
+2. WÃ¤hlen Sie in Schritt 1 den Kontenplan-Typ: SKR03, SKR04 oder Benutzerdefiniert
+3. Definieren Sie die KontenlÃ¤nge: 4, 6 oder 8 Stellen
+4. Aktivieren Sie VorschlÃ¤ge oder laden Sie eine eigene CSV-Datei
+5. ÃœberprÃ¼fen Sie in Schritt 2 die automatischen DATEV-Konten-Zuordnungen
+6. Nehmen Sie bei Bedarf manuelle Anpassungen vor
+7. Konfigurieren Sie in Schritt 3 die Steuerkennzeichen-Zuordnungen
+8. Setzen Sie EU-Kennzeichen und definieren Sie Sachverhalte L+L
+9. PrÃ¼fen Sie in Schritt 4 die Zusammenfassung aller Ã„nderungen
+10. BestÃ¤tigen Sie die Konfiguration fÃ¼r automatische Umsetzung
+
+CSV-IMPORT DURCHFÃœHREN:
+1. Bereiten Sie eine CSV-Datei mit korrekter Struktur vor
+2. Klicken Sie im Assistenten auf "Datei wÃ¤hlen"
+3. WÃ¤hlen Sie Ihre CSV-Datei aus
+4. Das System validiert die Daten automatisch
+5. PrÃ¼fen Sie die Vorschau der Ã„nderungen
+6. BestÃ¤tigen Sie den Import
+
+NETTING-ABSTIMMUNG DURCHFÃœHREN:
+1. Ã–ffnen Sie: Versino Financial Suite > Netting Ãœbersicht
+2. Setzen Sie gewÃ¼nschte Filter: Debitor/Kreditor, FÃ¤lligkeitsdatum, Salden-Filter
+3. Aktivieren Sie bei Bedarf "Skonto berÃ¼cksichtigen"
+4. FÃ¼r globale Abstimmung: Markieren Sie alle gewÃ¼nschten GeschÃ¤ftspartner und klicken Sie "Globale Abstimmung"
+5. FÃ¼r detaillierte Abstimmung: Doppelklicken Sie auf einen GeschÃ¤ftspartner
+6. WÃ¤hlen Sie die abzustimmenden Belege durch Aktivierung der Checkboxen
+7. Das System berechnet automatisch AusgleichsbetrÃ¤ge
+8. BestÃ¤tigen Sie die Abstimmung fÃ¼r automatische Buchungserstellung
+
+GRUNDEINSTELLUNGEN KONFIGURIEREN:
+1. Navigieren Sie zu: Versino Financial Suite > Konfiguration > Einstellungen
+2. Geben Sie Mandantennummer (1-99999) und Beraternummer (1001-9999999) ein
+3. Definieren Sie SachkontenlÃ¤nge und SKR-Typ
+4. Konfigurieren Sie Export-/Import-Parameter
+5. Definieren Sie Netting-Konten fÃ¼r Ausgleichsbuchungen
+6. Speichern Sie die Einstellungen
+
+[HINWEIS FÃœR BILDER: Schritt-fÃ¼r-Schritt Screenshots der Konfiguration]
+
+ALLGEMEINE TIPPS FÃœR ANWENDER
+-----------------------------
+OPTIMALE NUTZUNG DES ASSISTENTEN:
+- Nutzen Sie den Financial Suite Assistenten fÃ¼r die Grundkonfiguration
+- Verwenden Sie SKR03/SKR04-Vorlagen fÃ¼r Standardkontenrahmen
+- Erstellen Sie Backups der Konfiguration vor grÃ¶ÃŸeren Ã„nderungen
+- Testen Sie Ã„nderungen zunÃ¤chst in einer Testumgebung
+
+EFFIZIENTE NETTING-NUTZUNG:
+- Konfigurieren Sie die Netting-Konten vor der ersten Verwendung
+- Nutzen Sie Filter fÃ¼r gezielte Abstimmungen
+- Verwenden Sie aussagekrÃ¤ftige Referenztexte fÃ¼r Netting-Buchungen
+- ÃœberprÃ¼fen Sie regelmÃ¤ÃŸig die Netting-Historie fÃ¼r Compliance
+
+WARTUNG UND ÃœBERWACHUNG:
+- FÃ¼hren Sie Test-Buchungen zur Validierung durch
+- Ãœberwachen Sie die Integration mit anderen Modulen regelmÃ¤ÃŸig
+- Validieren Sie DATEV-Zuordnungen nach Updates
+- Dokumentieren Sie alle Anpassungen fÃ¼r spÃ¤tere Referenz
+
+VERWENDUNGSTIPPS (10-Punkte-Liste):
+1. Nutzen Sie den Financial Suite Assistenten fÃ¼r die Grundkonfiguration
+2. FÃ¼hren Sie Test-Buchungen zur Validierung durch
+3. Erstellen Sie Backups der Konfiguration vor grÃ¶ÃŸeren Ã„nderungen
+4. Ãœberwachen Sie die Integration mit anderen Modulen regelmÃ¤ÃŸig
+5. Validieren Sie DATEV-Zuordnungen nach Updates
+6. Nutzen Sie die Netting-Funktionen fÃ¼r automatische Abstimmungen
+7. Konfigurieren Sie die Netting-Konten vor der ersten Verwendung
+8. Verwenden Sie aussagekrÃ¤ftige Referenztexte fÃ¼r Netting-Buchungen
+9. ÃœberprÃ¼fen Sie regelmÃ¤ÃŸig die Netting-Historie fÃ¼r Compliance
+10. Dokumentieren Sie alle Anpassungen fÃ¼r spÃ¤tere Referenz
+
+FEHLERBEHANDLUNG BEI PROBLEMEN
+-------------------------------
+HÃ„UFIGE PROBLEME:
+
+Problem: Assistent startet nicht
+LÃ¶sung: Starten Sie SAP Business One als Administrator und installieren Sie die Financial Suite neu
+
+Problem: Konten-Import schlÃ¤gt fehl
+LÃ¶sung: ÃœberprÃ¼fen Sie das CSV-Datei-Format, prÃ¼fen Sie den Zeichensatz auf UTF-8, eliminieren Sie doppelte Kontonummern und beachten Sie Validierungsregeln
+
+Problem: Steuerkennzeichen werden nicht erkannt
+LÃ¶sung: PrÃ¼fen Sie DATEV-Code-Zuordnungen, validieren Sie die Steuergruppen-Konfiguration, kontrollieren Sie Ein-/Ausgangssteuer-Kategorien und Ã¼berprÃ¼fen Sie GÃ¼ltigkeitsdaten
+
+Problem: Netting funktioniert nicht
+LÃ¶sung: PrÃ¼fen Sie GeschÃ¤ftspartner-VerknÃ¼pfungen, validieren Sie Abstimmkonten-Konfiguration, analysieren Sie offene Posten und definieren Sie Rundungskonten
+
+Problem: Netting-Buchungen werden nicht erstellt
+LÃ¶sung: ÃœberprÃ¼fen Sie Netting-Konten-Konfiguration, validieren Sie Buchungstext-Einstellungen, prÃ¼fen Sie Benutzerberechtigungen fÃ¼r Zahlungen und kontrollieren Sie Journal-Entry-Berechtigungen
+
+Problem: Keine Statusmeldung beim Start
+LÃ¶sung: ÃœberprÃ¼fen Sie, ob die VPS Financial Suite korrekt installiert ist
+
+Problem: Fehlermeldung "DATEV nicht erfolgreich gestartet"
+LÃ¶sung: Starten Sie SAP Business One als Administrator neu, Ã¼berprÃ¼fen Sie die DATEV-Komponenten und kontaktieren Sie Ihren IT-Administrator
+
+SYSTEM-PROBLEME:
+- Bei Datenbankverbindungsproblemen fÃ¼hren Sie regelmÃ¤ÃŸige Datenbank-Backups durch
+- Erstellen Sie Konfigurations-Exports vor Ã„nderungen
+- Nutzen Sie Test-Umgebungen fÃ¼r kritische Updates
+- Definieren Sie eine Rollback-Strategie
 
 ROUTINEWARTUNG:
-- Konfiguration regelmäßig überprüfen
+- Konfiguration regelmÃ¤ÃŸig Ã¼berprÃ¼fen
 - Log-Dateien bereinigen
 - Performance-Metriken analysieren
 
-HÄUFIGE PROBLEME UND LÖSUNGEN:
-
-Problem: Assistent startet nicht
-Lösung:
-- SAP B1 als Administrator starten
-- Financial Suite neu installieren
-
-Problem: Konten-Import schlägt fehl
-Lösung:
-- CSV-Datei-Format überprüfen
-- Zeichensatz auf UTF-8 prüfen
-- Dublette Kontonummern eliminieren
-- Validierungsregeln beachten
-
-Problem: Steuerkennzeichen werden nicht erkannt
-Lösung:
-- DATEV-Code-Zuordnungen prüfen
-- Steuergruppen-Konfiguration validieren
-- Kategorien - Ein-/Ausgangssteuer kontrollieren
-- Gültigkeitsdaten überprüfen
-
-Problem: Netting funktioniert nicht
-Lösung:
-- Geschäftspartner-Verknüpfungen prüfen
-- Abstimmkonten-Konfiguration validieren
-- Offene Posten analysieren
-- Rundungskonten definieren
-
-Problem: Netting-Buchungen werden nicht erstellt
-Lösung:
-- Netting-Konten-Konfiguration überprüfen
-- Buchungstext-Einstellungen validieren
-- Benutzerberechtigungen für Zahlungen prüfen
-- Journal-Entry-Berechtigungen kontrollieren
-
 BACKUP UND WIEDERHERSTELLUNG:
-- Regelmäßige Datenbank-Backups
-- Konfigurations-Export vor Änderungen
-- Test-Umgebung für kritische Updates
+- RegelmÃ¤ÃŸige Datenbank-Backups
+- Konfigurations-Export vor Ã„nderungen
+- Test-Umgebung fÃ¼r kritische Updates
 - Rollback-Strategie definieren
 
-[HINWEIS FÜR BILDER: Checkliste für Wartungsaufgaben]
+[HINWEIS FÃœR BILDER: Checkliste fÃ¼r Wartungsaufgaben und hÃ¤ufige Probleme]
 
-VERWENDUNGSTIPPS
-----------------
-1. Nutzen Sie den Financial Suite Assistenten für die Grundkonfiguration
-2. Führen Sie Test-Buchungen zur Validierung durch
-3. Erstellen Sie Backups der Konfiguration vor größeren Änderungen
-4. Überwachen Sie die Integration mit anderen Modulen regelmäßig
-5. Validieren Sie DATEV-Zuordnungen nach Updates
-6. Nutzen Sie die Netting-Funktionen für automatische Abstimmungen
-7. Konfigurieren Sie die Netting-Konten vor der ersten Verwendung
-8. Verwenden Sie aussagekräftige Referenztexte für Netting-Buchungen
-9. Überprüfen Sie regelmäßig die Netting-Historie für Compliance
-10. Dokumentieren Sie alle Anpassungen für spätere Referenz
+ZUSAMMENFASSUNG
+---------------
+Das VPS FinancialSuite Hauptmodul ist das Fundament fÃ¼r alle DATEV-Integrationen in SAP Business One. Der Financial Suite Assistent macht die Erstkonfiguration mit seinen vier Schritten (Grundeinstellungen, Konten-Konfiguration, Steuerkennzeichen-Setup, Zusammenfassung) einfach und sicher, wÃ¤hrend die umfangreichen Netting-Funktionen mit globaler Abstimmung, detaillierter Einzelabstimmung, automatischer Buchungserstellung und vollstÃ¤ndiger Protokollierung eine effiziente Abstimmung von GeschÃ¤ftspartnern ermÃ¶glichen.
 
-Das VPS FinancialSuite Hauptmodul ist das Fundament für alle DATEV-Integrationen in SAP Business One. Der Financial Suite Assistent macht die Erstkonfiguration einfach und sicher, während die umfangreichen Netting-Funktionen eine effiziente Abstimmung von Geschäftspartnern ermöglichen. Die automatische Buchungserstellung und vollständige Protokollierung sorgen für Transparenz und Compliance bei allen Abstimmungsvorgängen.
+Die zentrale Koordination aller VPS-Module (DatevExport, DatevImport, Reporting, ProRata, Netting), die einheitliche Konfigurationsverwaltung und die nahtlose Integration in SAP Business One machen das Modul zur unverzichtbaren Basis der gesamten Financial Suite.
+
+Die automatische Buchungserstellung, vollstÃ¤ndige Protokollierung und Skonto-Behandlung sorgen fÃ¼r Transparenz und Compliance bei allen AbstimmungsvorgÃ¤ngen.

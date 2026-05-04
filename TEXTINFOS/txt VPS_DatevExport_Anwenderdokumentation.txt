@@ -2,87 +2,173 @@ VPS FINANCIAL SUITE - DATEV EXPORT MODUL
 ANWENDERDOKUMENTATION
 =========================================
 
-�BERBLICK
+ÜBERBLICK
 ---------
-Das VPS DatevExport Modul erm�glicht den Export von SAP Business One Buchungsdaten in das DATEV-Format. Es exportiert Journalbuchungen, Stammdaten und Zahlungsbedingungen f�r die Weiterverarbeitung in DATEV-Programmen. Das Modul verwaltet automatisch Export-Status und bietet Validierungs- und Protokollierungsfunktionen.
+Das VPS DatevExport Modul ermöglicht den Export von SAP Business One Buchungsdaten in das DATEV-Format. Es exportiert Journalbuchungen, Stammdaten und Zahlungsbedingungen für die Weiterverarbeitung in DATEV-Programmen. Das Modul verwaltet automatisch Export-Status und bietet umfangreiche Validierungs- und Protokollierungsfunktionen.
 
 ZUGANG ZUM MODUL
 ----------------
-Das DatevExport Modul wird �ber das SAP Business One Men� aufgerufen:
+Das DatevExport Modul wird über das SAP Business One Menü aufgerufen:
 
-Men�pfad in SAP Business One:
 - VPS Financial Suite > DATEV Export
 - VPS Financial Suite > Protokolle > Export Log
 
-Das Modul integriert sich in verschiedene SAP B1 Formulare und erweitert diese um Export-Funktionalit�ten.
+Das Modul integriert sich in verschiedene SAP B1 Formulare und erweitert diese um Export-Funktionalitäten.
 
-[HINWEIS F�R BILDER: Screenshot des SAP B1 Men�s mit DATEV Export Option]
+[HINWEIS FÜR BILDER: Screenshot des SAP B1 Menüs mit DATEV Export Option]
 
-EXPORT-DIALOG
--------------
-Der Export-Dialog (FrmExportDialog.srf) bietet zwei Hauptbereiche �ber Tabs:
+GRUNDLAGEN UND INFOS ZUM MODUL
+------------------------------
+Das DatevExport Modul arbeitet mit verschiedenen SAP Business One Buchungstypen und konvertiert diese in DATEV-konforme CSV-Dateien. Das System verwaltet automatisch Export-Status für alle Buchungen und bietet umfangreiche Validierungs- und Protokollierungsfunktionen.
 
-EXPORT-TAB:
-Auswahl der zu exportierenden Daten:
-- Export Debitoren/Kreditoren: Gesch�ftspartnerstammdaten
+Das Modul exportiert Journalbuchungen, Stammdaten und Zahlungsbedingungen für die Weiterverarbeitung in DATEV-Programmen. Dabei werden spezialisierte Exporter für verschiedene Buchungstypen wie Eingangsrechnungen, Ausgangsrechnungen, Gutschriften und andere Belege verwendet.
+
+AUFBAU UND FUNKTIONSWEISE:
+- Automatische Export-Status-Verwaltung für alle Buchungen
+- Spezialisierte Exporter für verschiedene Buchungstypen
+- DATEV-konforme CSV-Datei-Erstellung
+- Integration in SAP Business One Formulare
+- Umfassende Protokollierung aller Export-Vorgänge
+
+VORTEILE DURCH DIE VERWENDUNG DES MODULS
+-----------------------------------------
+DATENINTEGRATION:
+- Export von Journalbuchungen, Stammdaten und Zahlungsbedingungen
+- Automatische Konvertierung in DATEV-Format
+- Unterstützung verschiedener Buchungstypen und Belege
+
+STATUS-VERWALTUNG:
+- Automatische Verfolgung des Export-Status aller Buchungen
+- Möglichkeit zur manuellen Status-Änderung
+- Verhinderung von Doppel-Exporten
+
+QUALITÄTSSICHERUNG:
+- Umfassende Validierung vor Export
+- Detaillierte Protokollierung aller Vorgänge
+- Fehlerbehandlung und Status-Tracking
+
+HAUPTFUNKTIONEN
+---------------
+EXPORT-FUNKTIONALITÄTEN:
+Das Modul unterstützt den Export verschiedener Datentypen:
+- Export Debitoren/Kreditoren: Geschäftspartnerstammdaten
 - Export Sachkonten: Kontenplan
 - Export Zahlungsbedingungen: Zahlungskonditionen
 - Export Journalbuchungen: Buchungsdaten
-- Bereits exportierte Daten erneut exportieren: F�r Wiederholung
 
-BUCHUNGSEXPORT-EINSTELLUNGEN:
-- Datumsfeld: Buchungsdatum oder Belegdatum w�hlbar
-- Von/Bis Datum: Zeitraum-Definition f�r Export
-- Einbezogene Buchungen: 
-  * Nur Verkauf/Kredit
-  * Nur Einkauf/Kredit  
-  * Verkauf und Einkauf
-  * Alle Buchungen
-- Buchungsstatus:
-  * Nur nicht exportierte
-  * Nicht exportierte und fehlgeschlagene
-  * Nur fehlgeschlagene
-  * Alle au�er fehlgeschlagenen
-  * Alle Buchungen
-- Export-Pfad: Zielverzeichnis f�r die Dateien
-
-PROTOKOLL-TAB:
-Zeigt Export-Protokolle mit Modulen, Beschreibungen und Ergebnissen in einer Grid-Ansicht.
-
-[HINWEIS F�R BILDER: Screenshot des Export-Dialogs mit beiden Tabs]
-
-BUCHUNGSEXPORT-FUNKTIONEN
--------------------------
-Das Modul exportiert verschiedene Buchungstypen �ber spezialisierte SQL-Abfragen:
-
-UNTERST�TZTE BUCHUNGSTYPEN:
+BUCHUNGSTYP-UNTERSTÜTZUNG:
+Das System exportiert spezialisierte Buchungstypen über verschiedene Exporter:
 - Journalbuchungen: Einzelbuchungen ohne Besonderheiten
-- Ausgangsrechnungen (VKRE): Kundenrechnungen
-- Eingangsrechnungen (EKRE): Lieferantenrechnungen
-- Ausgangsgutschriften (VKGS): Kundengutschriften
-- Eingangsgutschriften (EKGS): Lieferantengutschriften
+- Ausgangsrechnungen (VKRE / VkRechnungKbf): Kundenrechnungen mit KBF
+- Eingangsrechnungen (EKRE / EkRechnungKbf): Lieferantenrechnungen mit KBF
+- Ausgangsgutschriften (VKGS / VkGutschriftKbf): Kundengutschriften
+- Eingangsgutschriften (EKGS / EkGutschriftKbf): Lieferantengutschriften
 - Anzahlungsrechnungen: VK und EK Anzahlungen
 - Zahlungen: Eingangszahlungen und Ausgangszahlungen
-- Wareneing�nge (EKWE): Einkaufsbuchungen
+- Wareneingänge (EKWE): Einkaufsbuchungen
 - Lieferungen (VKLS): Verkaufsbuchungen
 - Retouren: Ein- und Verkaufsretouren
 - Lagerbuchungen: Inventur, Umlagerungen, Bestandsneubewertungen
-- Produktionsauftr�ge: Fertigmeldungen
+- Produktionsaufträge: Fertigmeldungen
 - Abstimmungen: Interne Buchungen
 - Scheckeinreichungen: Bankbuchungen
-
-SPEZIELLE BEHANDLUNG:
-- Service-Buchungen: Separate Abfragen f�r Service-Rechnungen
-- KBF-Buchungen: Kostenbeteiligung-Funktionen
+- Service-Buchungen: Separate Abfragen für Service-Rechnungen
 - Stornobuchungen: Zahlungen ohne eigenen Beleg
-- Bestandstransaktionen: Ein- und Ausg�nge f�r Produktion
 
-[HINWEIS F�R BILDER: �bersicht der verschiedenen Buchungstypen im Export]
+EXPORT-STATUS-VERWALTUNG:
+Das System verwaltet automatisch den Export-Status aller Buchungen mit folgenden Werten:
+- Y: Erfolgreich exportiert
+- N: Noch nicht exportiert
+- E: Vom Export ausgeschlossen
+- F: Export fehlgeschlagen
 
-EXPORT-STATUS-VERWALTUNG
-------------------------
-Das System verwaltet automatisch den Export-Status aller Buchungen:
+[HINWEIS FÜR BILDER: Screenshot des DATEV Export Menüpunkts]
 
+ALLE FUNKTIONEN DES MODULS
+--------------------------
+EXPORT-DIALOG:
+Der Export-Dialog (FrmExportDialog.srf) bietet zwei Hauptbereiche über Tabs:
+
+Export-Tab — Auswahl der zu exportierenden Daten:
+- Export Debitoren/Kreditoren: Geschäftspartnerstammdaten
+- Export Sachkonten: Kontenplan
+- Export Zahlungsbedingungen: Zahlungskonditionen
+- Export Journalbuchungen: Buchungsdaten
+- Bereits exportierte Daten erneut exportieren: Option für Wiederholung
+
+Buchungsexport-Einstellungen:
+- Datumsfeld: Buchungsdatum oder Belegdatum wählbar
+- Von/Bis Datum: Zeitraum-Definition für Export
+- Einbezogene Buchungen:
+  * Nur Verkauf/Kredit
+  * Nur Einkauf/Kredit
+  * Verkauf und Einkauf
+  * Alle Buchungen
+- Buchungsstatus-Filter:
+  * Nur nicht exportierte
+  * Nicht exportierte und fehlgeschlagene
+  * Nur fehlgeschlagene
+  * Alle außer fehlgeschlagenen
+  * Alle Buchungen
+- Export-Pfad: Zielverzeichnis für die Dateien
+
+Protokoll-Tab:
+- Detaillierte Anzeige der Export-Protokolle in einer Grid
+- Anzeige von Modulen, Beschreibungen und Ergebnissen
+- Farbcodierte Darstellung für schnelle Problemerkennung
+
+[HINWEIS FÜR BILDER: Screenshot des Export-Dialogs mit beiden Tabs]
+
+SPEZIALISIERTE EXPORTER:
+Das System verwendet verschiedene Exporter-Klassen für unterschiedliche Buchungstypen:
+
+EkRechnungKbf (Eingangsrechnungen):
+- Verarbeitung von Lieferantenrechnungen mit Kostenbeteiligung
+- Behandlung von Anzahlungen und Raten
+- Artikel-Beleg-Buchungen mit KBF-Integration
+- Rundungsbehandlung und Kursdifferenzen
+- Einkaufskontensystem-Unterstützung
+
+Weitere Exporter:
+- VkRechnungKbf für Ausgangsrechnungen
+- EkGutschriftKbf für Eingangsgutschriften
+- VkGutschriftKbf für Ausgangsgutschriften
+- Spezielle Behandlung für Service-Buchungen und Stornos
+- KBF-Buchungen: Kostenbeteiligung-Funktionen
+- Bestandstransaktionen: Ein- und Ausgänge für Produktion
+
+DATEV-DATEISTRUKTUREN:
+Das Modul erstellt CSV-Dateien entsprechend den DATEV-Standards:
+
+Buchungsstapel-Datei:
+- Dateiname: EXTF_Buchungsstapel.csv
+- Header mit DATEV-Versionsinformationen (HDR_JEFile.txt)
+- Buchungszeilen entsprechend Struktur (Struc_JEFile.txt)
+- Semikolon als Feldtrenner
+
+Buchungszeilen-Struktur:
+Über 100 Felder pro Buchungszeile inklusive:
+- Umsatz ohne Soll/Haben-Kennzeichen
+- Soll/Haben-Kennzeichen
+- Währungskennzeichen
+- Konto und Gegenkonto
+- BU-Schlüssel (Buchungsschlüssel)
+- Belegdatum und Belegfelder
+- Buchungstext und Referenzen
+- Steuerinformationen
+- Kostenstellen und Projekte
+- Leistungsdatum
+
+Stammdaten-Dateien:
+- EXTF_Debitoren.csv: Kundenstammdaten (HDR_DebCredFile.txt / Struc_DebCredFile.txt)
+- EXTF_Kreditoren.csv: Lieferantenstammdaten
+- EXTF_Kontenbeschriftungen.csv: Sachkonten (HDR_AccountFile.txt / Struc_AccountFile.txt)
+- EXTF_Zahlungsbedingungen.csv: Zahlungskonditionen (HDR_PymFile.txt / Struc_PymFile.txt)
+
+[HINWEIS FÜR BILDER: Beispiel einer DATEV-Export-Datei mit Header und Datenzeilen]
+
+EXPORT-STATUS-VERWALTUNG IM DETAIL
+----------------------------------
 EXPORT-STATUS-WERTE:
 - Y: Erfolgreich exportiert
 - N: Noch nicht exportiert
@@ -92,62 +178,31 @@ EXPORT-STATUS-WERTE:
 STATUS-SPEICHERUNG:
 - @VPS_DATEV_EXPSTAT: Zentrale Export-Status-Tabelle
 - Benutzerdefinierte Felder in Standard-Tabellen (U_VPS_DTV_EXP)
-- Automatische Status-Updates nach Export-Vorg�ngen
+- Automatische Status-Updates nach Export-Vorgängen
 
 AUTOMATISCHE STATUS-SETZUNG:
 - Neue Buchungen erhalten automatisch Status "N"
 - Erfolgreicher Export setzt Status auf "Y"
 - Fehler beim Export setzen Status auf "F"
-- Manuelle Ausschl�sse erhalten Status "E"
+- Manuelle Ausschlüsse erhalten Status "E"
 
-MANUELLE STATUS-�NDERUNG:
-Benutzer k�nnen den Export-Status �ber einen separaten Dialog (FrmJeExpStateChg.srf) �ndern:
-1. Buchungsformular �ffnen
+MANUELLE STATUS-ÄNDERUNG:
+Benutzer können den Export-Status über einen separaten Dialog (FrmJeExpStateChg.srf) ändern:
+1. Buchungsformular öffnen
 2. Export-Status-Feld lokalisieren
-3. Neuen Status ausw�hlen
-4. �nderung best�tigen
+3. Neuen Status auswählen
+4. Änderung bestätigen
 
-[HINWEIS F�R BILDER: Status-Feld in Journalbuchungsformular mit �nderungs-Dialog]
-
-DATEV-DATEISTRUKTUREN
----------------------
-Das Modul erstellt CSV-Dateien entsprechend den DATEV-Standards:
-
-BUCHUNGSSTAPEL-DATEI:
-- Dateiname: EXTF_Buchungsstapel.csv
-- Header mit DATEV-Versionsinformationen (HDR_JEFile.txt)
-- Buchungszeilen entsprechend Struktur (Struc_JEFile.txt)
-- Semikolon als Feldtrenner
-
-BUCHUNGSZEILEN-STRUKTUR:
-�ber 100 Felder pro Buchungszeile inklusive:
-- Umsatz ohne Soll/Haben-Kennzeichen
-- Soll/Haben-Kennzeichen
-- W�hrungskennzeichen
-- Konto und Gegenkonto
-- BU-Schl�ssel (Buchungsschl�ssel)
-- Belegdatum und Belegfelder
-- Buchungstext und Referenzen
-- Steuerinformationen
-- Kostenstellen und Projekte
-- Leistungsdatum
-
-STAMMDATEN-DATEIEN:
-- EXTF_Debitoren.csv: Kundenstammdaten (HDR_DebCredFile.txt / Struc_DebCredFile.txt)
-- EXTF_Kreditoren.csv: Lieferantenstammdaten
-- EXTF_Kontenbeschriftungen.csv: Sachkonten (HDR_AccountFile.txt / Struc_AccountFile.txt)
-- EXTF_Zahlungsbedingungen.csv: Zahlungskonditionen (HDR_PymFile.txt / Struc_PymFile.txt)
-
-[HINWEIS F�R BILDER: Beispiel einer DATEV-Export-Datei mit Header und Datenzeilen]
+[HINWEIS FÜR BILDER: Status-Feld in Journalbuchungsformular mit Änderungs-Dialog]
 
 INTEGRATION IN SAP BUSINESS ONE FORMULARE
 ------------------------------------------
 Das Modul erweitert SAP B1 Standardformulare um Export-Funktionen:
 
 JOURNALBUCHUNGEN (Form 392):
-- Zus�tzliches Export-Status-Feld
+- Zusätzliches Export-Status-Feld
 - Anzeige des aktuellen Export-Status
-- M�glichkeit zur manuellen Status-�nderung
+- Möglichkeit zur manuellen Status-Änderung
 - Automatische Status-Aktualisierung nach Export
 
 ANDERE FORMULARE:
@@ -156,77 +211,77 @@ ANDERE FORMULARE:
 - Zahlungsformulare: Export-Kennzeichnung
 
 BENUTZER-INTERFACE-ERWEITERUNGEN:
-- Export-Dialog (FrmExportDialog.srf) f�r Haupt-Export-Funktionen
-- Status-�nderungs-Dialog (FrmJeExpStateChg.srf) f�r manuelle Anpassungen
-- Protokoll-Anzeige f�r Export-Ergebnisse
+- Export-Dialog (FrmExportDialog.srf) für Haupt-Export-Funktionen
+- Status-Änderungs-Dialog (FrmJeExpStateChg.srf) für manuelle Anpassungen
+- Protokoll-Anzeige für Export-Ergebnisse
 
-[HINWEIS F�R BILDER: Erweiterte Journalbuchung mit Export-Status-Feld]
+[HINWEIS FÜR BILDER: Erweiterte Journalbuchung mit Export-Status-Feld]
 
-EXPORT-VERARBEITUNG
--------------------
-Der Export-Prozess l�uft in definierten Phasen ab:
+EXPORT-VERARBEITUNG (PHASEN)
+-----------------------------
+Der Export-Prozess läuft in definierten Phasen ab:
 
-PHASE 1 - VORBEREITUNG:
+PHASE 1 — VORBEREITUNG:
 - Ermittlung der Eingabeparameter aus Dialog
 - Validierung der Export-Einstellungen
 - Systeminformationen sammeln (GetAdminInfo)
 - Export-Strukturen initialisieren
 
-PHASE 2 - DATENSAMMLUNG:
-- Ausf�hrung der relevanten SQL-Queries
+PHASE 2 — DATENSAMMLUNG:
+- Ausführung der relevanten SQL-Queries
 - Sammlung der zu exportierenden Daten
-- Anwendung der gew�hlten Filter-Kriterien
-- Validierung der Datenqualit�t
+- Anwendung der gewählten Filter-Kriterien
+- Validierung der Datenqualität
 
-PHASE 3 - DATEI-ERSTELLUNG:
+PHASE 3 — DATEI-ERSTELLUNG:
 - Erstellung der DATEV-Header-Informationen
 - Generierung der Buchungszeilen im DATEV-Format
 - Schreibung der CSV-Dateien
 - Protokollierung der Ergebnisse
 
-PHASE 4 - STATUS-UPDATE:
+PHASE 4 — STATUS-UPDATE:
 - Aktualisierung der Export-Status (UpdateJournalEntries)
-- Markierung exportierter Datens�tze
+- Markierung exportierter Datensätze
 - Protokollierung der Ergebnisse
 - Benutzer-Benachrichtigungen
 
-[HINWEIS F�R BILDER: Export-Prozess-Fortschrittsanzeige]
+[HINWEIS FÜR BILDER: Export-Prozess-Fortschrittsanzeige]
 
 KONFIGURATION UND EINSTELLUNGEN
 -------------------------------
-Das Modul nutzt Konfigurationstabellen f�r Einstellungen:
+Das Modul nutzt Konfigurationstabellen für Einstellungen:
 
 DATEV-EINSTELLUNGEN (@VPS_DATEV_SET):
 - Beraternummer und -name
 - Mandanten-ID und Erfasser
-- Kontenl�nge und Kontenplan
+- Kontenlänge und Kontenplan
 - Export-Pfad-Einstellungen
 - Pro-Rata-Konten und Einstellungen
 
 BENUTZER-KONFIGURATION (FsExportConfig):
-- BusinessPartnersUDFMap: Zuordnung von Gesch�ftspartner-UDFs
-- 15 konfigurierbare UDF-Felder f�r individuellen Export
+- BusinessPartnersUDFMap: Zuordnung von Geschäftspartner-UDFs
+- 15 konfigurierbare UDF-Felder für individuellen Export
 - Automatische Generierung der UDF-Abfragen
 
 GLOBALE EINSTELLUNGEN:
 - B1AmountsDecimalPlaces: Nachkommastellen
-- LocalCurrency: Hausw�hrung
+- LocalCurrency: Hauswährung
 - DebugModus: Erweiterte Protokollierung
 
-[HINWEIS F�R BILDER: Konfigurations-Tabelle mit DATEV-Einstellungen]
+[HINWEIS FÜR BILDER: Konfigurations-Tabelle mit DATEV-Einstellungen]
 
 PROTOKOLLIERUNG UND MONITORING
 -------------------------------
-Das Modul bietet umfangreiche Protokollierung �ber die ExportLogger-Klasse:
+Das Modul bietet umfangreiche Protokollierung über die ExportLogger-Klasse:
 
 EXPORT-LOGS:
 - Detaillierte Export-Protokolle nach Modulen
-- Zeitstempel aller Export-Aktivit�ten
-- Erfolgreiche und fehlgeschlagene Vorg�nge
+- Zeitstempel aller Export-Aktivitäten
+- Erfolgreiche und fehlgeschlagene Vorgänge
 - Validierungs-Warnungen und Fehler
 
 LOG-KATEGORIEN (Enums.DtvModule):
-- Com: Allgemeine Vorg�nge
+- Com: Allgemeine Vorgänge
 - DebCred: Debitoren/Kreditoren
 - Accounts: Sachkonten
 - Payments: Zahlungen
@@ -245,42 +300,140 @@ LOG-ZUGRIFF:
 - Grid-Ansicht mit Modulen und Beschreibungen
 - Detaillierte Fehlermeldungen bei Problemen
 
-[HINWEIS F�R BILDER: Export-Protokoll mit verschiedenen Log-Kategorien]
+[HINWEIS FÜR BILDER: Export-Protokoll mit verschiedenen Log-Kategorien]
 
-H�UFIGE PROBLEME UND L�SUNGEN
+ALLGEMEINE ANWENDUNG
+--------------------
+Das System arbeitet mit automatischer Export-Status-Verwaltung. Neue Buchungen erhalten automatisch den Status "N" (nicht exportiert), erfolgreiche Exporte setzen den Status auf "Y" und Fehler führen zu Status "F".
+
+Der Export-Dialog ermöglicht die Auswahl verschiedener Datentypen und Zeiträume. Über Filter können gezielt bestimmte Buchungen exportiert werden, beispielsweise nur nicht exportierte oder fehlgeschlagene Buchungen.
+
+Das Protokoll-System bietet detaillierte Informationen über alle Export-Vorgänge und ermöglicht eine einfache Problemdiagnose.
+
+GENAUE SCHRITT FÜR SCHRITT ANLEITUNG FÜR ALLE FUNKTIONEN
+---------------------------------------------------------
+DATEV EXPORT DURCHFÜHREN:
+1. Navigieren Sie zu: VPS Financial Suite > DATEV Export
+2. Der Export-Dialog öffnet sich mit dem Export-Tab aktiv
+3. Wählen Sie die zu exportierenden Datentypen:
+   - Export Debitoren/Kreditoren für Geschäftspartnerstammdaten
+   - Export Sachkonten für Kontenplan
+   - Export Zahlungsbedingungen für Zahlungskonditionen
+   - Export Journalbuchungen für Buchungsdaten
+4. Wählen Sie das Datumsfeld: Buchungsdatum oder Belegdatum
+5. Definieren Sie den Zeitraum mit Von/Bis Datum
+6. Wählen Sie den Buchungsstatus-Filter:
+   - Nur nicht exportierte für neue Buchungen
+   - Nicht exportierte und fehlgeschlagene für Nacharbeitung
+   - Nur fehlgeschlagene für Problembehebung
+   - Alle außer fehlgeschlagenen für Standardexport
+   - Alle Buchungen für Vollexport
+7. Geben Sie den Export-Pfad für das Zielverzeichnis an
+8. Klicken Sie auf "Export" um den Vorgang zu starten
+9. Verfolgen Sie den Fortschritt und wechseln Sie zum Protokoll-Tab
+
+EXPORT-PROTOKOLL ÜBERPRÜFEN:
+1. Wechseln Sie zum Protokoll-Tab im Export-Dialog
+2. Überprüfen Sie die Grid-Anzeige mit Modulen und Beschreibungen
+3. Achten Sie auf farbcodierte Meldungen für schnelle Problemerkennung
+4. Analysieren Sie Fehlermeldungen für eventuelle Korrekturen
+5. Dokumentieren Sie erfolgreiche Exporte für Ihre Aufzeichnungen
+
+EXPORT-STATUS MANUELL ÄNDERN:
+1. Öffnen Sie das entsprechende Journalbuchungsformular
+2. Lokalisieren Sie das Export-Status-Feld
+3. Wählen Sie den gewünschten neuen Status aus
+4. Bestätigen Sie die Änderung
+5. Der Status wird in der zentralen Export-Status-Tabelle aktualisiert
+
+EXPORT LOG AUFRUFEN:
+1. Navigieren Sie zu: VPS Financial Suite > Protokolle > Export Log
+2. Das UDO-Formular für Export-Protokolle öffnet sich
+3. Überprüfen Sie historische Export-Vorgänge
+4. Analysieren Sie vergangene Probleme und Lösungen
+
+BEREITS EXPORTIERTE DATEN ERNEUT EXPORTIEREN:
+1. Öffnen Sie den Export-Dialog
+2. Aktivieren Sie die Option "Bereits exportierte Daten erneut exportieren"
+3. Wählen Sie die gewünschten Datentypen und Zeiträume
+4. Führen Sie den Export wie gewohnt durch
+5. Alle Daten werden unabhängig vom aktuellen Status exportiert
+
+SPEZIELLE BUCHUNGSTYPEN BEARBEITEN:
+1. Das System erkennt automatisch verschiedene Buchungstypen
+2. Eingangsrechnungen werden mit dem EkRechnungKbf-Exporter verarbeitet
+3. Ausgangsrechnungen nutzen den VkRechnungKbf-Exporter
+4. Gutschriften werden über entsprechende Gutschrift-Exporter behandelt
+5. Jeder Exporter berücksichtigt die spezifischen Anforderungen des Buchungstyps
+
+DATEV-DATEIEN VERARBEITEN:
+1. Nach erfolgreichem Export finden Sie die CSV-Dateien im gewählten Export-Pfad
+2. Die Hauptdatei ist EXTF_Buchungsstapel.csv für Buchungen
+3. Stammdaten-Dateien werden separat erstellt (EXTF_Debitoren.csv, etc.)
+4. Alle Dateien entsprechen dem DATEV-Standard mit Semikolon-Trennung
+5. Importieren Sie die Dateien in Ihr DATEV-System
+
+[HINWEIS FÜR BILDER: Schritt-für-Schritt Screenshots des Export-Prozesses]
+
+ALLGEMEINE TIPPS FÜR ANWENDER
 -----------------------------
+EXPORT-STRATEGIE OPTIMIEREN:
+- Führen Sie regelmäßige Exporte durch (täglich/wöchentlich)
+- Nutzen Sie die Status-Filter für gezielte Re-Exporte
+- Prüfen Sie das Protokoll nach jedem Export auf Warnungen
+- Verwenden Sie aussagekräftige Export-Pfade für bessere Organisation
 
-Problem: Export schl�gt mit Validierungsfehler fehl
-L�sung:
-- Buchungsperioden pr�fen (offene/geschlossene Perioden)
-- Kontenplan-Konsistenz validieren
-- Steuer-Zuordnungen �berpr�fen
-- Export-Protokoll im Protokoll-Tab analysieren
+DATENQUALITÄT SICHERSTELLEN:
+- Testen Sie neue Einstellungen mit kleinen Zeiträumen
+- Überprüfen Sie Export-Dateien vor DATEV-Import
+- Nutzen Sie die manuelle Status-Änderung für Korrekturen
+- Sichern Sie Export-Dateien vor weiterführender Verarbeitung
 
-Problem: Unvollst�ndige Export-Dateien
-L�sung:
-- Berechtigungen f�r Export-Verzeichnis pr�fen
-- Festplatten-Speicher kontrollieren
-- Export-Parameter im Dialog validieren
-- Zeitraum-Einstellungen �berpr�fen
+STATUS-VERWALTUNG NUTZEN:
+- Überwachen Sie fehlgeschlagene Exporte über entsprechenden Filter
+- Verwenden Sie Status "E" für bewusst ausgeschlossene Buchungen
+- Dokumentieren Sie manuelle Status-Änderungen für Nachvollziehbarkeit
+- Nutzen Sie das Export Log für historische Nachverfolgung
+
+FEHLERBEHANDLUNG BEI PROBLEMEN
+-------------------------------
+HÄUFIGE PROBLEME:
+
+Problem: Export schlägt mit Validierungsfehler fehl
+Lösung: Prüfen Sie Buchungsperioden (offene/geschlossene Perioden), validieren Sie Kontenplan-Konsistenz, überprüfen Sie Steuer-Zuordnungen und analysieren Sie das Export-Protokoll im Protokoll-Tab
+
+Problem: Unvollständige Export-Dateien
+Lösung: Prüfen Sie Berechtigungen für Export-Verzeichnis, kontrollieren Sie Festplatten-Speicher, validieren Sie Export-Parameter im Dialog und überprüfen Sie Zeitraum-Einstellungen
 
 Problem: Status-Updates funktionieren nicht
-L�sung:
-- Benutzer-Berechtigungen f�r Journalbuchungen �berpr�fen
-- @VPS_DATEV_EXPSTAT Tabelle auf Existenz pr�fen
-- Add-On-Installation validieren
-- Export-Status manuell �ber Dialog �ndern
+Lösung: Überprüfen Sie Benutzer-Berechtigungen für Journalbuchungen, prüfen Sie die Existenz der @VPS_DATEV_EXPSTAT Tabelle, validieren Sie die Add-On-Installation und verwenden Sie manuelle Status-Änderung über den Dialog
 
-[HINWEIS F�R BILDER: Fehlermeldungs-Dialog mit L�sungshinweisen]
+Problem: Bestimmte Buchungstypen werden nicht exportiert
+Lösung: Überprüfen Sie die Buchungstyp-spezifischen Exporter, stellen Sie sicher, dass alle erforderlichen Daten vorhanden sind, prüfen Sie die Konfiguration für spezielle Buchungsarten
 
-VERWENDUNGSTIPPS
-----------------
-1. F�hren Sie regelm��ige Exporte durch (t�glich/w�chentlich)
-2. Pr�fen Sie das Protokoll nach jedem Export auf Warnungen
-3. Verwenden Sie die Status-Filter f�r Re-Exporte
-4. Sichern Sie Export-Dateien vor DATEV-Import
-5. Testen Sie neue Einstellungen mit kleinen Zeitr�umen
-6. Nutzen Sie die manuelle Status-�nderung f�r Korrekturen
-7. �berwachen Sie fehlgeschlagene Exporte �ber entsprechenden Filter
+Problem: DATEV-Dateien sind fehlerhaft
+Lösung: Validieren Sie die CSV-Struktur, überprüfen Sie Semikolon-Trennung, stellen Sie sicher, dass alle DATEV-Header korrekt sind, und prüfen Sie die Zeichenkodierung
 
-Das VPS DatevExport Modul erm�glicht einen effizienten und nachvollziehbaren Datenaustausch zwischen SAP Business One und DATEV-Programmen durch automatisierte Export-Prozesse, umfassende Status-Verwaltung und detaillierte Protokollierung aller Vorg�nge.
+Problem: Export-Dialog öffnet sich nicht
+Lösung: Überprüfen Sie die Benutzerberechtigungen, stellen Sie sicher, dass das Modul korrekt geladen ist, prüfen Sie die Menü-Integration und kontaktieren Sie bei anhaltenden Problemen den Administrator
+
+SYSTEM-PROBLEME:
+- Bei Speicher-Problemen reduzieren Sie den Export-Zeitraum
+- Performance-Probleme können durch große Datenmengen entstehen
+- Netzwerk-Probleme können beim Schreiben in Netzwerk-Pfade auftreten
+
+PROTOKOLL-ANALYSE:
+- Nutzen Sie das Protokoll-Tab für detaillierte Fehlermeldungen
+- Verschiedene Module zeigen unterschiedliche Verarbeitungsschritte
+- Zeitstempel helfen bei der Nachverfolgung von Problemen
+- Export-Logs bieten historische Problemverfolgung
+
+[HINWEIS FÜR BILDER: Beispiele häufiger Fehlermeldungen und Export-Protokolle]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS DatevExport Modul ermöglicht einen effizienten und nachvollziehbaren Datenaustausch zwischen SAP Business One und DATEV-Programmen. Die automatisierte Export-Status-Verwaltung, spezialisierte Exporter für verschiedene Buchungstypen und detaillierte Protokollierung gewährleisten eine zuverlässige Datenübertragung.
+
+Die Integration in SAP Business One Formulare, das umfassende Konfigurationssystem mit DATEV-Einstellungen, UDF-Mapping und globalen Parametern sowie die phasenweise Export-Verarbeitung mit Vorbereitung, Datensammlung, Datei-Erstellung und Status-Update bieten maximale Flexibilität für unterschiedliche Anforderungen.
+
+Mit der ExportLogger-Klasse, den umfangreichen Log-Kategorien und der Status-Tracking-Funktion ist eine vollständige Nachvollziehbarkeit aller Export-Vorgänge gewährleistet.

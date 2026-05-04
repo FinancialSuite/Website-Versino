@@ -2,63 +2,116 @@ VPS FINANCIAL SUITE - REPORTING MODUL
 ANWENDERDOKUMENTATION
 =====================================
 
-‹BERBLICK
+√úBERBLICK
 ---------
-Das VPS Reporting Modul ist das Berichtssystem der Versino Financial Suite f¸r SAP Business One. Es bietet eine umfangreiche Sammlung vorgefertigter Crystal Reports f¸r verschiedene betriebswirtschaftliche Auswertungen. Das Modul erkennt automatisch, ob Sie eine Microsoft SQL Server oder SAP HANA Datenbank verwenden, und l‰dt die entsprechenden Berichte.
+Das VPS Reporting Modul ist das Berichtssystem der Versino Financial Suite f√ºr SAP Business One. Es stellt eine Plattform f√ºr Crystal Reports zur Verf√ºgung, bietet eine umfangreiche Sammlung vorgefertigter Berichte f√ºr betriebswirtschaftliche Auswertungen und erkennt automatisch Ihren Datenbanktyp (Microsoft SQL Server oder SAP HANA), um die entsprechenden Berichtsversionen zu laden.
 
 ZUGANG ZUM MODUL
 ----------------
-Die Berichte erreichen Sie ¸ber das SAP Business One Men¸:
+Die Berichte erreichen Sie √ºber das SAP Business One Men√º:
 
 - Versino Financial Suite > Financial Suite Berichte
 
-Das Modul l‰dt beim ersten Start automatisch alle verf¸gbaren Berichte und richtet die Men¸struktur ein.
+Das Modul l√§dt beim ersten Start automatisch alle verf√ºgbaren Berichte und richtet die Men√ºstruktur ein.
 
-[HINWEIS F‹R BILDER: Screenshot des Berichtsmen¸s in SAP Business One]
+[HINWEIS F√úR BILDER: Screenshot des Berichtsmen√ºs in SAP Business One]
 
-WAS BIETET DAS MODUL
---------------------
-Das Reporting Modul stellt zwei Arten von Berichten zur Verf¸gung:
+GRUNDLAGEN UND INFOS ZUM MODUL
+------------------------------
+Das Reporting Modul startet automatisch beim Laden der Financial Suite und bereitet die Crystal Reports-Umgebung vor. Es f√ºhrt eine Versionspr√ºfung durch und aktualisiert bei Bedarf die Einstellungen.
 
-STANDARD-BERICHTE:
-Berichte, die Sie direkt starten kˆnnen ohne weitere Einstellungen:
+Das System arbeitet mit einem asynchronen Startsystem, das die Crystal Reports-Komponenten im Hintergrund initialisiert, ohne die SAP Business One Benutzeroberfl√§che zu blockieren.
+
+AUFBAU UND FUNKTIONSWEISE:
+- Automatische Initialisierung der Sprachressourcen
+- Datenbankbenutzer-Anmeldung f√ºr Berichtszugriff
+- Laden der Reporting-Einstellungen aus SAP Business One
+- Asynchrone Initialisierung der Crystal Reports-Bibliotheken
+- Automatisches Einrichten der Men√ºstruktur
+
+VORTEILE DURCH DIE VERWENDUNG DES MODULS
+-----------------------------------------
+AUTOMATISIERUNG:
+- Keine manuelle Konfiguration erforderlich
+- Automatische Erkennung des Datenbanktyps (SQL Server / HANA)
+- Selbst√§ndige Verwaltung der Crystal Reports-Pfade
+
+PERFORMANCE:
+- Asynchroner Start verhindert Blockierungen
+- Optimierte Lade-Reihenfolge der Komponenten
+- Effiziente Verwaltung der Report-Bibliotheken
+- Datenbank-spezifisch optimierte Abfragen
+
+BENUTZERFREUNDLICHKEIT:
+- Nahtlose Integration in SAP Business One
+- Automatische Sprachanpassung
+- Keine technischen Einstellungen erforderlich
+- Umfangreiche Sammlung sofort verf√ºgbarer Berichte
+
+HAUPTFUNKTIONEN
+---------------
+DATENBANKINTEGRATION:
+- Automatische Erkennung von SQL Server und HANA
+- Sichere Benutzeranmeldung f√ºr Datenbankzugriff
+- Optimierte Abfragen je nach Datenbanktyp
+
+CRYSTAL REPORTS VERWALTUNG:
+- Automatisches Laden der Report-Bibliotheken
+- Verwaltung der Assembly-Pfade
+- Versionskontrolle der installierten Komponenten
+
+EINSTELLUNGSVERWALTUNG:
+- Speicherung der Konfiguration in SAP Business One
+- Automatische Versionsaktualisierung
+- Beibehaltung der Benutzereinstellungen
+
+BERICHTSAUSWAHL:
+- Standard-Berichte f√ºr direkten Zugriff
+- Massen-Berichte mit Filterm√∂glichkeiten
+- Vielf√§ltige Exportoptionen (PDF, Excel, Word, Druck)
+
+[HINWEIS F√úR BILDER: √úbersicht der automatischen Initialisierung]
+
+ALLE FUNKTIONEN DES MODULS
+--------------------------
+Das Reporting Modul stellt zwei Arten von Berichten zur Verf√ºgung:
+
+STANDARD-BERICHTE (direkter Start ohne weitere Eingaben):
 - Kassenbuch
 - Kontoauszug Sachkonten
 - Offene Posten Kunden (mit Release 07 Version)
 - Summen- und Saldenliste
-- Summen- und Saldenliste GP (Gesch‰ftspartner-orientiert)
+- Summen- und Saldenliste GP (Gesch√§ftspartner-orientiert)
 - Top 10 Kunden
 - Top 10 Lieferanten
 - Zahlungsmoral
 - BWA (Betriebswirtschaftliche Auswertung)
 
 MASSEN-BERICHTE MIT FILTERN:
-Berichte mit Eingabefeldern f¸r spezifische Auswertungen:
-- Saldenbest‰tigung (mit Stichtag und Gesch‰ftspartner-Auswahl)
+- Saldenbest√§tigung (mit Stichtag und Gesch√§ftspartner-Auswahl)
 - Netting Abstimmungen (mit Datumsbereich und GP-Filter)
-- Zahlungsavis (basierend auf Zahlungsl‰ufen)
+- Zahlungsavis (basierend auf Zahlungsl√§ufen)
 
-[HINWEIS F‹R BILDER: ‹bersicht aller verf¸gbaren Berichte in einer Liste]
+[HINWEIS F√úR BILDER: √úbersicht aller verf√ºgbaren Berichte in einer Liste]
 
-WICHTIGE STANDARD-BERICHTE
---------------------------
-
+WICHTIGE STANDARD-BERICHTE IM DETAIL
+------------------------------------
 KASSENBUCH:
-Zeigt alle Kassenbewegungen chronologisch an mit laufender Saldierung. Ideal f¸r die t‰gliche Kassenf¸hrung und Kontrollen.
+Zeigt alle Kassenbewegungen chronologisch an mit laufender Saldierung. Ideal f√ºr die t√§gliche Kassenf√ºhrung und Kontrollen.
 
 KONTOAUSZUG SACHKONTEN:
-Erstellt detaillierte Kontobewegungen f¸r ausgew‰hlte Sachkonten mit Buchungsreihenfolge und Saldoverlauf.
+Erstellt detaillierte Kontobewegungen f√ºr ausgew√§hlte Sachkonten mit Buchungsreihenfolge und Saldoverlauf.
 
 OFFENE POSTEN KUNDEN:
-‹bersicht ¸ber alle unbezahlten Kundenforderungen mit F‰lligkeitsanalyse und Altersstaffelung.
+√úbersicht √ºber alle unbezahlten Kundenforderungen mit F√§lligkeitsanalyse und Altersstaffelung.
 
 SUMMEN- UND SALDENLISTE:
-Kompakte ‹bersicht aller Konten mit Anfangsbest‰nden, Periodenbewegungen und Endbest‰nden. Es gibt zwei Varianten:
+Kompakte √úbersicht aller Konten mit Anfangsbest√§nden, Periodenbewegungen und Endbest√§nden. Es gibt zwei Varianten:
 - Standard: Sachkonten-orientiert
-- GP-Version: Gesch‰ftspartner-orientiert
+- GP-Version: Gesch√§ftspartner-orientiert
 
 TOP 10 AUSWERTUNGEN:
-Ranking der wichtigsten Gesch‰ftspartner:
+Ranking der wichtigsten Gesch√§ftspartner:
 - Top 10 Kunden: Nach Umsatzvolumen
 - Top 10 Lieferanten: Nach Einkaufsvolumen
 
@@ -66,95 +119,68 @@ ZAHLUNGSMORAL:
 Analyse des Zahlungsverhaltens mit durchschnittlichen Zahlungsdauern und Trends.
 
 BWA:
-Monatliche betriebswirtschaftliche Auswertung nach Standard BWA-Schema mit Ertrags- und Aufwands¸bersicht.
+Monatliche betriebswirtschaftliche Auswertung nach Standard BWA-Schema mit Ertrags- und Aufwands√ºbersicht.
 
-[HINWEIS F‹R BILDER: Beispiele der wichtigsten Berichte nebeneinander]
+[HINWEIS F√úR BILDER: Beispiele der wichtigsten Berichte nebeneinander]
 
 BERICHTE MIT FILTERN
 --------------------
-
-SALDENBESTƒTIGUNG:
-Erstellt automatisch Saldenbest‰tigungen f¸r ausgew‰hlte Kunden.
+SALDENBEST√ÑTIGUNG:
+Erstellt automatisch Saldenbest√§tigungen f√ºr ausgew√§hlte Kunden.
 
 Filteroptionen:
-- Stichtag: Datum f¸r die Saldenermittlung
-- Gesch‰ftspartner: Auswahl ¸ber Choose-From-List
+- Stichtag: Datum f√ºr die Saldenermittlung
+- Gesch√§ftspartner: Auswahl √ºber Choose-From-List
 
-Das System erstellt f¸r jeden ausgew‰hlten Kunden eine separate Datei mit dem Format "Saldenbest‰tigung [Kundencode] - [Kundenname]".
+Das System erstellt f√ºr jeden ausgew√§hlten Kunden eine separate Datei mit dem Format "Saldenbest√§tigung [Kundencode] - [Kundenname]".
 
 NETTING ABSTIMMUNGEN:
-Dokumentiert durchgef¸hrte Netting-Vorg‰nge zwischen Gesch‰ftspartnern.
+Dokumentiert durchgef√ºhrte Netting-Vorg√§nge zwischen Gesch√§ftspartnern.
 
 Filteroptionen:
-- Abstimmungsdatum von/bis: Zeitraum der Netting-Vorg‰nge
-- Gesch‰ftspartner: Dropdown-Auswahl aus Netting-Partnern
+- Abstimmungsdatum von/bis: Zeitraum der Netting-Vorg√§nge
+- Gesch√§ftspartner: Dropdown-Auswahl aus Netting-Partnern
 
-Zeigt ‹bersicht aller Abstimmungen mit Details zu Ausgleichsbuchungen und Nachvollziehbarkeit.
+Zeigt √úbersicht aller Abstimmungen mit Details zu Ausgleichsbuchungen und Nachvollziehbarkeit.
 
 ZAHLUNGSAVIS:
-Erstellt Zahlungsavise basierend auf dem SAP Business One Zahlungsassistent.
+Erstellt Zahlungsavise basierend auf dem SAP Business One Zahlungsassistenten.
 
 Filteroptionen:
-- Zahllauf: Auswahl aus abgeschlossenen Zahlungsl‰ufen
+- Zahllauf: Auswahl aus abgeschlossenen Zahlungsl√§ufen
 
-Das System zeigt automatisch nur Zahlungsl‰ufe mit Status "Executed" an, sortiert nach neuesten zuerst.
+Das System zeigt automatisch nur Zahlungsl√§ufe mit Status "Executed" an, sortiert nach neuesten zuerst.
 
-[HINWEIS F‹R BILDER: Screenshots der Filter-Dialoge f¸r die verschiedenen Massen-Berichte]
+[HINWEIS F√úR BILDER: Screenshots der Filter-Dialoge f√ºr die verschiedenen Massen-Berichte]
 
 AUSGABEOPTIONEN
 ---------------
-Alle Berichte unterst¸tzen verschiedene Ausgabeformate:
+Alle Berichte unterst√ºtzen verschiedene Ausgabeformate:
 
-VERF‹GBARE FORMATE:
+VERF√úGBARE FORMATE:
 - Vorschau: Anzeige in SAP Business One oder einem separaten Fenster
 - Druck: Direkter Ausdruck
 - PDF: Export als PDF-Datei
-- Excel: Export f¸r weitere Bearbeitung
+- Excel: Export f√ºr weitere Bearbeitung
 - Word: Export ins Word-Format
 
 DATEINAMEN:
-Bei Standard-Berichten wird automatisch der Berichtsname verwendet. Bei Massen-Berichten erstellt das System individuelle Dateinamen f¸r jeden Datensatz (z.B. "Saldenbest‰tigung [Kundencode] - [Kundenname]").
+Bei Standard-Berichten wird automatisch der Berichtsname verwendet. Bei Massen-Berichten erstellt das System individuelle Dateinamen f√ºr jeden Datensatz (z. B. "Saldenbest√§tigung [Kundencode] - [Kundenname]").
 
 AUTOMATISCHE ERKENNUNG:
-Das System erkennt automatisch Ihren Datenbanktyp (SQL Server oder HANA) und l‰dt die entsprechenden Berichtsversionen.
+Das System erkennt automatisch Ihren Datenbanktyp (SQL Server oder HANA) und l√§dt die entsprechenden Berichtsversionen.
 
-[HINWEIS F‹R BILDER: Export-Dialog mit allen verf¸gbaren Optionen]
-
-VERWENDUNG DER BERICHTE
------------------------
-
-STANDARD-BERICHTE:
-1. Navigieren Sie zu: Financial Suite Berichte
-2. W‰hlen Sie den gew¸nschten Bericht aus
-3. Der Bericht ˆffnet sich automatisch in der Vorschau
-4. W‰hlen Sie bei Bedarf ein anderes Ausgabeformat
-
-MASSEN-BERICHTE:
-1. W‰hlen Sie den gew¸nschten Massen-Bericht
-2. F¸llen Sie die Filterfelder aus:
-   - Pflichtfelder sind entsprechend markiert
-   - Choose-From-List ˆffnet sich per Klick auf das Lupen-Symbol
-   - Dropdown-Listen zeigen verf¸gbare Optionen
-3. Starten Sie die Berichterstellung
-4. Das System erstellt automatisch separate Dateien f¸r jeden Datensatz
-
-FILTERUNG:
-- Datums-Filter: Klicken Sie auf das Kalender-Symbol
-- Choose-From-List: Lupen-Symbol ˆffnet die Auswahlliste
-- Dropdown: Zeigt automatisch verf¸gbare Werte an
-
-[HINWEIS F‹R BILDER: Schritt-f¸r-Schritt Anleitung der Berichtsverwendung]
+[HINWEIS F√úR BILDER: Export-Dialog mit allen verf√ºgbaren Optionen]
 
 BESONDERE FUNKTIONEN
 --------------------
-
 AUTOMATISCHE DATENBANKADAPTION:
-Das System l‰dt automatisch die richtige Berichtsversion basierend auf Ihrer Datenbank:
+Das System l√§dt automatisch die richtige Berichtsversion basierend auf Ihrer Datenbank:
 - SQL Server: Verwendet optimierte SQL-Abfragen
 - HANA: Nutzt HANA-spezifische Funktionen und In-Memory-Processing
 
 BATCH-VERARBEITUNG:
-Massen-Berichte kˆnnen mehrere Datens‰tze gleichzeitig verarbeiten und erstellen automatisch separate Ausgabedateien.
+Massen-Berichte k√∂nnen mehrere Datens√§tze gleichzeitig verarbeiten und erstellen automatisch separate Ausgabedateien.
 
 INTEGRIERTE BERECHTIGUNGEN:
 Jeder Bericht verwendet eigene Berechtigungen, die in das SAP Business One Berechtigungssystem integriert sind.
@@ -162,23 +188,107 @@ Jeder Bericht verwendet eigene Berechtigungen, die in das SAP Business One Berec
 MEHRSPRACHIGKEIT:
 Berichtsnamen und -beschreibungen werden automatisch in der SAP Business One UI-Sprache angezeigt.
 
-[HINWEIS F‹R BILDER: Vergleich zwischen SQL Server und HANA Berichtsversionen]
+[HINWEIS F√úR BILDER: Vergleich zwischen SQL Server und HANA Berichtsversionen]
 
-PROBLEMBEHANDLUNG
------------------
+ALLGEMEINE ANWENDUNG
+--------------------
+Das Reporting Modul arbeitet vollst√§ndig im Hintergrund und ist nach dem Start der Financial Suite automatisch verf√ºgbar. Es bereitet die Umgebung f√ºr alle Berichtsfunktionen vor und stellt sicher, dass alle anderen Module ordnungsgem√§√ü auf die Berichtsfunktionen zugreifen k√∂nnen.
+
+Die eigentlichen Berichte werden √ºber das Men√º "Versino Financial Suite > Financial Suite Berichte" aufgerufen. Standard-Berichte starten direkt, Massen-Berichte erfordern vorher die Eingabe von Filterkriterien.
+
+GENAUE SCHRITT F√úR SCHRITT ANLEITUNG F√úR ALLE FUNKTIONEN
+---------------------------------------------------------
+AUTOMATISCHER START (technische Initialisierung):
+1. Das Modul startet automatisch mit der Financial Suite
+2. Die Sprachressourcen werden geladen
+3. Eine Datenbankbenutzer-Anmeldung wird angefordert
+4. Bei erfolgreicher Anmeldung werden die Einstellungen geladen
+5. Die Crystal Reports-Umgebung wird initialisiert
+
+VERWENDUNG STANDARD-BERICHTE:
+1. Navigieren Sie zu: Versino Financial Suite > Financial Suite Berichte
+2. W√§hlen Sie den gew√ºnschten Bericht aus
+3. Der Bericht √∂ffnet sich automatisch in der Vorschau
+4. W√§hlen Sie bei Bedarf ein anderes Ausgabeformat (PDF, Excel, Word, Druck)
+
+VERWENDUNG MASSEN-BERICHTE:
+1. W√§hlen Sie den gew√ºnschten Massen-Bericht
+2. F√ºllen Sie die Filterfelder aus:
+   - Pflichtfelder sind entsprechend markiert
+   - Choose-From-List √∂ffnet sich per Klick auf das Lupen-Symbol
+   - Dropdown-Listen zeigen verf√ºgbare Optionen
+3. Starten Sie die Berichterstellung
+4. Das System erstellt automatisch separate Dateien f√ºr jeden Datensatz
+
+FILTERUNG:
+- Datums-Filter: Klicken Sie auf das Kalender-Symbol
+- Choose-From-List: Lupen-Symbol √∂ffnet die Auswahlliste
+- Dropdown: Zeigt automatisch verf√ºgbare Werte an
+
+VORAUSSETZUNGEN:
+- G√ºltige SAP Business One Installation
+- Datenbankzugriff mit entsprechenden Berechtigungen
+- Crystal Reports-Komponenten m√ºssen installiert sein
+
+[HINWEIS F√úR BILDER: Schritt-f√ºr-Schritt Anleitung der Berichtsverwendung]
+
+ALLGEMEINE TIPPS F√úR ANWENDER
+-----------------------------
+ERSTE SCHRITTE:
+- Das Modul arbeitet automatisch ‚Äî keine Konfiguration erforderlich
+- Bei der ersten Verwendung kann die Initialisierung etwas l√§nger dauern
+- Warten Sie ab, bis alle Komponenten geladen sind
+
+LEISTUNGSOPTIMIERUNG:
+- Das asynchrone Laden verhindert Unterbrechungen
+- Lassen Sie die Initialisierung vollst√§ndig abschlie√üen
+- Bei Problemen starten Sie SAP Business One neu
+
+MEHRSPRACHIGKEIT:
+- Das System erkennt automatisch Ihre SAP Business One Sprache
+- Alle Meldungen werden entsprechend angezeigt
+- Spracheinstellungen werden automatisch √ºbernommen
+
+BERICHTSWAHL:
+- Nutzen Sie Standard-Berichte f√ºr t√§gliche Routineauswertungen
+- Verwenden Sie Massen-Berichte f√ºr gezielte, gefilterte Analysen
+- Exportieren Sie Berichte bei Bedarf in PDF/Excel/Word
+
+FEHLERBEHANDLUNG BEI PROBLEMEN
+-------------------------------
+H√ÑUFIGE PROBLEME:
+
+Problem: Fehlermeldung bei der Datenbankverbindung
+L√∂sung: √úberpr√ºfen Sie Ihre SAP Business One Datenbankberechtigungen und starten Sie das System neu
+
+Problem: Crystal Reports funktionieren nicht
+L√∂sung: Pr√ºfen Sie, ob die Crystal Reports-Komponenten ordnungsgem√§√ü installiert sind
+
+Problem: Langsamer Start der Berichte
+L√∂sung: Das ist normal beim ersten Start ‚Äî warten Sie die vollst√§ndige Initialisierung ab
 
 Problem: Keine Daten im Bericht
-Lˆsung: Kontrollieren Sie die Filtereinstellungen und den gew‰hlten Zeitraum
+L√∂sung: Kontrollieren Sie die Filtereinstellungen und den gew√§hlten Zeitraum
 
 Problem: Massen-Bericht erstellt keine Dateien
-Lˆsung: Pr¸fen Sie, ob die Filterkriterien Datens‰tze zur¸ckgeben
+L√∂sung: Pr√ºfen Sie, ob die Filterkriterien Datens√§tze zur√ºckgeben
 
-[HINWEIS F‹R BILDER: H‰ufige Fehlermeldungen und deren Lˆsungen]
+AUTOMATISCHE WIEDERHERSTELLUNG:
+- Das System versucht bei Fehlern eine automatische Wiederherstellung
+- Fehlgeschlagene Initialisierungen werden beim n√§chsten Start wiederholt
+- Einstellungen bleiben auch nach Fehlern erhalten
+
+FEHLERBEHANDLUNG IM HINTERGRUND:
+- Automatische Fehlermeldung bei Datenbankproblemen
+- Behandlung von Anmeldungsfehlern
+- Schutz vor unvollst√§ndiger Initialisierung
+
+[HINWEIS F√úR BILDER: Beispiele h√§ufiger Fehlermeldungen und deren L√∂sungen]
 
 ZUSAMMENFASSUNG
 ---------------
-Das VPS Reporting Modul bietet eine umfassende Sammlung betriebswirtschaftlicher Berichte f¸r SAP Business One. Die automatische Datenbankadaption, die benutzerfreundlichen Filter bei Massen-Berichten und die vielf‰ltigen Exportoptionen machen es zu einem wertvollen Werkzeug f¸r alle Auswertungsanforderungen.
+Das VPS Reporting Modul ist die technische Grundlage f√ºr alle Berichtsfunktionen der Financial Suite und gleichzeitig eine umfassende Sammlung betriebswirtschaftlicher Berichte. Es arbeitet vollst√§ndig automatisch und stellt sicher, dass Crystal Reports optimal in SAP Business One integriert werden.
 
-Die Unterscheidung zwischen Standard-Berichten f¸r den schnellen Zugriff und Massen-Berichten mit Filtermˆglichkeiten deckt sowohl allt‰gliche Routineauswertungen als auch spezielle Anforderungen ab.
+Die automatische Datenbankadaption (SQL Server / HANA), die benutzerfreundlichen Filter bei Massen-Berichten und die vielf√§ltigen Exportoptionen (PDF, Excel, Word, Druck) machen es zu einem wertvollen Werkzeug f√ºr alle Auswertungsanforderungen. Die Unterscheidung zwischen Standard-Berichten f√ºr den schnellen Zugriff und Massen-Berichten mit Filterm√∂glichkeiten deckt sowohl allt√§gliche Routineauswertungen als auch spezielle Anforderungen ab.
 
-Nach der automatischen Initialisierung stehen Ihnen sofort alle Berichte zur Verf¸gung - je nach Datenbanktyp in der optimierten Version f¸r beste Performance und Funktionalit‰t.
+Anwender profitieren von der vollautomatischen Funktionsweise ‚Äî nach der Installation sind keine weiteren Schritte erforderlich, und alle Berichte stehen sofort zur Verf√ºgung, je nach Datenbanktyp in der optimierten Version f√ºr beste Performance und Funktionalit√§t.

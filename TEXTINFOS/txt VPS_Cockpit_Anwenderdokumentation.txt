@@ -2,76 +2,136 @@ VPS FINANCIAL SUITE - COCKPIT MODUL
 ANWENDERDOKUMENTATION
 =====================================
 
-‹BERBLICK
+√úBERBLICK
 ---------
-Das VPS Cockpit ist das zentrale Dashboard der VPS Financial Suite und bietet eine umfassende Arbeitsumgebung f¸r die Verwaltung und Analyse von SAP Business One Daten. Es fungiert als Startpunkt und Kontrollzentrum mit verschiedenen Modulen f¸r Buchungsanalysen, Auswertungen und Schnellzugriffe auf wichtige Funktionen.
+Das VPS Cockpit ist das zentrale Dashboard der VPS Financial Suite und bietet eine umfassende Arbeitsumgebung f√ºr die Verwaltung und Analyse von SAP Business One Daten. Es fungiert als Startpunkt und Kontrollzentrum mit verschiedenen Modulen f√ºr Buchungsanalysen, Auswertungen und Schnellzugriffe auf wichtige Funktionen.
 
-ZUGANG ZUM COCKPIT
-------------------
-Das Cockpit erreichen Sie ¸ber das SAP Business One Men¸:
+ZUGANG ZUM MODUL
+----------------
+Das Cockpit erreichen Sie √ºber das SAP Business One Men√º:
 
-Men¸pfad in SAP Business One:
 - VPS Financial Suite > Financial Cockpit
 
-Das Cockpit ˆffnet sich als eigenst‰ndiges Windows-Fenster und kann parallel zu SAP Business One verwendet werden.
+Das Cockpit √∂ffnet sich als eigenst√§ndiges Windows-Fenster und kann parallel zu SAP Business One verwendet werden.
 
-BENUTZEROBERFLƒCHE
+GRUNDLAGEN UND INFOS ZUM MODUL
+------------------------------
+Das VPS Cockpit fungiert als eigenst√§ndiges Windows-Fenster und kann parallel zu SAP Business One verwendet werden. Es l√§uft als separate Anwendung mit eigener Taskleiste und bietet Zugriff auf verschiedene Module f√ºr Buchungsanalysen, Auswertungen und Schnellzugriffe auf wichtige Funktionen.
+
+Das Cockpit besteht aus einer konfigurierbaren Startseite mit Kacheln, verschiedenen Analysebereichen und einem separaten Tool zur Erstellung von Journalbuchungen (BookingStackView). Die Benutzeroberfl√§che passt sich automatisch an die Bildschirmgr√∂√üe an und bietet eine konsistente Bedienung.
+
+AUFBAU UND FUNKTIONSWEISE:
+- Eigenst√§ndiges Windows-Fenster parallel zu SAP Business One
+- Konfigurierbare Startseite mit verschiedenen Kachelbereichen
+- Hauptmen√º-Reiter f√ºr verschiedene Funktionsbereiche
+- Separates Journalbuchungs-Erstellungstool
+- Vollst√§ndige Integration mit SAP Business One Daten
+- Multi-Mandanten-Unterst√ºtzung mit separaten Anmeldungen
+
+VORTEILE DURCH DIE VERWENDUNG DES MODULS
+-----------------------------------------
+ZENTRALE ARBEITSUMGEBUNG:
+- Dashboard-Ansicht mit direktem Zugriff auf alle wichtigen Funktionen
+- Konfigurierbare Kacheln f√ºr h√§ufig verwendete Operationen
+- Parallelbetrieb zu SAP Business One ohne Unterbrechung
+
+ERWEITERTE BUCHUNGSFUNKTIONEN:
+- Dynamische Primanota f√ºr Buchungs√ºbersichten
+- Separates Tool f√ºr erweiterte Journalbuchungserstellung
+- Automatische Kontotyp-Erkennung und Steuerzuordnung
+- Kostenstellen- und Dimensionsunterst√ºtzung
+
+DATENANALYSE UND REPORTING:
+- Verschiedene Analysebereiche f√ºr Konten und Gesch√§ftspartner
+- Umfassende Abfragemodule f√ºr spezifische Auswertungen
+- Stammdaten√ºbersichten und Dokumentenanalysen
+- Integrierte Berichtsfunktionen
+
+FLEXIBILIT√ÑT UND ANPASSBARKEIT:
+- Konfigurierbare Startseite nach Benutzervorlieben
+- Multi-Mandanten-Unterst√ºtzung f√ºr verschiedene Datenbanken
+- Benutzerrechteverwaltung basierend auf SAP Business One
+- Anpassbare Benutzeroberfl√§che mit verschiedenen Themes
+
+BENUTZEROBERFL√ÑCHE
 ------------------
 Das Cockpit besteht aus folgenden Hauptbereichen:
 
-1. KOPFBEREICH
+1. KOPFBEREICH:
    - VPS Logo (oben links)
    - Firmenname und Datenbankname in der Titelleiste
-   - Hauptmen¸leiste mit Reitern
+   - Hauptmen√ºleiste mit Reitern
 
-2. HAUPTMEN‹-REITER
-   - Startseite: Startseite mit konfigurierbaren Kacheln
-   - Kontoseiten: Konto-, Debitoren- und Kreditorenanalysen
+2. HAUPTMEN√ú-REITER:
+   - Startseite: Konfigurierbare Kacheln f√ºr Schnellzugriffe
+   - Kontoseiten: Konto-, Debitoren- und Kreditorenanalysen mit dynamischer Primanota
+   - Buchungsstack: Separates Tool zur Erstellung von Journalbuchungen
    - Abfragen: Verschiedene Abfragemodule
-   - Stammdaten: Stammdaten¸bersichten
+   - Stammdaten: Stammdaten√ºbersichten
    - Dokumente: Dokumentenanalysen
    - Berichte: Berichte und Auswertungen
    - Einstellungen: Konfiguration und Einstellungen
    - Anmeldung: Multi-Mandanten Anmeldung
 
-3. ARBEITSBEREICH
-   - Zentraler Bereich f¸r Inhalte
-   - Dynamische Anpassung je nach Men¸punkt
+3. ARBEITSBEREICH:
+   - Zentraler Bereich f√ºr Inhalte mit dynamischer Anpassung
    - Tabellarische Datenansichten mit Filter- und Sortierfunktionen
+   - Automatische Spaltenbreitenanpassung
+   - Summierungsfunktion f√ºr markierte Zeilen mit numerischen Werten
 
-[HINWEIS F‹R BILDER: Screenshot der Cockpit-Hauptoberfl‰che mit Beschriftung aller Bereiche]
+[HINWEIS F√úR BILDER: Screenshot der Cockpit-Hauptoberfl√§che mit allen beschrifteten Bereichen]
 
-STARTSEITE
-----------
-Die Startseite ist die zentrale Startseite mit konfigurierbaren Kacheln f¸r Schnellzugriffe. Jeder Bereich enth‰lt genau 10 Kacheln:
+HAUPTFUNKTIONEN
+---------------
+Das Cockpit bietet folgende Hauptfunktionen:
 
-STAMMDATEN-BEREICH (10 Kacheln):
-- Gesch‰ftspartner: Zugriff auf Kunden und Lieferanten
+DASHBOARD UND NAVIGATION:
+- Konfigurierbare Startseite mit Kachelbereichen
+- Hauptmen√º-Reiter f√ºr alle Funktionsbereiche
+- Multi-Mandanten-Anmeldung
+
+ANALYSE UND BUCHUNGEN:
+- Kontoseiten-Analysen mit dynamischer Primanota
+- Buchungsstack-Tool zur Journalbuchungserstellung
+- Abfragemodule f√ºr spezifische Auswertungen
+
+DATENVERWALTUNG:
+- Stammdaten√ºbersichten
+- Dokumentenanalysen
+- Berichte und Auswertungen
+
+ALLE FUNKTIONEN DES MODULS
+--------------------------
+STARTSEITE MIT KACHELBEREICHEN:
+Die Startseite enth√§lt mehrere Kategorien mit je 10 konfigurierbaren Kacheln:
+
+Stammdaten-Bereich:
+- Gesch√§ftspartner: Zugriff auf Kunden und Lieferanten
 - Kontenplan: Sachkonten verwalten
-- Kostenstellen: Kostenstellen¸bersicht
+- Kostenstellen: Kostenstellen√ºbersicht
 - Projekte: Projekteverwaltung
 - Artikel: Artikelstammdaten
-- Aktivit‰ten: Gesch‰ftspartneraktivit‰ten
+- Aktivit√§ten: Gesch√§ftspartneraktivit√§ten
 - Steuergruppen: Steuerkonfiguration
 - Banken: Bankenverwaltung
 - Hausbanken: Hausbankenverwaltung
 - Buchungsperioden: Periodeneinstellungen
-- Wechselkurse: W‰hrungskurse
+- Wechselkurse: W√§hrungskurse
 
-OFFENE DOKUMENTE-BEREICH (10 Kacheln):
+Offene Dokumente-Bereich:
 - Offene Eingangsrechnungen
-- Offene Ausgangsrechnungen  
+- Offene Ausgangsrechnungen
 - Offene Eingangsgutschriften
 - Offene Ausgangsgutschriften
 - Offene Anzahlungen Einkauf
 - Offene Anzahlungen Verkauf
-- Offene Wareneing‰nge
+- Offene Wareneing√§nge
 - Offene Lieferungen
 - Offene Bestellungen
-- Offene Auftr‰ge
+- Offene Auftr√§ge
 - Offene Angebote
 
-TRANSAKTIONEN-BEREICH (10 Kacheln):
+Transaktionen-Bereich:
 - Journalbuchungen: Manuelle Buchungen
 - Eingangsrechnungen: Kreditorenrechnungen
 - Eingangsgutschriften: Kreditorengutschriften
@@ -80,24 +140,24 @@ TRANSAKTIONEN-BEREICH (10 Kacheln):
 - Anzahlungen Einkauf
 - Anzahlungen Verkauf
 - Bestellungen: Einkaufsbestellungen
-- Wareneing‰nge: Wareneingangsbuchungen
-- Auftr‰ge: Verkaufsauftr‰ge
+- Wareneing√§nge: Wareneingangsbuchungen
+- Auftr√§ge: Verkaufsauftr√§ge
 - Lieferungen: Lieferungsbuchungen
 
-BANKING-BEREICH (10 Kacheln):
-- Zahlungseing‰nge: Kundenzahlungen
-- Zahlungsausg‰nge: Lieferantenzahlungen
-- Zahlungsassistent: Automatisierte Zahlungsl‰ufe
-- Kontoausz¸ge: Bankauszugsverwaltung
+Banking-Bereich:
+- Zahlungseing√§nge: Kundenzahlungen
+- Zahlungsausg√§nge: Lieferantenzahlungen
+- Zahlungsassistent: Automatisierte Zahlungsl√§ufe
+- Kontoausz√ºge: Bankauszugsverwaltung
 - Abstimmung: Bankabstimmung
 - Private Abstimmung: Privatrecherche
 - Zahlungsarten: Zahlungsmethodenverwaltung
-- Entwurfszahlungen: Zahlungsentw¸rfe
+- Entwurfszahlungen: Zahlungsentw√ºrfe
 - Mahnkonditionen: Mahnkonfiguration
-- Mahnassistent: Mahnl‰ufe
+- Mahnassistent: Mahnl√§ufe
 - Mahnhistorie: Mahnverlauf
 
-BERICHTE-BEREICH (10 Kacheln):
+Berichte-Bereich:
 - Hauptbuch: Hauptbuchberichte
 - Kontoauszug Sachkonten: Kontenauswertungen
 - Gewinn und Verlust: GuV-Berichte
@@ -105,15 +165,15 @@ BERICHTE-BEREICH (10 Kacheln):
 - Offene Posten Kunden
 - Offene Posten Lieferanten
 - Zahlungsavis: Zahlungsbenachrichtigungen
-- Saldenbest‰tigung: Saldenbest‰tigungen
+- Saldenbest√§tigung: Saldenbest√§tigungen
 - Kassenbuch: Kassenbuchberichte
 - Steuerberichte Ausgangssteuer
 - Steuerberichte Eingangssteuer
 
-FS-BEREICH (10 Kacheln):
+FS-Bereich:
 - DATEV Export: Buchungsexport zu DATEV
 - DATEV Import: Buchungsimport von DATEV
-- Gesch‰ftspartner-Verrechnung: BP-Netting
+- Gesch√§ftspartner-Verrechnung: BP-Netting
 - FS Offene Posten: Erweiterte OP-Listen
 - Wechselkursimport: Automatischer Kursimport
 - Einstellungen: FS-Konfiguration
@@ -123,273 +183,380 @@ FS-BEREICH (10 Kacheln):
 - Steuerzuordnung: Tax-Mapping
 - XsAdmin: Add-On Verwaltung
 
-SETUP-BEREICH (10 Kacheln):
+Setup-Bereich:
 - Kontenplan bearbeiten
 - Sachkontenfindung
-- W‰hrungen: W‰hrungsverwaltung
+- W√§hrungen: W√§hrungsverwaltung
 - Firmendaten: Unternehmenseinstellungen
 - Allgemeine Einstellungen
 - Dokumenteneinstellungen
-- Referenzfeldverkn¸pfungen
+- Referenzfeldverkn√ºpfungen
 - Fracht: Frachteinstellungen
-- L‰nder: L‰nderverwaltung
-- Verk‰ufer/Eink‰ufer: Mitarbeitereinstellungen
+- L√§nder: L√§nderverwaltung
+- Verk√§ufer/Eink√§ufer: Mitarbeitereinstellungen
 - Add-On Manager: Add-On Verwaltung
 
-[HINWEIS F‹R BILDER: Screenshot der Startseite mit allen Kachelbereichen]
+[HINWEIS F√úR BILDER: Screenshot der Startseite mit allen Kachelbereichen]
 
-KONTOSEITEN - KONTENANALYSEN
-----------------------------
-Der Kontoseiten-Bereich bietet detaillierte Analysen f¸r Konten und Gesch‰ftspartner:
+KONTOSEITEN-ANALYSEN MIT DYNAMISCHER PRIMANOTA:
 
-KONTO-ANALYSE:
-Men¸pfad: Kontoseiten > Konto
-- Auswahl von Sachkonten ¸ber Dropdown-Liste
-- Anzeige aller Buchungen des gew‰hlten Kontos
-- Filterung nach Buchungsdatum
-- Detailansichten f¸r einzelne Buchungen
-- Zugriff auf vollst‰ndige Buchungsdaten
+Konto-Analyse:
+Men√ºpfad: Kontoseiten > Konto
+- Auswahl von Sachkonten √ºber Dropdown-Liste
+- Anzeige aller Buchungen des gew√§hlten Kontos
+- Filterung nach Buchungsdatum und Detailansichten
+- Zugriff auf vollst√§ndige Buchungsdaten
 
-DEBITOREN-ANALYSE:
-Men¸pfad: Kontoseiten > Debitor
-- Auswahl von Kunden ¸ber Dropdown-Liste
-- Buchungs¸bersicht nach Debitor
+Debitoren-Analyse:
+Men√ºpfad: Kontoseiten > Debitor
+- Auswahl von Kunden √ºber Dropdown-Liste
+- Buchungs√ºbersicht nach Debitor mit Stammdaten
 - Debitorendetails mit Stammdaten
 - Buchungsdetails pro Zeile
-- Zeitraumfilterung mˆglich
+- Zeitraumfilterung m√∂glich
 
-KREDITOREN-ANALYSE:
-Men¸pfad: Kontoseiten > Kreditor
-- Auswahl von Lieferanten ¸ber Dropdown-Liste
-- Buchungs¸bersicht nach Kreditor
+Kreditoren-Analyse:
+Men√ºpfad: Kontoseiten > Kreditor
+- Auswahl von Lieferanten √ºber Dropdown-Liste
+- Buchungs√ºbersicht nach Kreditor mit Stammdaten
 - Kreditorendetails mit Stammdaten
 - Buchungsdetails pro Zeile
-- Zeitraumfilterung mˆglich
+- Zeitraumfilterung m√∂glich
 
-BUCHUNGSSTACK (PRIMANOTA) - DYNAMISCHER BEREICH:
-Men¸pfad: Kontoseiten > Buchungsstack
-- Dynamische Primanota-Ansicht aller Journalbuchungen
-- Spalten: Transaktions-ID, Buchungsdatum, Referenz, Soll-/Haben-Betr‰ge, Konten, Status
-- Sortierung nach allen Spalten mˆglich
-- Filterfunktionen f¸r verschiedene Kriterien
-- Detailansicht f¸r einzelne Buchungen mit vollst‰ndigen Buchungsdaten
-- Export-Funktionen verf¸gbar
+DYNAMISCHE PRIMANOTA (BUCHUNGSSTACK):
+Men√ºpfad: Kontoseiten > Buchungsstack
+Die dynamische Primanota-Ansicht aller Journalbuchungen bietet:
+- Spalten: Transaktions-ID, Buchungsdatum, Referenz, Soll-/Haben-Betr√§ge, Konten, Status
+- Sortierung nach allen Spalten m√∂glich
+- Filterfunktionen f√ºr verschiedene Kriterien
+- Detailansicht f√ºr einzelne Buchungen mit vollst√§ndigen Buchungsdaten
+- Export-Funktionen verf√ºgbar
+- Nur Anzeige und Analyse vorhandener Buchungen
 
-[HINWEIS F‹R BILDER: Screenshots der verschiedenen Kontoseiten-Ansichten]
+[HINWEIS F√úR BILDER: Screenshots der verschiedenen Kontoseiten-Ansichten]
 
-BUCHUNGSSTACK - STATISCHES FENSTER (BOOKINGSTACKVIEW)
------------------------------------------------------
-Zus‰tzlich zum dynamischen Buchungsstack gibt es ein eigenst‰ndiges statisches Fenster f¸r erweiterte Buchungsverarbeitung:
+BUCHUNGSSTACK (SEPARATES JOURNALBUCHUNGS-ERSTELLUNGSTOOL):
+Das BookingStackView ist ein eigenst√§ndiges Tool zur Erstellung neuer Journalbuchungen:
 
-FUNKTIONEN DES STATISCHEN BUCHUNGSSTACK-FENSTERS:
-- Eingabemˆglichkeit f¸r neue Buchungszeilen
+Eingabebereiche:
+- Pflichtfelder: Konto, Buchungsdatum, Belegart, Gegenkonto, Buchungstext, Betrag
+- Optionale Felder: Referenz 1-3, Projekt
+- Dynamische Kostenstellenfelder basierend auf SAP Business One Dimensionen
+
+Automatisierte Funktionen:
+- Automatische Kontotyp-Erkennung (Aufwand/Ertrag/Neutral)
+- Automatische Steuerzuordnung basierend auf Kontostammdaten
+- Automatische Berechnung von Brutto-/Netto-Betr√§gen
+- Enter-Taste-Handling f√ºr schnelle Eingabe
+
+Grid-Funktionen:
+- Zeilen hinzuf√ºgen √ºber Eingabefelder
+- Automatische Zeilennummerierung
+- Spaltenbreitenanpassung
+- Zeilen l√∂schen und bearbeiten
 - Automatische Sperrung und Entsperrung von Eingabefeldern
-- ‹bertragung von Daten aus Textboxen in das Grid
-- Erstellung von Journalbuchungen direkt aus dem Grid
-- Automatische Kontotyp-Erkennung und Steuerzuordnung
+- √úbertragung von Daten aus Textboxen in das Grid
+
+Buchungserstellung:
+- Erstellung von Journalbuchungen mit korrekter Soll/Haben-Zuordnung
+- Automatische Steuerbehandlung basierend auf Kontotyp
+- Direkte √úbertragung zu SAP Business One Journalbuchungsformular
 - Validierung der Eingabedaten vor Buchungserstellung
-- Berechnung von Brutto- und Nettobetr‰gen
+- Berechnung von Brutto- und Nettobetr√§gen
 
-GRID-FUNKTIONEN:
-- Spaltenbreite automatisch an Inhalt anpassen
-- Zeilen hinzuf¸gen und lˆschen
-- Feldsperrung bei ausgef¸llten Daten
-- Feldentspeerung beim Lˆschen von Daten
+[HINWEIS F√úR BILDER: Screenshot des statischen BookingStackView-Fensters mit Eingabefeldern und Grid]
 
-[HINWEIS F‹R BILDER: Screenshot des statischen BookingStackView-Fensters mit Eingabefeldern und Grid]
+ABFRAGE-MODULE:
+Der Abfragen-Bereich ist ein separater Hauptmen√º-Tab, der sich vom Buchungsstack unterscheidet, und enth√§lt verschiedene vordefinierte Abfragen und Analysen:
 
-ABFRAGEN - ABFRAGEMODULE
-------------------------
-Der Abfragen-Bereich ist ein separater Hauptmen¸-Tab der sich vom Buchungsstack unterscheidet und enth‰lt verschiedene vordefinierte Abfragen und Analysen:
-
-STEUERBEFREITE GESCHƒFTSPARTNER:
-Men¸pfad: Abfragen > BPFreed
-- ‹bersicht aller steuerbefreiten Gesch‰ftspartner
+Steuerbefreite Gesch√§ftspartner:
+Men√ºpfad: Abfragen > BPFreed
+- √úbersicht aller steuerbefreiten Gesch√§ftspartner
 - Anzeige der Steuerbefreiungen nach Partnern
 
-STEUERPFLICHTIGE GESCHƒFTSPARTNER:
-Men¸pfad: Abfragen > BPMandatory
-- ‹bersicht aller steuerpflichtigen Gesch‰ftspartner
+Steuerpflichtige Gesch√§ftspartner:
+Men√ºpfad: Abfragen > BPMandatory
+- √úbersicht aller steuerpflichtigen Gesch√§ftspartner
 - Anzeige der Steuerpflicht nach Partnern
 
-MAHNSPERRE KUNDEN:
-Men¸pfad: Abfragen > DunLock
+Mahnsperre Kunden:
+Men√ºpfad: Abfragen > DunLock
 - Kunden mit aktivierter Mahnsperre
-- ‹bersicht ¸ber Mahnblockierungen
+- √úbersicht √ºber Mahnblockierungen
 
-ZAHLUNGSSPERRE LIEFERANTEN:
-Men¸pfad: Abfragen > PayLock
+Zahlungssperre Lieferanten:
+Men√ºpfad: Abfragen > PayLock
 - Lieferanten mit aktivierter Zahlungssperre
-- ‹bersicht ¸ber Zahlungsblockierungen
+- √úbersicht √ºber Zahlungsblockierungen
 
-EINGANGSRECHNUNGSKONTROLLE:
-Men¸pfad: Abfragen > APInvoiceControle
+Eingangsrechnungskontrolle:
+Men√ºpfad: Abfragen > APInvoiceControle
 - Kontrolle und Analyse von Eingangsrechnungen
-- Pr¸fung auf Vollst‰ndigkeit und Richtigkeit
+- Pr√ºfung auf Vollst√§ndigkeit und Richtigkeit
 
-AUSWERTUNG NACH KONTEN:
-Men¸pfad: Abfragen > EvaluationByAccount
+Auswertung nach Konten:
+Men√ºpfad: Abfragen > EvaluationByAccount
 - Detaillierte Kontenauswertungen
-- Kontodetails und Buchungs¸bersichten
-- L‰nderauswertungen nach Buchungen
+- Kontodetails und Buchungs√ºbersichten
+- L√§nderauswertungen nach Buchungen
 
-KONTEN OHNE STANDARDSTEUER:
-Men¸pfad: Abfragen > AccountVsTax
+Konten ohne Standardsteuer:
+Men√ºpfad: Abfragen > AccountVsTax
 - Journalbuchungskonten ohne Standardsteuerzuordnung
 - Kontodetails und Buchungsanalysen
 - Identifikation steuerlicher Unstimmigkeiten
 
-[HINWEIS F‹R BILDER: Screenshots der verschiedenen Abfrage-Module]
+[HINWEIS F√úR BILDER: Screenshots der verschiedenen Abfrage-Module]
 
-STAMMDATEN - STAMMDATEN‹BERSICHTEN
-----------------------------------
-‹bersichtliche Darstellung der wichtigsten Stammdaten:
+STAMMDATEN-√úBERSICHTEN:
 
-GESCHƒFTSPARTNER-‹BERSICHT:
-Men¸pfad: Stammdaten > BPOverView
-- Vollst‰ndige Gesch‰ftspartner¸bersicht
-- Detailansichten f¸r einzelne Partner
-- Stammdaten und zugehˆrige Informationen
+Gesch√§ftspartner-√úbersicht:
+Men√ºpfad: Stammdaten > BPOverView
+- Vollst√§ndige Gesch√§ftspartner√ºbersicht mit Detailansichten
+- Stammdaten und zugeh√∂rige Informationen
+- Filterung und Sortierung nach verschiedenen Kriterien
 
-[HINWEIS F‹R BILDER: Screenshot der Gesch‰ftspartner-‹bersicht]
+[HINWEIS F√úR BILDER: Screenshot der Gesch√§ftspartner-√úbersicht]
 
-DOKUMENTE - DOKUMENTENANALYSEN
--------------------------------
-Analyse und Verwaltung verschiedener Dokumenttypen:
+DOKUMENTENANALYSEN:
 
-ENTW‹RFE:
-Men¸pfad: Dokumente > Entw¸rfe
-- ‹bersicht aller Dokumententw¸rfe
-- Entwurfsdetails mit Statusanzeige
+Entw√ºrfe:
+Men√ºpfad: Dokumente > Entw√ºrfe
+- √úbersicht aller Dokumententw√ºrfe mit Statusanzeige
 - Zugriff auf detaillierte Entwurfsdaten
+- Verfolgung des Entwurfsstatus
 
-GENERIERTE DOKUMENTE:
-Men¸pfad: Dokumente > Generierte Dokumente
-- ‹bersicht automatisch generierter Dokumente
+Generierte Dokumente:
+Men√ºpfad: Dokumente > Generierte Dokumente
+- √úbersicht automatisch generierter Dokumente
 - Status und Verfolgung der Dokumentenerstellung
+- Historische Dokumentenanalyse
 
-[HINWEIS F‹R BILDER: Screenshots der Dokumentenanalysen]
+[HINWEIS F√úR BILDER: Screenshots der Dokumentenanalysen]
 
-BERICHTE - BERICHTE UND AUSWERTUNGEN
-------------------------------------
-Umfassende Berichtsfunktionen f¸r verschiedene Auswertungen:
+BERICHTE UND AUSWERTUNGEN:
 
-BWA (BETRIEBSWIRTSCHAFTLICHE AUSWERTUNG):
-Men¸pfad: Berichte > BWA
-- Betriebswirtschaftliche Auswertungen
+BWA (Betriebswirtschaftliche Auswertung):
+Men√ºpfad: Berichte > BWA
 - Strukturierte Darstellung nach BWA-Schema
-- Unterst¸tzung f¸r HANA und SQL Server Datenbanken
+- Unterst√ºtzung f√ºr HANA und SQL Server Datenbanken
+- Periodenvergleiche und Export-Funktionen
 
-SUMMEN UND SALDEN:
-Men¸pfad: Berichte > SUSA
+Summen und Salden:
+Men√ºpfad: Berichte > SUSA
 - Klassische Summen- und Saldenauswertung
-- Periodenvergleiche mˆglich
-- Export-Funktionen verf¸gbar
+- Periodenvergleiche und Export-Funktionen
+- Kontosalden und Bewegungsanalysen
 
-OFFENE POSTEN KUNDEN:
-Men¸pfad: Berichte > OPK
-- Detaillierte Offene-Posten-Listen f¸r Kunden
-- F‰lligkeitsanalysen
-- Altersstruktur der Forderungen
+Offene Posten Kunden:
+Men√ºpfad: Berichte > OPK
+- Detaillierte Offene-Posten-Listen f√ºr Kunden
+- F√§lligkeitsanalysen und Altersstruktur der Forderungen
+- Mahnwesen-Integration
 
-[HINWEIS F‹R BILDER: Screenshots der verschiedenen Berichts-Module]
+Offene Posten Lieferanten:
+- Detaillierte Offene-Posten-Listen f√ºr Lieferanten
+- F√§lligkeitsanalysen
 
-EINSTELLUNGEN - EINSTELLUNGEN UND KONFIGURATION
------------------------------------------------
-Konfiguration des Cockpits und Benutzerverwaltung:
+[HINWEIS F√úR BILDER: Screenshots der verschiedenen Berichts-Module]
 
-COCKPIT-KONFIGURATION:
-Men¸pfad: Einstellungen
-- Tab-Seiten hinzuf¸gen oder entfernen
+EINSTELLUNGEN UND KONFIGURATION:
+
+Cockpit-Konfiguration:
+Men√ºpfad: Einstellungen
+- Tab-Seiten hinzuf√ºgen oder entfernen
 - Benutzerberechtigungen definieren
-- Erscheinungsbild anpassen
+- Erscheinungsbild anpassen mit verschiedenen Themes
 - Standard-Ansichten festlegen
 - Benutzerspezifische Startseiten-Konfiguration
 
-BENUTZERRECHTE:
-- ‹bernahme der SAP Business One Benutzerrechte
-- Automatische Anpassung der verf¸gbaren Funktionen
-- Sichere Datenbankverbindung
+Kachel-Verwaltung:
+- Kacheln ein- und ausblenden √ºber Rechtsklick-Men√º
+- Individuelle Anpassung der Startseite
+- Konfiguration wird benutzerspezifisch gespeichert
 
-ANMELDUNG - MULTI-MANDANTEN VERWALTUNG
---------------------------------------
-Verwaltung mehrerer SAP Business One Datenbanken:
+MULTI-MANDANTEN-VERWALTUNG:
 
-ANMELDEPROZESS:
-Men¸pfad: Anmeldung
+Anmeldeprozess:
+Men√ºpfad: Anmeldung
 1. Auswahl der Firma/Datenbank aus Dropdown-Liste
-2. Eingabe von Benutzername und Passwort
+2. Eingabe von SAP Business One Benutzername und Passwort
 3. Optional: "In einem neuen Fenster anmelden" aktivieren
-4. Best‰tigung mit "Anmeldung"
+4. Best√§tigung mit "Anmeldung"
 
-ANMELDEFELDER:
-- Firma ausw‰hlen: Dropdown mit verf¸gbaren Datenbanken
+Anmeldefelder:
+- Firma ausw√§hlen: Dropdown mit verf√ºgbaren Datenbanken
 - Benutzername: SAP B1 Benutzerkonto
-- Passwort: Zugehˆriges Passwort
-- Checkbox: Neues Fenster f¸r Anmeldung
+- Passwort: Zugeh√∂riges Passwort
+- Checkbox: Neues Fenster f√ºr Anmeldung
 
-Nach erfolgreicher Anmeldung wird das Cockpit f¸r die gew‰hlte Datenbank konfiguriert und alle Module stehen entsprechend den Benutzerrechten zur Verf¸gung.
+Benutzerrechte:
+- √úbernahme der SAP Business One Benutzerrechte
+- Automatische Anpassung der verf√ºgbaren Funktionen
+- Sichere Datenbankverbindung und Session-Management
 
-[HINWEIS F‹R BILDER: Screenshot des Anmelde-Dialogs mit allen Eingabefeldern]
+Nach erfolgreicher Anmeldung wird das Cockpit f√ºr die gew√§hlte Datenbank konfiguriert und alle Module stehen entsprechend den Benutzerrechten zur Verf√ºgung.
+
+[HINWEIS F√úR BILDER: Screenshot des Anmelde-Dialogs mit allen Eingabefeldern]
 
 FENSTER UND NAVIGATION
 ----------------------
-Das Cockpit l‰uft als eigenst‰ndige Anwendung parallel zu SAP Business One:
+Das Cockpit l√§uft als eigenst√§ndige Anwendung parallel zu SAP Business One:
 
 FENSTERVERWALTUNG:
-- Eigenst‰ndiges Windows-Fenster mit eigener Taskleiste
-- Grˆﬂenanpassung mˆglich
-- Minimieren/Maximieren unabh‰ngig von SAP B1
+- Eigenst√§ndiges Windows-Fenster mit eigener Taskleiste
+- Gr√∂√üenanpassung m√∂glich
+- Minimieren/Maximieren unabh√§ngig von SAP B1
 - Automatische Positionierung neben SAP B1
 
 NAVIGATION:
-- Hauptmen¸-Reiter f¸r verschiedene Funktionsbereiche
-- Unter-Reiter f¸r spezifische Module
+- Hauptmen√º-Reiter f√ºr verschiedene Funktionsbereiche
+- Unter-Reiter f√ºr spezifische Module
 - Breadcrumb-Navigation in komplexeren Ansichten
-- Zur¸ck-Navigation ¸ber Men¸struktur
+- Zur√ºck-Navigation √ºber Men√ºstruktur
 
 DATENINTERAKTION:
-- Doppelklick auf Zeilen f¸r Detailansichten
-- Kontextmen¸s f¸r zus‰tzliche Aktionen
-- Filterfelder f¸r Datensuche
-- Sortierung ¸ber Spaltenkˆpfe
-- Export-Funktionen f¸r Datenextrakte
-- Summierungsfunktion f¸r markierte Zeilen mit Integer- oder Dezimalwerten in jedem Grid
+- Doppelklick auf Zeilen f√ºr Detailansichten
+- Kontextmen√ºs f√ºr zus√§tzliche Aktionen
+- Filterfelder f√ºr Datensuche
+- Sortierung √ºber Spaltenk√∂pfe
+- Export-Funktionen f√ºr Datenextrakte
+- Summierungsfunktion f√ºr markierte Zeilen mit Integer- oder Dezimalwerten in jedem Grid
 
 INTEGRATION MIT SAP BUSINESS ONE
 ---------------------------------
-Das Cockpit ist vollst‰ndig in SAP Business One integriert:
+Das Cockpit ist vollst√§ndig in SAP Business One integriert:
 
 DATENVERBINDUNG:
-- Automatische ‹bernahme der aktuellen B1-Session
+- Automatische √úbernahme der aktuellen B1-Session
 - Echtzeit-Zugriff auf alle B1-Daten
 - Synchronisation mit B1-Benutzerrechten
-- Automatische Aktualisierung bei Daten‰nderungen
+- Automatische Aktualisierung bei Daten√§nderungen
 
 BENUTZERRECHTE:
-- Anmeldung ¸ber SAP B1 Benutzerkonten
-- ‹bernahme aller B1-Berechtigungen
-- Automatisches Ausblenden nicht verf¸gbarer Funktionen
+- Anmeldung √ºber SAP B1 Benutzerkonten
+- √úbernahme aller B1-Berechtigungen
+- Automatisches Ausblenden nicht verf√ºgbarer Funktionen
 - Sichere Authentifizierung
 
 ARBEITSWEISE:
-- Parallelbetrieb zu SAP Business One mˆglich
-- Mehrere Cockpit-Instanzen f¸r verschiedene Datenbanken
+- Parallelbetrieb zu SAP Business One m√∂glich
+- Mehrere Cockpit-Instanzen f√ºr verschiedene Datenbanken
 - Automatische Sessionverwaltung
 - Konsistente Datenansicht mit SAP B1
 
-TIPPS F‹R DIE VERWENDUNG
-------------------------
-1. ERSTEINRICHTUNG: Das Cockpit konfiguriert sich beim ersten Start automatisch
-2. MEHRERE DATENBANKEN: Nutzen Sie die Anmelde-Funktion f¸r verschiedene Mandanten
-3. PARALLELARBEIT: Das Cockpit kann parallel zu SAP B1 verwendet werden
-4. PERFORMANCE: Schlieﬂen Sie nicht verwendete Tabs f¸r bessere Performance
-5. ANPASSUNG: Nutzen Sie die Einstellungen f¸r eine personalisierte Konfiguration
-6. STARTSEITE: Konfigurieren Sie die Startseite nach Ihren Arbeitsgewohnheiten
-7. FILTER: Verwenden Sie die Filterfunktionen f¸r gezielte Datenanalysen
-8. EXPORT: Nutzen Sie die Export-Funktionen f¸r Weiterverarbeitungen
-9. DETAILANSICHTEN: Doppelklicken Sie auf Zeilen f¸r zus‰tzliche Informationen
-10. NAVIGATION: Verwenden Sie die Breadcrumb-Navigation f¸r die Orientierung
-11. SUMMIERUNG: Markieren Sie mehrere Zeilen und nutzen Sie die automatische Summierung ¸ber den Spalten Kopf
+[HINWEIS F√úR BILDER: Screenshots der dynamischen Primanota und des separaten Buchungsstack-Tools]
 
-Die verschiedenen Module des Cockpits bieten umfassende Mˆglichkeiten zur Analyse und Verwaltung Ihrer SAP Business One Daten. Nutzen Sie die verschiedenen Ansichten und Filter, um die f¸r Sie relevanten Informationen schnell zu finden und effizient zu bearbeiten.
+ALLGEMEINE ANWENDUNG
+--------------------
+Das Cockpit startet als eigenst√§ndige Anwendung und positioniert sich automatisch neben SAP Business One. Die Navigation erfolgt √ºber die Hauptmen√º-Reiter am oberen Rand.
+
+Die dynamische Primanota in den Kontoseiten dient der Anzeige und Analyse vorhandener Buchungen, w√§hrend das separate Buchungsstack-Tool zur Erstellung neuer Journalbuchungen verwendet wird.
+
+GENAUE SCHRITT F√úR SCHRITT ANLEITUNG F√úR ALLE FUNKTIONEN
+---------------------------------------------------------
+COCKPIT STARTEN:
+1. Navigieren Sie zu: VPS Financial Suite > Financial Cockpit
+2. Das Cockpit √∂ffnet sich als eigenst√§ndiges Windows-Fenster
+3. Die Startseite mit den Kachelbereichen wird automatisch angezeigt
+
+DYNAMISCHE PRIMANOTA VERWENDEN (KONTOSEITEN):
+1. Wechseln Sie zum Kontoseiten-Reiter
+2. W√§hlen Sie "Buchungsstack" f√ºr die dynamische Primanota-Ansicht
+3. Alle Journalbuchungen werden in einer √ºbersichtlichen Tabelle angezeigt
+4. Nutzen Sie die Spalten-Sortierung durch Klick auf Spaltenk√∂pfe
+5. Verwenden Sie Filter f√ºr spezifische Suchkriterien
+6. Doppelklicken Sie auf Zeilen f√ºr Detailansichten
+7. Nutzen Sie Export-Funktionen f√ºr Datenextrakte
+
+BUCHUNGSSTACK-TOOL F√úR JOURNALBUCHUNGEN VERWENDEN:
+1. Wechseln Sie zum Buchungsstack-Reiter (separates Tool)
+2. F√ºllen Sie die Pflichtfelder aus: Konto, Buchungsdatum, Belegart, Gegenkonto, Buchungstext, Betrag
+3. Optional: Erg√§nzen Sie Referenzfelder und Projekt
+4. Kostenstellen werden automatisch basierend auf SAP Business One Dimensionen angezeigt
+5. Dr√ºcken Sie Enter oder klicken Sie "Daten abrufen" zum Hinzuf√ºgen zur Grid
+6. Wiederholen Sie f√ºr weitere Buchungszeilen
+7. Klicken Sie "Funktionen" > "Journalbuchung erstellen" f√ºr die Buchungserstellung
+8. Die Journalbuchung wird automatisch in SAP Business One ge√∂ffnet
+
+UNTERSCHIED ZWISCHEN DEN BEIDEN BUCHUNGSSTACK-BEREICHEN:
+- Kontoseiten > Buchungsstack: NUR Anzeige und Analyse vorhandener Buchungen (dynamische Primanota)
+- Buchungsstack-Reiter: Tool zur ERSTELLUNG neuer Journalbuchungen (BookingStackView)
+
+KONTOANALYSEN DURCHF√úHREN:
+1. Wechseln Sie zum Kontoseiten-Reiter
+2. W√§hlen Sie "Konto", "Debitor" oder "Kreditor"
+3. W√§hlen Sie das gew√ºnschte Konto/GP aus der Dropdown-Liste
+4. Die Buchungs√ºbersicht wird automatisch geladen
+5. Nutzen Sie Filter f√ºr Zeitraum-Eingrenzung
+
+ABFRAGEN VERWENDEN:
+1. Wechseln Sie zum Abfragen-Reiter
+2. W√§hlen Sie das gew√ºnschte Abfrage-Modul
+3. Die Ergebnisse werden automatisch geladen
+4. Nutzen Sie Sortier- und Filterfunktionen
+
+MULTI-MANDANTEN-ANMELDUNG:
+1. Wechseln Sie zum Anmeldung-Reiter
+2. W√§hlen Sie die gew√ºnschte Firma aus der Dropdown-Liste
+3. Geben Sie Benutzername und Passwort ein
+4. Optional: Aktivieren Sie "In einem neuen Fenster anmelden"
+5. Klicken Sie "Anmeldung" f√ºr die Verbindung
+
+[HINWEIS F√úR BILDER: Getrennte Screenshots f√ºr dynamische Primanota und Buchungsstack-Tool]
+
+ALLGEMEINE TIPPS F√úR ANWENDER
+-----------------------------
+BUCHUNGSSTACK-BEREICHE RICHTIG NUTZEN:
+- Verwenden Sie die dynamische Primanota (Kontoseiten) f√ºr Buchungsanalysen
+- Nutzen Sie das Buchungsstack-Tool f√ºr die Erstellung neuer Journalbuchungen
+- Beachten Sie den Unterschied: Anzeige vs. Erstellung
+
+OPTIMALE NUTZUNG DES COCKPITS:
+- Konfigurieren Sie die Startseite nach Ihren Arbeitsgewohnheiten
+- Nutzen Sie die Kachel-Verwaltung f√ºr eine personalisierte Oberfl√§che
+- Verwenden Sie das Cockpit parallel zu SAP Business One
+
+BUCHUNGSSTACK-TOOL EFFIZIENT NUTZEN:
+- Verwenden Sie die Enter-Taste f√ºr schnelle Eingabe
+- Nutzen Sie die automatische Kontotyp-Erkennung
+- Pr√ºfen Sie die automatischen Steuer- und Brutto/Netto-Berechnungen
+
+TIPPS F√úR DIE T√ÑGLICHE ARBEIT:
+1. ERSTEINRICHTUNG: Das Cockpit konfiguriert sich beim ersten Start automatisch
+2. MEHRERE DATENBANKEN: Nutzen Sie die Anmelde-Funktion f√ºr verschiedene Mandanten
+3. PARALLELARBEIT: Das Cockpit kann parallel zu SAP B1 verwendet werden
+4. PERFORMANCE: Schlie√üen Sie nicht verwendete Tabs f√ºr bessere Performance
+5. ANPASSUNG: Nutzen Sie die Einstellungen f√ºr eine personalisierte Konfiguration
+6. STARTSEITE: Konfigurieren Sie die Startseite nach Ihren Arbeitsgewohnheiten
+7. FILTER: Verwenden Sie die Filterfunktionen f√ºr gezielte Datenanalysen
+8. EXPORT: Nutzen Sie die Export-Funktionen f√ºr Weiterverarbeitungen
+9. DETAILANSICHTEN: Doppelklicken Sie auf Zeilen f√ºr zus√§tzliche Informationen
+10. NAVIGATION: Verwenden Sie die Breadcrumb-Navigation f√ºr die Orientierung
+11. SUMMIERUNG: Markieren Sie mehrere Zeilen und nutzen Sie die automatische Summierung √ºber den Spalten-Kopf
+
+FEHLERBEHANDLUNG BEI PROBLEMEN
+-------------------------------
+H√ÑUFIGE PROBLEME:
+
+Problem: Verwechslung der Buchungsstack-Bereiche
+L√∂sung: Beachten Sie den Unterschied ‚Äî Kontoseiten zeigen vorhandene Buchungen, Buchungsstack-Reiter erstellt neue Buchungen
+
+Problem: Buchungsstack-Tool-Eingabe funktioniert nicht
+L√∂sung: Pr√ºfen Sie alle Pflichtfelder (Konto, Buchungsdatum, Belegart, Gegenkonto, Buchungstext, Betrag), validieren Sie die Kontostammdaten
+
+Problem: Dynamische Primanota zeigt keine Daten
+L√∂sung: Pr√ºfen Sie die Datenbankverbindung, validieren Sie die Benutzerrechte f√ºr Journalbuchungen, kontrollieren Sie die Filter-Einstellungen
+
+Problem: Cockpit startet nicht
+L√∂sung: Starten Sie SAP Business One als Administrator neu, pr√ºfen Sie die VPS Financial Suite Installation
+
+[HINWEIS F√úR BILDER: Vergleichende Screenshots beider Buchungsstack-Bereiche mit Beschriftung der Unterschiede]
+
+ZUSAMMENFASSUNG
+---------------
+Das VPS Cockpit Modul bietet eine umfassende Dashboard-L√∂sung mit zwei verschiedenen Buchungsstack-Bereichen: einer dynamischen Primanota f√ºr Buchungsanalysen und einem separaten Tool f√ºr die Erstellung neuer Journalbuchungen. Diese klare Trennung erm√∂glicht eine effiziente Arbeitsweise je nach Aufgabe.
+
+Die verschiedenen Module des Cockpits ‚Äî Startseite mit konfigurierbaren Kacheln, Kontoseiten-Analysen mit dynamischer Primanota, Buchungsstack-Tool, Abfragemodule, Stammdaten√ºbersichten, Dokumentenanalysen und Berichte ‚Äî bieten umfassende M√∂glichkeiten zur Analyse und Verwaltung Ihrer SAP Business One Daten.
+
+Die Multi-Mandanten-Unterst√ºtzung mit separater Anmeldung pro Datenbank, die nahtlose Integration in SAP Business One und die anpassbare Benutzeroberfl√§che machen das Cockpit zu einem unverzichtbaren Werkzeug f√ºr die t√§gliche Buchhaltungsarbeit. Nutzen Sie die verschiedenen Ansichten und Filter, um die f√ºr Sie relevanten Informationen schnell zu finden und effizient zu bearbeiten.
