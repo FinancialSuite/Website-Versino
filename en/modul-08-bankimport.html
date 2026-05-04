@@ -10,66 +10,212 @@
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>Bank Statement Import (Bank State Import)</h2>
+            <h2>Bank Statement Import</h2>
 
             <h3>Overview</h3>
-            <p>The <b>Versino Bank State Import Module</b> enables the import and processing of electronic bank statements in SAP Business One. It supports various bank formats (MT940, CAMT) and uses a powerful <b>rule and RegEx engine</b> to automatically match transactions and minimize manual work.</p>
-            <p><b>Access to the module:</b> The process starts under <b>Versino Financial Suite > Bank Statement Import</b>. The processing takes place in the <b>Bank Statement Processing</b> form.</p>
-            <div class="image-placeholder">[NOTE FOR IMAGES: Screenshot of the Bank Statement Processing main form with matrix]</div>
-            
+            <p>The <b>Versino Bank State Import Module</b> enables the import and processing of electronic bank statements in SAP Business One. It supports various bank formats (MT940, CAMT) and uses a powerful <b>rule and RegEx engine</b> to automatically assign transactions and minimize manual work.</p>
+            <p><b>Module Access:</b> The process starts under <b>Versino Financial Suite > Bank Statement Import</b>. Processing takes place in the <b>Bank Statement Processing</b> form.</p>
+
+            <div class="image-placeholder">[IMAGE: Bank Statement Processing main form with filled matrix and all relevant columns]</div>
+
             <hr>
 
             <h3>Main Features</h3>
-            
-            <h4>Rule-based, Automatic Matching</h4>
-            <p>The module reads bank statement files and attempts to match transactions automatically. This is done through a multi-stage logic that matches, among other things, bank details, amounts, and purposes of payment using configurable rules and regular expressions (RegEx).</p>
+
+            <h4>Rule-based, Automatic Assignment</h4>
+            <p>The module reads bank statement files and tries to assign transactions automatically. This is done through a multi-stage logic that, among other things, matches bank connections, amounts and reference texts via configurable rules and regular expressions (RegEx).</p>
 
             <h4>Interactive Processing Matrix</h4>
-            <p>All transactions are displayed in a clear matrix. Here you can manually edit unmatched items, assign business partners, or manage the status of a row.</p>
+            <p>All transactions are displayed in a clearly arranged matrix. Here you can manually edit unassigned items, assign business partners or manage the status of a row.</p>
 
             <h4>Split Function for Collective Postings</h4>
-            <p>If a bank transaction concerns multiple business transactions, you can split it into any number of partial amounts using the <b>Split Dialog</b>. The system automatically calculates the remaining amount and creates new, separate rows in the matrix for clean posting.</p>
+            <p>If a bank transaction concerns several business cases, you can split it into any number of partial amounts via the <b>Split dialog</b>. The system calculates the remaining amount automatically and creates new, separate rows in the matrix for clean posting.</p>
 
             <h4>Status Management</h4>
-            <p>Each row in the matrix has a status. Using the <b>"Cleared"</b> checkbox, you can mark a transaction as "cleared" to lock it for further processing. The add-on also sets an "Checked by Add-on" indicator if a row was processed automatically.</p>
+            <p>Each row in the matrix has a status. Via the <b>"Cleared"</b> checkbox you can mark a transaction as "cleared" and lock it for further editing. The add-on additionally sets a <b>"Checked by Addon"</b> flag when a row has been processed automatically.</p>
+
+            <hr>
+
+            <h3>Matrix Columns Overview</h3>
+            <p>The central processing matrix offers the following columns for editing:</p>
+
+            <div class="example-box">
+                <h4>Date & Amounts</h4>
+                <ul>
+                    <li><b>BSLineDate</b> — Posting date of the bank transaction</li>
+                    <li><b>BSValuDate</b> — Value date</li>
+                    <li><b>IncomingAmount</b> — Incoming amounts (credits)</li>
+                    <li><b>OutgoingAmount</b> — Outgoing amounts (debits)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Identification & Codes</h4>
+                <ul>
+                    <li><b>Ref</b> — Bank reference number</li>
+                    <li><b>Memo / Memo2</b> — Reference text</li>
+                    <li><b>CardCode</b> — Assigned business partner</li>
+                    <li><b>ExternalCode</b> — External transaction code (bank-specific)</li>
+                    <li><b>InternalCode</b> — Internal transaction code (company-specific)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Status & Processing</h4>
+                <ul>
+                    <li><b>Cleared</b> — Status checkbox for clearing</li>
+                    <li><b>PstMethod</b> — Posting method</li>
+                    <li><b>BankStatementType</b> — Type of bank transaction</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>5-Stage Processing Logic</h3>
+            <p>When clicking "Process Statement", each bank transaction passes through five processing stages:</p>
+            <ol>
+                <li><b>RegEx-based business partner detection</b> — Searching all configured RegEx rules (type "B") and applying to memo fields.</li>
+                <li><b>Code transformation via Rule1</b> — Checking for house bank match (bank code, account number, BIC, IBAN), validating BP bank data, amount check and reference matching.</li>
+                <li><b>RegEx-based document detection</b> — Searching all RegEx rules (type "D"), SQL queries for document detection, creation of MultiplePayment entries.</li>
+                <li><b>Bank-connection-based BP assignment</b> — Direct match via bank code, account number, BIC and IBAN.</li>
+                <li><b>Final RegEx assignment</b> — Use of RegEx results as fallback option.</li>
+            </ol>
+
+            <hr>
+
+            <h3>Status Management</h3>
+            <p>The module manages the following processing states:</p>
+            <ul>
+                <li><b>Open</b> — Not yet processed</li>
+                <li><b>Assigned</b> — Business partner assigned</li>
+                <li><b>Cleared</b> — Reconciled with open items (Cleared checkbox set)</li>
+                <li><b>Split</b> — Divided into several transactions (via split)</li>
+                <li><b>Completed</b> — Fully processed</li>
+            </ul>
+            <p>The <b>"Checked by Addon"</b> field indicates that a row has been processed automatically by the system:</p>
+            <ul>
+                <li><b>Y</b> — Row was successfully processed</li>
+                <li><b>(empty)</b> — Row not yet processed</li>
+            </ul>
+
+            <hr>
+
+            <h3>Configuration Tables</h3>
+            <p>The module uses the following user-defined tables for configuration:</p>
+            <ul>
+                <li><b>VAG_BNKSTMNT_R1</b> — Direct assignment rules (Rule1) with house bank and BP bank data</li>
+                <li><b>VAG_BNKSTMNT_REGEX</b> — RegEx rules for text detection in memo fields</li>
+                <li><b>VAG_BNKSTMNT_HEAD / LINES</b> — Import management with FileID, mapping and status tracking</li>
+            </ul>
+
+            <div class="image-placeholder">[IMAGE: Configuration table Bank Statement Rule1 with example entries for house bank data and external codes]</div>
+
+            <div class="warning-box">
+                <h4>Security Note: SQL-Injection Protection</h4>
+                <p>Only <b>SELECT queries</b> are permitted in the RegEx rules. Forbidden SQL operations (UPDATE, INSERT, DELETE, CREATE, DROP, ALTER, TRUNCATE) are blocked automatically by the system.</p>
+            </div>
+
+            <hr>
+
+            <h3>Split Example</h3>
+
+            <div class="example-box">
+                <h4>Splitting a collective payment into two items</h4>
+                <p>You receive a collective transfer of <b>1,000.00 EUR incoming</b> that concerns two business transactions (300 EUR for BP-A, 700 EUR for the original receivable):</p>
+                <ol>
+                    <li>Right-click on the 1,000 EUR row → <b>"BP Split"</b></li>
+                    <li>In the split dialog: enter 300 EUR + business partner BP-A</li>
+                    <li>OK</li>
+                </ol>
+                <p style="margin-top:10px;"><b>Result:</b></p>
+                <ul>
+                    <li>New row: 300.00 EUR incoming for BP-A</li>
+                    <li>Original row: 700.00 EUR incoming (remaining amount)</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Context menu "BP Split" on a bank row via right-click]</div>
+
+            <div class="image-placeholder">[IMAGE: Split dialog with input fields amount and business partner]</div>
+
+            <div class="image-placeholder">[IMAGE: Before/after of the matrix after a split: 1,000 EUR becomes 300 EUR + 700 EUR on two rows]</div>
+
+            <hr>
+
+            <h3>Integration with SAP Business One</h3>
+
+            <div class="integration-box">
+                <h4>SAP B1 BankStatementsService API</h4>
+                <p>Full integration via the official BankStatementsService API. Direct manipulation of BankStatement objects with transactional safety during split operations.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>Business Partner Integration (OCRD)</h4>
+                <p>Direct connection to the OCRD table with Choose-From-List integration, BP validation and status / authorization check.</p>
+            </div>
 
             <hr>
 
             <h3>Application</h3>
 
-            <h4>Setup: Configuring Automation (for Administrators)</h4>
-            <p>The strength of the module lies in its automation engine. This is configured via user-defined tables:</p>
+            <h4>Setup: Configuring the Automation (for administrators)</h4>
+            <p>The strength of the module lies in its automation engine. It is configured via user-defined tables:</p>
             <ul>
-                <li><b>Direct Matching Rules (Rule1):</b> Here you can define fixed rules. Example: If the purpose of payment contains "Rent May", the transaction is automatically assigned to a specific external transaction code.</li>
-                <li><b>RegEx Rules:</b> Here you can store flexible patterns (Regular Expressions) to, for example, extract and automatically match invoice or customer numbers from a long purpose of payment.</li>
+                <li><b>Direct Assignment Rules (Rule1):</b> Here you can define fixed rules. Example: If "Rent May" appears in the reference text, the transaction is automatically assigned to a specific external transaction code.</li>
+                <li><b>RegEx Rules:</b> Here you can store flexible patterns (regular expressions) to extract e.g. invoice or customer numbers from a long reference text and assign them automatically.</li>
             </ul>
 
             <h4>Daily Workflow: Processing a Bank Statement</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > Bank Statement Import</b> and select the bank statement file.</li>
-                <li>After the import, the <b>Bank Statement Processing</b> form opens. The automation engine has already tried to match payments.</li>
-                <li>Process the remaining items manually by assigning the correct <b>Business Partner</b>.</li>
-                <li>For collective payments, select the row, activate the <b>Split Function</b> via right-click, enter the partial amount and the business partner, and confirm.</li>
+                <li>After the import, the <b>Bank Statement Processing</b> form opens. The automation engine has already tried to assign payments.</li>
+                <li>Click on <b>"Process Statement"</b> to start the 5-stage processing for all rows (or enter a row number to process only this row).</li>
+                <li>Edit the remaining items manually by <b>assigning the correct business partner</b>.</li>
+                <li>For collective payments, select the row, activate the <b>Split function</b> via right-click, enter the partial amount and the business partner and confirm.</li>
                 <li>Mark fully processed rows as "Cleared".</li>
-                <li>Finally, confirm the entire processing to create the postings.</li>
+                <li>At the end, confirm the entire processing to create the postings.</li>
             </ol>
-            <div class="image-placeholder">[NOTE FOR IMAGES: Application example with Split Dialog and matching]</div>
 
             <hr>
 
             <h3>Tips and Troubleshooting</h3>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Use the Split Function:</b> Consistently use the split function to cleanly separate collective postings. A row can only be split if it is not marked as "Cleared".</li>
-                <li><b>Increase Hit Rate:</b> Keep your business partner master data (especially bank details) up-to-date to increase the automatic hit rate.</li>
-                <li><b>Test RegEx Rules:</b> Thoroughly test new RegEx patterns in an external tool before using them in production to ensure they function correctly.</li>
-                <li><b>Problem: Split not possible.</b><br>Solution: The error "Split not possible, this row is already cleared" appears if the "Cleared" checkbox is set. Uncheck it to edit the row again. The amount for a split must also always be greater than 0.</li>
+                <li><b>Use Split consistently:</b> Use the split function for collective payments. A row can only be split if it is not marked as "Cleared".</li>
+                <li><b>Increase hit rate:</b> Keep your business partner master data (especially bank connections) up to date to increase the automatic hit rate.</li>
+                <li><b>Test RegEx rules:</b> Test new RegEx patterns thoroughly in an external tool before using them in production.</li>
+                <li><b>Backup before configuration changes:</b> Create backup copies of the rule configurations before making major changes.</li>
+                <li><b>Maintenance:</b> Update Rule1 configurations when adding new business partners and review RegEx rules when bank formats change.</li>
             </ul>
+
+            <h4>Common Problems and Solutions</h4>
+
+            <h5>Problem: "The amount must be greater than 0".</h5>
+            <p><b>Solution:</b> Enter a valid numeric amount greater than zero in the split dialog.</p>
+
+            <h5>Problem: "Split not possible, this row is already cleared".</h5>
+            <p><b>Solution:</b> Remove the "Cleared" checkmark in the row to make it editable again.</p>
+
+            <h5>Problem: "External transaction code could not be set".</h5>
+            <p><b>Solution:</b> Check the external code configuration, validate available codes in the system and check user permissions.</p>
+
+            <h5>Problem: RegEx rules do not work.</h5>
+            <p><b>Solution:</b> Test RegEx patterns in an external RegEx tool, check SQL queries for syntax errors, validate placeholder substitutions and verify table and field names.</p>
+
+            <h5>Problem: SQL injection warning on RegEx queries.</h5>
+            <p><b>Solution:</b> Remove forbidden SQL operations (UPDATE, INSERT, DELETE, CREATE, DROP, ALTER, TRUNCATE). Use only SELECT queries.</p>
+
+            <h5>Problem: Processing hangs with large data volumes.</h5>
+            <p><b>Solution:</b> Split the processing into smaller batches, use the specific row processing and optimize RegEx patterns for better performance.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

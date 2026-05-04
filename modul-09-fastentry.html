@@ -14,60 +14,167 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
             <h2>Schnellerfassung-Eingangsrechnung (Fast Entry)</h2>
 
             <h3>Überblick</h3>
             <p>Das <b>Versino Fast Entry Modul</b> ist ein spezialisiertes Werkzeug für die schnelle Erfassung von Eingangsrechnungen in SAP Business One. Es ist ideal für Unternehmen, die regelmäßig ähnliche Rechnungen von denselben Lieferanten erhalten. Anwender können auf Basis bereits existierender Einkaufsbelege (Eingangsrechnungen, Wareneingänge, Bestellungen) mit wenigen Klicks neue Rechnungen erstellen.</p>
-            <p><b>Zugang zum Modul:</b> Sie finden die Schnelleingabe im Menü unter <b>Einkauf > Schnellerfassende Eingangsrechnung</b>.</p>
+            <p><b>Zugang zum Modul:</b> Sie finden die Schnelleingabe im Menü unter:</p>
+            <ul>
+                <li><b>Einkauf > Schnellerfassende Eingangsrechnung</b></li>
+                <li><b>Versino Financial Suite > Schnelle Eingangsrechnung</b></li>
+            </ul>
             <p>Bei der ersten Nutzung des Moduls werden automatisch zwei benutzerdefinierte Felder in den Eingangsrechnungen angelegt, die für das Favoriten-Management benötigt werden.</p>
 
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            
+
             <h4>Schnelle Beleg-Erfassung & Betragsverteilung</h4>
             <p>Die Kernfunktion ist die Erstellung neuer Rechnungsentwürfe durch Kopieren von Daten aus einem vorhandenen Beleg. Weicht der neue Rechnungsbetrag vom Originalbeleg ab, verteilt das System den neuen Betrag <b>proportional</b> auf alle Zeilen.</p>
 
             <h4>Intelligente Suchfunktionen</h4>
-            <p>Eine Volltext-Suche hilft, schnell den richtigen Basis-Beleg zu finden. Sie können zwischen einer <b>Beleg-Suche</b> (durchsucht Kommentare, Nummern, Favoriten-Bemerkungen) und einer <b>Zeilen-Suche</b> (durchsucht Artikelnummern und -beschreibungen) umschalten. Die Ergebnisse werden nach Relevanz farblich hervorgehoben:</p>
+            <p>Eine Volltext-Suche hilft, schnell den richtigen Basis-Beleg zu finden. Sie können zwischen einer <b>Beleg-Suche</b> und einer <b>Zeilen-Suche</b> umschalten:</p>
+
+            <div class="example-box">
+                <h4>Beleg-Suche durchsucht</h4>
+                <ul>
+                    <li>Belegkommentare</li>
+                    <li>Favoriten-Beschreibungen</li>
+                    <li>Externe Belegnummern</li>
+                    <li>Belegnummern</li>
+                    <li>Beleg-IDs</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Zeilen-Suche durchsucht</h4>
+                <ul>
+                    <li>Artikel-Codes</li>
+                    <li>Artikel-Beschreibungen</li>
+                </ul>
+                <p style="margin-top:10px;"><b>Suchsyntax:</b> Trennen Sie mehrere Begriffe mit Semikolon, z. B. <code>Büromaterial;Papier;Toner</code> — Wildcards werden automatisch verwendet, Groß-/Kleinschreibung wird ignoriert.</p>
+            </div>
+
+            <h4>Farbliche Hervorhebung der Suchergebnisse</h4>
+            <p>Die Ergebnisse werden nach Relevanz farblich hervorgehoben:</p>
             <ul>
-                <li><b>Grün:</b> Als Favorit markierte Belege.</li>
-                <li><b>Cyan:</b> Hohe Relevanz (mehr als 50% der Suchbegriffe gefunden).</li>
-                <li><b>Gelb/Weiß:</b> Normale Relevanz.</li>
+                <li><b>Grün:</b> Als Favorit markierte Belege (immer ganz oben sortiert)</li>
+                <li><b>Cyan:</b> Hohe Relevanz (mehr als 50 % der Suchbegriffe gefunden)</li>
+                <li><b>Gelb:</b> Standard-Belege ohne Suchbegriffe</li>
+                <li><b>Weiß:</b> Normale Relevanz</li>
             </ul>
-            
+
+            <div class="image-placeholder">[BILD: Suchergebnis-Matrix mit allen vier Farbcodierungen (Grün/Cyan/Gelb/Weiß) gleichzeitig sichtbar]</div>
+
             <h4>Favoriten-Management</h4>
-            <p>Häufig genutzte Belege können direkt in der Eingangsrechnung als Favorit markiert werden. Diese erscheinen in den Suchergebnissen immer ganz oben (grün), was die Auswahl von Vorlagen enorm beschleunigt.</p>
+            <p>Häufig genutzte Belege können direkt in der Eingangsrechnung als Favorit markiert werden. Diese erscheinen in den Suchergebnissen immer ganz oben (grün), was die Auswahl von Vorlagen enorm beschleunigt. Beim ersten Modul-Start werden automatisch zwei UDF-Felder angelegt:</p>
+            <ul>
+                <li><b>Beleg als Favorit hinterlegt</b> (Ja/Nein-Auswahl)</li>
+                <li><b>Favoriten Bemerkung</b> (Textfeld für Beschreibungen)</li>
+            </ul>
+
+            <div class="image-placeholder">[BILD: Eingangsrechnung mit den beiden UDF-Feldern "Beleg als Favorit hinterlegt" und "Favoriten Bemerkung"]</div>
 
             <h4>Multi-Datenbank-Unterstützung</h4>
             <p>Das Modul kann auf mehrere SAP Business One Datenbanken zugreifen, um einen Beleg aus einer Datenbank als Vorlage für eine neue Rechnung in einer anderen Datenbank zu verwenden.</p>
+            <ul>
+                <li><b>Heim-Datenbank:</b> Vollständige Funktionalität mit Links zu Original-Belegen und automatischem Öffnen erstellter Drafts.</li>
+                <li><b>Fremd-Datenbanken:</b> Beleg-Erstellung als Draft, mit Hinweis-Meldungen statt automatisches Öffnen. Link-Schaltflächen sind ausgeblendet.</li>
+            </ul>
+
+            <div class="image-placeholder">[BILD: Multi-DB-Login-Dialog beim Wechsel auf eine andere Datenbank]</div>
 
             <hr>
-            
+
+            <h3>Berechnungsbeispiel: Proportionale Betragsverteilung</h3>
+
+            <div class="example-box">
+                <h4>Verteilung bei abweichendem Rechnungsbetrag</h4>
+                <p>Original-Beleg: <b>1.000 EUR</b> mit 3 Zeilen (400 / 300 / 300 EUR brutto)</p>
+                <p>Neue Rechnung: <b>1.200 EUR</b></p>
+                <p>Proportionsfaktor: <b>1,2</b></p>
+                <p>Neue Verteilung: <b>480 / 360 / 360 EUR brutto</b></p>
+                <p style="margin-top:10px;"><i>Steuersätze pro Zeile werden berücksichtigt, Rundungsdifferenzen automatisch behandelt.</i></p>
+            </div>
+
+            <div class="image-placeholder">[BILD: Schematische Darstellung der proportionalen Betragsverteilung (1.000→1.200, Faktor 1,2)]</div>
+
+            <hr>
+
+            <h3>Zahlungsbedingungen-Berechnung</h3>
+            <p>Das Fälligkeitsdatum wird automatisch basierend auf den Zahlungsbedingungen des Lieferanten berechnet. Folgende Modi werden unterstützt:</p>
+            <ul>
+                <li><b>Normal:</b> Rechnungsdatum + X Tage</li>
+                <li><b>Monatsbeginn:</b> Zum 1. des Monats + Zusatztage/-monate</li>
+                <li><b>Monatsmitte:</b> Zum 15. oder Monatsende + Zusatztage/-monate</li>
+                <li><b>Monatsende:</b> Zum Monatsende + Zusatztage/-monate</li>
+            </ul>
+
+            <hr>
+
+            <h3>Integration mit anderen VPS-Modulen</h3>
+
+            <div class="integration-box">
+                <h4>VPS Buchungstext-Konfigurator (JeTextSetter)</h4>
+                <p>Nutzt automatisch generierte Buchungstexte aus dem JeTextSetter, sodass die mit Fast Entry erstellten Rechnungen einheitliche, aussagekräftige Texte erhalten.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Export</h4>
+                <p>Die per Fast Entry erstellten Eingangsrechnungen werden vom DATEV Export wie reguläre Rechnungen behandelt und korrekt klassifiziert.</p>
+            </div>
+
+            <hr>
+
             <h3>Anwendung</h3>
             <ol>
                 <li>Navigieren Sie zu <b>Einkauf > Schnellerfassende Eingangsrechnung</b>.</li>
                 <li>Wählen Sie den <b>Lieferanten</b> aus. Die Zahlungsbedingungen und das Datum werden automatisch gefüllt.</li>
                 <li>Geben Sie die <b>Lieferanten-Rechnungsnummer</b> und den <b>Bruttobetrag</b> der neuen Rechnung ein.</li>
-                <li>Nutzen Sie das Suchfeld, um nach einer passenden Vorlage zu suchen (z.B. nach einem Artikel oder Projekt). Favoriten werden automatisch priorisiert.</li>
+                <li>Nutzen Sie das Suchfeld, um nach einer passenden Vorlage zu suchen (z. B. nach einem Artikel oder Projekt). Favoriten werden automatisch priorisiert.</li>
                 <li>Wählen Sie in der Ergebnisliste den passenden Beleg aus.</li>
                 <li>Klicken Sie auf <b>"Hinzufügen"</b>. Das System erstellt einen neuen Rechnungsentwurf mit den übernommenen Daten und dem neuen, proportional verteilten Betrag.</li>
             </ol>
             <img src="assets/images/Schnellerfassende.png" alt="Anwendungsbeispiel: Der Fast Entry Dialog in Aktion" class="module-image">
-            
+
             <hr>
 
             <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h4>Tipps für die tägliche Arbeit</h4>
             <ul>
-                <li><b>Favoriten nutzen:</b> Markieren Sie wiederkehrende Rechnungen (z.B. Miete, Leasing) als Favoriten, um diese sofort zu finden.</li>
-                <li><b>Effizient suchen:</b> Verwenden Sie spezifische Suchbegriffe und trennen Sie mehrere Begriffe mit einem Semikolon (;), um die Suche einzugrenzen. Wechseln Sie zwischen Beleg- und Zeilen-Suche.</li>
-                <li><b>Problem: Ein Lieferant wird nicht gefunden.</b><br>Lösung: Überprüfen Sie die Schreibweise. Die Suche funktioniert sowohl mit dem Lieferantencode als auch mit dem Namen.</li>
-                <li><b>Problem: Das Fälligkeitsdatum ist falsch.</b><br>Lösung: Das Datum wird automatisch auf Basis der beim Lieferanten hinterlegten Zahlungsbedingungen berechnet. Prüfen und korrigieren Sie diese ggf. in den Geschäftspartner-Stammdaten.</li>
-                <li><b>Problem: Die proportionale Verteilung scheint nicht zu stimmen.</b><br>Lösung: Kontrollieren Sie den eingegebenen Brutto-Betrag. Die Verteilung erfolgt auf Basis der Zeilenanteile des Originalbelegs. Eine eventuelle Rundungsdifferenz wird automatisch auf die erste Zeile gebucht.</li>
+                <li><b>Favoriten nutzen:</b> Markieren Sie wiederkehrende Rechnungen (z. B. Miete, Leasing) als Favoriten, um diese sofort zu finden.</li>
+                <li><b>Effizient suchen:</b> Verwenden Sie spezifische Suchbegriffe und trennen Sie mehrere Begriffe mit einem Semikolon (;). Wechseln Sie zwischen Beleg- und Zeilen-Suche je nach Bedarf.</li>
+                <li><b>Multi-DB-Effizienz:</b> Nutzen Sie die zentrale Beleg-Suche über mehrere Mandanten. Beachten Sie: Heim-Datenbank bietet vollständige Funktionalität, Fremd-Datenbanken erstellen Belege nur als Draft.</li>
+                <li><b>Betragsverteilung kontrollieren:</b> Prüfen Sie die berechneten Fälligkeitsdaten und die proportionale Verteilung bei abweichenden Summen vor der Beleg-Erstellung.</li>
             </ul>
+
+            <h4>Häufige Probleme und Lösungen</h4>
+
+            <h5>Problem: Ein Lieferant wird nicht gefunden.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie die Schreibweise. Die Suche funktioniert sowohl mit dem Lieferantencode als auch mit dem Namen.</p>
+
+            <h5>Problem: Keine Suchergebnisse angezeigt.</h5>
+            <p><b>Lösung:</b> Erweitern Sie die Suchbegriffe oder wechseln Sie den Suchtyp (Beleg-Suche vs. Zeilen-Suche).</p>
+
+            <h5>Problem: Favoriten-Felder sind nicht sichtbar.</h5>
+            <p><b>Lösung:</b> Starten Sie Fast Entry einmal — die UDF-Felder "Beleg als Favorit hinterlegt" und "Favoriten Bemerkung" werden beim ersten Start automatisch erstellt.</p>
+
+            <h5>Problem: Multi-Datenbank-Login schlägt fehl.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie Benutzername und Passwort für die Ziel-Datenbank. Beachten Sie, dass Passwörter aus Sicherheitsgründen nicht gespeichert werden.</p>
+
+            <h5>Problem: Das Fälligkeitsdatum ist falsch.</h5>
+            <p><b>Lösung:</b> Das Datum wird automatisch auf Basis der beim Lieferanten hinterlegten Zahlungsbedingungen berechnet. Prüfen und korrigieren Sie diese ggf. in den Geschäftspartner-Stammdaten.</p>
+
+            <h5>Problem: Die proportionale Verteilung scheint nicht zu stimmen.</h5>
+            <p><b>Lösung:</b> Kontrollieren Sie den eingegebenen Brutto-Betrag. Die Verteilung erfolgt auf Basis der Zeilenanteile des Originalbelegs. Eine eventuelle Rundungsdifferenz wird automatisch auf die erste Zeile gebucht.</p>
+
+            <h5>Problem: Beleg-Erstellung gibt einen Fehler aus.</h5>
+            <p><b>Lösung:</b> Prüfen Sie Lieferanten-Rechnungsnummer und Rechnungsbetrag. Stellen Sie sicher, dass die Buchungsperiode geöffnet ist und Sie die nötigen Berechtigungen besitzen.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

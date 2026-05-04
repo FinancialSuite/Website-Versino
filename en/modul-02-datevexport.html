@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATEV Posting Export</title>
+    <title>DATEV Export</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -11,95 +11,172 @@
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>DATEV Posting Export (Datev Export)</h2>
+            <h2>DATEV Export</h2>
 
             <h3>Overview</h3>
-            <p>The <b>Versino Datev Export Module</b> is the central interface for exporting SAP Business One data to the DATEV format. It enables complete data exchange, including postings, master data (customers, vendors, G/L accounts), and payment information, and is specifically optimized for German accounting requirements.</p>
-            <p><b>Access to the module:</b> You can find the export dialog under <b>Versino Financial Suite > DATEV Export/Import > DATEV Export</b>. The export logs can be viewed under <b>Versino Financial Suite > Protocols > Export Log</b>.</p>
-            
-            <h4>Advantages of the Module</h4>
+            <p>The <b>Versino DATEV Export Module</b> is the central interface for exporting SAP Business One data to the DATEV format. It enables a complete data exchange — including postings, master data (customers, vendors, G/L accounts) and payment information — and is specifically optimized for German accounting requirements.</p>
+            <p><b>Module Access:</b> The export dialog is found under <b>Versino Financial Suite > DATEV Export</b>. The export logs can be viewed under <b>Versino Financial Suite > Logs > Export Log</b>.</p>
+
+            <h4>Benefits of the Module</h4>
             <ul>
                 <li><b>Comprehensive Data Integration:</b> Exports not only journal entries but also all relevant master data and payment terms for a complete data handover.</li>
-                <li><b>Intelligent Status Management:</b> Effectively prevents duplicate exports through automatic status tracking for each posting and ensures complete traceability.</li>
-                <li><b>Quality Assurance:</b> Detailed logging, pre-export validation, and transparent error handling ensure data quality.</li>
+                <li><b>Smart Status Management:</b> Effectively prevents duplicate exports through automatic status tracking for each posting and ensures complete traceability.</li>
+                <li><b>Quality Assurance:</b> Detailed logging, validation prior to export and transparent error handling secure data quality.</li>
             </ul>
 
             <hr>
 
             <h3>Main Features</h3>
-            
+
             <h4>Comprehensive Data Export</h4>
-            <p>The module exports not only journal entries but also all relevant master data to ensure a complete data transfer to your tax advisor:</p>
+            <p>The module exports not only journal entries but also all relevant master data, ensuring a complete handover to your tax advisor:</p>
             <ul>
-                <li>Journal Entries</li>
-                <li>Customer and Vendor Master Data</li>
-                <li>G/L Account Descriptions</li>
-                <li>Payment Terms</li>
+                <li>Journal entries</li>
+                <li>Customer and vendor master data</li>
+                <li>G/L account labels</li>
+                <li>Payment terms</li>
             </ul>
 
-            <h4>Intelligent Export Status Management</h4>
-            <p>Each posting receives an export status to avoid duplicates and ensure traceability. This status is displayed directly in the journal entry.</p>
+            <h4>Supported Posting Types</h4>
+            <p>The module uses specialized exporters for the various posting types from SAP Business One:</p>
+            <ul>
+                <li><b>Journal entries</b> — Single postings with no special handling</li>
+                <li><b>A/R invoices (VKRE)</b> and <b>A/R credit memos (VKGS)</b></li>
+                <li><b>A/P invoices (EKRE)</b> and <b>A/P credit memos (EKGS)</b></li>
+                <li><b>Down-payment invoices</b> for sales and purchasing</li>
+                <li><b>Incoming and outgoing payments</b></li>
+                <li><b>Goods receipts (EKWE)</b> and <b>deliveries (VKLS)</b></li>
+                <li><b>Returns</b> for purchasing and sales</li>
+                <li><b>Inventory postings</b> (stock count, transfers, revaluations)</li>
+                <li><b>Production orders</b>, <b>reconciliations</b>, <b>check submissions</b></li>
+                <li><b>Service postings</b> and <b>reversal postings</b> (with special handling)</li>
+            </ul>
+
+            <h4>Export Status System</h4>
+            <p>Each posting receives a status that is shown directly in the journal entry:</p>
+            <ul>
+                <li><b>Y</b> — Successfully exported</li>
+                <li><b>N</b> — Not yet exported</li>
+                <li><b>E</b> — Excluded from export</li>
+                <li><b>F</b> — Export failed</li>
+            </ul>
+            <p>The status can be changed manually at any time via a separate dialog, e.g. to enable a re-export.</p>
 
             <h4>Detailed Filtering Options</h4>
-            <p>Extensive filters are available for the posting export to define the data volume precisely. You can filter by date type (posting or document date), period, posting type, and especially by export status.</p>
+            <p>For posting export, extensive filters are available. For the posting status filter, you can choose between:</p>
+            <ul>
+                <li>Only not exported</li>
+                <li>Not exported and failed</li>
+                <li>Only failed</li>
+                <li>All except failed</li>
+                <li>All postings</li>
+            </ul>
 
             <h4>Logging and Monitoring</h4>
-            <p>All export processes are recorded in detail in a protocol tab. This helps to monitor success and to quickly identify and analyze any errors.</p>
-	
+            <p>All export operations are logged in detail in a <b>Log tab</b>, with color-coded messages (success, warning, error) and a breakdown by module categories (general, customers/vendors, G/L accounts, payments, journal entries).</p>
+
             <hr>
-            
+
+            <h3>Export Files (DATEV Standard)</h3>
+            <p>The export creates CSV files following the DATEV standard with semicolon as field separator:</p>
+            <div class="example-box">
+                <h4>Generated Files</h4>
+                <ul>
+                    <li><b>EXTF_Buchungsstapel.csv</b> — Main file with all posting rows (over 100 fields per row)</li>
+                    <li><b>EXTF_Debitoren.csv</b> — Customer master data</li>
+                    <li><b>EXTF_Kreditoren.csv</b> — Vendor master data</li>
+                    <li><b>EXTF_Kontenbeschriftungen.csv</b> — G/L accounts</li>
+                    <li><b>EXTF_Zahlungsbedingungen.csv</b> — Payment terms</li>
+                </ul>
+                <p style="margin-top:10px;"><i>All files contain the DATEV version header and can be imported directly into DATEV programs.</i></p>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Example of an EXTF_Buchungsstapel.csv opened in Excel with DATEV header and posting rows]</div>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+
+            <div class="integration-box">
+                <h4>VPS Posting Text Configurator (JE Text Setter)</h4>
+                <p>The JE Text Setter generates uniform, meaningful posting texts. These significantly improve the readability of the DATEV files and reduce queries from your tax advisor. Texts are automatically adjusted to DATEV length limits and special characters are avoided.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata accrual/deferral postings are handled specially by the DATEV export: automatic recognition as accrual/deferral postings, correct reference to the original document and optimized DATEV classification.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Main Module (Configuration)</h4>
+                <p>DATEV client number, consultant number, account length and chart of accounts are configured centrally in the main module and automatically used by the export.</p>
+            </div>
+
+            <hr>
+
             <h3>Application: Step-by-Step</h3>
-            
+
             <h4>Exporting Postings and Master Data</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > DATEV Export</b>.</li>
-                <li>Select the <b>Data Types</b> to be exported (e.g., Journal Entries, Customers/Vendors).</li>
-                <li>Define the desired <b>Time Period</b> and the <b>Date Type</b>.</li>
+                <li>Select the <b>data types</b> to export (e.g. journal entries, customers/vendors).</li>
+                <li>Define the desired <b>period</b> and the <b>date type</b> (posting date or document date).</li>
                 <li>Set the filter for <b>"Posting Status"</b> to <b>"Only not exported"</b> to avoid duplicates.</li>
-                <li>Select the <b>Target Directory</b> for the export file.</li>
-                <li>Click on <b>"Start Export"</b>. The postings are exported and automatically marked as "exported" in SAP B1.</li>
+                <li>Choose the <b>target directory</b> for the export file.</li>
+                <li>Click <b>"Start Export"</b>. The postings are exported and automatically marked as "exported" (status Y) in SAP B1.</li>
             </ol>
              <img src="../assets/images/DatevExportSett.png" alt="Screenshot of the main export dialog with all export options" class="module-image">
 
-            <h4>Checking the Export Log</h4>
-            <p>After the export, switch to the <b>Protocol Tab</b>. Here you will see a detailed, color-coded record of all operations and can analyze any error messages.</p>
-			
+            <div class="image-placeholder">[IMAGE: Export dialog tab "Export" with all posting status filters and data type selection]</div>
+
+            <h4>Reviewing the Export Log</h4>
+            <p>After the export, switch to the <b>Log tab</b>. Here you see a detailed, color-coded record of all operations and can analyze any error messages.</p>
+
 			<img src="../assets/images/DatevExportMessage.png" alt="Screenshot of the journal entry with DATEV export status field" class="module-image">
-            
-            <h4>Changing Export Status Manually</h4>
-            <p>Open the relevant journal entry in SAP Business One. In the "Financial Suite" tab, you can manually adjust the export status, for example, to allow a re-export.</p>
-            
+
+            <div class="image-placeholder">[IMAGE: Log tab after a completed export with color-coded success and error messages]</div>
+
+            <h4>Manually Changing the Export Status</h4>
+            <p>Open the affected journal entry in SAP Business One. In the "Financial Suite" tab, you can manually adjust the export status — for example to enable a re-export or to deliberately exclude a posting from the export (status E).</p>
+
+            <div class="image-placeholder">[IMAGE: Status field in a journal entry with options Y/N/E/F]</div>
+
             <hr>
 
-            <h3>General Application Tips</h3>
+            <h3>Tips and Troubleshooting</h3>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Export Strategy:</b> Perform regular exports (e.g., monthly) to keep data volumes manageable. Use descriptive export paths for better organization.</li>
-                <li><b>Quality Check:</b> After each export, check the <b>Protocol</b> for warnings or errors. Validate exports with small time periods before processing large amounts of data.</li>
-                <li><b>Status Management:</b> Use the status filters specifically. To correct a faulty export, you can manually reset the status and re-export only the failed postings.</li>
+                <li><b>Export strategy:</b> Run regular exports (e.g. monthly) to keep the data volume manageable. Use meaningful export paths for better organization.</li>
+                <li><b>Quality check:</b> After every export, review the <b>log</b> for warnings or errors. Validate exports with small periods before processing larger volumes.</li>
+                <li><b>Status management:</b> Use the status filters specifically. To correct a faulty export, manually reset the status to N and re-export only the failed postings.</li>
+                <li><b>Activate JE Text Setter:</b> Before the export, ideally activate the JE Text Setter for uniform DATEV-optimized posting texts.</li>
             </ul>
 
-            <hr>
+            <h4>Common Problems and Solutions</h4>
 
-            <h3>Troubleshooting</h3>
-            
-            <h5>Problem: Export fails with a validation error.</h5>
-            <p><b>Solution:</b> Check the protocol for details. Common causes are closed posting periods, missing account or tax assignments, or inconsistent charts of accounts. Analyze the error message in the protocol tab.</p>
+            <h5>Problem: The export fails with a validation error.</h5>
+            <p><b>Solution:</b> Check the log for details. Common causes are closed posting periods, missing account or tax assignments, or inconsistent charts of accounts. Analyze the error message in the Log tab.</p>
 
             <h5>Problem: The created export files are incomplete or faulty.</h5>
-            <p><b>Solution:</b> Ensure you have write permissions for the chosen export directory and that there is sufficient disk space. Check the export period.</p>
+            <p><b>Solution:</b> Make sure you have write access to the chosen export directory and that there is enough disk space. Check the export period and the CSV structure.</p>
 
-            <h5>Problem: The export status of a posting is not updated.</h5>
-            <p><b>Solution:</b> Check your user permissions for modifying journal entries. Ensure that the add-on is installed correctly. In an emergency, the status can be changed manually in the journal entry.</p>
-            
+            <h5>Problem: The export status is not updated for a posting.</h5>
+            <p><b>Solution:</b> Check your user permissions for changing journal entries. Make sure the add-on is correctly installed. As a fallback, the status can be changed manually in the journal entry.</p>
+
+            <h5>Problem: Certain posting types are not exported.</h5>
+            <p><b>Solution:</b> Check the posting-type-specific exporters. Make sure all required data (e.g. account assignment, tax rate) is present and verify the configuration for special posting types.</p>
+
             <h5>Problem: The export dialog does not open.</h5>
-            <p><b>Solution:</b> Check your user permissions for the module. Ensure that the Financial Suite has loaded correctly and the menu item is active.</p>
-            
+            <p><b>Solution:</b> Check your user permissions for the module. Make sure the Financial Suite has loaded correctly and the menu item is active.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

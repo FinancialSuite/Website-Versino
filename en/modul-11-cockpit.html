@@ -12,64 +12,183 @@
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>Cockpit (Cockpit)</h2>
-            
+            <h2>Cockpit</h2>
+
             <h3>Overview</h3>
-            <p>The Versino Cockpit is the central dashboard of the Financial Suite and provides a comprehensive work environment for managing, analyzing, and entering postings. It runs as a standalone window parallel to SAP Business One and acts as a starting point and control center for many financial processes.</p>
-            <p><b>Access:</b> You can access the Cockpit via <b>Versino Financial Suite > Financial Cockpit</b>. It automatically adopts your SAP B1 session and user rights.</p>
-            
+            <p>The <b>Versino Cockpit</b> is the central dashboard of the Financial Suite and offers a comprehensive working environment for managing, analyzing and entering postings. It runs as a separate window in parallel to SAP Business One and acts as a starting point and control center for many financial processes.</p>
+            <p><b>Access:</b> The Cockpit is reachable via <b>Versino Financial Suite > Financial Cockpit</b>. It automatically takes over your SAP B1 session and user permissions.</p>
+
+            <div class="warning-box">
+                <h4>Important Distinction: "Posting Stack" vs. "Posting Batch"</h4>
+                <p>The Cockpit has two similar-sounding but very different areas:</p>
+                <ul>
+                    <li><b>Account Sheets > Posting Stack:</b> ONLY display & analysis of existing postings (dynamic primary note).</li>
+                    <li><b>Posting Batch tab:</b> Tool to CREATE new journal entries (BookingStackView).</li>
+                </ul>
+            </div>
+
             <hr>
 
             <h3>Main Features</h3>
-            
+
             <h4>Home Page (Launchpad)</h4>
-            <p>The home page is your personal dashboard with configurable tiles for quick access to the most important areas of SAP Business One, such as master data, open documents, transactions, reports, and Financial Suite functions.</p>
-			<img src="../assets/images/Launchpad.png" alt="Application example: The Launchpad" class="module-image">
+            <p>The home page is your personal dashboard with configurable tiles for quick access to the most important areas of SAP Business One.</p>
+			<img src="../assets/images/Launchpad.png" alt="Application example: Cockpit launchpad with all tile areas" class="module-image">
 
-            <h4>Account Ledgers (Analyzing Existing Postings)</h4>
-            <p>Under the <b>"Account Ledgers"</b> tab, you will find a powerful view of journal entries related to accounts/customers/vendors/daybook (DATEV). This is a pure <b>analysis and read-only view</b> that allows you to quickly filter, sort, and view details of existing postings with a double-click. <b>No</b> new postings can be created here.</p>
+            <div class="image-placeholder">[IMAGE: Home page of the Cockpit with all 7 tile areas and labeled categories]</div>
 
-            <h4>Posting Batches (Quickly creating new journal entries)</h4>
-            <p>Under the <b>"Posting Batches"</b> tab, you will find a separate tool designed specifically for the quick <b>creation</b> of new journal entries. It offers an input with intelligent automations:</p>
+            <h4>Account Sheets (Analyze Existing Postings)</h4>
+            <p>Under the tab <b>"Account Sheets"</b> you will find a powerful view of journal entries with reference to accounts/customers/vendors/primary note (DATEV). This is a pure <b>analysis and read view</b> that allows you to quickly filter and sort existing postings and to display details by double-clicking. <b>No</b> new postings can be created here.</p>
+
+            <div class="image-placeholder">[IMAGE: Account Sheets > Posting Stack with dynamic primary note — example of filter and sort functions]</div>
+
+            <h4>Posting Batch (Quickly Enter New Journal Entries)</h4>
+            <p>Under the tab <b>"Posting Batch"</b> you will find a separate tool that is specifically designed for the fast <b>creation</b> of new journal entries. It offers an entry interface with intelligent automation:</p>
             <ul>
-                <li>Automatic account type recognition (expense, revenue, etc.)</li>
-                <li>Automatic tax assignment based on account master data</li>
+                <li>Automatic account-type detection (expense, revenue, etc.)</li>
+                <li>Automatic tax assignment based on the account master data</li>
                 <li>Automatic gross/net calculation</li>
+                <li>Enter-key handling for fast entry</li>
+                <li>Auto-locking of fields for filled-in data</li>
             </ul>
+            <p><b>Mandatory fields:</b> Account, Posting Date, Document Type, Offset Account, Posting Text, Amount.<br>
+            <b>Optional fields:</b> Reference 1–3, Project plus dynamic cost-center fields based on SAP B1 dimensions.</p>
 
-			<h4>Documents (Creating from parked documents)</h4>
-            <p>Under the <b>"Documents"</b> tab, you will find a separate tool designed specifically for the creation of <b>documents from parked documents</b>.</p>
+            <div class="image-placeholder">[IMAGE: Posting Batch tool with filled-in mandatory fields and grid before posting creation]</div>
+
+            <div class="image-placeholder">[IMAGE: Side-by-side comparison: left Account Sheets Posting Stack (display), right Posting Batch tool (creation)]</div>
+
+			<h4>Documents (Creating Parked Documents)</h4>
+            <p>Under the tab <b>"Documents"</b> you will find a separate tool that is specifically designed for creating <b>documents from parked documents</b>.</p>
             <ul>
-                <li>After selecting the rows, you can use the <b>Continue to</b> button to <b>add or remove</b> the parked documents.</li>
-                <li>After creating the documents, you will receive a <b>status message</b> with all successful or failed documents.</li>
-                <li>You will then be automatically redirected to the <b>Documents tab</b>, and all <b>created documents</b> will be displayed.</li>
+                <li>After marking the rows, you can <b>add or remove</b> the parked documents via the <b>Continue to</b> button.</li>
+                <li>After document creation you receive a <b>status message</b> with all successful or failed documents.</li>
+                <li>Subsequently you are automatically redirected to the <b>Documents</b> tab and all <b>created documents</b> are displayed.</li>
             </ul>
 
-			<h4>Login (Multi-company Function)</h4>
-            <p>Under the <b>"Login"</b> tab, it is possible to log into another company database, either in the current window or in a new window.</p>
-			
-			<img src="../assets/images/Login.png" alt="Application example: The Login tab" class="module-image">
+			<h4>Login (Multi-Company Function)</h4>
+            <p>Under the tab <b>"Login"</b> you can log into another company — either via the current window or via a new window.</p>
 
-            <h4>Other Functions</h4> 
-            <p>The Cockpit also offers:</p>
-			<ul>
-				<li> Predefined <b>Queries</b> (BP Exempt <b>|</b> BP Liable <b>|</b> Dunning Block <b>|</b> Payment Block <b>|</b> A/P Invoice <b>|</b> Revenue / Country <b>|</b> Account / Tax).</li>
-				<li> <b>Reports</b> (BWA <b>|</b> Trial Balance <b>|</b> Open Items Customers).</li>
-				<li> Advanced query of <b>Business Partner Master Data</b> with direct editing capability via the context menu (right-click).</li>
-			</ul>
+			<img src="../assets/images/Login.png" alt="Application example: Multi-Company Login in the Cockpit" class="module-image">
+
+            <hr>
+
+            <h3>Predefined Queries</h3>
+            <p>Under the tab <b>"Queries"</b>, the following predefined analyses are available:</p>
+            <ul>
+                <li><b>Tax-exempt BPs</b> (BPFreed) — Overview of all tax-exempt business partners</li>
+                <li><b>Tax-liable BPs</b> (BPMandatory) — Overview of all tax-liable BPs</li>
+                <li><b>Dunning Lock Customers</b> (DunLock) — Customers with active dunning lock</li>
+                <li><b>Payment Lock Vendors</b> (PayLock) — Vendors with active payment lock</li>
+                <li><b>A/P Invoice Control</b> (APInvoiceControle) — Control and analysis of A/P invoices</li>
+                <li><b>Evaluation by Account</b> (EvaluationByAccount) — Detailed account analyses with country breakdown</li>
+                <li><b>Accounts without Default Tax</b> (AccountVsTax) — Identification of tax inconsistencies</li>
+            </ul>
+
+            <div class="image-placeholder">[IMAGE: Queries tab with the listing of all predefined queries]</div>
+
+            <hr>
+
+            <h3>Reports in the Cockpit</h3>
+            <p>Under the tab <b>"Reports"</b>, the Cockpit-internal reports are available:</p>
+            <ul>
+                <li><b>BWA</b> — Business analysis with HANA and SQL Server support</li>
+                <li><b>TB</b> — Classic trial balance evaluation</li>
+                <li><b>OPK</b> — Open items customers with due-date analyses</li>
+            </ul>
+            <p>In addition, in the tab <b>"Master Data"</b> comprehensive business partner overviews are available with direct editing capability via the context menu (right-click).</p>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+
+            <div class="integration-box">
+                <h4>VPS Main Module & Configurations</h4>
+                <p>Via the home page tiles in the FS area, you reach all configurations of the Financial Suite directly — DATEV Export/Import, exchange rates, Pro-Rata settings, JE text configuration, XsAdmin.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Reporting</h4>
+                <p>The Cockpit reports BWA, TB and OPK access the central reporting components and automatically use the optimized versions for SQL Server and HANA respectively.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>SAP B1 Multi-Company</h4>
+                <p>The Cockpit allows multiple parallel sessions in different companies. Tip: In the Cockpit, you are not subject to license limitations — you can start more than 2 sessions with the same user simultaneously.</p>
+            </div>
+
+            <hr>
+
+            <h3>Application</h3>
+
+            <h4>Starting the Cockpit</h4>
+            <ol>
+                <li>Navigate to <b>Versino Financial Suite > Financial Cockpit</b>.</li>
+                <li>The Cockpit opens as a separate Windows window.</li>
+                <li>The home page with the tile areas is displayed automatically.</li>
+            </ol>
+
+            <h4>Using the Posting Batch Tool for Journal Entries</h4>
+            <ol>
+                <li>Switch to the <b>Posting Batch tab</b>.</li>
+                <li>Fill in the mandatory fields: Account, Posting Date, Document Type, Offset Account, Posting Text, Amount.</li>
+                <li>Optional: Add reference fields and project.</li>
+                <li>Press Enter or click "Get Data" to add to the grid.</li>
+                <li>Repeat for further posting rows.</li>
+                <li>Click "Functions > Create Journal Entry". The posting is automatically opened in SAP Business One.</li>
+            </ol>
+
+            <h4>Using the Dynamic Primary Note</h4>
+            <ol>
+                <li>Switch to the <b>Account Sheets tab</b>.</li>
+                <li>Choose "Posting Stack" for the dynamic primary note view.</li>
+                <li>All journal entries are displayed in a clearly arranged table.</li>
+                <li>Use column sorting, filters and double-click on rows for detail views.</li>
+            </ol>
+
+            <h4>Multi-Company Login</h4>
+            <ol>
+                <li>Switch to the <b>Login tab</b>.</li>
+                <li>Choose the desired company from the dropdown list.</li>
+                <li>Enter the username and password.</li>
+                <li>Optional: Activate "Log in in a new window".</li>
+                <li>Click "Login" for the connection.</li>
+            </ol>
+
             <hr>
 
             <h3>Tips and Troubleshooting</h3>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Summation Tip:</b> Select multiple rows with numeric values in any table. The sum of these values is automatically displayed when you hover over the column header.</li>
-				<li><b>Login Tip:</b> When changing company, you remain logged into the current B1 session. Also, there are no license limitations in the Cockpit (meaning a user can start more than two sessions).</li>
+                <li><b>Summation tip:</b> Mark several rows with numerical values in any table. The sum of these values is automatically displayed when hovering on the column header.</li>
+                <li><b>Login tip:</b> When re-logging in, you remain logged in to the current B1 session. In the Cockpit, you are not subject to license limitations — you can start more than 2 sessions with the user.</li>
+                <li><b>Use Posting Stack areas correctly:</b> Use the dynamic primary note (Account Sheets) for posting analyses, the Posting Batch tool for creating new journal entries.</li>
+                <li><b>Personalization:</b> Configure the home page according to your work habits and use the tile management for an individual interface.</li>
+                <li><b>Performance:</b> Close unused tabs for better performance.</li>
             </ul>
+
+            <h4>Common Problems and Solutions</h4>
+
+            <h5>Problem: Confusion between the Posting Stack areas.</h5>
+            <p><b>Solution:</b> Note the difference — <b>Account Sheets</b> show existing postings, <b>Posting Batch tab</b> creates new postings.</p>
+
+            <h5>Problem: Posting Batch tool entry does not work.</h5>
+            <p><b>Solution:</b> Check all mandatory fields (Account, Posting Date, Document Type, Offset Account, Posting Text, Amount) and validate the account master data.</p>
+
+            <h5>Problem: Dynamic primary note shows no data.</h5>
+            <p><b>Solution:</b> Check the database connection, validate the user permissions for journal entries and check the filter settings.</p>
+
+            <h5>Problem: Cockpit does not start.</h5>
+            <p><b>Solution:</b> Restart SAP Business One as administrator and check the VPS Financial Suite installation.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

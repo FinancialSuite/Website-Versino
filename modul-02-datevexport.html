@@ -15,15 +15,15 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
-            <h2>DATEV-Buchungsexport (Datev Export)</h2>
+            <h2>DATEV-Buchungsexport (DATEV Export)</h2>
 
             <h3>Überblick</h3>
-            <p>Das <b>Versino Datev Export Modul</b> ist die zentrale Schnittstelle für den Export von SAP Business One Daten in das DATEV-Format. Es ermöglicht den vollständigen Datenaustausch, einschließlich Buchungen, Stammdaten (Debitoren, Kreditoren, Sachkonten) und Zahlungsinformationen, und ist speziell für deutsche Buchhaltungsanforderungen optimiert.</p>
-            <p><b>Zugang zum Modul:</b> Sie finden den Export-Dialog unter <b>Versino Financial Suite > DATEV Export/Import > DATEV Export</b>. Die Export-Protokolle können unter <b>Versino Financial Suite > Protokolle > Export Log</b> eingesehen werden.</p>
-            
+            <p>Das <b>Versino DATEV Export Modul</b> ist die zentrale Schnittstelle für den Export von SAP Business One Daten in das DATEV-Format. Es ermöglicht den vollständigen Datenaustausch, einschließlich Buchungen, Stammdaten (Debitoren, Kreditoren, Sachkonten) und Zahlungsinformationen, und ist speziell für deutsche Buchhaltungsanforderungen optimiert.</p>
+            <p><b>Zugang zum Modul:</b> Sie finden den Export-Dialog unter <b>Versino Financial Suite > DATEV Export</b>. Die Export-Protokolle können unter <b>Versino Financial Suite > Protokolle > Export Log</b> eingesehen werden.</p>
+
             <h4>Vorteile des Moduls</h4>
             <ul>
                 <li><b>Umfassende Datenintegration:</b> Exportiert nicht nur Journalbuchungen, sondern auch alle relevanten Stammdaten und Zahlungsbedingungen für eine vollständige Datenübergabe.</li>
@@ -34,7 +34,7 @@
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            
+
             <h4>Umfassender Datenexport</h4>
             <p>Das Modul exportiert nicht nur Journalbuchungen, sondern auch alle relevanten Stammdaten, um eine vollständige Datenübergabe an Ihren Steuerberater zu gewährleisten:</p>
             <ul>
@@ -44,63 +44,139 @@
                 <li>Zahlungsbedingungen</li>
             </ul>
 
-            <h4>Intelligente Export-Status-Verwaltung</h4>
-            <p>Jede Buchung erhält einen Export-Status, um Duplikate zu vermeiden und die Nachverfolgung zu sichern. Dieser Status wird direkt in der Journalbuchung angezeigt.</p>
+            <h4>Unterstützte Buchungstypen</h4>
+            <p>Das Modul nutzt spezialisierte Exporter für die unterschiedlichen Buchungstypen aus SAP Business One:</p>
+            <ul>
+                <li><b>Journalbuchungen</b> — Einzelbuchungen ohne Besonderheiten</li>
+                <li><b>Ausgangsrechnungen (VKRE)</b> und <b>Ausgangsgutschriften (VKGS)</b></li>
+                <li><b>Eingangsrechnungen (EKRE)</b> und <b>Eingangsgutschriften (EKGS)</b></li>
+                <li><b>Anzahlungsrechnungen</b> für Verkauf und Einkauf</li>
+                <li><b>Eingangs- und Ausgangszahlungen</b></li>
+                <li><b>Wareneingänge (EKWE)</b> und <b>Lieferungen (VKLS)</b></li>
+                <li><b>Retouren</b> für Ein- und Verkauf</li>
+                <li><b>Lagerbuchungen</b> (Inventur, Umlagerungen, Bestandsneubewertungen)</li>
+                <li><b>Produktionsaufträge</b>, <b>Abstimmungen</b>, <b>Scheckeinreichungen</b></li>
+                <li><b>Service-Buchungen</b> und <b>Stornobuchungen</b> (mit spezieller Behandlung)</li>
+            </ul>
+
+            <h4>Export-Status-System</h4>
+            <p>Jede Buchung erhält einen Status, der direkt in der Journalbuchung angezeigt wird:</p>
+            <ul>
+                <li><b>Y</b> — Erfolgreich exportiert</li>
+                <li><b>N</b> — Noch nicht exportiert</li>
+                <li><b>E</b> — Vom Export ausgeschlossen</li>
+                <li><b>F</b> — Export fehlgeschlagen</li>
+            </ul>
+            <p>Der Status kann jederzeit manuell über einen separaten Dialog geändert werden, um z. B. einen erneuten Export zu ermöglichen.</p>
 
             <h4>Detaillierte Filtermöglichkeiten</h4>
-            <p>Für den Buchungsexport stehen umfangreiche Filter zur Verfügung, um die Datenmenge genau zu definieren. Sie können nach Datumstyp (Buchungs- oder Belegdatum), Zeitraum, Buchungsart und vor allem nach dem Export-Status filtern.</p>
+            <p>Für den Buchungsexport stehen umfangreiche Filter zur Verfügung. Beim Buchungsstatus-Filter können Sie wählen zwischen:</p>
+            <ul>
+                <li>Nur nicht exportierte</li>
+                <li>Nicht exportierte und fehlgeschlagene</li>
+                <li>Nur fehlgeschlagene</li>
+                <li>Alle außer fehlgeschlagenen</li>
+                <li>Alle Buchungen</li>
+            </ul>
 
             <h4>Protokollierung und Monitoring</h4>
-            <p>Alle Export-Vorgänge werden detailliert in einem Protokoll-Tab aufgezeichnet. Dies hilft dabei, den Erfolg zu überwachen und eventuelle Fehler schnell zu identifizieren und zu analysieren.</p>
-	
+            <p>Alle Export-Vorgänge werden detailliert in einem <b>Protokoll-Tab</b> aufgezeichnet, mit farbcodierten Meldungen (Erfolg, Warnung, Fehler) und Aufschlüsselung nach Modul-Kategorien (Allgemein, Debitoren/Kreditoren, Sachkonten, Zahlungen, Journalbuchungen).</p>
+
             <hr>
-            
+
+            <h3>Export-Dateien (DATEV-Standard)</h3>
+            <p>Der Export erzeugt CSV-Dateien gemäß DATEV-Standard mit Semikolon als Feldtrenner:</p>
+            <div class="example-box">
+                <h4>Erzeugte Dateien</h4>
+                <ul>
+                    <li><b>EXTF_Buchungsstapel.csv</b> — Hauptdatei mit allen Buchungszeilen (über 100 Felder pro Zeile)</li>
+                    <li><b>EXTF_Debitoren.csv</b> — Kundenstammdaten</li>
+                    <li><b>EXTF_Kreditoren.csv</b> — Lieferantenstammdaten</li>
+                    <li><b>EXTF_Kontenbeschriftungen.csv</b> — Sachkonten</li>
+                    <li><b>EXTF_Zahlungsbedingungen.csv</b> — Zahlungskonditionen</li>
+                </ul>
+                <p style="margin-top:10px;"><i>Alle Dateien beinhalten den DATEV-Versions-Header und sind direkt in DATEV-Programmen importierbar.</i></p>
+            </div>
+
+            <div class="image-placeholder">[BILD: Beispiel einer EXTF_Buchungsstapel.csv geöffnet in Excel mit DATEV-Header und Buchungszeilen]</div>
+
+            <hr>
+
+            <h3>Integration mit anderen VPS-Modulen</h3>
+
+            <div class="integration-box">
+                <h4>VPS Buchungstext-Konfigurator (JeTextSetter)</h4>
+                <p>Der JeTextSetter erzeugt einheitliche, aussagekräftige Buchungstexte. Diese verbessern die Lesbarkeit der DATEV-Dateien erheblich und reduzieren Rückfragen vom Steuerberater. Texte werden automatisch an DATEV-Längenbegrenzungen angepasst und Sonderzeichen vermieden.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata-Abgrenzungsbuchungen werden vom DATEV-Export speziell behandelt: automatische Erkennung als Abgrenzungsbuchungen, korrekte Referenzierung zum Originalbeleg und optimierte DATEV-Klassifizierung.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Hauptmodul (Konfiguration)</h4>
+                <p>DATEV-Mandantennummer, Beraternummer, Kontenlänge und Kontenplan werden zentral im Hauptmodul konfiguriert und vom Export automatisch übernommen.</p>
+            </div>
+
+            <hr>
+
             <h3>Anwendung: Schritt-für-Schritt</h3>
-            
+
             <h4>Buchungen und Stammdaten exportieren</h4>
             <ol>
                 <li>Navigieren Sie zu <b>Versino Financial Suite > DATEV Export</b>.</li>
-                <li>Wählen Sie die zu exportierenden <b>Datentypen</b> (z.B. Journalbuchungen, Debitoren/Kreditoren).</li>
-                <li>Definieren Sie den gewünschten <b>Zeitraum</b> und den <b>Datumstyp</b>.</li>
+                <li>Wählen Sie die zu exportierenden <b>Datentypen</b> (z. B. Journalbuchungen, Debitoren/Kreditoren).</li>
+                <li>Definieren Sie den gewünschten <b>Zeitraum</b> und den <b>Datumstyp</b> (Buchungsdatum oder Belegdatum).</li>
                 <li>Setzen Sie den Filter bei <b>"Buchungsstatus"</b> auf <b>"Nur nicht exportierte"</b>, um Duplikate zu vermeiden.</li>
                 <li>Wählen Sie das <b>Zielverzeichnis</b> für die Export-Datei aus.</li>
-                <li>Klicken Sie auf <b>"Export starten"</b>. Die Buchungen werden exportiert und in SAP B1 automatisch als "exportiert" markiert.</li>
+                <li>Klicken Sie auf <b>"Export starten"</b>. Die Buchungen werden exportiert und in SAP B1 automatisch als "exportiert" (Status Y) markiert.</li>
             </ol>
              <img src="assets/images/DatevExportSett.png" alt="Screenshot des Hauptexport-Dialogs mit allen Exportoptionen" class="module-image">
 
+            <div class="image-placeholder">[BILD: Export-Dialog Tab "Export" mit allen Buchungsstatus-Filtern und Datentyp-Auswahl]</div>
+
             <h4>Export-Protokoll überprüfen</h4>
             <p>Wechseln Sie nach dem Export zum <b>Protokoll-Tab</b>. Hier sehen Sie eine detaillierte, farbcodierte Aufzeichnung aller Vorgänge und können eventuelle Fehlermeldungen analysieren.</p>
-			
+
 			<img src="assets/images/DatevExportMessage.png" alt="Screenshot der Journalbuchung mit DATEV-Export-Status-Feld" class="module-image">
-            
+
+            <div class="image-placeholder">[BILD: Protokoll-Tab nach durchgeführtem Export mit farbcodierten Erfolgs- und Fehlermeldungen]</div>
+
             <h4>Export-Status manuell ändern</h4>
-            <p>Öffnen Sie die betroffene Journalbuchung in SAP Business One. Im Reiter "Financial Suite" können Sie den Export-Status manuell anpassen, z.B. um einen erneuten Export zu ermöglichen.</p>
-            
+            <p>Öffnen Sie die betroffene Journalbuchung in SAP Business One. Im Reiter "Financial Suite" können Sie den Export-Status manuell anpassen, z. B. um einen erneuten Export zu ermöglichen oder eine Buchung gezielt vom Export auszuschließen (Status E).</p>
+
+            <div class="image-placeholder">[BILD: Status-Feld in einer Journalbuchung mit Optionen Y/N/E/F]</div>
+
             <hr>
 
-            <h3>Allgemeine Tipps für die Anwendung</h3>
+            <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h4>Tipps für die tägliche Arbeit</h4>
             <ul>
-                <li><b>Export-Strategie:</b> Führen Sie regelmäßige Exporte durch (z.B. monatlich), um die Datenmengen überschaubar zu halten. Nutzen Sie aussagekräftige Export-Pfade zur besseren Organisation.</li>
+                <li><b>Export-Strategie:</b> Führen Sie regelmäßige Exporte durch (z. B. monatlich), um die Datenmengen überschaubar zu halten. Nutzen Sie aussagekräftige Export-Pfade zur besseren Organisation.</li>
                 <li><b>Qualitätsprüfung:</b> Prüfen Sie nach jedem Export das <b>Protokoll</b> auf Warnungen oder Fehler. Validieren Sie Exporte mit kleinen Zeiträumen, bevor Sie große Datenmengen verarbeiten.</li>
-                <li><b>Status-Verwaltung:</b> Nutzen Sie die Status-Filter gezielt. Um einen fehlerhaften Export zu korrigieren, können Sie den Status manuell zurücksetzen und nur die fehlgeschlagenen Buchungen erneut exportieren.</li>
+                <li><b>Status-Verwaltung:</b> Nutzen Sie die Status-Filter gezielt. Um einen fehlerhaften Export zu korrigieren, können Sie den Status manuell auf N zurücksetzen und nur die fehlgeschlagenen Buchungen erneut exportieren.</li>
+                <li><b>JeTextSetter aktivieren:</b> Vor dem Export aktivieren Sie idealerweise das JeTextSetter-Modul für einheitliche, DATEV-optimierte Buchungstexte.</li>
             </ul>
 
-            <hr>
+            <h4>Häufige Probleme und Lösungen</h4>
 
-            <h3>Fehlerbehandlung bei Problemen</h3>
-            
             <h5>Problem: Export schlägt mit einem Validierungsfehler fehl.</h5>
             <p><b>Lösung:</b> Prüfen Sie das Protokoll auf Details. Häufige Ursachen sind geschlossene Buchungsperioden, fehlende Konten- oder Steuerzuordnungen oder inkonsistente Kontenpläne. Analysieren Sie die Fehlermeldung im Protokoll-Tab.</p>
 
             <h5>Problem: Die erstellten Export-Dateien sind unvollständig oder fehlerhaft.</h5>
-            <p><b>Lösung:</b> Stellen Sie sicher, dass Sie Schreibrechte für das gewählte Export-Verzeichnis haben und genügend Speicherplatz vorhanden ist. Überprüfen Sie den Export-Zeitraum.</p>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass Sie Schreibrechte für das gewählte Export-Verzeichnis haben und genügend Speicherplatz vorhanden ist. Überprüfen Sie den Export-Zeitraum und die CSV-Struktur.</p>
 
             <h5>Problem: Der Export-Status wird bei einer Buchung nicht aktualisiert.</h5>
             <p><b>Lösung:</b> Überprüfen Sie Ihre Benutzerberechtigungen für das Ändern von Journalbuchungen. Stellen Sie sicher, dass das Add-On korrekt installiert ist. Im Notfall kann der Status manuell in der Journalbuchung geändert werden.</p>
-            
+
+            <h5>Problem: Bestimmte Buchungstypen werden nicht exportiert.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie die Buchungstyp-spezifischen Exporter. Stellen Sie sicher, dass alle erforderlichen Daten (z. B. Kontierung, Steuersatz) vorhanden sind, und prüfen Sie die Konfiguration für spezielle Buchungsarten.</p>
+
             <h5>Problem: Der Export-Dialog öffnet sich nicht.</h5>
             <p><b>Lösung:</b> Überprüfen Sie Ihre Benutzerberechtigungen für das Modul. Stellen Sie sicher, dass die Financial Suite korrekt geladen wurde und der Menüpunkt aktiv ist.</p>
-            
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

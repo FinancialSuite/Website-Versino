@@ -10,38 +10,169 @@
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
             <h2>Posting Text Configurator (JE Text Setter)</h2>
-            
+
             <h3>Overview</h3>
-            <p>The <b>Versino JE Text Setter Module</b> automates the creation of posting texts in SAP Business One. It automatically fills the text fields in numerous document types with predefined, meaningful descriptions. This saves time, reduces errors, and ensures uniform, traceable posting texts. A comprehensive default configuration is created on the first start, which you only need to activate.</p>
-            <p><b>Access to the module:</b> You can access the configuration under <b>Versino Financial Suite > Configuration > JE Text Configuration</b>.</p>
+            <p>The <b>Versino JE Text Setter Module</b> automates the creation of posting texts in SAP Business One. It automatically fills the text fields in numerous document types with predefined, meaningful descriptions. This saves time, reduces errors and ensures uniform, traceable posting texts. At the first start, a comprehensive default configuration is created which you only need to activate.</p>
+            <p><b>Module Access:</b> The configuration is reachable via both VPS menu structures:</p>
+            <ul>
+                <li><b>Versino AddOn > Configuration > JE Text Configuration</b></li>
+                <li><b>Versino Financial Suite > Configuration > JE Text Configuration</b></li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Important: Disabled by Default</h4>
+                <p>At the first start, all configurations are <b>disabled</b>. You must first activate the desired document types before the automatic text generation works.</p>
+            </div>
 
             <hr>
 
             <h3>Main Features</h3>
-            
-            <h4>Automatic & Context-sensitive Text Creation</h4>
-            <p>The module works in the background and automatically inserts appropriate posting texts when creating documents.</p>
+
+            <h4>Automatic & Context-Aware Text Creation</h4>
+            <p>The module works in the background and automatically inserts matching posting texts when documents are created — without manual entry.</p>
 
             <h4>Direct Configuration from Documents (Right-click)</h4>
-            <p>One of the most powerful features: You can create a new rule for automatic text creation directly from an SAP Business One document (e.g., an invoice) by right-clicking on any text field. The system automatically recognizes the form and the field, which greatly speeds up the setup process.</p>
+            <p>One of the strongest functions: directly from a SAP Business One document (e.g. an invoice) you can right-click on any text field to create a new rule for automatic text generation. The system automatically detects the form and the field, which significantly speeds up the setup.</p>
 
             <h4>Central Configuration Interface</h4>
-            <p>A central management window gives you full control. Here you can activate, deactivate, edit, copy, or delete all rules for the various document types individually in a clear list.</p>
-            
-            <h4>Seamless Integration with Other Modules</h4>
-            <p>The JeTextSetter significantly enhances the functionality of other modules with consistent texts:</p>
+            <p>Through a central management window you have full control. Here you can activate, deactivate, edit, copy or delete all rules for the various document types in a clearly arranged list. Via right-click in the configuration grid, the following functions are available:</p>
             <ul>
-                <li><b>Pro-Rata:</b> Accrual/deferral postings receive understandable texts (e.g., "Pro-Rata Deferral March 2024"), improving traceability.</li>
-                <li><b>DATEV-Export:</b> Uniform posting texts increase the quality of exports and reduce inquiries from the tax advisor.</li>
-                <li><b>Reporting:</b> Standardized texts in all reports improve clarity and analysis.</li>
+                <li><b>Delete row</b> — Remove configuration immediately</li>
+                <li><b>Copy row</b> — Configuration is highlighted yellow and placed in the clipboard</li>
+                <li><b>Paste row</b> — Transfer the copied configuration to another row</li>
             </ul>
+
+            <h4>Multilingual Text Creation</h4>
+            <p>The system automatically detects the SAP Business One UI language and generates the texts in the corresponding language — perfect for international branches.</p>
+
+            <hr>
+
+            <h3>Supported Document Types</h3>
+            <p>At the first start a default configuration is automatically created for the following document types:</p>
+
+            <div class="example-box">
+                <h4>Sales Documents</h4>
+                <ul>
+                    <li>Quotations (journal area and comment field)</li>
+                    <li>Sales orders</li>
+                    <li>Deliveries</li>
+                    <li>A/R invoices</li>
+                    <li>A/R returns</li>
+                    <li>A/R credit memos</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Purchasing Documents</h4>
+                <ul>
+                    <li>Goods receipts ("EK - Goods Receipt")</li>
+                    <li>Purchase returns</li>
+                    <li>A/P invoices</li>
+                    <li>A/P credit memos</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Inventory, Production and Payment Documents</h4>
+                <ul>
+                    <li><b>Inventory:</b> Goods receipts, goods issues, inventory transfers, inventory revaluations</li>
+                    <li><b>Production:</b> Production receipt, production issue</li>
+                    <li><b>Payments:</b> Incoming payments, outgoing payments</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Table of all supported document types, grouped by area (Sales, Purchasing, Inventory, Production, Payments)]</div>
+
+            <hr>
+
+            <h3>Direct Field Configuration from Active Documents</h3>
+            <p>By right-clicking on a text field, you can quickly create new configurations:</p>
+
+            <h4>How the Direct Field Configuration Works</h4>
+            <ol>
+                <li>Open any SAP Business One document (e.g. A/R invoice).</li>
+                <li>Right-click on the text field that you want to fill automatically.</li>
+                <li>The system automatically detects:
+                    <ul>
+                        <li>The <b>form type</b> (e.g. A/R invoice)</li>
+                        <li>The <b>selected text field</b></li>
+                        <li>The associated descriptions</li>
+                    </ul>
+                </li>
+                <li>The JE Text configuration opens automatically with a <b>pre-filled new rule</b>.</li>
+                <li>Activate and save the configuration.</li>
+            </ol>
+
+            <p><b>Benefits:</b> No manual entry of form IDs or field IDs required, immediate configuration directly at the workplace, automatic detection of all technical parameters.</p>
+
+            <div class="image-placeholder">[IMAGE: Right-click on a text field in an A/R invoice with the menu item "Add JE Text Configuration"]</div>
+
+            <div class="image-placeholder">[IMAGE: Configuration grid with context menu on right-click (Delete row / Copy row / Paste row)]</div>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+            <p>The JE Text Setter significantly improves the functionality of other modules through consistent texts:</p>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata accrual/deferral postings automatically receive meaningful texts that clearly identify the accrual/deferral period and the original document — e.g.:</p>
+                <ul>
+                    <li>"Pro-Rata accrual March 2024 - Software License"</li>
+                    <li>"Release Pro-Rata April 2024 - Insurance"</li>
+                    <li>"Reversal Pro-Rata accrual - Invoice 2024-1234"</li>
+                </ul>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Export</h4>
+                <p>Uniform posting texts significantly improve the readability of the DATEV files. Texts are automatically adjusted to DATEV length limits and special characters are avoided — this reduces queries from your tax advisor and meets GoBD requirements.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Import</h4>
+                <p>When importing DATEV files, the JE Text Setter texts can serve as a reference for the assignment of posting types, which increases the import accuracy.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Reporting</h4>
+                <p>Standardized texts automatically appear in all reports — cash book, G/L statements, journal entry lists and Pro-Rata reports with clear accrual/deferral texts.</p>
+            </div>
+
+            <hr>
+
+            <h3>DATEV Integration in Detail</h3>
+            <p>Cooperation with the DATEV system is particularly important for professional accounting:</p>
+
+            <div class="example-box">
+                <h4>Export Optimization</h4>
+                <ul>
+                    <li>Posting texts are generated in correct length for DATEV fields</li>
+                    <li>Automatic adaptation to DATEV character limits</li>
+                    <li>Avoidance of special characters that could cause DATEV problems</li>
+                    <li>Consistent terminology according to DATEV standards</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Tax Advisor & Compliance</h4>
+                <ul>
+                    <li>Clear identification of posting types</li>
+                    <li>Reduced queries during DATEV handover</li>
+                    <li>GoBD-compliant posting texts</li>
+                    <li>Audit-trail-suitable descriptions</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: DATEV export file with standardized JE-Text-Setter generated posting texts]</div>
 
             <hr>
 
@@ -51,36 +182,61 @@
             <h4>1. Activate a Rule for a Document Type (Basic Step)</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > Configuration > JE Text Configuration</b>.</li>
-                <li>Select the desired document type from the list (e.g., A/R Invoices).</li>
-                <li>Check the box in the "Active" column.</li>
+                <li>Select in the list the desired document type (e.g. A/R invoices).</li>
+                <li>Set the checkmark in the "Active" column.</li>
                 <li>Save with "OK". The rule is now active.</li>
             </ol>
             <img src="../assets/images/TextConfig.png" alt="Application example: Configuration" class="module-image">
-			
+
             <h4>2. Create a New Rule Directly from a Document (Recommended)</h4>
             <ol>
-                <li>Open any document in SAP Business One (e.g., an A/R Invoice).</li>
-                <li><b>Right-click</b> on the text field you want to see in the posting text in the future.</li>
-				<li>Click on <b>Add Journal Entry Text</b>.</li>
-                <li>The JeTextSetter configuration window opens and has already added a new, pre-filled rule for this field.</li>
-                <li>The rules for automatic filling can be adjusted at any time with <b>Edit Journal Entry Text</b>.</li>
-				<li>By clicking <b>Execute Journal Entry Text</b>, the posting text can be previewed in the Accounting tab beforehand.</li>
-				<li>The Text Configurator will automatically adjust the <b>posting text in the journal entry</b> when the document is added.</li>
+                <li>Open any document in SAP Business One (e.g. an A/R invoice).</li>
+                <li><b>Right-click</b> on the text field that you would like to see in the posting text.</li>
+                <li>Click on <b>Add Journal Entry</b>.</li>
+                <li>The configuration window of the JE Text Setter opens and already has a new, pre-filled rule for this field added.</li>
+                <li>The rules for automatic filling can be adjusted at any time with <b>Edit Journal Entry</b>.</li>
+                <li>By clicking on <b>Execute Journal Entry</b> you can preview the posting text in advance in the Accounting tab.</li>
+                <li>The text configurator will automatically adjust the <b>posting text in the journal entry</b> when the document is added.</li>
             </ol>
-			
+
             <img src="../assets/images/JeText1.png" alt="Application example: Configuration of a text template" class="module-image">
-            <img src="../assets/images/JeText4.png" alt="Application example: Preview of a text template" class="module-image">
-			<img src="../assets/images/JeText3.png" alt="Application example: Result in Journal Entry" class="module-image">
-			
+            <img src="../assets/images/JeText4.png" alt="Application example: Configuration of a text template" class="module-image">
+            <img src="../assets/images/JeText3.png" alt="Application example: Configuration of a text template" class="module-image">
+
+            <div class="image-placeholder">[IMAGE: Before/after comparison: posting without automatic text vs. posting with JE Text Setter text]</div>
+
             <hr>
 
             <h3>Tips and Troubleshooting</h3>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Problem: No texts are inserted automatically.</b><br>Solution: First, check in the configuration whether the rule for the relevant document type is activated.</li>
-                <li><b>Problem: The configuration list is empty when first opened.</b><br>Solution: The system automatically creates the default configurations on the very first start of the module. If in doubt, contact support.</li>
-                <li><b>Problem: Direct configuration via right-click does not work.</b><br>Solution: Ensure you have clicked on a text field and the JE Text Setter module is running correctly.</li>
-                <li><b>Problem: Texts are too long for the target field.</b><br>Solution: No need to worry, you can limit the maximum length of the texts in the Text Configurator per field. The maximum length for the posting text is 254 characters.</li>
+                <li><b>Introduce step by step:</b> Start with a few important document types. Only activate the configurations you actually need.</li>
+                <li><b>Use direct field configuration:</b> Particularly useful for new forms — the automatic detection saves manual technical entries.</li>
+                <li><b>Activate before Pro-Rata:</b> Make sure the JE Text Setter is activated BEFORE you create Pro-Rata postings — otherwise the meaningful texts will be missing.</li>
+                <li><b>Central management:</b> Use the double-click function for fast editing. Use the copy function for similar configurations.</li>
             </ul>
+
+            <h4>Common Problems and Solutions</h4>
+
+            <h5>Problem: No texts are inserted automatically.</h5>
+            <p><b>Solution:</b> First check in the configuration whether the rule for the relevant document type is activated (checkmark in the "Active" column).</p>
+
+            <h5>Problem: The configuration list is empty when first opened.</h5>
+            <p><b>Solution:</b> The system automatically creates the default configurations at the very first start of the module. Contact support if in doubt.</p>
+
+            <h5>Problem: The direct configuration via right-click does not work.</h5>
+            <p><b>Solution:</b> Make sure you clicked on a text field and that the JE Text Setter module is running correctly.</p>
+
+            <h5>Problem: Texts are too long for the target field.</h5>
+            <p><b>Solution:</b> You can limit the maximum length of the texts in the text configurator per field. The maximum length for the posting text is 254 characters.</p>
+
+            <h5>Problem: Texts appear in the wrong language.</h5>
+            <p><b>Solution:</b> Check the language settings in SAP Business One — the module automatically follows the UI language.</p>
+
+            <h5>Problem: Pro-Rata postings have no descriptive texts.</h5>
+            <p><b>Solution:</b> Make sure the JE Text Setter was activated <b>before</b> the Pro-Rata posting creation.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

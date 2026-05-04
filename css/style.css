@@ -279,6 +279,88 @@ footer {
     margin: 20px 0;
     border-radius: 5px;
 }
+
+/* --- Stil für Berechnungs-/Praxisbeispiele --- */
+.example-box {
+    background-color: #f0f6fc;
+    border: 1px solid #b8d4ea;
+    border-left: 5px solid #003862;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.example-box h4 {
+    margin-top: 0;
+    color: #003862;
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.example-box ul, .example-box ol {
+    margin-bottom: 0;
+}
+
+/* --- Stil für Übersichts-Tabellen (z. B. Quick-Reference) --- */
+.module-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95rem;
+}
+
+.module-table th {
+    background-color: #003862;
+    color: #ffffff;
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid #003862;
+    font-weight: 600;
+}
+
+.module-table td {
+    padding: 10px 12px;
+    border: 1px solid #dee2e6;
+    vertical-align: top;
+}
+
+.module-table tr:nth-child(even) td {
+    background-color: #f8f9fa;
+}
+
+.module-table tr:hover td {
+    background-color: #fff7f0;
+}
+
+.module-table a {
+    color: #003862;
+    font-weight: 500;
+}
+
+.module-table a:hover {
+    color: #ED731B;
+}
+
+/* --- Stil für "Integration mit anderen Modulen"-Sektionen --- */
+.integration-box {
+    background-color: #fff7f0;
+    border: 1px solid #ffd9b8;
+    border-left: 5px solid #ED731B;
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.integration-box h4 {
+    margin-top: 0;
+    color: #ED731B;
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+
+.integration-box ul {
+    margin-bottom: 0;
+}
 /* --- Stile für den Chat --- */
 .chat-button {
     position: fixed;

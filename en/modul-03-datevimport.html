@@ -3,101 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATEV Posting Import</title>
+    <title>DATEV Import</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>DATEV Posting Import (Datev Import)</h2>
+            <h2>DATEV Import</h2>
 
             <h3>Overview</h3>
-            <p>The <b>Versino Datev Import Module</b> is the central interface for importing posting batches in DATEV-CSV format into SAP Business One. It is specifically optimized for German accounting requirements and supports both the import of single files and the bulk processing of entire folders.</p>
-            <p><b>Access to the module:</b> You can find the import dialog under <b>Versino Financial Suite > Import/Export > Import</b>. The import logs can be viewed under <b>Versino Financial Suite > Protocols > Import Log</b>.</p>
+            <p>The <b>Versino DATEV Import Module</b> is the central interface for importing posting batches in the DATEV CSV format into SAP Business One. It is specifically optimized for German accounting requirements and supports both the import of single files as well as mass processing of entire folders.</p>
+            <p><b>Module Access:</b> The import dialog is found under <b>Versino Financial Suite > Import/Export > Import</b>. The import logs can be viewed under <b>Versino Financial Suite > Logs > Import Log</b>.</p>
 
             <div class="warning-box">
                 <h4>Important Prerequisite: Reference Field Links</h4>
-                <p>Before the first import can be performed, the reference field links must be configured in SAP Business One. <b>Without this configuration, no import can be carried out!</b> Navigate to <b>Administration > Definitions > General > Reference Field Links</b> and link the target field "U_VPS_DTV_REF" for the following document types:</p>
+                <p>Before the first import can be performed, the reference field links must be configured in SAP Business One. <b>Without this configuration, no import can be performed!</b> Navigate to <b>Administration > Setup > General > Reference Field Links</b> and link the target field <b>"U_VPS_DTV_REF"</b> for the following document types:</p>
                 <ul>
-                    <li>Invoices</li>
-                    <li>Credit Memos</li>
-                    <li>Goods Movements</li>
+                    <li><b>13</b> — A/R invoices</li>
+                    <li><b>14</b> — A/P credit memos</li>
+                    <li><b>18</b> — A/P invoices</li>
+                    <li><b>19</b> — A/R credit memos</li>
+                    <li><b>24</b> — Goods receipts</li>
+                    <li><b>46</b> — Deliveries</li>
                 </ul>
             </div>
+
+            <div class="image-placeholder">[IMAGE: SAP B1 dialog "Reference Field Links" with linked field U_VPS_DTV_REF for object code 13 (A/R invoice)]</div>
 
             <hr>
 
             <h3>Main Features</h3>
-            
-            <h4>Flexible Import (Single File & Folder)</h4>
-            <p>You can either select a single CSV file for import or activate "Folder Import" to process all CSV files in a selected directory sequentially.</p>
 
-            <h4>Secure Processing (Direct Posting & Drafts)</h4>
-            <p>The module offers two modes for creating postings. When selecting direct postings (JE), a warning message is displayed for security.</p>
+            <h4>Flexible Import (Single File & Folder)</h4>
+            <p>You can either select a single CSV file for the import or activate the "Folder Import" to process all CSV files in a chosen directory one after another.</p>
+
+            <h4>Safe Processing (Direct Posting & Pre-Entry)</h4>
+            <p>The module offers two modes for creating postings. When direct postings (JE) are selected, a warning message is displayed for safety reasons.</p>
             <ul>
-                <li><b>Parked Documents (VC):</b> Creates secure drafts that must be checked and approved before final posting. This is the recommended method.</li>
-                <li><b>Direct Postings (JE):</b> Posts the batches immediately as journal entries. This option should be used with caution.</li>
+                <li><b>Pre-Entered Documents (VC):</b> Creates safe drafts that must be reviewed and released before the final posting. This is the recommended method.</li>
+                <li><b>Direct Postings (JE):</b> Posts the batches immediately as journal entries. This option should be used with care.</li>
+            </ul>
+
+            <h4>Source Data Type: DTV vs. LUGS</h4>
+            <p>The module distinguishes two source data types in order to use different transaction codes:</p>
+            <ul>
+                <li><b>DTV (DATEV format):</b> Uses the DATEV transaction code from the settings.</li>
+                <li><b>LUGS (Payroll):</b> Uses the separate Payroll transaction code for postings from payroll systems.</li>
             </ul>
 
             <h4>Comprehensive Validation & Logging</h4>
-            <p>Before the import, the system checks the data for consistency (e.g., whether accounts, business partners, and open periods exist). The entire process is documented live in the "Protocol" tab of the import dialog with color-coded messages (Green for success, Light Blue for warnings, Red for errors).</p>
-            
-            <h4>Central Configuration & Advanced Features</h4>
-            <p>In the <b>Financial Suite Settings</b>, you can define a default import folder and the starting line for the import. The module also offers support for multi-branch scenarios and consolidation postings.</p>
+            <p>Before the import, the system checks the data for consistency (e.g. whether accounts, business partners and open periods exist). The entire process is documented live in the "Log" tab of the import dialog with color-coded messages (green for success, light blue for warnings, red for errors).</p>
+
+            <h4>Branch Support & Consolidation</h4>
+            <p>In multi-branch environments (when <code>OADM.MltpBrnchs != 'N'</code>), a dropdown to select the target branch appears in the import dialog. By default, the main branch is used.</p>
+            <p>In addition, the module supports consolidation scenarios: if the UDF fields <code>CNSCMP</code> exist in OJDT and JDT1, an additional option "Consolidation" appears in the "Scenario type" dropdown.</p>
+
+            <hr>
+
+            <h3>Field Mapping Configuration</h3>
+            <p>The system uses an extended configuration interface for DATEV field mappings — with support for all <b>116 DATEV standard fields</b>.</p>
+
+            <div class="example-box">
+                <h4>Supported Mappings</h4>
+                <ul>
+                    <li><b>JournalEntriesMap</b> — Mapping for journal entries</li>
+                    <li><b>DocumentsMap</b> — Mapping for documents</li>
+                    <li><b>PaymentsMap</b> — Mapping for payments</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Special Mapping Settings</h4>
+                <ul>
+                    <li><b>ProcessEmptyBU</b> — Processing empty BU fields</li>
+                    <li><b>SalesExemptTaxGroup</b> — Tax group for exempt sales</li>
+                    <li><b>ExpenditureExemptTaxGroup</b> — Tax group for exempt expenditures</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Field mapping matrix in the advanced settings]</div>
+
+            <hr>
+
+            <h3>Validation Error Types</h3>
+            <p>The system reports the following typical validation errors:</p>
+            <ul>
+                <li><b>ImportFalscheStartzeile</b> — First import line is less than 3 (DATEV header must be skipped)</li>
+                <li><b>ImportKontoNichtGefunden</b> — G/L account does not exist in SAP Business One</li>
+                <li><b>ImportGpMehrfachDefiniert</b> — Business partner is not uniquely identifiable</li>
+                <li><b>ImportBuchungsperiodeGesperrt</b> — Period is not bookable</li>
+                <li><b>ImportWechselkursFehlt</b> — Exchange rate for the date is missing (for foreign currencies)</li>
+            </ul>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+
+            <div class="integration-box">
+                <h4>VPS Main Module (Configuration)</h4>
+                <p>Import folder, first import line and the transaction codes for DTV/LUGS are managed centrally in the Financial Suite settings and loaded automatically.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Posting Text Configurator (JE Text Setter)</h4>
+                <p>The posting texts generated by the JE Text Setter can serve as a reference for the assignment of posting types during import, increasing the import accuracy.</p>
+            </div>
 
             <hr>
 
             <h3>Application: Step-by-Step</h3>
-            
+
             <h4>1. Preparation (One-time Configuration)</h4>
-            <p>Ensure that all prerequisites are met:</p>
+            <p>Make sure all prerequisites are met:</p>
             <ol>
                 <li><b>Reference Field Links:</b> Configure the links as described in the warning box above.</li>
-                <li><b>Import Settings:</b> Navigate to <b>Versino Financial Suite > Configuration > Settings > DATEV Import</b> and set a default import folder and the starting line (usually the third line of the file).</li>
+                <li><b>Import Settings:</b> Navigate to <b>Versino Financial Suite > Configuration > Settings > DATEV Import</b> and define a default import folder and the start row (usually the third row of the file).</li>
+                <li><b>Transaction Codes:</b> Define the transaction codes for DATEV accounting and payroll postings in the settings.</li>
             </ol>
-            
+
+            <div class="image-placeholder">[IMAGE: DATEV settings with tab "DATEV Import" and all parameters (import folder, first import line, transaction codes)]</div>
+
             <h4>2. Performing the Import</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > Import/Export > Import</b>.</li>
-                <li>Select the CSV file via "Choose File" or activate "Folder Import" and select a directory.</li>
-                <li>Determine the "Journal Entry Type", preferably <b>"Parked Documents" (VC)</b>.</li>
+                <li>Use "Choose File" to select the CSV file or activate "Folder Import" and choose a directory.</li>
+                <li>Choose the <b>source data type</b> (DTV or LUGS).</li>
+                <li>Set the "Journal Entry Type", preferably <b>"Pre-Entered Documents" (VC)</b>.</li>
+                <li>For multi-branch environments: Select the target branch from the dropdown.</li>
                 <li>Click "Import".</li>
-                <li>Switch to the <b>"Protocol" tab</b> to monitor the progress and any errors live.</li>
+                <li>Switch to the <b>"Log" tab</b> to follow the progress and any errors live.</li>
             </ol>
-            <img src="../assets/images/DatevImportSett.png" alt="Screenshot of the import dialog with all sections labeled" class="module-image">
+            <img src="../assets/images/DatevImportSett.png" alt="Screenshot of the import dialog with all areas labeled" class="module-image">
+
+            <div class="image-placeholder">[IMAGE: Import dialog with activated "Folder Import" checkbox and branch selection]</div>
+
+            <div class="image-placeholder">[IMAGE: Log tab after import with red/blue/green status messages]</div>
 
             <hr>
 
-            <h3>General Application Tips</h3>
+            <h3>Tips and Troubleshooting</h3>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Always test with drafts:</b> Always use "Parked Documents" (VC) to check data before final posting, especially with uncertain data sources.</li>
-                <li><b>Check the protocol:</b> The protocol tab is your most important tool for error analysis. Red entries indicate critical errors that must be fixed.</li>
-                <li><b>Preparation is key:</b> Before importing, ensure that all necessary posting periods are open and all accounts and business partners exist in SAP Business One.</li>
-                <li><b>File format:</b> Make sure your CSV files have the DATEV-compliant structure (e.g., semicolon as a separator).</li>
+                <li><b>Always test with pre-entry:</b> Use "Pre-Entered Documents" (VC) to check data before final posting, especially with uncertain data sources.</li>
+                <li><b>Check the log:</b> The Log tab is your most important tool for error analysis. Red entries show critical errors that must be resolved.</li>
+                <li><b>Preparation is everything:</b> Make sure all required posting periods are open and all accounts and business partners exist in SAP Business One before the import.</li>
+                <li><b>File format:</b> Make sure your CSV files have the DATEV-compliant structure (semicolon as separator, UTF-8 or ANSI character set, at least 3 header rows).</li>
             </ul>
 
-            <hr>
+            <h4>Common Problems and Solutions</h4>
 
-            <h3>Troubleshooting</h3>
-
-            <h5>Problem: Error message "Reference field links not configured".</h5>
-            <p><b>Solution:</b> This is a critical error. Perform the configuration exactly as described in the warning box above. No import is possible without this setting.</p>
+            <h5>Problem: Error message "Reference Field Links not configured".</h5>
+            <p><b>Solution:</b> This is a critical error. Perform the configuration as described in the warning box above for object codes 13, 14, 18, 19, 24 and 46. Without this setting, no import is possible.</p>
 
             <h5>Problem: Error message "First import line too small".</h5>
-            <p><b>Solution:</b> The DATEV header in the CSV must be skipped. Set the starting line in the Financial Suite Settings to at least 3.</p>
+            <p><b>Solution:</b> The DATEV header in the CSV must be skipped. Set the start row in the Financial Suite settings to at least 3.</p>
 
-            <h5>Problem: The error "Account not found" or "Business partner not found" appears in the protocol.</h5>
-            <p><b>Solution:</b> The import file contains an account or a business partner that does not exist in SAP Business One. Create the missing master data and start the import again.</p>
+            <h5>Problem: The log shows the error "Account not found" or "Business partner not found".</h5>
+            <p><b>Solution:</b> The import file contains an account or business partner that does not exist in SAP Business One. Create the missing master data and run the import again.</p>
 
-            <h5>Problem: The error "Posting period locked" appears in the protocol.</h5>
-            <p><b>Solution:</b> Unlock the corresponding posting period in SAP Business One before starting the import.</p>
+            <h5>Problem: The log shows the error "Posting period locked".</h5>
+            <p><b>Solution:</b> Open the corresponding posting period in SAP Business One before starting the import.</p>
+
+            <h5>Problem: File does not exist / folder is empty.</h5>
+            <p><b>Solution:</b> Check the path to the CSV file or configure the default import directory in the settings. For folder import: check whether *.csv files are present in the directory.</p>
+
+            <h5>Problem: Consolidation option does not appear.</h5>
+            <p><b>Solution:</b> Make sure the UDF field <code>CNSCMP</code> exists in the OJDT and JDT1 tables (at least 2 fields must exist).</p>
 
         </article>
     </main>

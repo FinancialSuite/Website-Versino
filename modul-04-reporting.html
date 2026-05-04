@@ -14,7 +14,7 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
             <h2>Berichtserweiterungspaket (Reporting)</h2>
@@ -22,41 +22,134 @@
             <h3>Überblick</h3>
             <p>Das <b>Versino Reporting Modul</b> ist das zentrale Berichtssystem der Financial Suite. Es bietet eine umfangreiche Sammlung vorgefertigter Crystal Reports und arbeitet vollständig im Hintergrund, um Ihnen die passenden Auswertungen bereitzustellen. Ein wesentlicher Vorteil ist, dass das Modul automatisch erkennt, ob Sie eine <b>Microsoft SQL Server</b> oder <b>SAP HANA</b> Datenbank verwenden, und die entsprechenden, performance-optimierten Berichte lädt.</p>
             <p>Das Modul startet asynchron, ohne die SAP Business One Oberfläche zu blockieren, und erkennt automatisch Ihre Systemsprache. <b>Zugang zu den Berichten:</b> Alle Berichte finden Sie im SAP Business One Menü unter <b>Versino Financial Suite > Financial Suite Berichte</b>.</p>
-            
+
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            <p>Das Modul bietet zwei Arten von Berichten, um unterschiedliche Anforderungen abzudecken:</p>
+            <p>Das Modul bietet zwei Arten von Berichten, um unterschiedliche Anforderungen abzudecken: <b>Standard-Berichte</b> für den schnellen Zugriff und <b>Massen-Berichte</b> mit vorgeschalteten Filterdialogen.</p>
 
-            <h4>Standard-Berichte</h4>
-            <p>Diese Berichte können direkt gestartet werden und bieten schnelle Auswertungen. Die Filterung (z.B. nach Datum) erfolgt direkt im Crystal Reports Viewer.</p>
+            <h4>Standard-Berichte (direkter Start)</h4>
+            <p>Diese Berichte können direkt gestartet werden und bieten schnelle Auswertungen. Die Filterung (z. B. nach Datum) erfolgt direkt im Crystal Reports Viewer.</p>
             <ul>
-                <li><b>Kassenbuch:</b> Zeigt alle Kassenbewegungen chronologisch mit laufender Saldierung.</li>
-                <li><b>Kontoauszug Sachkonten:</b> Detaillierte Bewegungslisten für ausgewählte Sachkonten.</li>
-                <li><b>Offene Posten Kunden:</b> Übersicht über unbezahlte Forderungen mit Fälligkeitsanalyse.</li>
-                <li><b>Summen- und Saldenliste (SuSa):</b> Kompakte Übersicht aller Konten.</li>
-                <li><b>Top 10 Kunden/Lieferanten:</b> Ranking der wichtigsten Geschäftspartner.</li>
-                <li><b>Zahlungsmoral:</b> Analyse des Zahlungsverhaltens von Kunden.</li>
-                <li><b>BWA:</b> Monatliche betriebswirtschaftliche Auswertung.</li>
+                <li><b>Kassenbuch</b> — Zeigt alle Kassenbewegungen chronologisch mit laufender Saldierung.</li>
+                <li><b>Kontoauszug Sachkonten</b> — Detaillierte Bewegungslisten für ausgewählte Sachkonten.</li>
+                <li><b>Offene Posten Kunden</b> (mit Release 07 Version) — Übersicht über unbezahlte Forderungen mit Fälligkeitsanalyse.</li>
+                <li><b>Summen- und Saldenliste (SuSa)</b> — Kompakte Sachkonten-orientierte Übersicht aller Konten.</li>
+                <li><b>Summen- und Saldenliste GP</b> — Geschäftspartner-orientierte Variante.</li>
+                <li><b>Top 10 Kunden</b> — Ranking nach Umsatzvolumen.</li>
+                <li><b>Top 10 Lieferanten</b> — Ranking nach Einkaufsvolumen.</li>
+                <li><b>Zahlungsmoral</b> — Analyse des Zahlungsverhaltens mit durchschnittlichen Zahlungsdauern.</li>
+                <li><b>BWA</b> — Monatliche betriebswirtschaftliche Auswertung nach Standard-BWA-Schema.</li>
             </ul>
              <img src="assets/images/Reports.png" alt="Screenshot des Berichtsmenüs in SAP Business One" class="module-image">
 
-            <h4>Massen-Berichte</h4>
-            <p>Diese Berichte bieten vor dem Start spezielle Filterdialoge, um gezielte Massenverarbeitungen durchzuführen.</p>
+            <div class="image-placeholder">[BILD: Untermenü "Financial Suite Berichte" mit Liste aller Standard- und Massen-Berichte]</div>
+
+            <h4>Massen-Berichte (mit Filtern)</h4>
+            <p>Diese Berichte bieten vor dem Start spezielle Filterdialoge, um gezielte Massenverarbeitungen durchzuführen. Das System erstellt für jeden ausgewählten Datensatz eine separate Datei.</p>
             <ul>
-                <li><b>Saldenbestätigung:</b> Erstellt separate Bestätigungsschreiben für beliebig viele Kunden zu einem wählbaren Stichtag.</li>
-                <li><b>Netting Abstimmungen:</b> Dokumentiert durchgeführte Netting-Vorgänge.</li>
-                <li><b>Zahlungsavis:</b> Erstellt detaillierte Zahlungsavise für einen bestimmten Zahllauf.</li>
+                <li><b>Saldenbestätigung</b> — Erstellt separate Bestätigungsschreiben für beliebig viele Kunden zu einem wählbaren Stichtag.</li>
+                <li><b>Netting Abstimmungen</b> — Dokumentiert durchgeführte Netting-Vorgänge für einen Datumsbereich.</li>
+                <li><b>Zahlungsavis</b> — Erstellt detaillierte Zahlungsavise für einen bestimmten Zahllauf (nur Status "Executed").</li>
             </ul>
-            
+
+            <h4>Filter-Bedienung</h4>
+            <ul>
+                <li><b>Datums-Filter:</b> Klicken Sie auf das Kalender-Symbol für die Datumsauswahl.</li>
+                <li><b>Choose-From-List:</b> Lupen-Symbol öffnet die Auswahlliste (z. B. für Geschäftspartner).</li>
+                <li><b>Dropdown:</b> Zeigt automatisch verfügbare Werte (z. B. Zahlläufe).</li>
+            </ul>
+
             <h4>Ausgabeoptionen</h4>
-            <p>Alle Berichte können direkt angezeigt, gedruckt oder in Formate wie <b>PDF, Excel oder Word</b> exportiert werden. Bei Massen-Berichten werden automatisch individuelle Dateinamen vergeben (z.B. "Saldenbestätigung_[Kundencode].pdf").</p>
-            
+            <p>Alle Berichte unterstützen verschiedene Ausgabeformate:</p>
+            <ul>
+                <li><b>Vorschau</b> — Anzeige in SAP Business One oder einem separaten Fenster</li>
+                <li><b>Druck</b> — Direkter Ausdruck</li>
+                <li><b>PDF</b> — Export als PDF-Datei</li>
+                <li><b>Excel</b> — Export für weitere Bearbeitung</li>
+                <li><b>Word</b> — Export ins Word-Format</li>
+            </ul>
+            <p>Bei Massen-Berichten werden automatisch individuelle Dateinamen vergeben (z. B. <code>Saldenbestätigung [Kundencode] - [Kundenname].pdf</code>).</p>
+
+            <div class="image-placeholder">[BILD: Export-Dialog mit den Ausgabeoptionen Vorschau, PDF, Excel, Word, Druck]</div>
+
+            <h4>Datenbankadaption (SQL Server vs. HANA)</h4>
+            <p>Das System lädt automatisch die richtige Berichtsversion basierend auf Ihrer Datenbank:</p>
+            <ul>
+                <li><b>SQL Server:</b> Verwendet optimierte SQL-Abfragen.</li>
+                <li><b>HANA:</b> Nutzt HANA-spezifische Funktionen und In-Memory-Processing für maximale Performance.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Wichtige Standard-Berichte im Detail</h3>
+
+            <div class="example-box">
+                <h4>Top 10 Auswertungen</h4>
+                <p>Identifizieren Sie auf einen Blick Ihre wichtigsten Geschäftspartner — perfekt für Vertriebs- und Einkaufsanalysen:</p>
+                <ul>
+                    <li><b>Top 10 Kunden:</b> Sortiert nach Umsatzvolumen</li>
+                    <li><b>Top 10 Lieferanten:</b> Sortiert nach Einkaufsvolumen</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Zahlungsmoral</h4>
+                <p>Analysiert das Zahlungsverhalten Ihrer Kunden mit durchschnittlichen Zahlungsdauern und Trends. Ideale Grundlage für Mahnstrategien und Skonto-Entscheidungen.</p>
+            </div>
+
+            <div class="image-placeholder">[BILD: Beispiel der Top-10-Kunden-Auswertung mit Ranking nach Umsatzvolumen]</div>
+
+            <div class="image-placeholder">[BILD: Beispiel der Zahlungsmoral-Auswertung mit durchschnittlichen Zahlungsdauern]</div>
+
+            <hr>
+
+            <h3>Massen-Berichte im Detail</h3>
+
+            <h4>Saldenbestätigung</h4>
+            <p>Erstellt automatisch Saldenbestätigungen für ausgewählte Kunden zum Stichtag. Filteroptionen:</p>
+            <ul>
+                <li><b>Stichtag:</b> Datum für die Saldenermittlung</li>
+                <li><b>Geschäftspartner:</b> Auswahl über Choose-From-List</li>
+            </ul>
+            <p>Das System erzeugt für jeden ausgewählten Kunden eine separate Datei im Format <code>Saldenbestätigung [Kundencode] - [Kundenname].pdf</code>.</p>
+
+            <div class="image-placeholder">[BILD: Filter-Dialog der Saldenbestätigung mit Stichtag und Choose-From-List für Geschäftspartner]</div>
+
+            <h4>Netting Abstimmungen</h4>
+            <p>Dokumentiert durchgeführte Netting-Vorgänge zwischen Geschäftspartnern. Filteroptionen:</p>
+            <ul>
+                <li><b>Abstimmungsdatum von/bis:</b> Zeitraum der Netting-Vorgänge</li>
+                <li><b>Geschäftspartner:</b> Dropdown-Auswahl aus Netting-Partnern</li>
+            </ul>
+
+            <h4>Zahlungsavis</h4>
+            <p>Erstellt Zahlungsavise basierend auf dem SAP Business One Zahlungsassistenten. Das System zeigt automatisch nur Zahlungsläufe mit Status <b>"Executed"</b> an, sortiert nach neuesten zuerst.</p>
+
+            <hr>
+
+            <h3>Integration mit anderen VPS-Modulen</h3>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata-Buchungen werden in allen relevanten Reporting-Berichten automatisch berücksichtigt — im Kassenbuch, Kontoauszug Sachkonten, in der Summen- und Saldenliste sowie in Bilanz und GuV.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Buchungstext-Konfigurator (JeTextSetter)</h4>
+                <p>Standardisierte Buchungstexte aus dem JeTextSetter erscheinen automatisch in allen Berichten und verbessern die Übersichtlichkeit erheblich — besonders im Kassenbuch und auf Kontoauszügen.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Hauptmodul</h4>
+                <p>Das Reporting-Modul greift auf zentrale Konfigurationsdaten zu (z. B. Steuereinstellungen, Kontenpläne) und passt sich automatisch an die Datenbank-Version (SQL Server / HANA) an.</p>
+            </div>
+
             <hr>
 
             <h3>Anwendung</h3>
-            
-            <h4>Standard-Bericht anwenden (z.B. Kontoauszug)</h4>
+
+            <h4>Standard-Bericht anwenden (z. B. Kontoauszug)</h4>
             <ol>
                 <li>Navigieren Sie zu <b>Versino Financial Suite > Financial Suite Berichte > Kontoauszug Sachkonten</b>.</li>
                 <li>Ein Filter-Dialog öffnet sich. Geben Sie den gewünschten <b>Zeitraum</b>, die <b>Sachkonten</b> ein und den Anzeigetyp (B1-Form oder als externes Windows-Form).</li>
@@ -65,10 +158,10 @@
             </ol>
              <img src="assets/images/ReportsExample.png" alt="Anwendungsbeispiel: Erstellung eines Kontoauszugs" class="module-image">
 
-            <h4>Massen-Bericht anwenden (z.B. Saldenbestätigung)</h4>
+            <h4>Massen-Bericht anwenden (z. B. Saldenbestätigung)</h4>
             <ol>
                 <li>Wählen Sie den Bericht <b>Saldenbestätigung</b>.</li>
-                <li>Füllen Sie die Filterfelder im erscheinenden Dialog aus (z.B. Stichtag, Geschäftspartner).</li>
+                <li>Füllen Sie die Filterfelder im erscheinenden Dialog aus (Stichtag, Geschäftspartner über Choose-From-List).</li>
                 <li>Starten Sie die Berichterstellung. Das System erstellt automatisch separate Dateien für jeden ausgewählten Kunden.</li>
             </ol>
 
@@ -76,23 +169,33 @@
 
             <h3>Tipps und Fehlerbehandlung</h3>
 
+            <h4>Tipps für die tägliche Arbeit</h4>
+            <ul>
+                <li><b>Berichtswahl:</b> Nutzen Sie Standard-Berichte für tägliche Routineauswertungen, Massen-Berichte für gezielte gefilterte Analysen.</li>
+                <li><b>Performance:</b> Bei sehr großen Datenmengen schränken Sie die Filterkriterien (z. B. kürzerer Datumsbereich) so weit wie möglich ein.</li>
+                <li><b>Mehrsprachigkeit:</b> Berichtsnamen und -beschreibungen werden automatisch in der SAP Business One UI-Sprache angezeigt.</li>
+                <li><b>Export-Strategie:</b> Exportieren Sie regelmäßig in PDF/Excel für Archivierung und Weiterverarbeitung.</li>
+            </ul>
+
+            <h4>Häufige Probleme und Lösungen</h4>
+
             <h5>Problem: Ein Bericht ist leer oder zeigt keine Daten an.</h5>
             <p><b>Lösung:</b> Überprüfen Sie Ihre Filtereinstellungen, insbesondere den Datumsbereich. Stellen Sie sicher, dass für die gewählten Kriterien tatsächlich Daten in der Datenbank vorhanden sind.</p>
 
-            <h5>Problem: Die Berichte starten langsam.</h5>
-            <p><b>Lösung:</b> Beim allerersten Start eines Berichts nach dem Öffnen von SAP Business One kann die Initialisierung einen Moment dauern. Dies ist normal. Nachfolgende Berichte sollten schneller laden.</p>
+            <h5>Problem: Massen-Bericht erstellt keine Dateien.</h5>
+            <p><b>Lösung:</b> Prüfen Sie, ob die Filterkriterien tatsächlich Datensätze zurückliefern. Bei Saldenbestätigungen muss z. B. mindestens ein Geschäftspartner ausgewählt sein.</p>
 
-            <h5>Problem: Die Performance bei großen Datenmengen ist langsam.</h5>
-            <p><b>Lösung:</b> Die Berichte sind bereits für SQL und HANA optimiert. Um die Abfrage bei sehr großen Datenmengen weiter zu beschleunigen, schränken Sie die Filterkriterien (z.B. ein kürzerer Datumsbereich) so weit wie möglich ein.</p>
+            <h5>Problem: Die Berichte starten langsam.</h5>
+            <p><b>Lösung:</b> Beim allerersten Start eines Berichts nach dem Öffnen von SAP Business One kann die Initialisierung einen Moment dauern. Dies ist normal — nachfolgende Berichte sollten schneller laden.</p>
 
             <h5>Problem: Crystal Reports funktioniert nicht oder es gibt eine Fehlermeldung bei der Datenbankverbindung.</h5>
             <p><b>Lösung:</b> Stellen Sie sicher, dass die Crystal Reports-Komponenten für SAP Business One korrekt installiert sind. Überprüfen Sie Ihre Datenbankverbindung und starten Sie SAP Business One neu. Bei anhaltenden Problemen kontaktieren Sie Ihren Administrator.</p>
-			
-			<h5>Problem: BWA Report lädt nicht.</h5>
-            <p><b>Lösung:</b> Stellen Sie sicher, dass die Finanzberichtsvorlage BWA angelegt ist. Sie finden das Menü unter <b> Finanzwesen > Finanzberichtsvorlage </b>. Sollte dies nicht der Fall sein, können Sie diese selbst anlegen (wie im Bild dargestellt). Der <b>Standardkontenplan kann via Button automatisch</b> geladen werden. Bei anhaltenden Problemen kontaktieren Sie Ihren Administrator.</p>
 
-			<img src="assets/images/BWA.png" alt="Anwendungsbeispiel: Erstellung eines Kontoauszugs" class="module-image">
-			
+            <h5>Problem: BWA Report lädt nicht.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass die Finanzberichtsvorlage BWA angelegt ist. Sie finden das Menü unter <b>Finanzwesen > Finanzberichtsvorlage</b>. Sollte dies nicht der Fall sein, können Sie diese selbst anlegen (wie im Bild dargestellt). Der <b>Standardkontenplan kann via Button automatisch</b> geladen werden. Bei anhaltenden Problemen kontaktieren Sie Ihren Administrator.</p>
+
+			<img src="assets/images/BWA.png" alt="Anwendungsbeispiel: BWA-Finanzberichtsvorlage anlegen" class="module-image">
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

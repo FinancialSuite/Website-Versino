@@ -14,10 +14,10 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
-            <h2>Werzeugkasten (Toolbox)</h2>
+            <h2>Werkzeugkasten (Toolbox)</h2>
 
             <h3>Überblick</h3>
             <p>Das <b>Versino Toolbox Modul</b> ist eine Sammlung praktischer Hilfswerkzeuge, die die Standard-Funktionalität von SAP Business One erweitern. Die Hauptfunktion ist das schnelle Löschen aller Zeilen in Tabellen-Ansichten (Matrizen), was die tägliche Arbeit erheblich erleichtert.</p>
@@ -29,42 +29,108 @@
             <p>Die Kernfunktion des Moduls ist die Erweiterung des Kontextmenüs in Tabellen (Matrizen) um den Eintrag <b>"Alle Zeilen löschen"</b>.</p>
             <ul>
                 <li><b>Automatische Erkennung:</b> Das Tool erkennt automatisch alle Formulare mit Tabellen und fügt die Funktion hinzu.</li>
-                <li><b>Universelle Kompatibilität:</b> Die Funktion arbeitet mit allen SAP Standardformularen, die Tabellen enthalten (z.B. Verkaufs- & Einkaufsbelege, Journalbuchungen, Lagerbewegungen) und auch mit benutzerdefinierten Formularen.</li>
+                <li><b>Universelle Kompatibilität:</b> Die Funktion arbeitet mit allen SAP-Standardformularen, die Tabellen enthalten — und auch mit benutzerdefinierten Formularen.</li>
                 <li><b>Sicherer Lösch-Algorithmus:</b> Das Modul verwendet ausschließlich Standard-SAP-Löschfunktionen und respektiert dabei alle Berechtigungen. Es führt keine direkten Datenmanipulationen durch.</li>
+                <li><b>Mehrsprachigkeit:</b> Die Menüeinträge folgen automatisch der eingestellten SAP B1 UI-Sprache.</li>
             </ul>
+
+            <div class="image-placeholder">[BILD: Kontextmenü mit "Alle Zeilen löschen" in einer Ausgangsrechnung]</div>
+
+            <hr>
+
+            <h3>Unterstützte Formulartypen</h3>
+            <p>Die "Alle Zeilen löschen"-Funktion arbeitet mit allen SAP Business One Formularen, die Matrix-Objekte enthalten:</p>
+
+            <div class="example-box">
+                <h4>Verkaufsbelege</h4>
+                <ul>
+                    <li>Angebote</li>
+                    <li>Aufträge</li>
+                    <li>Lieferungen</li>
+                    <li>Rechnungen</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Einkaufsbelege</h4>
+                <ul>
+                    <li>Bestellungen</li>
+                    <li>Wareneingänge</li>
+                    <li>Rechnungen</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Weitere Formulare</h4>
+                <ul>
+                    <li>Journalbuchungen</li>
+                    <li>Stammdaten-Formulare</li>
+                    <li>Lagerbewegungen</li>
+                    <li>Benutzerdefinierte Formulare</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>So funktioniert die Lösch-Logik</h3>
+            <p>Für technisch interessierte Anwender ein Blick hinter die Kulissen — das Modul nutzt einen schlauen, sicheren Algorithmus:</p>
+            <ol>
+                <li>Das System ermittelt die Anzahl sichtbarer Zeilen.</li>
+                <li>Es identifiziert die erste bearbeitbare Zelle pro Zeile.</li>
+                <li>Es klickt auf diese Zelle und ruft die SAP-Standard-Löschfunktion auf (entweder "Zeile löschen" oder "Entfernen", je nach Verfügbarkeit).</li>
+                <li>Der Vorgang wird für alle weiteren Zeilen wiederholt.</li>
+                <li>Nach Abschluss werden temporäre Event-Handler wieder entfernt — keine permanenten Menü-Änderungen.</li>
+            </ol>
+            <p><b>Warum das wichtig ist:</b> Manche Zeilen lassen sich aufgrund der SAP-Standardlogik (z. B. wegen offener Belegverknüpfungen) nicht löschen. Das ist kein Fehler des Moduls, sondern Standard-SAP-Verhalten.</p>
+
             <hr>
 
             <h3>Anwendung</h3>
             <p>Die Verwendung ist denkbar einfach und beschleunigt die Korrektur von Belegen enorm:</p>
             <ol>
-                <li>Öffnen Sie einen beliebigen Beleg, der Positionen in einer Tabelle enthält (z.B. eine Lieferung).</li>
+                <li>Öffnen Sie einen beliebigen Beleg, der Positionen in einer Tabelle enthält (z. B. eine Lieferung).</li>
                 <li>Klicken Sie mit der <b>rechten Maustaste</b> in den Bereich der Tabelle.</li>
                 <li>Wählen Sie im Kontextmenü die Option <b>"Alle Zeilen löschen"</b>.</li>
-                <li>Alle Zeilen werden sofort entfernt und eine Erfolgsmeldung erscheint in der Statusleiste.</li>
+                <li>Alle Zeilen werden sofort entfernt und eine Erfolgsmeldung erscheint in der Statusleiste: <i>"Alle Zeilen löschen : Abgeschlossen"</i>.</li>
             </ol>
-            
+
             <div class="warning-box">
                 <h4>Achtung: Aktion kann nicht rückgängig gemacht werden</h4>
                 <p>Das Löschen der Zeilen ist endgültig und kann nicht über eine "Rückgängig"-Funktion wiederhergestellt werden. Gehen Sie sicher, dass Sie die Zeilen tatsächlich entfernen möchten.</p>
             </div>
-            
+
             <img src="assets/images/ToolBoxDelete.png" alt="Anwendungsbeispiel: Alle Zeilen löschen in einer Ausgangsrechnung" class="module-image">
+
+            <div class="image-placeholder">[BILD: Vorher-Nachher: Bestellung mit 15 Positionen vor und nach "Alle Zeilen löschen"]</div>
+
+            <div class="image-placeholder">[BILD: Statusmeldung "Alle Zeilen löschen : Abgeschlossen" in der SAP-B1-Statusleiste]</div>
 
             <hr>
 
             <h3>Tipps und Fehlerbehandlung</h3>
+
             <h4>Praktische Anwendungsfälle</h4>
             <ul>
                 <li><b>Korrektur von Fehleingaben:</b> Wenn Sie einen falschen Beleg begonnen haben, können Sie alle Zeilen mit einem Klick entfernen und neu starten.</li>
                 <li><b>Bereinigung kopierter Belege:</b> Beim Kopieren von Belegen können Sie schnell alle nicht benötigten Positionen entfernen.</li>
+                <li><b>Vorlagen-Bearbeitung:</b> Nutzen Sie die Funktion bei wiederverwendbaren Belegvorlagen, um diese schnell für neue Daten vorzubereiten.</li>
                 <li><b>Testing und Entwicklung:</b> Ideal, um in Testumgebungen Formulare schnell zurückzusetzen.</li>
             </ul>
 
-            <h4>Problembehandlung</h4>
-            <ul>
-                <li><b>Problem: Der Menüpunkt "Alle Zeilen löschen" erscheint nicht.</b><br>Lösung: Stellen Sie sicher, dass Sie mit der rechten Maustaste direkt in eine bearbeitbare Tabelle (Matrix) klicken. In Formularen ohne Tabellen oder in nicht bearbeitbaren Ansichten ist die Funktion nicht verfügbar.</li>
-                <li><b>Problem: Beim Löschen tritt ein Fehler auf.</b><br>Lösung: Prüfen Sie, ob Sie die grundlegenden Bearbeitungsrechte für das geöffnete Formular in SAP Business One besitzen.</li>
-            </ul>
+            <h4>Häufige Probleme und Lösungen</h4>
+
+            <h5>Problem: Der Menüpunkt "Alle Zeilen löschen" erscheint nicht.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass Sie mit der rechten Maustaste direkt in eine bearbeitbare Tabelle (Matrix) klicken. In Formularen ohne Tabellen oder in nicht bearbeitbaren Ansichten ist die Funktion nicht verfügbar.</p>
+
+            <h5>Problem: Beim Löschen tritt ein Fehler auf.</h5>
+            <p><b>Lösung:</b> Prüfen Sie, ob Sie die grundlegenden Bearbeitungsrechte für das geöffnete Formular in SAP Business One besitzen.</p>
+
+            <h5>Problem: Funktion löscht nicht alle Zeilen.</h5>
+            <p><b>Lösung:</b> Das ist normal — das System verwendet SAP-Standard-Funktionen, die bei bestimmten Zeilen (z. B. mit offenen Verknüpfungen) nicht greifen können. Diese Zeilen können nur manuell unter Berücksichtigung der SAP-Geschäftslogik entfernt werden.</p>
+
+            <h5>Problem: Matrix reagiert nicht / friert ein.</h5>
+            <p><b>Lösung:</b> Das System arbeitet mit Formular-Sperrung (Freeze/Unfreeze) — warten Sie kurz, bis der Vorgang abgeschlossen ist.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

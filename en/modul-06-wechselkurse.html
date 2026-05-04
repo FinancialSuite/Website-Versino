@@ -3,85 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exchange Rate Import</title>
+    <title>Exchange Rates Import</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>Exchange Rate Import (Exchange Rates)</h2>
+            <h2>Exchange Rates Import</h2>
 
             <h3>Overview</h3>
-            <p>The <b>Versino Exchange Rates Module</b> enables the automatic import of current exchange rates from official central banks directly into SAP Business One. This ensures that current and official rates are always available for all foreign currency transactions. A configuration is automatically created on the first start, which you can then customize.</p>
-            <p><b>Access to the module:</b> The configuration for the import can be found under <b>Versino Financial Suite > Configuration > Exchange Rate Settings</b>. The manual import can be started at any time via <b>Versino Financial Suite > Import Exchange Rates</b>.</p>
-            
+            <p>The <b>Versino Exchange Rates Module</b> enables the automatic import of current exchange rates from official central banks directly into SAP Business One. This ensures that current and official rates are always available for all foreign-currency transactions. At the first start, a configuration is automatically created which you can then adapt.</p>
+            <p><b>Module Access:</b> The configuration for the import is found under <b>Versino Financial Suite > Configuration > Exchange Rate Settings</b>. The manual import can be started at any time via <b>Versino Financial Suite > Import Exchange Rates</b>.</p>
+
             <hr>
 
             <h3>Main Features</h3>
 
             <h4>Automatic Exchange Rate Import</h4>
-            <p>The module retrieves official data from central banks and enters it into the exchange rate table of SAP Business One. It considers the quotation type (direct/indirect) stored in SAP B1 and overwrites existing values to keep the data current.</p>
-            
+            <p>The module retrieves official data from central banks and writes it into the exchange rate table of SAP Business One. It respects the <b>quotation type (direct/indirect)</b> stored in SAP B1 and overwrites existing values to keep the data up to date. The calculation runs automatically via international currency codes (ISO).</p>
+
             <h4>Supported Data Sources (ECB & NBP)</h4>
             <p>You can choose between two official data sources:</p>
             <ul>
-                <li><b>European Central Bank (ECB):</b> Provides reference rates for all common currencies based on the <b>Euro (EUR)</b>. Historical data is fully available.</li>
-                <li><b>National Bank of Poland (NBP):</b> Provides rates based on the <b>Polish Złoty (PLN)</b>. The retrieval of historical data here is limited to a <b>maximum of 93 days</b> retroactively.</li>
+                <li><b>European Central Bank (ECB):</b> Provides reference rates for all common currencies based on the <b>Euro (EUR)</b>. Historical data is fully available.<br>
+                Data source: <code>http://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist.xml</code></li>
+                <li><b>National Bank of Poland (NBP):</b> Provides rates based on the <b>Polish Złoty (PLN)</b> from NBP table A. The retrieval of historical data here is limited to <b>a maximum of 93 days</b> back.<br>
+                Data source: <code>https://api.nbp.pl/api/exchangerates/tables/a/</code></li>
             </ul>
 
-            <h4>Intelligent Period Management</h4>
-            <p>The system can be configured to retrieve rates for a specific number of days in the past and future. It automatically detects weekends when no rates are published and fills gaps with the last available rate.</p>
+            <div class="warning-box">
+                <h4>Note the NBP Limit</h4>
+                <p>The National Bank of Poland only provides historical rates for a maximum of <b>93 days back</b>. Configure the value "Days Past" accordingly, otherwise the import will fail with an error message.</p>
+            </div>
+
+            <h4>Hourly Background Update</h4>
+            <p>Via the option "Hourly Check" the module works fully automatically in the background: every hour new rates are retrieved and updated in SAP B1 — without manual intervention.</p>
 
             <h4>Flexible Configuration & Currency Selection</h4>
-            <p>In the settings, you can specify exactly which currencies are relevant for the import. This ensures better performance as only required rates are retrieved.</p>
+            <p>In the settings you can specify exactly which currencies are relevant for the import. This improves performance, since only the necessary rates are retrieved.</p>
+
+            <hr>
+
+            <h3>Period Management and Gap Filling</h3>
+            <p>The system handles periods intelligently — perfect for companies with daily foreign-currency transactions:</p>
+
+            <div class="example-box">
+                <h4>Weekend Handling</h4>
+                <p>On weekends, central banks do not publish rates. The system automatically detects Saturday and Sunday and extends the period by the corresponding working days, so that always sufficient data is available.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Gap Filling</h4>
+                <p>Missing days (e.g. holidays) are automatically filled with the last available rate. This ensures that for every business day a valid rate exists — even for postings with a value date on the weekend.</p>
+            </div>
+
+            <div class="example-box">
+                <h4>Future Rates</h4>
+                <p>If you configure a positive value for "Days Future", the system also fills future date values with the most current available rates — useful for forward postings.</p>
+            </div>
+
+            <hr>
+
+            <h3>Integration with SAP Business One</h3>
+
+            <div class="integration-box">
+                <h4>SAP B1 Exchange Rate Management</h4>
+                <p>Direct integration into the standard exchange rate tables of SAP Business One. The standard functions are used — no direct data manipulation, no backup issues.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>Quotation Type & Local Currency</h4>
+                <p>The module respects the quotation type (direct/indirect) stored in SAP B1 and automatically detects the local currency of the database. With a different local currency, the calculation is performed automatically.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata & Reporting</h4>
+                <p>Pro-Rata postings with foreign currencies use the imported rates. Reporting reports show all foreign-currency movements with current rates.</p>
+            </div>
 
             <hr>
 
             <h3>Application</h3>
-            
-            <h4>Method 1: Import Daily Rates Automatically (Recommended)</h4>
+
+            <h4>Method 1: Import daily rates automatically (recommended)</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > Configuration > Exchange Rate Settings</b>.</li>
-                <li>Select the appropriate <b>Data Source</b> (e.g., "ECB" for EUR-based systems).</li>
-                <li>Set the "Days Past" to e.g., 10, to fill any potential gaps.</li>
-                <li>In the lower section, select all currencies you need.</li>
-                <li>Activate the <b>"Hourly Check"</b> checkbox for automatic background updates.</li>
-                <li>Save the settings. The system now automatically retrieves the latest rates, either hourly or after an add-on restart.</li>
+                <li>Choose the matching <b>data source</b> (e.g. "ECB" for EUR-based systems).</li>
+                <li>Set "Days Past" to e.g. 10 to fill any gaps (NBP max. 93).</li>
+                <li>In the lower area, select all currencies you need.</li>
+                <li>Activate the checkbox <b>"Hourly Check"</b> for automatic background updates.</li>
+                <li>Save the settings. The system now automatically retrieves the latest rates, hourly or after an add-on restart.</li>
             </ol>
             <img src="../assets/images/WechselKurs.png" alt="Application example: Configuration of automatic exchange rate updates" class="module-image">
+
+            <div class="image-placeholder">[IMAGE: Configuration form Exchange Rate Settings with bank selection (ECB/NBP), days past/future, currency selection, "Hourly Check" checkbox]</div>
 
             <h4>Method 2: Update Rates Manually</h4>
             <p>If you need the latest rates immediately, you can start the import manually:</p>
             <ol>
                 <li>Click in the menu on <b>Versino Financial Suite > Import Exchange Rates</b>.</li>
-                <li>The system will immediately download the rates from the configured central bank.</li>
+                <li>Confirm the safety dialog with the message: <i>"Are you sure you want to update the exchange rates with the official values? Existing values will be overwritten."</i></li>
+                <li>The system loads the rates immediately from the configured central bank.</li>
+                <li>A progress display informs about the processing status.</li>
             </ol>
 
+            <div class="image-placeholder">[IMAGE: Confirmation dialog before the exchange rate import]</div>
+
+            <div class="image-placeholder">[IMAGE: SAP B1 exchange rate table with updated rates after a successful import]</div>
+
             <hr>
-            
+
             <h3>Tips and Troubleshooting</h3>
 
-            <h5>Problem: Error message "Error during server request".</h5>
-            <p><b>Solution:</b> Check your <b>internet connection</b> and any firewall settings that might be blocking access to the central banks' servers (e.g., ecb.europa.eu).</p>
+            <h4>Tips for Daily Work</h4>
+            <ul>
+                <li><b>Optimal data source:</b> Choose ECB for EUR-based companies, NBP for PLN-based companies. The data source should match the local currency.</li>
+                <li><b>Optimize performance:</b> Configure only the currencies that you actually need for your business operations. This significantly speeds up the retrieval.</li>
+                <li><b>Use automation:</b> Activate the hourly check for time-critical applications. Manual imports should be done outside critical posting times.</li>
+                <li><b>Prefer working days:</b> Run manual imports preferably on working days — there are no new rates on weekends.</li>
+            </ul>
 
-            <h5>Problem: Error with NBP "Import period too large (max. 93 days)".</h5>
-            <p><b>Solution:</b> The National Bank of Poland (NBP) limits the retrieval of historical data. In the settings, reduce the value in the "Days Past" field to 93 or less.</p>
+            <h4>Common Problems and Solutions</h4>
+
+            <h5>Problem: Error message "Server request error".</h5>
+            <p><b>Solution:</b> Check your <b>internet connection</b> and any firewall settings that might block access to the central banks' servers (e.g. ecb.europa.eu, api.nbp.pl).</p>
+
+            <h5>Problem: NBP-specific error message "Import period too large (max. 93 days)".</h5>
+            <p><b>Solution:</b> The National Bank of Poland (NBP) limits the retrieval of historical data. Reduce the value in the field "Days Past" in the settings to 93 or less.</p>
 
             <h5>Problem: No rates are imported for weekends (ECB).</h5>
-            <p><b>Solution:</b> This is the correct behavior. The ECB does not publish reference rates on weekends and public holidays. The module automatically fills these gaps with the last valid rate from the previous business day.</p>
+            <p><b>Solution:</b> This is the correct behavior. The ECB does not publish reference rates on weekends and holidays. The module automatically fills these gaps with the last valid rate from the previous working day.</p>
 
             <h5>Problem: The import fails with a permission message.</h5>
-            <p><b>Solution:</b> Ensure that the executing SAP Business One user has the permission to manage exchange rates and indexes (under <b>Administration > System Initialization > Authorizations > General Authorizations</b>).</p>
-            
-            <h5>Tip: Optimize performance.</h5>
-            <p><b>Solution:</b> In the configuration, select only the currencies that you actually need for your business transactions. This speeds up the retrieval and processing of the data.</p>
+            <p><b>Solution:</b> Make sure the executing SAP Business One user has the permission to manage exchange rates and indices (under <b>Administration > System Initialization > Authorizations > General Authorizations</b>). Administrator rights are often required.</p>
+
+            <h5>Problem: Hourly update does not work.</h5>
+            <p><b>Solution:</b> Check whether the option "Hourly Check" is activated in the configuration. The system stops automatically when the option is deactivated.</p>
+
+            <h5>Problem: Configuration cannot be loaded.</h5>
+            <p><b>Solution:</b> At first start a default configuration is automatically created. Check the error messages for details and ensure that the database permissions are set correctly.</p>
 
         </article>
     </main>

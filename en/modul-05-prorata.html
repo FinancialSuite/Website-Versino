@@ -13,7 +13,7 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
             <h2>Period Accrual/Deferral (Pro-Rata)</h2>
@@ -23,7 +23,7 @@
             <p><b>Access & Configuration:</b> The settings are made under <b>Versino Financial Suite > Configuration > Pro-Rata Settings</b>. Here you must activate the module, define the necessary accrual/deferral accounts, and can specify the position of the date fields (in the header of the invoice or in a separate tab).</p>
             <p><b>Supported Documents:</b> A/P and A/R invoices and their corresponding credit memos.</p>
             <img src="../assets/images/ProRataSettings.png" alt="Screenshot of the Pro-Rata settings with all parameters" class="module-image">
-            
+
             <hr>
 
             <h3>Main Features</h3>
@@ -37,17 +37,65 @@
             <h4>Reversal and Correction Functions</h4>
             <p>Accruals/deferrals can be easily corrected. If you create a credit memo for a deferred invoice, the associated accrual/deferral postings are automatically reversed proportionally. Alternatively, you can manually reverse all accruals/deferrals via the action menu in the document, change the data, and recreate the postings.</p>
 
-            <h4>Integration & Support for Other Functions</h4>
-            <p>The module is seamlessly integrated into SAP Business One and the Financial Suite:</p>
+            <h4>Advanced Features & Validation</h4>
+            <p>The module is seamlessly integrated into SAP Business One and supports advanced scenarios:</p>
             <ul>
-                <li><b>Cost Accounting:</b> All dimensions (cost centers, projects, etc.) are carried over from the original invoice to the accrual/deferral postings.</li>
-                <li><b>Foreign Currencies & Branches:</b> The module works fully with foreign currency invoices and in multi-branch environments.</li>
-                <li><b>JE Text Setter:</b> If activated, all pro-rata postings automatically receive meaningful and traceable posting texts.</li>
-                <li><b>DATEV & Reporting:</b> All accrual/deferral postings are correctly included in the DATEV export and in reports.</li>
+                <li><b>Cost Accounting:</b> All dimensions (cost centers, projects, all 5 profit-center dimensions) are carried over from the original invoice into the accrual/deferral postings.</li>
+                <li><b>Foreign Currencies:</b> Full support including automatic exchange-rate handling.</li>
+                <li><b>Branches:</b> In multi-branch environments, branch assignments are taken into account automatically.</li>
+                <li><b>Validation:</b> Before each posting creation, the system checks open posting periods, user permissions, account configuration and date entries.</li>
             </ul>
 
             <hr>
-            
+
+            <h3>Practical Examples</h3>
+
+            <div class="example-box">
+                <h4>Example 1: Daily Distribution Across Four Months</h4>
+                <p>You create an A/P invoice for <b>1,200.00 EUR</b> covering a maintenance contract from <b>15 Oct 2024 to 14 Jan 2025</b> (93 days total). The system distributes the amount day-precise:</p>
+                <ul>
+                    <li><b>October:</b> 17 of 31 days → <b>219.35 EUR</b></li>
+                    <li><b>November:</b> 30 of 30 days → <b>387.10 EUR</b></li>
+                    <li><b>December:</b> 31 of 31 days → <b>400.00 EUR</b></li>
+                    <li><b>January:</b> 14 of 31 days → <b>193.55 EUR</b></li>
+                </ul>
+                <p style="margin-top:10px;"><i>Rounding differences are balanced automatically by the system.</i></p>
+            </div>
+
+            <div class="example-box">
+                <h4>Example 2: Annual Software License</h4>
+                <p>You post an A/R invoice for <b>1,200.00 EUR</b> for an annual software license from <b>01 Mar 2024 to 28 Feb 2025</b>. The system automatically creates <b>12 monthly accrual postings of 100.00 EUR each</b> for every month from March 2024 to February 2025.</p>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Graphical representation of the posting distribution across multiple months (e.g. bar chart per month)]</div>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+            <p>Pro-Rata unleashes its full potential when used together with the other Financial Suite modules:</p>
+
+            <div class="integration-box">
+                <h4>VPS Posting Text Configurator (JE Text Setter)</h4>
+                <p>When the JE Text Setter is enabled, all Pro-Rata postings automatically receive meaningful texts that clearly identify the accrual/deferral period and the original document, e.g.:</p>
+                <ul>
+                    <li>"Pro-Rata accrual March 2024 - Software License"</li>
+                    <li>"Release Pro-Rata April 2024 - Insurance"</li>
+                    <li>"Reversal Pro-Rata accrual - Invoice 2024-1234"</li>
+                </ul>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Export</h4>
+                <p>Pro-Rata postings are handled specially by the DATEV export: automatic recognition as accrual/deferral postings, correct reference to the original document and optimized DATEV classification — your tax advisor receives clean, unambiguous postings.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Reporting Package</h4>
+                <p>All Pro-Rata postings are automatically included in the standard reports — cash book, G/L account statement, totals & balances list, balance sheet and P&L.</p>
+            </div>
+
+            <hr>
+
             <h3>Application</h3>
 
             <h4>1. Preparation: One-time Configuration</h4>
@@ -55,30 +103,62 @@
                 <li>Navigate to <b>Versino Financial Suite > Configuration > Pro-Rata Settings</b>.</li>
                 <li><b>Activate</b> the module via the checkbox.</li>
                 <li>Define a <b>Sales Account</b> for revenue deferrals and a <b>Purchasing Account</b> for expense accruals.</li>
+                <li>Define matching <b>transaction codes</b> for sales and purchase postings.</li>
                 <li>Choose the desired <b>Position for the date fields</b> in the documents (header area or separate tab).</li>
                 <li>Save the settings.</li>
             </ol>
-            
+
             <h4>2. Daily Application in the Invoice</h4>
             <ol>
                 <li>Create and save an A/P or A/R invoice.</li>
                 <li>Enter the <b>From Date</b> and <b>To Date</b> of the service period (in the header or in the rows).</li>
+                <li>Optional: Use the <b>"Copy date to rows"</b> button if all positions share the same period.</li>
                 <li>In the "Pro-Rata Action" dropdown field, select the option <b>"Create Postings"</b>.</li>
                 <li>Confirm the action. The system creates the daily pro-rata accrual/deferral postings in the background.</li>
                 <li>With the actions "Show Postings" or "Cancel Postings", you can view or remove the created postings at any time.</li>
             </ol>
-            <p><b>Important:</b> If you want to change an invoice with already created pro-rata postings, first cancel the accruals/deferrals, make the changes, and then recreate them.</p>
+
+            <div class="warning-box">
+                <h4>Important: Order of Corrections</h4>
+                <p>If you want to change an invoice with already created Pro-Rata postings, <b>first cancel the accruals/deferrals</b>, make the changes, and then recreate them.</p>
+            </div>
+
             <img src="../assets/images/ProRataDone.png" alt="Application example: Creating a pro-rata accrual/deferral" class="module-image">
+
+            <div class="image-placeholder">[IMAGE: Action menu "Pro-Rata Functions" with the three options Show / Create / Reverse]</div>
+
+            <div class="image-placeholder">[IMAGE: Overview of the created Pro-Rata postings in the journal entry list with posting date and amounts]</div>
+
+            <div class="image-placeholder">[IMAGE: Reversal dialog when calling "Cancel Pro-Rata Postings"]</div>
 
             <hr>
 
             <h3>Tips and Troubleshooting</h3>
-            <p>Here you will find solutions for the most common questions and problems:</p>
+
+            <h4>Tips for Daily Work</h4>
             <ul>
-                <li><b>Problem: The pro-rata fields or the function button are not displayed in the invoice.</b><br>Solution: Check if the module is activated in the Pro-Rata settings. Restart SAP Business One so that the form extensions are loaded correctly.</li>
-                <li><b>Problem: The creation of the postings fails.</b><br>Solution: Ensure that the accrual/deferral accounts are correctly configured in the settings and that all affected posting periods are open in SAP Business One.</li>
-                <li><b>Problem: The amount distribution seems incorrect.</b><br>Solution: Check the entered From and To dates for correctness. The system calculates on a daily basis.</li>
+                <li><b>Use meaningful transaction codes:</b> This way you can immediately identify Pro-Rata postings in reports and in the DATEV export.</li>
+                <li><b>Copy date to rows:</b> Saves time when all invoice positions share the same accrual/deferral period.</li>
+                <li><b>Combine with JE Text Setter:</b> Activate the JE Text Setter module before creating Pro-Rata postings — all accruals/deferrals will then automatically receive descriptive texts.</li>
+                <li><b>Check posting periods:</b> Before posting creation, make sure that all affected months are open as posting periods in SAP Business One.</li>
             </ul>
+
+            <h4>Common Problems and Solutions</h4>
+
+            <h5>Problem: The Pro-Rata fields or the function button are not displayed in the invoice.</h5>
+            <p><b>Solution:</b> Check whether the module is activated in the Pro-Rata settings. Restart SAP Business One so that the form extensions are loaded correctly.</p>
+
+            <h5>Problem: The creation of the postings fails.</h5>
+            <p><b>Solution:</b> Ensure that the accrual/deferral accounts are correctly configured in the settings and that all affected posting periods are open in SAP Business One.</p>
+
+            <h5>Problem: The amount distribution seems incorrect.</h5>
+            <p><b>Solution:</b> Check the entered From and To dates for correctness. The system calculates day-precise and balances rounding differences automatically.</p>
+
+            <h5>Problem: Reversal does not work.</h5>
+            <p><b>Solution:</b> Make sure the original postings still exist and that the relevant posting periods are open.</p>
+
+            <h5>Problem: Pro-Rata postings do not appear in the DATEV export.</h5>
+            <p><b>Solution:</b> Verify that the export period fully covers the Pro-Rata posting periods.</p>
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

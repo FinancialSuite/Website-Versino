@@ -15,15 +15,87 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
             <h2>Anhang und Downloads</h2>
-            
+
+            <h3>Module im Überblick (Quick-Reference)</h3>
+            <p>Schneller Zugriff auf alle 11 Module der Financial Suite mit ihren SAP-B1-Menüpfaden und Hauptzwecken:</p>
+
+            <table class="module-table">
+                <thead>
+                    <tr>
+                        <th>Modul</th>
+                        <th>SAP-B1-Menüpfad</th>
+                        <th>Hauptzweck</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="modul-01-basis.html#content">Financial Suite (Hauptmodul)</a></td>
+                        <td>Versino Financial Suite > Konfiguration > Financial Suite Assistent / Einstellungen</td>
+                        <td>Zentrale Konfiguration, Wizard, Netting, Mandanten-/Beraterdaten</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-02-datevexport.html#content">DATEV-Buchungsexport</a></td>
+                        <td>Versino Financial Suite > DATEV Export</td>
+                        <td>Export von Buchungen, Stammdaten und Zahlungsbedingungen ins DATEV-Format</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-03-datevimport.html#content">DATEV-Buchungsimport</a></td>
+                        <td>Versino Financial Suite > Import/Export > Import</td>
+                        <td>Import von DATEV-CSV-Stapeln (Vorerfassung oder Direktbuchung)</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-04-reporting.html#content">Berichtserweiterungspaket</a></td>
+                        <td>Versino Financial Suite > Financial Suite Berichte</td>
+                        <td>Standard- und Massen-Berichte (BWA, SuSa, Saldenbestätigung, Zahlungsavis u. v. m.)</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-05-prorata.html#content">Periodenabgrenzung (Pro-Rata)</a></td>
+                        <td>Versino Financial Suite > Konfiguration > Pro-Rata Einstellungen</td>
+                        <td>Tagesgenaue Abgrenzungsbuchungen für Verträge, Lizenzen, Versicherungen</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-06-wechselkurse.html#content">Wechselkurs-Import</a></td>
+                        <td>Versino Financial Suite > Wechselkurse importieren / Konfiguration > Wechselkurs Einstellungen</td>
+                        <td>Automatischer Kurs-Import von EZB und NBP, stündlich oder manuell</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-07-jetextsetter.html#content">Buchungstext-Konfigurator</a></td>
+                        <td>Versino Financial Suite > Konfiguration > JE Text Konfiguration</td>
+                        <td>Automatische, einheitliche Buchungstexte für alle Belegtypen</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-08-bankimport.html#content">Kontoauszugs-Import</a></td>
+                        <td>Versino Financial Suite > Bank Statement Import</td>
+                        <td>Import elektronischer Kontoauszüge (MT940/CAMT) mit RegEx-Engine</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-09-fastentry.html#content">Schnellerfassung Eingangsrechnung</a></td>
+                        <td>Einkauf > Schnellerfassende Eingangsrechnung</td>
+                        <td>Wiederkehrende Lieferantenrechnungen aus Vorlagen erstellen</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-10-toolbox.html#content">Werkzeugkasten (Toolbox)</a></td>
+                        <td>Rechtsklick in jeder Matrix-Tabelle</td>
+                        <td>"Alle Zeilen löschen" für Matrix-Tabellen in SAP B1</td>
+                    </tr>
+                    <tr>
+                        <td><a href="modul-11-cockpit.html#content">Cockpit</a></td>
+                        <td>Versino Financial Suite > Financial Cockpit</td>
+                        <td>Zentrales Dashboard, Buchungsstapel, Multi-Mandanten-Login</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
             <h3>Allgemeine Hinweise</h3>
             <h4>Lizenzierung</h4>
             <p>Alle Module sind als FullAddon lizenziert und erfordern entsprechende Benutzerlizenzen.</p>
-            
+
             <h4>Kompatibilität</h4>
             <ul>
                 <li>Unterstützt sowohl SQL Server als auch SAP HANA.</li>
@@ -50,7 +122,7 @@
             </ul>
         </article>
     </main>
-    
+
     <footer id="footer-placeholder">
         </footer>
 

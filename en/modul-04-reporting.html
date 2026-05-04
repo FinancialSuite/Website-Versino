@@ -3,95 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporting Extension Pack</title>
+    <title>Reporting Package</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 <div class="page-container">
 
 	<div id="header-placeholder"></div>
+
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Back</a>
         <article>
-            <h2>Reporting Extension Pack (Reporting)</h2>
+            <h2>Reporting Package</h2>
 
             <h3>Overview</h3>
-            <p>The <b>Versino Reporting Module</b> is the central reporting system of the Financial Suite. It offers an extensive collection of pre-made Crystal Reports and works entirely in the background to provide you with the appropriate analyses. A key advantage is that the module automatically detects whether you are using a <b>Microsoft SQL Server</b> or <b>SAP HANA</b> database and loads the corresponding, performance-optimized reports.</p>
-            <p>The module starts asynchronously without blocking the SAP Business One interface and automatically detects your system language. <b>Access to the reports:</b> All reports can be found in the SAP Business One menu under <b>Versino Financial Suite > Financial Suite Reports</b>.</p>
-            
+            <p>The <b>Versino Reporting Module</b> is the central reporting system of the Financial Suite. It offers a comprehensive collection of pre-built Crystal Reports and works fully in the background to provide you with the right analyses. A key advantage is that the module automatically detects whether you are using a <b>Microsoft SQL Server</b> or <b>SAP HANA</b> database and loads the corresponding performance-optimized reports.</p>
+            <p>The module starts asynchronously without blocking the SAP Business One UI and automatically detects your system language. <b>Access to the reports:</b> All reports can be found in the SAP Business One menu under <b>Versino Financial Suite > Financial Suite Reports</b>.</p>
+
             <hr>
 
             <h3>Main Features</h3>
-            <p>The module offers two types of reports to cover different requirements:</p>
+            <p>The module offers two types of reports to cover different requirements: <b>Standard reports</b> for quick access and <b>mass reports</b> with upstream filter dialogs.</p>
 
-            <h4>Standard Reports</h4>
-            <p>These reports can be started directly and offer quick evaluations. Filtering (e.g., by date) is done directly in the Crystal Reports Viewer.</p>
+            <h4>Standard Reports (direct start)</h4>
+            <p>These reports can be started directly and provide quick analyses. Filtering (e.g. by date) is done directly in the Crystal Reports viewer.</p>
             <ul>
-                <li><b>Cash Book:</b> Shows all cash transactions chronologically with a running balance.</li>
-                <li><b>G/L Account Statement:</b> Detailed transaction lists for selected G/L accounts.</li>
-                <li><b>Customer Open Items:</b> Overview of unpaid receivables with aging analysis.</li>
-                <li><b>Trial Balance (SuSa):</b> Compact overview of all accounts.</li>
-                <li><b>Top 10 Customers/Vendors:</b> Ranking of the most important business partners.</li>
-                <li><b>Payment Behavior:</b> Analysis of customer payment behavior.</li>
-                <li><b>BWA:</b> Monthly business analysis report.</li>
+                <li><b>Cash Book</b> — Shows all cash movements chronologically with running balance.</li>
+                <li><b>G/L Account Statement</b> — Detailed movement lists for selected G/L accounts.</li>
+                <li><b>Open Items Customers</b> (Release 07 version) — Overview of unpaid receivables with due-date analysis.</li>
+                <li><b>Trial Balance (TB)</b> — Compact account-oriented overview of all accounts.</li>
+                <li><b>Trial Balance BP</b> — Business-partner-oriented variant.</li>
+                <li><b>Top 10 Customers</b> — Ranking by sales volume.</li>
+                <li><b>Top 10 Vendors</b> — Ranking by purchasing volume.</li>
+                <li><b>Payment Behavior</b> — Analysis of payment behavior with average payment durations.</li>
+                <li><b>BWA</b> — Monthly business analysis according to standard BWA scheme.</li>
             </ul>
              <img src="../assets/images/Reports.png" alt="Screenshot of the reports menu in SAP Business One" class="module-image">
 
-            <h4>Mass Reports</h4>
-            <p>These reports offer special filter dialogs before starting, to carry out targeted mass processing.</p>
+            <div class="image-placeholder">[IMAGE: Submenu "Financial Suite Reports" with list of all standard and mass reports]</div>
+
+            <h4>Mass Reports (with filters)</h4>
+            <p>These reports offer special filter dialogs before start in order to perform targeted mass processing. The system creates a separate file for each selected dataset.</p>
             <ul>
-                <li><b>Balance Confirmation:</b> Creates separate confirmation letters for any number of customers for a selectable key date.</li>
-                <li><b>Netting Reconciliations:</b> Documents completed netting processes.</li>
-                <li><b>Payment Advice:</b> Creates detailed payment advices for a specific payment run.</li>
+                <li><b>Balance Confirmation</b> — Creates separate confirmation letters for any number of customers as of a selectable key date.</li>
+                <li><b>Netting Reconciliations</b> — Documents performed netting operations for a date range.</li>
+                <li><b>Payment Advice</b> — Creates detailed payment advices for a specific payment run (only status "Executed").</li>
             </ul>
-            
+
+            <h4>Filter Operation</h4>
+            <ul>
+                <li><b>Date filter:</b> Click the calendar icon for date selection.</li>
+                <li><b>Choose-From-List:</b> Magnifier icon opens the selection list (e.g. for business partners).</li>
+                <li><b>Dropdown:</b> Automatically shows available values (e.g. payment runs).</li>
+            </ul>
+
             <h4>Output Options</h4>
-            <p>All reports can be directly displayed, printed, or exported to formats such as <b>PDF, Excel, or Word</b>. For mass reports, individual file names are automatically assigned (e.g., "BalanceConfirmation_[CustomerCode].pdf").</p>
-            
+            <p>All reports support various output formats:</p>
+            <ul>
+                <li><b>Preview</b> — View in SAP Business One or in a separate window</li>
+                <li><b>Print</b> — Direct printing</li>
+                <li><b>PDF</b> — Export as PDF file</li>
+                <li><b>Excel</b> — Export for further processing</li>
+                <li><b>Word</b> — Export to Word format</li>
+            </ul>
+            <p>For mass reports, individual file names are assigned automatically (e.g. <code>Balance Confirmation [CustomerCode] - [CustomerName].pdf</code>).</p>
+
+            <div class="image-placeholder">[IMAGE: Export dialog with output options Preview, PDF, Excel, Word, Print]</div>
+
+            <h4>Database Adaptation (SQL Server vs. HANA)</h4>
+            <p>The system automatically loads the right report version based on your database:</p>
+            <ul>
+                <li><b>SQL Server:</b> Uses optimized SQL queries.</li>
+                <li><b>HANA:</b> Uses HANA-specific functions and in-memory processing for maximum performance.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Important Standard Reports in Detail</h3>
+
+            <div class="example-box">
+                <h4>Top 10 Analyses</h4>
+                <p>Identify your most important business partners at a glance — perfect for sales and purchasing analyses:</p>
+                <ul>
+                    <li><b>Top 10 Customers:</b> Sorted by sales volume</li>
+                    <li><b>Top 10 Vendors:</b> Sorted by purchasing volume</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Payment Behavior</h4>
+                <p>Analyzes the payment behavior of your customers with average payment durations and trends. An ideal basis for dunning strategies and discount decisions.</p>
+            </div>
+
+            <div class="image-placeholder">[IMAGE: Example of the Top 10 customer analysis with ranking by sales volume]</div>
+
+            <div class="image-placeholder">[IMAGE: Example of the payment behavior analysis with average payment durations]</div>
+
+            <hr>
+
+            <h3>Mass Reports in Detail</h3>
+
+            <h4>Balance Confirmation</h4>
+            <p>Automatically creates balance confirmations for selected customers as of a key date. Filter options:</p>
+            <ul>
+                <li><b>Key date:</b> Date for the balance determination</li>
+                <li><b>Business partner:</b> Selection via Choose-From-List</li>
+            </ul>
+            <p>The system creates a separate file for each selected customer in the format <code>Balance Confirmation [CustomerCode] - [CustomerName].pdf</code>.</p>
+
+            <div class="image-placeholder">[IMAGE: Filter dialog of the balance confirmation with key date and Choose-From-List for business partners]</div>
+
+            <h4>Netting Reconciliations</h4>
+            <p>Documents performed netting operations between business partners. Filter options:</p>
+            <ul>
+                <li><b>Reconciliation date from/to:</b> Period of the netting operations</li>
+                <li><b>Business partner:</b> Dropdown selection from netting partners</li>
+            </ul>
+
+            <h4>Payment Advice</h4>
+            <p>Creates payment advices based on the SAP Business One payment wizard. The system automatically shows only payment runs with status <b>"Executed"</b>, sorted by newest first.</p>
+
+            <hr>
+
+            <h3>Integration with Other VPS Modules</h3>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata postings are automatically considered in all relevant reporting reports — in the cash book, the G/L account statement, the trial balance and in the balance sheet and P&L.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Posting Text Configurator (JE Text Setter)</h4>
+                <p>Standardized posting texts from the JE Text Setter automatically appear in all reports and significantly improve clarity — especially in the cash book and on G/L account statements.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Main Module</h4>
+                <p>The reporting module accesses central configuration data (e.g. tax settings, charts of accounts) and automatically adapts to the database version (SQL Server / HANA).</p>
+            </div>
+
             <hr>
 
             <h3>Application</h3>
-            
-            <h4>Using a Standard Report (e.g., Account Statement)</h4>
+
+            <h4>Using a Standard Report (e.g. G/L Account Statement)</h4>
             <ol>
                 <li>Navigate to <b>Versino Financial Suite > Financial Suite Reports > G/L Account Statement</b>.</li>
-                <li>A filter dialog opens. Enter the desired <b>time period</b>, the <b>G/L accounts</b>, and the display type (B1 form or as an external Windows form).</li>
+                <li>A filter dialog opens. Enter the desired <b>period</b>, the <b>G/L accounts</b> and the display type (B1 form or as external Windows form).</li>
                 <li>Click "OK". The report is generated.</li>
-                <li>Use the viewer's export functions to save the report.</li>
+                <li>Use the export functions of the viewer to save the report.</li>
             </ol>
-             <img src="../assets/images/ReportsExample.png" alt="Application example: Generating an account statement" class="module-image">
+             <img src="../assets/images/ReportsExample.png" alt="Application example: Creating a G/L account statement" class="module-image">
 
-            <h4>Using a Mass Report (e.g., Balance Confirmation)</h4>
+            <h4>Using a Mass Report (e.g. Balance Confirmation)</h4>
             <ol>
-                <li>Select the <b>Balance Confirmation</b> report.</li>
-                <li>Fill in the filter fields in the dialog that appears (e.g., key date, business partners).</li>
-                <li>Start the report generation. The system automatically creates separate files for each selected customer.</li>
+                <li>Choose the report <b>Balance Confirmation</b>.</li>
+                <li>Fill in the filter fields in the appearing dialog (key date, business partner via Choose-From-List).</li>
+                <li>Start report creation. The system automatically creates separate files for each selected customer.</li>
             </ol>
 
             <hr>
 
             <h3>Tips and Troubleshooting</h3>
 
+            <h4>Tips for Daily Work</h4>
+            <ul>
+                <li><b>Report selection:</b> Use standard reports for daily routine analyses, mass reports for targeted filtered analyses.</li>
+                <li><b>Performance:</b> For very large data volumes, restrict filter criteria (e.g. shorter date range) as much as possible.</li>
+                <li><b>Multilingual:</b> Report names and descriptions are automatically displayed in the SAP Business One UI language.</li>
+                <li><b>Export strategy:</b> Export regularly to PDF/Excel for archiving and further processing.</li>
+            </ul>
+
+            <h4>Common Problems and Solutions</h4>
+
             <h5>Problem: A report is empty or shows no data.</h5>
-            <p><b>Solution:</b> Check your filter settings, especially the date range. Ensure that data actually exists in the database for the selected criteria.</p>
+            <p><b>Solution:</b> Check your filter settings, especially the date range. Make sure that there is actually data in the database for the chosen criteria.</p>
+
+            <h5>Problem: Mass report does not create any files.</h5>
+            <p><b>Solution:</b> Check whether the filter criteria actually return records. For balance confirmations, for example, at least one business partner must be selected.</p>
 
             <h5>Problem: The reports start slowly.</h5>
-            <p><b>Solution:</b> The very first time a report is started after opening SAP Business One, the initialization may take a moment. This is normal. Subsequent reports should load faster.</p>
+            <p><b>Solution:</b> The very first start of a report after opening SAP Business One can take a moment for initialization. This is normal — subsequent reports should load faster.</p>
 
-            <h5>Problem: Performance with large amounts of data is slow.</h5>
-            <p><b>Solution:</b> The reports are already optimized for SQL and HANA. To further speed up the query with very large data volumes, restrict the filter criteria (e.g., a shorter date range) as much as possible.</p>
+            <h5>Problem: Crystal Reports does not work or there is an error message regarding the database connection.</h5>
+            <p><b>Solution:</b> Make sure the Crystal Reports components for SAP Business One are correctly installed. Check your database connection and restart SAP Business One. For persistent issues, contact your administrator.</p>
 
-            <h5>Problem: Crystal Reports does not work or there is a database connection error.</h5>
-            <p><b>Solution:</b> Ensure that the Crystal Reports components for SAP Business One are installed correctly. Check your database connection and restart SAP Business One. If problems persist, contact your administrator.</p>
-			
-			<h5>Problem: BWA report does not load.</h5>
-            <p><b>Solution:</b> Ensure that the BWA financial report template has been created. You can find the menu under <b>Financials > Financial Report Templates</b>. If it does not exist, you can create it yourself (as shown in the picture). The <b>standard chart of accounts can be loaded automatically via a button</b>. If problems persist, contact your administrator.</p>
+            <h5>Problem: BWA report does not load.</h5>
+            <p><b>Solution:</b> Make sure the financial report template BWA is created. You will find the menu under <b>Financials > Financial Report Templates</b>. If this is not the case, you can create it yourself (as shown in the image). The <b>standard chart of accounts can be loaded automatically via button</b>. For persistent issues, contact your administrator.</p>
 
-			<img src="../assets/images/BWA.png" alt="Application example: Creating a BWA template" class="module-image">
-			
+			<img src="../assets/images/BWA.png" alt="Application example: Creating BWA financial report template" class="module-image">
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

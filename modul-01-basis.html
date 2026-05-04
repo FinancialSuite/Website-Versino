@@ -15,15 +15,15 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
-            <h2>Financial Suite (Financial Suite)</h2>
-            
+            <h2>Financial Suite (Hauptmodul)</h2>
+
             <h3>Überblick</h3>
-            <p>Das <b>Versino Financial Suite Hauptmodul</b> ist das zentrale Koordinationsmodul der Versino Financial Suite für SAP Business One. Es fungiert als Basis für alle anderen Module, stellt essentielle Services bereit. Beim Start lädt Sprachressourcen und alle weiteren Module der Suite.</p>
+            <p>Das <b>Versino Financial Suite Hauptmodul</b> ist das zentrale Koordinationsmodul der Versino Financial Suite für SAP Business One. Es fungiert als Basis für alle anderen Module, stellt essentielle Services bereit und lädt beim Start die Sprachressourcen sowie alle weiteren Module der Suite.</p>
             <p><b>Zugang zum Modul:</b> Die Kernfunktionen sind über das Menü <b>Versino Financial Suite</b> erreichbar, insbesondere unter <b>Konfiguration > Financial Suite Assistent</b>, <b>Konfiguration > Einstellungen</b> und <b>Netting Übersicht</b>.</p>
-            
+
             <h4>Vorteile des Moduls</h4>
             <ul>
                 <li><b>Systemintegration:</b> Zentrale Koordination und einheitliche Initialisierung aller Module der Financial Suite.</li>
@@ -35,29 +35,143 @@
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            
+
             <h4>Financial Suite Assistent (ConfigWizard)</h4>
-            <p>Das zentrale Werkzeug für die Erstkonfiguration. Der Assistent bietet eine geführte Einrichtung und unterstützt die automatische Anpassung von Konten und Steuerkennzeichen für die Kontenrahmen SKR03/SKR04. Er ermöglicht auch den Import von Konfigurationen per CSV-Datei. Zu den Kernfunktionen gehören:</p>
+            <p>Das zentrale Werkzeug für die Erstkonfiguration. Der Assistent bietet eine geführte Einrichtung in vier Schritten und unterstützt die automatische Anpassung von Konten und Steuerkennzeichen für die Kontenrahmen SKR03/SKR04. Er ermöglicht auch den Import von Konfigurationen per CSV-Datei. Zu den Kernfunktionen gehören:</p>
             <ul>
-                <li><b>Vorlagen-Unterstützung:</b> Bietet vollständige Vorlagen für SKR03 und SKR04 und erlaubt den Import benutzerdefinierter Konfigurationen via CSV.</li>
-                <li><b>Automatik-Konten:</b> Intelligente Erkennung und Zuordnung von DATEV-Automatikkonten und Standard-Steuerkennzeichen.</li>
-                <li><b>Steuerkennzeichen-Setup:</b> Ermöglicht die Zuordnung von DATEV-Steuercodes, EU-Kennzeichnungen und die Konfiguration von Sachverhalten für §13b UStG (z.B. Bauleistungen, Gebäudereinigung).</li>
+                <li><b>Vorlagen-Unterstützung:</b> Vollständige Vorlagen für SKR03 und SKR04 sowie Import benutzerdefinierter Konfigurationen via CSV.</li>
+                <li><b>Automatik-Konten:</b> Intelligente Erkennung und Zuordnung von DATEV-Automatikkonten und Standard-Steuerkennzeichen, inklusive automatischer Erstellung von 5%- und 16%-Steuerkonten.</li>
+                <li><b>Steuerkennzeichen-Setup:</b> Zuordnung von DATEV-Steuercodes, EU-Kennzeichnungen und Konfiguration von Sachverhalten für §13b UStG.</li>
+            </ul>
+
+            <h4>DATEV-Grundkonfiguration im Detail</h4>
+            <p>Über die zentralen Einstellungen verwalten Sie alle DATEV-Parameter:</p>
+            <ul>
+                <li><b>Mandantennummer:</b> 1–99999</li>
+                <li><b>Beraternummer:</b> 1001–9999999</li>
+                <li><b>Sachkontenlänge:</b> 4, 6 oder 8 Stellen</li>
+                <li><b>SKR-Typ:</b> SKR03 oder SKR04</li>
+                <li><b>Standard-Pfade</b> für Export und Import</li>
+                <li><b>Wirtschaftsjahr-Beginn</b> und Buchungskreis-Definition</li>
             </ul>
 
             <h4>Netting und Abstimmungen</h4>
             <p>Ein umfassendes System zur automatischen Abstimmung von Geschäftspartnern, die sowohl Kunden als auch Lieferanten sind. Funktionen umfassen:</p>
             <ul>
                 <li>Übersicht aller Geschäftspartner mit Debitoren- und Kreditorensalden und diversen Filteroptionen.</li>
-                <li>Möglichkeit zur Berücksichtigung von Skonto bei der Abstimmung.</li>
+                <li>Automatische Skonto-Berücksichtigung bei der Abstimmung.</li>
                 <li>Automatische Erstellung der notwendigen Eingangs-, Ausgangs- und Ausgleichsbuchungen.</li>
-                <li>Vollständige Protokollierung aller Vorgänge in einer Abstimmungs-Historie.</li>
+                <li>Vollständige Protokollierung aller Vorgänge in einer Abstimmungs-Historie mit Audit-Trail.</li>
             </ul>
 
-            <h4>DATEV-Grundkonfiguration</h4>
-            <p>Ermöglicht die zentrale Verwaltung aller grundlegenden DATEV-Parameter wie Mandanten- und Beraternummer, Kontenpläne, Sachkontenlängen und Standardpfade für den Ex- und Import.</p>
-            
             <h4>Systemintegration</h4>
             <p>Das Basismodul koordiniert alle anderen Module der Financial Suite, sorgt für eine einheitliche Menüstruktur, Benutzeroberfläche und verwaltet zentrale Konfigurationen sowie Abhängigkeiten.</p>
+
+            <hr>
+
+            <h3>CSV-Import-Strukturen</h3>
+            <p>Wenn Sie eigene Vorlagen importieren möchten, müssen die CSV-Dateien folgenden Strukturen entsprechen (UTF-8, Semikolon-getrennt):</p>
+
+            <div class="example-box">
+                <h4>Konten-CSV — erforderliche Spalten</h4>
+                <ul>
+                    <li><b>Kontocode</b> — Eindeutige Kontonummer</li>
+                    <li><b>Kontoname</b> — Bezeichnung des Kontos</li>
+                    <li><b>Kontoart</b> — Bilanz/GuV-Zuordnung</li>
+                    <li><b>DATEV-Konto</b> — DATEV-spezifische Nummer</li>
+                    <li><b>DATEV-Automatikkonto</b> — Automatik-Zuordnung</li>
+                    <li><b>Standard-USt.-Kennzeichen</b> — Steuercode</li>
+                    <li><b>DATEV-Export</b> — Export-Status</li>
+                    <li><b>Übergeordnetes Konto</b></li>
+                    <li><b>Externer Code</b> — Fremdsystem-Referenz</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Steuerkennzeichen-CSV — erforderliche Spalten</h4>
+                <ul>
+                    <li><b>Steuerkennzeichen</b> — SAP B1 Code</li>
+                    <li><b>Bezeichnung</b></li>
+                    <li><b>Inaktiv</b> — Ja/Nein</li>
+                    <li><b>Kategorie</b> — Vorsteuer / Umsatzsteuer</li>
+                    <li><b>EU</b> — EU-Kennzeichen</li>
+                    <li><b>Erwerb/Rückbuchung</b> — Reverse Charge</li>
+                    <li><b>Gültig ab</b> — Datum</li>
+                    <li><b>Satz</b> — Steuersatz in Prozent</li>
+                    <li><b>DATEV-Kennzeichen</b> — DATEV-Code</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[BILD: Beispiel einer Konten-CSV-Datei in Excel mit korrekten Spalten und Semikolon-Trennung]</div>
+
+            <hr>
+
+            <h3>Sachverhalte L+L (§13b UStG)</h3>
+            <p>Im Schritt 3 des Assistenten konfigurieren Sie die EU-Kennzeichnung und die §13b-Sachverhalte. Folgende Sachverhalte stehen zur Auswahl:</p>
+            <ul>
+                <li>Bezogene Leistungen Ausland</li>
+                <li>Sicherungsübereignete Gegenstände</li>
+                <li>Umsätze lt. Grunderwerbsteuer</li>
+                <li>Bauleistungen inländisch ansässigen Unternehmen</li>
+                <li>Gas/Elektrizität Ausland</li>
+                <li>Treibhausgasemissionszertifikate</li>
+                <li>Altmetall/Schrott/Plastikabfälle</li>
+                <li>Gebäudereinigung</li>
+                <li>Lieferungen von Gold</li>
+                <li>Mobilfunkgeräte, Schaltkreise, Tablet-Computer</li>
+                <li>Gas/Elektrizität Inland</li>
+                <li>Lieferung lt. Anlage 4</li>
+            </ul>
+            <div class="image-placeholder">[BILD: Steuerkennzeichen-Konfiguration im Assistenten mit Sachverhalten §13b UStG (Schritt 3 des Wizards)]</div>
+
+            <hr>
+
+            <h3>Netting im Detail</h3>
+            <p>Das Netting-System bietet zwei Modi: Eine globale Massenabstimmung für viele Geschäftspartner gleichzeitig oder eine detaillierte Einzelabstimmung mit umfassender Beleg-Übersicht.</p>
+
+            <h4>Bereiche der Detail-Abstimmung</h4>
+            <p>Bei der Auswahl eines Geschäftspartners öffnet sich die Detail-Ansicht mit vier Bereichen:</p>
+            <ul>
+                <li><b>Debitor-Informationen:</b> Vollständige Stammdaten, Kontakt, Zahlungsbedingungen, Saldo, Abstimmkonto.</li>
+                <li><b>Kreditor-Informationen:</b> Analoge Darstellung der Lieferanten-Stammdaten.</li>
+                <li><b>Offene Belege (Debitor- und Kreditor-Seite):</b> Matrix mit Belegtyp, Datum, Saldo, Skonto-Beträgen und editierbaren Zahlungsbeträgen.</li>
+                <li><b>Abstimmungs-Historie:</b> Chronologische Aufzeichnung aller bisherigen Abstimmungen mit Verknüpfung zu den erstellten Buchungen.</li>
+            </ul>
+
+            <h4>Buchungs-Erstellung beim Netting</h4>
+            <p>Das System erstellt automatisch drei Buchungstypen:</p>
+            <ul>
+                <li><b>Eingangszahlung:</b> Ausgleich der ausgewählten Kreditorenbelege gegen das Kreditor-Netting-Konto.</li>
+                <li><b>Ausgangszahlung:</b> Ausgleich der ausgewählten Debitorenbelege gegen das Debitor-Netting-Konto.</li>
+                <li><b>Journalbuchung für Differenzen:</b> Automatischer Ausgleich von Rundungsdifferenzen über das Standard-Netting-Konto.</li>
+            </ul>
+
+            <h4>Skonto-Behandlung</h4>
+            <p>Mit der Option "Skonto berücksichtigen" in der Netting-Übersicht erkennt das System automatisch die Skonto-Bedingungen aus den Zahlungsbedingungen, berechnet die Skonto-Beträge basierend auf Fälligkeitsdaten und bucht diese separat auf die in der DATEV-Konfiguration hinterlegten Skonto-Konten.</p>
+
+            <div class="image-placeholder">[BILD: Detail-Ansicht der Netting-Abstimmung mit allen vier Bereichen (Debitor, Kreditor, Belege, Historie)]</div>
+
+            <div class="image-placeholder">[BILD: Einstellungs-Dialog mit Netting-Konten und Referenztext]</div>
+
+            <hr>
+
+            <h3>Integration mit anderen VPS-Modulen</h3>
+            <p>Das Hauptmodul ist das Fundament für alle weiteren Module der Suite und stellt zentrale Dienste bereit:</p>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Export & Import</h4>
+                <p>Beide Module nutzen die zentrale DATEV-Konfiguration (Mandanten-, Beraternummer, Pfade, Steuerkennzeichen-Mapping). Änderungen im Hauptmodul wirken sich automatisch auf Export und Import aus.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Reporting & ProRata</h4>
+                <p>Reporting-Berichte und Pro-Rata-Buchungen greifen auf zentrale Stammdaten und Konfigurationen zurück — z. B. die Steuereinstellungen aus dem Wizard.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Netting</h4>
+                <p>Das Netting-System ist direkt im Hauptmodul integriert und nutzt die in den Einstellungen definierten Netting-Konten und Buchungstexte.</p>
+            </div>
 
             <hr>
 
@@ -66,7 +180,7 @@
             <h4>Financial Suite Assistenten verwenden</h4>
             <ol>
                 <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Financial Suite Assistent</b>.</li>
-                <li><b>Schritt 1 (Grundeinstellungen):</b> Wählen Sie den Kontenplan (z.B. SKR04), die Kontenlänge (4-8 Stellen) und ob Sie Vorschläge aktivieren möchten.</li>
+                <li><b>Schritt 1 (Grundeinstellungen):</b> Wählen Sie den Kontenplan (z. B. SKR04), die Kontenlänge (4–8 Stellen) und ob Sie Vorschläge aktivieren möchten.</li>
                 <li><b>Schritt 2 (Konten-Konfiguration):</b> Überprüfen Sie die automatisch zugeordneten Konten. Passen Sie diese bei Bedarf manuell an oder importieren Sie eine eigene CSV-Datei.</li>
                 <li><b>Schritt 3 (Steuerkennzeichen-Setup):</b> Ordnen Sie DATEV-Steuercodes zu und konfigurieren Sie spezielle Sachverhalte wie §13b UStG.</li>
                 <li><b>Schritt 4 (Zusammenfassung):</b> Überprüfen Sie alle Änderungen und bestätigen Sie, um die Konfiguration automatisch im System umzusetzen.</li>
@@ -76,38 +190,50 @@
             <h4>Netting-Abstimmung durchführen</h4>
             <ol>
                 <li>Öffnen Sie die Übersicht über <b>Versino Financial Suite > Netting Übersicht</b>.</li>
-                <li>Setzen Sie die gewünschten Filter (z.B. nach Fälligkeit) und aktivieren Sie bei Bedarf "Skonto berücksichtigen".</li>
+                <li>Setzen Sie die gewünschten Filter (z. B. nach Fälligkeit) und aktivieren Sie bei Bedarf "Skonto berücksichtigen".</li>
                 <li>Für eine globale Abstimmung markieren Sie die gewünschten Geschäftspartner und klicken auf "Globale Abstimmung".</li>
                 <li>Für eine detaillierte Einzelabstimmung doppelklicken Sie auf einen Geschäftspartner, wählen die Belege aus und bestätigen die Verrechnung.</li>
             </ol>
-            <img src="assets/images/Netting_Uebersicht.png" alt="Anwendungsbeispiel: Screenshots der vier Hauptschritte des Assistenten" class="module-image">
+            <img src="assets/images/Netting_Uebersicht.png" alt="Anwendungsbeispiel: Netting-Übersicht mit Geschäftspartner-Liste" class="module-image">
+
+            <h4>Grundeinstellungen konfigurieren</h4>
+            <ol>
+                <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > Einstellungen</b>.</li>
+                <li>Geben Sie Mandantennummer (1–99999) und Beraternummer (1001–9999999) ein.</li>
+                <li>Definieren Sie Sachkontenlänge und SKR-Typ.</li>
+                <li>Konfigurieren Sie Export-/Import-Parameter und Netting-Konten.</li>
+                <li>Speichern Sie die Einstellungen.</li>
+            </ol>
+            <img src="assets/images/Modul1_Settings.png" alt="Screenshot des Einstellungs-Dialogs" class="module-image">
 
             <hr>
 
-            <h3>Allgemeine Tipps für die Anwendung</h3>
+            <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h4>Tipps für die tägliche Arbeit</h4>
             <ul>
                 <li><b>Optimale Nutzung des Assistenten:</b> Nutzen Sie die SKR03/SKR04-Vorlagen für eine schnelle und sichere Grundkonfiguration. Erstellen Sie immer Backups vor größeren Änderungen.</li>
                 <li><b>Effiziente Netting-Nutzung:</b> Konfigurieren Sie die Netting-Konten in den Einstellungen sorgfältig, bevor Sie die Funktion das erste Mal nutzen.</li>
                 <li><b>Wartung und Überwachung:</b> Führen Sie Test-Buchungen nach Änderungen durch und dokumentieren Sie alle Anpassungen für spätere Referenz.</li>
                 <li><b>CSV-Dateien:</b> Stellen Sie sicher, dass CSV-Dateien für den Import das korrekte Format (UTF-8, Semikolon-getrennt) haben.</li>
             </ul>
-            
-            <hr>
 
-            <h3>Fehlerbehandlung bei Problemen</h3>
-            
+            <h4>Häufige Probleme und Lösungen</h4>
+
             <h5>Problem: Der Assistent startet nicht.</h5>
             <p><b>Lösung:</b> Starten Sie SAP Business One als Administrator. Falls das Problem weiterhin besteht, könnte eine Neuinstallation der Financial Suite erforderlich sein.</p>
 
             <h5>Problem: Der Konten-Import aus einer CSV-Datei schlägt fehl.</h5>
             <p><b>Lösung:</b> Überprüfen Sie das Dateiformat (UTF-8 Kodierung, Semikolon als Trennzeichen). Stellen Sie sicher, dass keine doppelten Kontonummern enthalten sind und alle Spalten den Validierungsregeln entsprechen.</p>
 
+            <h5>Problem: Steuerkennzeichen werden nicht erkannt.</h5>
+            <p><b>Lösung:</b> Prüfen Sie DATEV-Code-Zuordnungen, validieren Sie die Steuergruppen-Konfiguration, kontrollieren Sie Ein-/Ausgangssteuer-Kategorien und überprüfen Sie Gültigkeitsdaten.</p>
+
             <h5>Problem: Netting funktioniert nicht oder Buchungen werden nicht erstellt.</h5>
             <p><b>Lösung:</b> Prüfen Sie die Geschäftspartner-Verknüpfungen (Kunde/Lieferant). Validieren Sie, ob die Abstimmkonten und Rundungskonten in den Einstellungen korrekt konfiguriert sind. Überprüfen Sie zudem die Benutzerberechtigungen für die Erstellung von Zahlungen und Journalbuchungen.</p>
-            
+
             <h5>Problem: Beim Start erscheint die Fehlermeldung "DATEV nicht erfolgreich gestartet".</h5>
             <p><b>Lösung:</b> Starten Sie SAP Business One als Administrator neu. Wenn das Problem bestehen bleibt, überprüfen Sie die DATEV-Komponenteninstallation oder kontaktieren Sie Ihren IT-Administrator.</p>
-            
 
         </article>
     </main>

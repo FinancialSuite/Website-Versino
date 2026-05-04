@@ -14,35 +14,165 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
             <h2>Buchungstext-Konfigurator (JE Text Setter)</h2>
-            
+
             <h3>Überblick</h3>
-            <p>Das <b>Versino Je Text Setter Modul</b> automatisiert die Erstellung von Buchungstexten in SAP Business One. Es füllt automatisch die Textfelder in zahlreichen Dokumenttypen mit vordefinierten, aussagekräftigen Beschreibungen. Dies spart Zeit, reduziert Fehler und sorgt für einheitliche, nachvollziehbare Buchungstexte. Beim ersten Start wird eine umfassende Standardkonfiguration angelegt, die Sie nur noch aktivieren müssen.</p>
-            <p><b>Zugang zum Modul:</b> Die Konfiguration erreichen Sie unter <b>Versino Financial Suite > Konfiguration > JE Text Konfiguration</b>.</p>
+            <p>Das <b>Versino JE Text Setter Modul</b> automatisiert die Erstellung von Buchungstexten in SAP Business One. Es füllt automatisch die Textfelder in zahlreichen Dokumenttypen mit vordefinierten, aussagekräftigen Beschreibungen. Dies spart Zeit, reduziert Fehler und sorgt für einheitliche, nachvollziehbare Buchungstexte. Beim ersten Start wird eine umfassende Standardkonfiguration angelegt, die Sie nur noch aktivieren müssen.</p>
+            <p><b>Zugang zum Modul:</b> Die Konfiguration erreichen Sie über beide VPS-Menüstrukturen:</p>
+            <ul>
+                <li><b>Versino AddOn > Konfiguration > JE Text Konfiguration</b></li>
+                <li><b>Versino Financial Suite > Konfiguration > JE Text Konfiguration</b></li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Wichtig: Standardmäßig deaktiviert</h4>
+                <p>Beim ersten Start sind alle Konfigurationen <b>deaktiviert</b>. Sie müssen die gewünschten Dokumenttypen erst aktivieren, bevor die automatische Textgenerierung funktioniert.</p>
+            </div>
 
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            
+
             <h4>Automatische & kontextbezogene Texterstellung</h4>
-            <p>Das Modul arbeitet im Hintergrund und fügt bei der Erstellung von Belegen automatisch passende Buchungstexte ein.</p>
+            <p>Das Modul arbeitet im Hintergrund und fügt bei der Erstellung von Belegen automatisch passende Buchungstexte ein — ohne manuelle Eingabe.</p>
 
             <h4>Direkte Konfiguration aus Belegen (Rechtsklick)</h4>
-            <p>Eine der stärksten Funktionen: Sie können direkt aus einem SAP Business One Beleg (z.B. einer Rechnung) per Rechtsklick auf ein beliebiges Textfeld eine neue Regel für die automatische Texterstellung anlegen. Das System erkennt dabei automatisch das Formular und das Feld, was die Einrichtung extrem beschleunigt.</p>
+            <p>Eine der stärksten Funktionen: Sie können direkt aus einem SAP Business One Beleg (z. B. einer Rechnung) per Rechtsklick auf ein beliebiges Textfeld eine neue Regel für die automatische Texterstellung anlegen. Das System erkennt dabei automatisch das Formular und das Feld, was die Einrichtung extrem beschleunigt.</p>
 
             <h4>Zentrale Konfigurationsoberfläche</h4>
-            <p>Über ein zentrales Verwaltungsfenster haben Sie die volle Kontrolle. Hier können Sie in einer übersichtlichen Liste alle Regeln für die verschiedenen Dokumenttypen einzeln aktivieren, deaktivieren, bearbeiten, kopieren oder löschen.</p>
-            
-            <h4>Nahtlose Integration mit anderen Modulen</h4>
-            <p>Der JeTextSetter verbessert die Funktionalität anderer Module durch konsistente Texte erheblich:</p>
+            <p>Über ein zentrales Verwaltungsfenster haben Sie die volle Kontrolle. Hier können Sie in einer übersichtlichen Liste alle Regeln für die verschiedenen Dokumenttypen einzeln aktivieren, deaktivieren, bearbeiten, kopieren oder löschen. Per Rechtsklick im Konfigurationsgrid stehen folgende Funktionen zur Verfügung:</p>
             <ul>
-                <li><b>Pro-Rata:</b> Abgrenzungsbuchungen erhalten verständliche Texte (z.B. "Pro-Rata Abgrenzung März 2024"), was die Nachvollziehbarkeit verbessert.</li>
-                <li><b>DATEV-Export:</b> Einheitliche Buchungstexte erhöhen die Qualität der Exporte und reduzieren Rückfragen vom Steuerberater.</li>
-                <li><b>Reporting:</b> Standardisierte Texte in allen Berichten verbessern die Übersichtlichkeit und Analyse.</li>
+                <li><b>Zeile löschen</b> — Konfiguration sofort entfernen</li>
+                <li><b>Zeile kopieren</b> — Konfiguration wird gelb markiert und in Zwischenspeicher gelegt</li>
+                <li><b>Zeile einfügen</b> — Kopierte Konfiguration auf eine andere Zeile übertragen</li>
             </ul>
+
+            <h4>Mehrsprachige Texterstellung</h4>
+            <p>Das System erkennt automatisch die SAP Business One UI-Sprache und generiert die Texte in der entsprechenden Sprache — perfekt für internationale Niederlassungen.</p>
+
+            <hr>
+
+            <h3>Unterstützte Dokumenttypen</h3>
+            <p>Beim ersten Start wird automatisch eine Standardkonfiguration für die folgenden Dokumenttypen angelegt:</p>
+
+            <div class="example-box">
+                <h4>Verkaufsdokumente</h4>
+                <ul>
+                    <li>Angebote (Journalbereich und Kommentarfeld)</li>
+                    <li>Kundenaufträge</li>
+                    <li>Lieferungen</li>
+                    <li>Ausgangsrechnungen</li>
+                    <li>Ausgangsretouren</li>
+                    <li>Ausgangsgutschriften</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Einkaufsdokumente</h4>
+                <ul>
+                    <li>Wareneingänge ("EK - Wareneingang")</li>
+                    <li>Einkaufsretouren</li>
+                    <li>Eingangsrechnungen</li>
+                    <li>Eingangsgutschriften</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Lager-, Produktions- und Zahlungsdokumente</h4>
+                <ul>
+                    <li><b>Lager:</b> Wareneingänge, Warenausgänge, Lagerumlagerungen, Bestandsneubewertungen</li>
+                    <li><b>Produktion:</b> Produktionseingang, Produktionsausgang</li>
+                    <li><b>Zahlungen:</b> Eingangszahlungen, Ausgangszahlungen</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[BILD: Tabelle aller unterstützten Dokumenttypen, gruppiert nach Bereich (Verkauf, Einkauf, Lager, Produktion, Zahlungen)]</div>
+
+            <hr>
+
+            <h3>Direkte Feldkonfiguration aus aktiven Belegen</h3>
+            <p>Per Rechtsklick auf ein Textfeld können Sie schnell neue Konfigurationen erstellen:</p>
+
+            <h4>So funktioniert die direkte Feldkonfiguration</h4>
+            <ol>
+                <li>Öffnen Sie ein beliebiges SAP Business One Dokument (z. B. Ausgangsrechnung).</li>
+                <li>Rechtsklick auf das Textfeld, das Sie automatisch befüllen möchten.</li>
+                <li>Das System erkennt automatisch:
+                    <ul>
+                        <li>Den <b>Formulartyp</b> (z. B. Ausgangsrechnung)</li>
+                        <li>Das <b>ausgewählte Textfeld</b></li>
+                        <li>Die zugehörigen Beschreibungen</li>
+                    </ul>
+                </li>
+                <li>Die JE Text Konfiguration öffnet sich automatisch mit einer <b>vorbefüllten neuen Regel</b>.</li>
+                <li>Aktivieren und speichern Sie die Konfiguration.</li>
+            </ol>
+
+            <p><b>Vorteile:</b> Keine manuelle Eingabe von Formular-IDs oder Feld-IDs erforderlich, sofortige Konfiguration direkt am Arbeitsplatz, automatische Erkennung aller technischen Parameter.</p>
+
+            <div class="image-placeholder">[BILD: Rechtsklick auf ein Textfeld in einer Ausgangsrechnung mit dem Menüpunkt "JE Text Konfiguration hinzufügen"]</div>
+
+            <div class="image-placeholder">[BILD: Konfigurationsgrid mit Kontextmenü beim Rechtsklick (Zeile löschen / kopieren / einfügen)]</div>
+
+            <hr>
+
+            <h3>Integration mit anderen VPS-Modulen</h3>
+            <p>Der JE Text Setter verbessert die Funktionalität anderer Module durch konsistente Texte erheblich:</p>
+
+            <div class="integration-box">
+                <h4>VPS Pro-Rata</h4>
+                <p>Pro-Rata-Abgrenzungsbuchungen erhalten automatisch aussagekräftige Texte, die die Abgrenzungsperiode und den Original-Beleg klar kennzeichnen — z. B.:</p>
+                <ul>
+                    <li>"Pro-Rata Abgrenzung März 2024 - Software-Lizenz"</li>
+                    <li>"Auflösung Pro-Rata April 2024 - Versicherung"</li>
+                    <li>"Storno Pro-Rata Abgrenzung - Rechnung 2024-1234"</li>
+                </ul>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Export</h4>
+                <p>Einheitliche Buchungstexte verbessern die Lesbarkeit der DATEV-Dateien erheblich. Außerdem werden Texte automatisch an DATEV-Längenbegrenzungen angepasst und Sonderzeichen vermieden — das reduziert Rückfragen vom Steuerberater und erfüllt GoBD-Anforderungen.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS DATEV Import</h4>
+                <p>Beim Import von DATEV-Dateien können die JE-Text-Setter-Texte als Referenz für die Zuordnung von Buchungstypen verwendet werden, was die Importgenauigkeit erhöht.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>VPS Reporting</h4>
+                <p>Standardisierte Texte erscheinen automatisch in allen Berichten — Kassenbuch, Kontoauszüge, Journalbuchungslisten und Pro-Rata-Berichte mit klaren Abgrenzungstexten.</p>
+            </div>
+
+            <hr>
+
+            <h3>DATEV-Integration im Detail</h3>
+            <p>Die Zusammenarbeit mit dem DATEV-System ist besonders wichtig für eine professionelle Buchführung:</p>
+
+            <div class="example-box">
+                <h4>Export-Optimierung</h4>
+                <ul>
+                    <li>Buchungstexte werden in korrekter Länge für DATEV-Felder generiert</li>
+                    <li>Automatische Anpassung an DATEV-Zeichenbegrenzungen</li>
+                    <li>Vermeidung von Sonderzeichen, die DATEV-Probleme verursachen könnten</li>
+                    <li>Konsistente Terminologie entsprechend DATEV-Standards</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Steuerberatung & Compliance</h4>
+                <ul>
+                    <li>Klare Erkennbarkeit von Buchungsarten</li>
+                    <li>Reduzierte Rückfragen bei der DATEV-Übergabe</li>
+                    <li>GoBD-konforme Buchungstexte</li>
+                    <li>Audit-Trail-geeignete Beschreibungen</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[BILD: DATEV-Export-Datei mit standardisierten, JeTextSetter-generierten Buchungstexten]</div>
 
             <hr>
 
@@ -52,36 +182,61 @@
             <h4>1. Regel für einen Dokumenttyp aktivieren (Grundschritt)</h4>
             <ol>
                 <li>Navigieren Sie zu <b>Versino Financial Suite > Konfiguration > JE Text Konfiguration</b>.</li>
-                <li>Wählen Sie in der Liste den gewünschten Dokumenttyp aus (z.B. Ausgangsrechnungen).</li>
+                <li>Wählen Sie in der Liste den gewünschten Dokumenttyp aus (z. B. Ausgangsrechnungen).</li>
                 <li>Setzen Sie in der Spalte "Aktiv" den Haken.</li>
                 <li>Speichern Sie mit "OK". Die Regel ist nun aktiv.</li>
             </ol>
             <img src="assets/images/TextConfig.png" alt="Anwendungsbeispiel: Konfiguration" class="module-image">
-			
+
             <h4>2. Neue Regel direkt aus einem Beleg erstellen (empfohlen)</h4>
             <ol>
-                <li>Öffnen Sie ein beliebiges Dokument in SAP Business One (z.B. eine Ausgangsrechnung).</li>
+                <li>Öffnen Sie ein beliebiges Dokument in SAP Business One (z. B. eine Ausgangsrechnung).</li>
                 <li>Machen Sie einen <b>Rechtsklick</b> auf das Textfeld, das Sie zukünftig im Buchungstext sehen möchten.</li>
-				<li>Klicken Sie auf <b>Journaleintrag hinzufügen</b>.</li>
-                <li>Das Konfigurationsfenster des JeTextSetters öffnet sich und hat bereits eine neue, vorbefüllte Regel für dieses Feld hinzugefügt.</li>
-                <li>Die Regeln für das automatische Befüllen können jerderzeit mit <b>Journaleintrag bearbeiten</b> angepasst werden.</li>
-				<li>Durch anklicken von <b>Journaleintrag ausführen</b> kann bereits im Vorfeld der Buchungstext im Tab Buchhaltung gesichtet werden.</li>
-				<li>Der Text Konfigurator wird automatisch beim Hinzufügen des Beleges den <b>Buchungstext in der Journalbuchung</b> anpassen.</li>
+                <li>Klicken Sie auf <b>Journaleintrag hinzufügen</b>.</li>
+                <li>Das Konfigurationsfenster des JE Text Setters öffnet sich und hat bereits eine neue, vorbefüllte Regel für dieses Feld hinzugefügt.</li>
+                <li>Die Regeln für das automatische Befüllen können jederzeit mit <b>Journaleintrag bearbeiten</b> angepasst werden.</li>
+                <li>Durch Anklicken von <b>Journaleintrag ausführen</b> kann bereits im Vorfeld der Buchungstext im Tab Buchhaltung gesichtet werden.</li>
+                <li>Der Text-Konfigurator wird automatisch beim Hinzufügen des Belegs den <b>Buchungstext in der Journalbuchung</b> anpassen.</li>
             </ol>
-			
+
             <img src="assets/images/JeText1.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
             <img src="assets/images/JeText4.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
-			<img src="assets/images/JeText3.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
-			
+            <img src="assets/images/JeText3.png" alt="Anwendungsbeispiel: Konfiguration einer Text-Vorlage" class="module-image">
+
+            <div class="image-placeholder">[BILD: Vorher-Nachher-Vergleich: Buchung ohne automatischen Text vs. Buchung mit JeTextSetter-Text]</div>
+
             <hr>
 
             <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h4>Tipps für die tägliche Arbeit</h4>
             <ul>
-                <li><b>Problem: Es werden keine Texte automatisch eingefügt.</b><br>Lösung: Prüfen Sie als Erstes in der Konfiguration, ob die Regel für den betreffenden Dokumenttyp aktiviert ist.</li>
-                <li><b>Problem: Die Konfigurationsliste ist beim ersten Öffnen leer.</b><br>Lösung: Das System erstellt die Standardkonfigurationen automatisch beim allerersten Start des Moduls. Kontaktieren Sie im Zweifel den Support.</li>
-                <li><b>Problem: Die direkte Konfiguration per Rechtsklick funktioniert nicht.</b><br>Lösung: Stellen Sie sicher, dass Sie auf ein Textfeld geklickt haben und das Je Text Setter Modul korrekt läuft.</li>
-                <li><b>Problem: Texte sind zu lang für das Zielfeld.</b><br>Lösung: Kein Grund zur Sorge, Sie können die maximale Länge der Texte im Text-Konfigurator pro Feld begrenzen. Die maximale Länge für den Buchungstext beträgt 254 Zeichen.</li>
+                <li><b>Schrittweise einführen:</b> Starten Sie mit wenigen wichtigen Dokumenttypen. Aktivieren Sie nur die Konfigurationen, die Sie tatsächlich benötigen.</li>
+                <li><b>Direkte Feldkonfiguration nutzen:</b> Besonders nützlich für neue Formulare — die automatische Erkennung erspart manuelle technische Eingaben.</li>
+                <li><b>Vor Pro-Rata aktivieren:</b> Stellen Sie sicher, dass JE Text Setter aktiviert ist, BEVOR Sie Pro-Rata-Buchungen erstellen — sonst fehlen die aussagekräftigen Texte.</li>
+                <li><b>Zentrale Verwaltung:</b> Verwenden Sie die Doppelklick-Funktion für schnelle Bearbeitung. Nutzen Sie die Kopieren-Funktion für ähnliche Konfigurationen.</li>
             </ul>
+
+            <h4>Häufige Probleme und Lösungen</h4>
+
+            <h5>Problem: Es werden keine Texte automatisch eingefügt.</h5>
+            <p><b>Lösung:</b> Prüfen Sie als Erstes in der Konfiguration, ob die Regel für den betreffenden Dokumenttyp aktiviert ist (Haken in der "Aktiv"-Spalte).</p>
+
+            <h5>Problem: Die Konfigurationsliste ist beim ersten Öffnen leer.</h5>
+            <p><b>Lösung:</b> Das System erstellt die Standardkonfigurationen automatisch beim allerersten Start des Moduls. Kontaktieren Sie im Zweifel den Support.</p>
+
+            <h5>Problem: Die direkte Konfiguration per Rechtsklick funktioniert nicht.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass Sie auf ein Textfeld geklickt haben und das JE Text Setter Modul korrekt läuft.</p>
+
+            <h5>Problem: Texte sind zu lang für das Zielfeld.</h5>
+            <p><b>Lösung:</b> Sie können die maximale Länge der Texte im Text-Konfigurator pro Feld begrenzen. Die maximale Länge für den Buchungstext beträgt 254 Zeichen.</p>
+
+            <h5>Problem: Texte erscheinen in falscher Sprache.</h5>
+            <p><b>Lösung:</b> Überprüfen Sie die Spracheinstellungen in SAP Business One — das Modul folgt automatisch der UI-Sprache.</p>
+
+            <h5>Problem: Pro-Rata-Buchungen haben keine beschreibenden Texte.</h5>
+            <p><b>Lösung:</b> Stellen Sie sicher, dass JE Text Setter <b>vor</b> der Pro-Rata-Buchungserstellung aktiviert wurde.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>

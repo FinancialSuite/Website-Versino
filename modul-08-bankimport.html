@@ -14,7 +14,7 @@
     <div id="nav-placeholder"></div>
 
     <main id="content">
-	
+
         <a href="javascript:history.back()" class="back-button">&larr; Zurück</a>
         <article>
             <h2>Kontoauszugs-Import (Bank State Import)</h2>
@@ -22,12 +22,13 @@
             <h3>Überblick</h3>
             <p>Das <b>Versino Bank State Import Modul</b> ermöglicht den Import und die Verarbeitung von elektronischen Kontoauszügen in SAP Business One. Es unterstützt verschiedene Bankenformate (MT940, CAMT) und nutzt eine leistungsstarke <b>Regel- und RegEx-Engine</b>, um Transaktionen automatisch zuzuordnen und die manuelle Arbeit zu minimieren.</p>
             <p><b>Zugang zum Modul:</b> Der Prozess startet unter <b>Versino Financial Suite > Bank Statement Import</b>. Die Bearbeitung findet im Formular <b>Bank Statement Processing</b> statt.</p>
-            <div class="image-placeholder">[HINWEIS FÜR BILDER: Screenshot des Bank Statement Processing Hauptformulars mit Matrix]</div>
-            
+
+            <div class="image-placeholder">[BILD: Bank Statement Processing Hauptformular mit ausgefüllter Matrix und allen relevanten Spalten]</div>
+
             <hr>
 
             <h3>Hauptfunktionen</h3>
-            
+
             <h4>Regelbasierte, automatische Zuordnung</h4>
             <p>Das Modul liest Kontoauszugsdateien ein und versucht, Transaktionen automatisch zuzuordnen. Dies geschieht durch eine mehrstufige Logik, die unter anderem Bankverbindungen, Beträge und Verwendungszwecke über konfigurierbare Regeln und reguläre Ausdrücke (RegEx) abgleicht.</p>
 
@@ -38,7 +39,127 @@
             <p>Wenn eine Banktransaktion mehrere Geschäftsvorfälle betrifft, können Sie diese über den <b>Split-Dialog</b> in beliebig viele Teilbeträge aufteilen. Das System berechnet den Restbetrag automatisch und erstellt neue, separate Zeilen in der Matrix für eine saubere Verbuchung.</p>
 
             <h4>Status-Management</h4>
-            <p>Jede Zeile in der Matrix hat einen Status. Über die Checkbox <b>"Cleared"</b> können Sie eine Transaktion als "ausgeglichen" markieren, um sie für weitere Bearbeitungen zu sperren. Das Add-on setzt zudem ein Kennzeichen "Durch Addon geprüft", wenn eine Zeile automatisch verarbeitet wurde.</p>
+            <p>Jede Zeile in der Matrix hat einen Status. Über die Checkbox <b>"Cleared"</b> können Sie eine Transaktion als "ausgeglichen" markieren, um sie für weitere Bearbeitungen zu sperren. Das Add-on setzt zudem ein Kennzeichen <b>"Durch Addon geprüft"</b>, wenn eine Zeile automatisch verarbeitet wurde.</p>
+
+            <hr>
+
+            <h3>Matrix-Spalten im Überblick</h3>
+            <p>Die zentrale Verarbeitungsmatrix bietet folgende Spalten zur Bearbeitung:</p>
+
+            <div class="example-box">
+                <h4>Datum & Beträge</h4>
+                <ul>
+                    <li><b>BSLineDate</b> — Buchungsdatum der Banktransaktion</li>
+                    <li><b>BSValuDate</b> — Valutadatum</li>
+                    <li><b>IncomingAmount</b> — Eingehende Beträge (Gutschriften)</li>
+                    <li><b>OutgoingAmount</b> — Ausgehende Beträge (Belastungen)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Identifikation & Codes</h4>
+                <ul>
+                    <li><b>Ref</b> — Bank-Referenznummer</li>
+                    <li><b>Memo / Memo2</b> — Verwendungszweck</li>
+                    <li><b>CardCode</b> — Zugeordneter Geschäftspartner</li>
+                    <li><b>ExternalCode</b> — Externer Vorgangscode (Bank-spezifisch)</li>
+                    <li><b>InternalCode</b> — Interner Vorgangscode (Unternehmen-spezifisch)</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h4>Status & Verarbeitung</h4>
+                <ul>
+                    <li><b>Cleared</b> — Status-Checkbox für Ausgleich</li>
+                    <li><b>PstMethod</b> — Buchungsmethode</li>
+                    <li><b>BankStatementType</b> — Art der Banktransaktion</li>
+                </ul>
+            </div>
+
+            <hr>
+
+            <h3>5-stufige Verarbeitungslogik</h3>
+            <p>Beim Klick auf "Auszug verarbeiten" durchläuft jede Banktransaktion fünf Verarbeitungsstufen:</p>
+            <ol>
+                <li><b>RegEx-basierte Geschäftspartner-Erkennung</b> — Durchsuchen aller konfigurierten RegEx-Regeln (Typ "B") und Anwendung auf Memo-Felder.</li>
+                <li><b>Code-Transformation über Rule1</b> — Prüfung auf Hausbank-Übereinstimmung (BLZ, Kontonummer, BIC, IBAN), Validierung von GP-Bankdaten, Betragsprüfung und Referenz-Abgleich.</li>
+                <li><b>RegEx-basierte Belegerkennung</b> — Durchsuchen aller RegEx-Regeln (Typ "D"), SQL-Abfragen zur Belegerkennung, Erstellung von MultiplePayment-Einträgen.</li>
+                <li><b>Bankverbindungs-basierte GP-Zuordnung</b> — Direkter Abgleich über BLZ, Kontonummer, BIC und IBAN.</li>
+                <li><b>Finale RegEx-Zuordnung</b> — Verwendung der RegEx-Ergebnisse als Fallback-Option.</li>
+            </ol>
+
+            <hr>
+
+            <h3>Status-Management</h3>
+            <p>Das Modul verwaltet folgende Verarbeitungs-Stati:</p>
+            <ul>
+                <li><b>Offen</b> — Noch nicht verarbeitet</li>
+                <li><b>Zugeordnet</b> — Geschäftspartner zugewiesen</li>
+                <li><b>Ausgeglichen</b> — Mit offenen Posten verrechnet (Cleared-Checkbox gesetzt)</li>
+                <li><b>Aufgeteilt</b> — In mehrere Transaktionen geteilt (per Split)</li>
+                <li><b>Abgeschlossen</b> — Vollständig verarbeitet</li>
+            </ul>
+            <p>Das Feld <b>"Durch Addon geprüft"</b> kennzeichnet, dass eine Zeile vom System automatisch verarbeitet wurde:</p>
+            <ul>
+                <li><b>Y</b> — Zeile wurde erfolgreich verarbeitet</li>
+                <li><b>(leer)</b> — Zeile noch nicht verarbeitet</li>
+            </ul>
+
+            <hr>
+
+            <h3>Konfigurationstabellen</h3>
+            <p>Das Modul nutzt folgende benutzerdefinierte Tabellen für die Konfiguration:</p>
+            <ul>
+                <li><b>VAG_BNKSTMNT_R1</b> — Direkte Zuordnungsregeln (Rule1) mit Hausbank- und GP-Bankdaten</li>
+                <li><b>VAG_BNKSTMNT_REGEX</b> — RegEx-Regeln für Texterkennung in Memo-Feldern</li>
+                <li><b>VAG_BNKSTMNT_HEAD / LINES</b> — Import-Verwaltung mit FileID, Mapping und Status-Verfolgung</li>
+            </ul>
+
+            <div class="image-placeholder">[BILD: Konfigurationstabelle Bank Statement Rule1 mit Beispieleinträgen für Hausbank-Daten und externen Codes]</div>
+
+            <div class="warning-box">
+                <h4>Sicherheitshinweis: SQL-Injection-Schutz</h4>
+                <p>In den RegEx-Regeln sind <b>nur SELECT-Abfragen</b> erlaubt. Verbotene SQL-Operationen (UPDATE, INSERT, DELETE, CREATE, DROP, ALTER, TRUNCATE) werden vom System automatisch blockiert.</p>
+            </div>
+
+            <hr>
+
+            <h3>Split-Beispiel</h3>
+
+            <div class="example-box">
+                <h4>Sammelzahlung in zwei Posten aufteilen</h4>
+                <p>Sie erhalten eine Sammelüberweisung von <b>1.000,00 EUR eingehend</b>, die zwei Geschäftsvorfälle betrifft (300 EUR für GP-A, 700 EUR für die ursprüngliche Forderung):</p>
+                <ol>
+                    <li>Rechtsklick auf die 1.000-EUR-Zeile → <b>"GP Split"</b></li>
+                    <li>Im Split-Dialog: 300 EUR + Geschäftspartner GP-A eingeben</li>
+                    <li>OK</li>
+                </ol>
+                <p style="margin-top:10px;"><b>Resultat:</b></p>
+                <ul>
+                    <li>Neue Zeile: 300,00 EUR eingehend für GP-A</li>
+                    <li>Original-Zeile: 700,00 EUR eingehend (Restbetrag)</li>
+                </ul>
+            </div>
+
+            <div class="image-placeholder">[BILD: Kontextmenü "GP Split" auf einer Bankzeile per Rechtsklick]</div>
+
+            <div class="image-placeholder">[BILD: Split-Dialog mit Eingabefeldern Betrag und Geschäftspartner]</div>
+
+            <div class="image-placeholder">[BILD: Vorher-Nachher der Matrix nach einem Split: 1.000 EUR wird zu 300 EUR + 700 EUR auf zwei Zeilen]</div>
+
+            <hr>
+
+            <h3>Integration mit SAP Business One</h3>
+
+            <div class="integration-box">
+                <h4>SAP B1 BankStatementsService API</h4>
+                <p>Vollständige Integration über die offizielle BankStatementsService API. Direkte Manipulation von BankStatement-Objekten mit transaktionaler Sicherheit bei Split-Operationen.</p>
+            </div>
+
+            <div class="integration-box">
+                <h4>Geschäftspartner-Integration (OCRD)</h4>
+                <p>Direkte Verbindung zur OCRD-Tabelle mit Choose-From-List-Integration, GP-Validierung und Status- bzw. Berechtigungsprüfung.</p>
+            </div>
 
             <hr>
 
@@ -48,29 +169,53 @@
             <p>Die Stärke des Moduls liegt in seiner Automatisierungs-Engine. Diese wird über benutzerdefinierte Tabellen konfiguriert:</p>
             <ul>
                 <li><b>Direkte Zuordnungsregeln (Rule1):</b> Hier können Sie feste Regeln definieren. Beispiel: Wenn im Verwendungszweck "Miete Mai" steht, wird die Transaktion automatisch einem bestimmten externen Vorgangscode zugeordnet.</li>
-                <li><b>RegEx-Regeln:</b> Hier können Sie flexible Muster (Reguläre Ausdrücke) hinterlegen, um z.B. Rechnungs- oder Kundennummern aus einem langen Verwendungszweck zu extrahieren und automatisch zuzuordnen.</li>
+                <li><b>RegEx-Regeln:</b> Hier können Sie flexible Muster (Reguläre Ausdrücke) hinterlegen, um z. B. Rechnungs- oder Kundennummern aus einem langen Verwendungszweck zu extrahieren und automatisch zuzuordnen.</li>
             </ul>
 
             <h4>Täglicher Workflow: Kontoauszug bearbeiten</h4>
             <ol>
                 <li>Navigieren Sie zu <b>Versino Financial Suite > Bank Statement Import</b> und wählen Sie die Kontoauszugsdatei aus.</li>
                 <li>Nach dem Import öffnet sich das <b>Bank Statement Processing</b> Formular. Die Automatisierungs-Engine hat bereits versucht, Zahlungen zuzuordnen.</li>
+                <li>Klicken Sie auf <b>"Auszug verarbeiten"</b>, um die 5-stufige Verarbeitung für alle Zeilen zu starten (oder geben Sie eine Zeilennummer ein, um nur diese zu verarbeiten).</li>
                 <li>Bearbeiten Sie die verbleibenden Posten manuell, indem Sie den korrekten <b>Geschäftspartner zuweisen</b>.</li>
-                <li>Bei Sammelzahlungen, wählen Sie die Zeile aus, aktivieren die <b>Split-Funktion</b> per Rechtsklick, geben den Teilbetrag sowie den Geschäftspartner ein und bestätigen.</li>
+                <li>Bei Sammelzahlungen wählen Sie die Zeile aus, aktivieren die <b>Split-Funktion</b> per Rechtsklick, geben den Teilbetrag sowie den Geschäftspartner ein und bestätigen.</li>
                 <li>Markieren Sie fertig bearbeitete Zeilen als "Cleared".</li>
                 <li>Bestätigen Sie am Ende die gesamte Verarbeitung, um die Buchungen zu erstellen.</li>
             </ol>
-            <div class="image-placeholder">[HINWEIS FÜR BILDER: Anwendungsbeispiel mit Split-Dialog und Zuordnung]</div>
 
             <hr>
 
             <h3>Tipps und Fehlerbehandlung</h3>
+
+            <h4>Tipps für die tägliche Arbeit</h4>
             <ul>
-                <li><b>Split-Funktion nutzen:</b> Nutzen Sie die Split-Funktion konsequent, um Sammelbuchungen sauber aufzuteilen. Eine Zeile kann nur gesplittet werden, wenn sie nicht als "Cleared" markiert ist.</li>
+                <li><b>Split konsequent nutzen:</b> Nutzen Sie die Split-Funktion für Sammelbuchungen. Eine Zeile kann nur gesplittet werden, wenn sie nicht als "Cleared" markiert ist.</li>
                 <li><b>Trefferquote erhöhen:</b> Halten Sie Ihre Geschäftspartner-Stammdaten (insbesondere Bankverbindungen) aktuell, um die automatische Trefferquote zu erhöhen.</li>
-                <li><b>RegEx-Regeln testen:</b> Testen Sie neue RegEx-Muster gründlich in einem externen Tool, bevor Sie sie produktiv einsetzen, um die korrekte Funktion sicherzustellen.</li>
-                <li><b>Problem: Split nicht möglich.</b><br>Lösung: Der Fehler "Split nicht möglich, diese Zeile ist bereits ausgeglichen" erscheint, wenn die "Cleared"-Checkbox gesetzt ist. Entfernen Sie den Haken, um die Zeile wieder zu bearbeiten. Der Betrag für einen Split muss zudem immer größer als 0 sein.</li>
+                <li><b>RegEx-Regeln testen:</b> Testen Sie neue RegEx-Muster gründlich in einem externen Tool, bevor Sie sie produktiv einsetzen.</li>
+                <li><b>Backup vor Konfigurationsänderungen:</b> Erstellen Sie Backup-Kopien der Regel-Konfigurationen, bevor Sie größere Änderungen vornehmen.</li>
+                <li><b>Wartung:</b> Aktualisieren Sie Rule1-Konfigurationen bei neuen Geschäftspartnern und überprüfen Sie RegEx-Regeln bei Änderungen der Bankformate.</li>
             </ul>
+
+            <h4>Häufige Probleme und Lösungen</h4>
+
+            <h5>Problem: "Der Betrag muss größer als 0 sein".</h5>
+            <p><b>Lösung:</b> Geben Sie im Split-Dialog einen gültigen numerischen Betrag größer als Null ein.</p>
+
+            <h5>Problem: "Split nicht möglich, diese Zeile ist bereits ausgeglichen".</h5>
+            <p><b>Lösung:</b> Entfernen Sie das "Cleared"-Häkchen in der Zeile, um sie wieder bearbeitbar zu machen.</p>
+
+            <h5>Problem: "Externer Vorgangscode konnte nicht gesetzt werden".</h5>
+            <p><b>Lösung:</b> Überprüfen Sie die externe Code-Konfiguration, validieren Sie verfügbare Codes im System und prüfen Sie Benutzerberechtigungen.</p>
+
+            <h5>Problem: RegEx-Regeln funktionieren nicht.</h5>
+            <p><b>Lösung:</b> Testen Sie RegEx-Muster in einem externen RegEx-Tool, prüfen Sie SQL-Abfragen auf Syntax-Fehler, validieren Sie Platzhalter-Ersetzungen und kontrollieren Sie Tabellen- und Feldnamen.</p>
+
+            <h5>Problem: SQL-Injection-Warnung bei RegEx-Abfragen.</h5>
+            <p><b>Lösung:</b> Entfernen Sie verbotene SQL-Operationen (UPDATE, INSERT, DELETE, CREATE, DROP, ALTER, TRUNCATE). Verwenden Sie nur SELECT-Abfragen.</p>
+
+            <h5>Problem: Verarbeitung hängt bei großen Datenmengen.</h5>
+            <p><b>Lösung:</b> Teilen Sie die Verarbeitung in kleinere Chargen auf, nutzen Sie die spezifische Zeilen-Verarbeitung und optimieren Sie RegEx-Muster für bessere Performance.</p>
+
         </article>
     </main>
     <footer id="footer-placeholder"></footer>
