@@ -62,7 +62,7 @@
 
   <!-- Pro-Rata -->
   <rect x="840" y="305" width="240" height="110" rx="8" fill="#ffffff" stroke="#003862" stroke-width="2" filter="url(#shadow)"/>
-  <text x="960" y="332" text-anchor="middle" fill="#003862" font-size="14" font-weight="bold">Periodenabgrenzung</text>
+  <text x="960" y="332" text-anchor="middle" fill="#003862" font-size="14" font-weight="bold">Rechnungsabgrenzung</text>
   <text x="960" y="354" text-anchor="middle" fill="#666" font-size="11">Pro-Rata</text>
   <text x="960" y="380" text-anchor="middle" fill="#888" font-size="10">Tagesgenaue Verteilung</text>
   <text x="960" y="395" text-anchor="middle" fill="#888" font-size="10">→ Abgrenzungs-Buchungen</text>
