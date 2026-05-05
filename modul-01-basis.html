@@ -208,6 +208,90 @@
 
             <hr>
 
+            <h3>Benötigte Berechtigungen</h3>
+            <p>Damit ein SAP-B1-Anwender die VPS Financial Suite nutzen kann, müssen folgende Berechtigungen im Berechtigungsbaum gesetzt sein. Pfad in B1: <b>Administration → System-Initialisierung → Berechtigungen → Allgemeine Berechtigungen</b>.</p>
+
+            <h4>SAP-B1-Standard-Berechtigungen</h4>
+            <table class="module-table">
+                <thead>
+                    <tr><th>Berechtigung</th><th>Stufe</th><th>Wofür</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Add-On-Verwaltung</b></td><td>Volle Berechtigung</td><td>Add-On starten, Menüs sehen</td></tr>
+                    <tr><td><b>Benutzerdefinierte Felder verwalten</b></td><td>Volle Berechtigung</td><td>UDFs lesen UND schreiben</td></tr>
+                    <tr><td><b>Benutzerdefinierte Tabellen verwalten</b></td><td>Volle Berechtigung</td><td>UDTs lesen UND schreiben (<code>@VPS_*</code>)</td></tr>
+                    <tr><td><b>Benutzerdefinierte Objekte verwalten</b></td><td>Volle Berechtigung</td><td>UDOs (Pro-Rata, Netting, DATEV-Export)</td></tr>
+                    <tr><td><b>Query-Generator</b></td><td>Volle Berechtigung</td><td>SQL-Abfragen ausführen</td></tr>
+                    <tr><td><b>Query-Manager</b></td><td>Volle Berechtigung</td><td>Cockpit-Tabs aus <code>OUQR</code> lesen</td></tr>
+                    <tr><td><b>Berichts- und Layout-Verwaltung</b></td><td>Volle Berechtigung</td><td>Crystal Reports ausführen</td></tr>
+                    <tr><td><b>Druck-Layouts</b></td><td>Volle Berechtigung</td><td>Layouts pflegen / drucken</td></tr>
+                </tbody>
+            </table>
+
+            <h4>VPS-Custom-Berechtigungen</h4>
+            <p>Diese Berechtigungen werden beim ersten Modul-Start automatisch im Berechtigungsbaum unter <b>„Versino Projects Datev-AddOn"</b> angelegt. Anwender benötigen dort <b>Volle Berechtigung</b> auf allen Funktionen, die sie nutzen sollen.</p>
+
+            <h5>DATEV / Financial Suite</h5>
+            <table class="module-table">
+                <thead>
+                    <tr><th>ID</th><th>Bezeichnung</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>VPS_DATEV</code></td><td>Wurzel-Knoten</td></tr>
+                    <tr><td><code>VPS_DTV_CONF</code></td><td>Konfiguration</td></tr>
+                    <tr><td><code>VPS_DTV_SET</code></td><td>Einstellungen verwalten</td></tr>
+                    <tr><td><code>VPS_DTV_EXP</code></td><td>Datenexport</td></tr>
+                    <tr><td><code>VPS_DTV_JEXS</code></td><td>JE-Exportstatus ändern</td></tr>
+                    <tr><td><code>VPS_DTV_IMP</code></td><td>Datenimport</td></tr>
+                    <tr><td><code>VPS_DTV_WKS</code></td><td>Wechselkurse herunterladen</td></tr>
+                    <tr><td><code>VPS_DTV_REP</code></td><td>Berichte (Wurzel)</td></tr>
+                    <tr><td><code>VPS_DTV_REPZAV</code></td><td>Zahlungsavis</td></tr>
+                    <tr><td><code>VPS_DTV_NETABS</code></td><td>Netting-Abstimmung</td></tr>
+                    <tr><td><code>VPS_DTV_REPSUSA</code></td><td>Summen- und Saldenliste</td></tr>
+                    <tr><td><code>VPS_DTV_REPKDO</code></td><td>Kunden Saldenbestätigung</td></tr>
+                    <tr><td><code>VPS_DTV_REPLDO</code></td><td>Lieferanten Saldenbestätigung</td></tr>
+                    <tr><td><code>VPS_DTV_REPKABU</code></td><td>Kassenbuch</td></tr>
+                    <tr><td><code>VPS_DTV_REPKTSA</code></td><td>Kontoauszug Sachkonten</td></tr>
+                    <tr><td><code>VPS_DTV_REPTTKD</code></td><td>Top 10 Kunden</td></tr>
+                    <tr><td><code>VPS_DTV_TXTCONF</code></td><td>Texte konfigurieren</td></tr>
+                    <tr><td><code>VPS_DTV_CNFDTV</code></td><td>Konfigurations-Wizard</td></tr>
+                </tbody>
+            </table>
+
+            <h5>Reporting (Crystal Reports)</h5>
+            <table class="module-table">
+                <thead>
+                    <tr><th>ID</th><th>Report</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>VPS_SALDENBESTÄTIGUNG</code></td><td>Saldenbestätigung Debitoren</td></tr>
+                    <tr><td><code>VPS_SALDENBESTÄTIGUNG_LIEFERANTEN</code></td><td>Saldenbestätigung Lieferanten</td></tr>
+                    <tr><td><code>VPS_NETTINGABSTIMMUNGEN</code></td><td>Netting-Abstimmungen</td></tr>
+                    <tr><td><code>VPS_ZAHLUNGSAVIS</code></td><td>Zahlungsavis</td></tr>
+                    <tr><td><code>VPS_KASSENBUCH</code></td><td>Kassenbuch</td></tr>
+                    <tr><td><code>VPS_KONTOAUSZUG_SACHKONTEN</code></td><td>Kontoauszug Sachkonten</td></tr>
+                    <tr><td><code>VPS_OFFENE_POSTEN_KUNDEN</code></td><td>OP-Liste Kunden</td></tr>
+                    <tr><td><code>VPS_OFFENE_POSTEN_LIEFERANTEN</code></td><td>OP-Liste Lieferanten</td></tr>
+                    <tr><td><code>VPS_SUMMEN_UND_SALDENLISTE</code></td><td>Summen- und Saldenliste (Sachkonten)</td></tr>
+                    <tr><td><code>VPS_SUMMEN_UND_SALDENLISTE_GP</code></td><td>Summen- und Saldenliste (GP)</td></tr>
+                    <tr><td><code>VPS_TOP_10_KUNDEN</code></td><td>Top 10 Kunden</td></tr>
+                    <tr><td><code>VPS_TOP_10_LIEFERANTEN</code></td><td>Top 10 Lieferanten</td></tr>
+                    <tr><td><code>VPS_ZAHLUNGSMORAL</code></td><td>Zahlungsmoral</td></tr>
+                    <tr><td><code>VPS_BWA</code></td><td>Betriebswirtschaftliche Auswertung</td></tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>Wichtige Hinweise</h4>
+                <ul>
+                    <li><b>Erststart:</b> Beim ersten Aufruf der Module mit einem <b>Superuser</b> anmelden — die VPS-Custom-Berechtigungen werden dann automatisch im Berechtigungsbaum angelegt.</li>
+                    <li><b>Anwender ohne Berechtigung</b> sehen das Add-On-Menü gar nicht oder erhalten eine Warnmeldung in der B1-Statusleiste.</li>
+                    <li><b>Stufe:</b> Wo nicht anders angegeben, ist immer <b>„Volle Berechtigung"</b> zu vergeben. „Lesen" reicht für die VPS-Module nicht aus, da sie Konfigurationen in UDTs schreiben.</li>
+                </ul>
+            </div>
+
+            <hr>
+
             <h3>Tipps und Fehlerbehandlung</h3>
 
             <h4>Tipps für die tägliche Arbeit</h4>

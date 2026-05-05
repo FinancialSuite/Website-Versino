@@ -208,6 +208,90 @@
 
             <hr>
 
+            <h3>Required Permissions</h3>
+            <p>To use the VPS Financial Suite, the following permissions must be set in the SAP B1 authorization tree. Path in B1: <b>Administration → System Initialization → Authorizations → General Authorizations</b>.</p>
+
+            <h4>SAP B1 Standard Permissions</h4>
+            <table class="module-table">
+                <thead>
+                    <tr><th>Permission</th><th>Level</th><th>Purpose</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><b>Add-On Administration</b></td><td>Full Authorization</td><td>Start add-on, see menus</td></tr>
+                    <tr><td><b>Manage User-Defined Fields</b></td><td>Full Authorization</td><td>Read AND write UDFs</td></tr>
+                    <tr><td><b>Manage User-Defined Tables</b></td><td>Full Authorization</td><td>Read AND write UDTs (<code>@VPS_*</code>)</td></tr>
+                    <tr><td><b>Manage User-Defined Objects</b></td><td>Full Authorization</td><td>UDOs (Pro-Rata, Netting, DATEV export)</td></tr>
+                    <tr><td><b>Query Generator</b></td><td>Full Authorization</td><td>Run SQL queries</td></tr>
+                    <tr><td><b>Query Manager</b></td><td>Full Authorization</td><td>Read Cockpit tabs from <code>OUQR</code></td></tr>
+                    <tr><td><b>Reports and Layout Management</b></td><td>Full Authorization</td><td>Run Crystal Reports</td></tr>
+                    <tr><td><b>Print Layouts</b></td><td>Full Authorization</td><td>Maintain / print layouts</td></tr>
+                </tbody>
+            </table>
+
+            <h4>VPS Custom Permissions</h4>
+            <p>These permissions are created automatically in the authorization tree under <b>"Versino Projects Datev-AddOn"</b> on first module launch. Users need <b>Full Authorization</b> there for every function they should be able to use.</p>
+
+            <h5>DATEV / Financial Suite</h5>
+            <table class="module-table">
+                <thead>
+                    <tr><th>ID</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>VPS_DATEV</code></td><td>Root node</td></tr>
+                    <tr><td><code>VPS_DTV_CONF</code></td><td>Configuration</td></tr>
+                    <tr><td><code>VPS_DTV_SET</code></td><td>Manage settings</td></tr>
+                    <tr><td><code>VPS_DTV_EXP</code></td><td>Data export</td></tr>
+                    <tr><td><code>VPS_DTV_JEXS</code></td><td>Change JE export status</td></tr>
+                    <tr><td><code>VPS_DTV_IMP</code></td><td>Data import</td></tr>
+                    <tr><td><code>VPS_DTV_WKS</code></td><td>Download exchange rates</td></tr>
+                    <tr><td><code>VPS_DTV_REP</code></td><td>Reports (root)</td></tr>
+                    <tr><td><code>VPS_DTV_REPZAV</code></td><td>Payment advice</td></tr>
+                    <tr><td><code>VPS_DTV_NETABS</code></td><td>Netting reconciliation</td></tr>
+                    <tr><td><code>VPS_DTV_REPSUSA</code></td><td>Trial balance</td></tr>
+                    <tr><td><code>VPS_DTV_REPKDO</code></td><td>Customer balance confirmation</td></tr>
+                    <tr><td><code>VPS_DTV_REPLDO</code></td><td>Vendor balance confirmation</td></tr>
+                    <tr><td><code>VPS_DTV_REPKABU</code></td><td>Cash book</td></tr>
+                    <tr><td><code>VPS_DTV_REPKTSA</code></td><td>G/L account statement</td></tr>
+                    <tr><td><code>VPS_DTV_REPTTKD</code></td><td>Top 10 customers</td></tr>
+                    <tr><td><code>VPS_DTV_TXTCONF</code></td><td>Configure texts</td></tr>
+                    <tr><td><code>VPS_DTV_CNFDTV</code></td><td>Configuration wizard</td></tr>
+                </tbody>
+            </table>
+
+            <h5>Reporting (Crystal Reports)</h5>
+            <table class="module-table">
+                <thead>
+                    <tr><th>ID</th><th>Report</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><code>VPS_SALDENBESTÄTIGUNG</code></td><td>Customer balance confirmation</td></tr>
+                    <tr><td><code>VPS_SALDENBESTÄTIGUNG_LIEFERANTEN</code></td><td>Vendor balance confirmation</td></tr>
+                    <tr><td><code>VPS_NETTINGABSTIMMUNGEN</code></td><td>Netting reconciliations</td></tr>
+                    <tr><td><code>VPS_ZAHLUNGSAVIS</code></td><td>Payment advice</td></tr>
+                    <tr><td><code>VPS_KASSENBUCH</code></td><td>Cash book</td></tr>
+                    <tr><td><code>VPS_KONTOAUSZUG_SACHKONTEN</code></td><td>G/L account statement</td></tr>
+                    <tr><td><code>VPS_OFFENE_POSTEN_KUNDEN</code></td><td>Open items customers</td></tr>
+                    <tr><td><code>VPS_OFFENE_POSTEN_LIEFERANTEN</code></td><td>Open items vendors</td></tr>
+                    <tr><td><code>VPS_SUMMEN_UND_SALDENLISTE</code></td><td>Trial balance (G/L accounts)</td></tr>
+                    <tr><td><code>VPS_SUMMEN_UND_SALDENLISTE_GP</code></td><td>Trial balance (BPs)</td></tr>
+                    <tr><td><code>VPS_TOP_10_KUNDEN</code></td><td>Top 10 customers</td></tr>
+                    <tr><td><code>VPS_TOP_10_LIEFERANTEN</code></td><td>Top 10 vendors</td></tr>
+                    <tr><td><code>VPS_ZAHLUNGSMORAL</code></td><td>Payment behavior</td></tr>
+                    <tr><td><code>VPS_BWA</code></td><td>Business analysis (BWA)</td></tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>Important Notes</h4>
+                <ul>
+                    <li><b>First launch:</b> Log in as a <b>superuser</b> when calling the modules for the first time — the VPS custom permissions are then created automatically in the authorization tree.</li>
+                    <li><b>Users without permission</b> either don't see the add-on menu at all or receive a warning in the B1 status bar.</li>
+                    <li><b>Level:</b> Where not stated otherwise, always assign <b>"Full Authorization"</b>. "Read" is not enough for the VPS modules, since they write configurations to UDTs.</li>
+                </ul>
+            </div>
+
+            <hr>
+
             <h3>Tips and Troubleshooting</h3>
 
             <h4>Tips for Daily Work</h4>
